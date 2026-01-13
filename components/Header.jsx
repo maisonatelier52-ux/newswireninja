@@ -418,7 +418,7 @@ export default function Header() {
 
             <div className="flex flex-col items-center">
               <Link href={'/'} title="newswireninja home page">
-              <h2 className="font-serif text-xl font-bold">NEWSWIRENINJA</h2>
+              <h2 className="font-serif text-xl font-bold">NEWSWIRE NINJA</h2>
               </Link>
               
               <p className="text-xs mt-1 tracking-wide">
@@ -563,7 +563,7 @@ export default function Header() {
         <div className="hidden md:flex flex-col items-center pt-2 pb-6">
           <Link href={'/'} title="newswireninja home page">
            <h1 className="font-serif text-5xl font-bold tracking-wide">
-           NEWSWIRENINJA
+           NEWSWIRE NINJA
           </h1>
           </Link>
           <p className="text-xs md:text-base mt-1 tracking-wide">
@@ -613,7 +613,7 @@ export default function Header() {
             </button>
            <div className="flex flex-col items-center">
              <Link href={'/'} title="newswireninja home page">
-              <h2 className="font-serif text-xl font-bold">NEWSWIRENINJA</h2>
+              <h2 className="font-serif text-xl font-bold">NEWSWIRE NINJA</h2>
              </Link>
               <p className="text-xs mt-1 tracking-wide">
                 BREAKING NEWS, SWIFTLY DELIVERED

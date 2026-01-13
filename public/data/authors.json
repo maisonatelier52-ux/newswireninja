@@ -107,6 +107,26 @@
           "medium": "https://medium.com/@davidmartinezsports"
         }
       }
+    },
+   {
+      "category": "Marketing & Branding",
+      "author": {
+        "id": 7,
+        "name": "John Smith",
+        "gender": "Male",
+        "profileImage": "/images/john_smith.webp",
+        "country": "USA",
+        "bio": "John Smith is a marketing strategist who specializes in brand development, digital marketing, and consumer behavior analysis. He has worked with various companies to build strong brands and impactful marketing campaigns across multiple industries.",
+        "role": "Marketing Strategist & Brand Consultant",
+        "social": {
+          "twitter": "https://twitter.com/johnsmithhealth",
+          "facebook": "https://facebook.com/johnsmithhealth",
+          "linkedIn": "https://linkedin.com/in/john-smith-marketing",
+          "medium": "https://medium.com/@johnsmithhealth"
+        }
+      }
     }
+
+
   ]
 }
