@@ -1,0 +1,112 @@
+{
+  "categories": [
+    {
+      "category": "Politics",
+      "author": {
+        "id": 1,
+        "name": "Charlotte Reynolds",
+        "gender": "Female",
+        "profileImage": "/images/charlotte_reynolds.webp",
+        "country": "USA",
+        "bio": "Charlotte Reynolds is a political journalist with years of experience covering Congress, federal policies, elections, and political strategy. She provides in-depth analysis and commentary on national issues.",
+        "role": "Political Journalist",
+        "social": {
+          "twitter": "https://twitter.com/charlottereynolds",
+          "facebook": "https://facebook.com/charlottereynoldsnews",
+          "linkedIn": "https://linkedin.com/in/charlottereynolds",
+          "medium": "https://medium.com/@charlottereynolds"
+        }
+      }
+    },
+    {
+      "category": "Business",
+      "author": {
+        "id": 2,
+        "name": "Benjamin Hayes",
+        "gender": "Male",
+        "profileImage": "/images/benjamin_hayes.webp",
+        "country": "USA",
+        "bio": "Benjamin Hayes is a seasoned business journalist with a special focus on corporate finance, global markets, and entrepreneurial trends. He has covered major startups, tech investments, and economic shifts in multiple sectors.",
+        "role": "Business Journalist",
+        "social": {
+          "twitter": "https://twitter.com/benhayestech",
+          "facebook": "https://facebook.com/benhayestech",
+          "linkedIn": "https://linkedin.com/in/benjamin-hayes",
+          "medium": "https://medium.com/@benhayes"
+        }
+      }
+    },
+    {
+      "category": "Sports",
+      "author": {
+        "id": 3,
+        "name": "Emily Parker",
+        "gender": "Female",
+        "profileImage": "/images/emily_parker.webp",
+        "country": "USA",
+        "bio": "Emily Parker is an expert sports journalist, covering major leagues like the NFL, NBA, and the Olympics. She focuses on athlete stories, sports culture, and global sports events, bringing a unique perspective to the world of sports reporting.",
+        "role": "Sports Reporter",
+        "social": {
+          "twitter": "https://twitter.com/emilyhealth",
+          "facebook": "https://facebook.com/emilyparkerhealth",
+          "linkedIn": "https://linkedin.com/in/emily-parker-health",
+          "medium": "https://medium.com/@emilyparkerhealth"
+        }
+      }
+    },
+    {
+      "category": "Technology",
+      "author": {
+        "id": 4,
+        "name": "Michael Johnson",
+        "gender": "Male",
+        "profileImage": "/images/michael_johnson.webp",
+        "country": "USA",
+        "bio": "Michael Johnson is a tech entrepreneur and consultant, specializing in AI, blockchain, and digital transformation strategies. He helps tech companies build scalable solutions and often writes about the future of tech and innovation.",
+        "role": "Tech Entrepreneur & Consultant",
+        "social": {
+          "twitter": "https://twitter.com/michaeljohnsonbiz",
+          "facebook": "https://facebook.com/michaeljohnsonconsulting",
+          "linkedIn": "https://linkedin.com/in/michael-johnson-biz",
+          "medium": "https://medium.com/@michaeljohnsonbiz"
+        }
+      }
+    },
+    {
+      "category": "Investigation",
+      "author": {
+        "id": 5,
+        "name": "Sophia Lee",
+        "gender": "Female",
+        "profileImage": "/images/sophia_lee.webp",
+        "country": "USA",
+        "bio": "Sophia Lee is an investigative reporter focusing on uncovering corruption, government malpractice, and corporate scandals. She has written multiple high-profile exposés and is dedicated to revealing the truth behind complex cases.",
+        "role": "Investigative Journalist",
+        "social": {
+          "twitter": "https://twitter.com/sophialeeent",
+          "facebook": "https://facebook.com/sophialeeentertainment",
+          "linkedIn": "",
+          "medium": "https://medium.com/@sophialeeentertainment"
+        }
+      }
+    },
+    {
+      "category": "World",
+      "author": {
+        "id": 6,
+        "name": "David Martinez",
+        "gender": "Male",
+        "profileImage": "/images/david_martinez.webp",
+        "country": "USA",
+        "bio": "David Martinez is a world affairs journalist with expertise in international relations, conflict reporting, and global humanitarian issues. He has reported from conflict zones and has an eye for the political dynamics of international crises.",
+        "role": "World Affairs Reporter",
+        "social": {
+          "twitter": "https://twitter.com/davidmartinezsports",
+          "facebook": "https://facebook.com/davidmartinezsports",
+          "linkedIn": "https://linkedin.com/in/david-martinez-sports",
+          "medium": "https://medium.com/@davidmartinezsports"
+        }
+      }
+    }
+  ]
+}
