@@ -12,7 +12,7 @@ export function SplitFeatured({ selectedArticles, getAuthorByCategory }) {
           {/* Left */}
           <Link href={`${selectedArticles[0].category}/${selectedArticles[0].slug}`} title={selectedArticles[0].title}>
             <div className="group grid grid-cols-1 md:grid-cols-2 gap-8 cursor-pointer">
-              <div className="relative h-64 sm:h-80 md:h-full w-full overflow-hidden">
+              <div className="relative h-64 sm:h-80 md:h-130 w-full overflow-hidden">
                 <Image src={selectedArticles[0].image} alt={selectedArticles[0].imageAlt} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gray-900/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               </div>

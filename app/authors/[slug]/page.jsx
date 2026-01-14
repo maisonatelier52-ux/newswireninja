@@ -12,11 +12,10 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { SiMedium } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa6";
-
+import pillarContent from "../../../public/data/pillarContent.json";
 
 export default async function AuthorProfile({ params }) {
-
-    const { slug } = await params;
+  const { slug } = await params;
 
   // Find the author by slugified name
   const authorEntry = authorsData.categories.find(
@@ -34,8 +33,12 @@ export default async function AuthorProfile({ params }) {
   const { author, category } = authorEntry;
 
   // Get all articles from this author's category (since each category has one main author)
-  const categoryKey = category.toLowerCase();
-  const authorArticles = articlesData[categoryKey] || [];
+  let authorArticles = articlesData[category.toLowerCase()] || [];
+
+  if (category.toLowerCase() === "marketing & branding") {
+    // Use pillarContent for Marketing & Branding category
+    authorArticles = pillarContent.filter(article => article.category.toLowerCase() === "marketing & branding");
+  }
 
   return (
     <main className="mx-auto max-w-7xl px-4 sm:px-6 py-16 font-serif">
@@ -140,65 +143,155 @@ export default async function AuthorProfile({ params }) {
                 </a>
               )}
             </div>
-
           </div>
         </div>
       </div>
 
       {/* Articles by this Author */}
-      <section>
-        <h2 className="text-3xl font-bold mb-10">
-          Articles by {author.name} ({authorArticles.length})
-        </h2>
+      {category.toLowerCase() === "marketing & branding" ? (
+        // Render articles for "Marketing & Branding" category
+       <section>
+  <h2 className="text-3xl font-bold mb-10">
+    Articles by {author.name} ({authorArticles.length + 1})
+  </h2>
 
-        {authorArticles.length === 0 ? (
-          <p className="text-gray-600 text-center py-10">
-            No articles published yet.
+  {authorArticles.length === 0 ? (
+    <p className="text-gray-600 text-center py-10">
+      No articles published yet.
+    </p>
+  ) : (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      {/* Static Card for Julio Herrera Velutini */}
+      <Link
+        href="/business/julio-herrera-velutini-legacy-finance"
+        className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+      >
+        <div className="relative h-36">
+          <Image
+            src="/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp"
+            alt="Julio Herrera Velutini: A Legacy in World Finance"
+            fill
+            className="object-cover group-hover:scale-110 transition-transform duration-500"
+          />
+          <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
+            Business
+          </span>
+        </div>
+
+        <div className="p-5">
+          <h3 className="font-bold text-lg mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+            Julio Herrera Velutini: A Legacy in World Finance
+          </h3>
+          <p className="text-gray-600 text-sm line-clamp-3 mb-4">
+            Discover the profound impact of Julio Herrera Velutini's leadership in the world of finance and economic stabilization.
           </p>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {authorArticles.map((article) => (
-              <Link
-                key={article.id}
-                href={`/${article.category.toLowerCase()}/${article.slug}`} // Assuming you have /articles/[slug].js
-                className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
-              >
-                <div className="relative h-36">
-                  <Image
-                    src={article.image}
-                    alt={article.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
-                    {article.category}
-                  </span>
-                </div>
 
-                <div className="p-5">
-                  <h3 className="font-bold text-lg mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
-                    {article.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm line-clamp-3 mb-4">
-                    {article.excerpt}
-                  </p>
+          <div className="flex items-center justify-between text-xs text-gray-500">
+            <div className="flex items-center gap-1">
+              <GoClock className="text-gray-400" />
+              <span>January 13, 2026</span>
+            </div>
+          </div>
+        </div>
+      </Link>
 
-                  <div className="flex items-center justify-between text-xs text-gray-500">
-                    <div className="flex items-center gap-1">
-                      <GoClock className="text-gray-400" />
-                      <span>{article.date}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <LuAlarmClock className="text-gray-400" />
-                      <span>{article.readTime}</span>
+      {/* Dynamic Cards for Author's Articles */}
+      {authorArticles.map((article) => (
+        <Link
+          key={article.id}
+          href={`/julio-herrera-velutini/${article.slug}`} // Custom URL structure for Marketing & Branding
+          className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+        >
+          <div className="relative h-36">
+            <Image
+              src={article.heroImage}
+              alt={article.title}
+              fill
+              className="object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+            <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
+              {article.category}
+            </span>
+          </div>
+
+          <div className="p-5">
+            <h3 className="font-bold text-lg mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+              {article.title}
+            </h3>
+            <p className="text-gray-600 text-sm line-clamp-3 mb-4">
+              {article.subtitle}
+            </p>
+
+            <div className="flex items-center justify-between text-xs text-gray-500">
+              <div className="flex items-center gap-1">
+                <GoClock className="text-gray-400" />
+                <span>{article.lastUpdated}</span>
+              </div>
+            </div>
+          </div>
+        </Link>
+      ))}
+    </div>
+  )}
+</section>
+
+      ) : (
+        // Render articles for other categories
+        <section>
+          <h2 className="text-3xl font-bold mb-10">
+            Articles by {author.name} ({authorArticles.length})
+          </h2>
+
+          {authorArticles.length === 0 ? (
+            <p className="text-gray-600 text-center py-10">
+              No articles published yet.
+            </p>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {authorArticles.map((article) => (
+                <Link
+                  key={article.id}
+                  href={`/${article.category.toLowerCase()}/${article.slug}`} // Regular URL structure for other categories
+                  className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+                >
+                  <div className="relative h-36">
+                    <Image
+                      src={article.image}
+                      alt={article.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
+                      {article.category}
+                    </span>
+                  </div>
+
+                  <div className="p-5">
+                    <h3 className="font-bold text-lg mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                      {article.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm line-clamp-3 mb-4">
+                      {article.excerpt}
+                    </p>
+
+                    <div className="flex items-center justify-between text-xs text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <GoClock className="text-gray-400" />
+                        <span>{article.date}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <LuAlarmClock className="text-gray-400" />
+                        <span>{article.readTime}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        )}
-      </section>
+                </Link>
+              ))}
+            </div>
+          )}
+        </section>
+      )}
     </main>
   );
 }

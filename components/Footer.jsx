@@ -204,11 +204,11 @@ export default function Footer() {
 
             {/* Social Icons */}
             <div className="flex gap-4 text-lg">
-              <Link href="#" className="hover:text-red-500"><FaFacebookF /></Link>
-              <Link href="#" className="hover:text-red-500"><FaTwitter /></Link>
-              <Link href="#" className="hover:text-red-500"><FaYoutube /></Link>
-              <Link href="#" className="hover:text-red-500"><FaPinterestP /></Link>
-              <Link href="#" className="hover:text-red-500"><FaInstagram /></Link>
+              <Link href="#" className="hover:text-red-500" title="Follow us on Facebook"><FaFacebookF /></Link>
+              <Link href="#" className="hover:text-red-500" title="Follow us on Twitter"><FaTwitter /></Link>
+              <Link href="#" className="hover:text-red-500" title="Follow us on Youtube"><FaYoutube /></Link>
+              <Link href="#" className="hover:text-red-500" title="Follow us on Pinterest"><FaPinterestP /></Link>
+              <Link href="#" className="hover:text-red-500" title="Follow us on Instagram"><FaInstagram /></Link>
             </div>
           </div>
 
@@ -231,6 +231,7 @@ export default function Footer() {
                   <Link
                     href={`/${post.category}/${post.slug}`}
                     className="text-xs leading-snug hover:text-red-500"
+                    title={post.title}
                   >
                     {post.title}
                   </Link>
@@ -258,6 +259,7 @@ export default function Footer() {
                   <Link
                     href={`/${post.category}/${post.slug}`}
                     className="text-xs leading-snug hover:text-red-500"
+                    title={post.title}
                   >
                     {post.title}
                   </Link>
@@ -271,17 +273,17 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-16 pt-6">
           <ul className="flex flex-wrap justify-center gap-6 text-sm text-gray-400 mb-4">
             <li>
-              <Link href="/about" className="hover:text-white">
+              <Link href="/about" className="hover:text-white" title="Visit newswire ninja about page">
                 About
               </Link>
             </li>
             <li>
-              <Link href="/privacy-policy" className="hover:text-white">
+              <Link href="/privacy-policy" className="hover:text-white" title="Visit newswire ninja privacy-policy page">
                 Privacy Policy
               </Link>
             </li>
             <li>
-              <Link href="/terms-and-conditions" className="hover:text-white">
+              <Link href="/terms-and-conditions" className="hover:text-white" title="Visit newswire ninja terms & conditions page">
                 Terms & Conditions
               </Link>
             </li>
@@ -297,7 +299,7 @@ export default function Footer() {
       {/* ================= SCROLL TO TOP ================= */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-6 right-6 flex h-10 w-10 items-center justify-center bg-white text-black hover:bg-gray-200 transition"
+        className="fixed bottom-6 right-6 flex h-10 w-10 items-center justify-center bg-white text-black hover:bg-gray-200 transition cursor-pointer"
         aria-label="Scroll to top"
       >
         <FaArrowUp />

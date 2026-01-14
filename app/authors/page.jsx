@@ -7,6 +7,7 @@ import { slugify } from "../../utils/slugify";
 import { FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { SiMedium } from "react-icons/si";
+import pillarContent from "../../public/data/pillarContent.json"
 
 export default function AuthorsPage() {
   return (
@@ -25,8 +26,19 @@ export default function AuthorsPage() {
       {/* Authors Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {authorsData.categories.map(({ category, author }) => {
+          
           const categoryKey = category.toLowerCase();
           const authorArticles = articlesData[categoryKey] || [];
+          
+          // Check if the category is 'Marketing & Branding' and count related pillar content articles
+          let pillarContentCount = 0;
+          if (category === "Marketing & Branding") {
+            pillarContentCount = pillarContent.filter((content) => {
+              // Here you need a way to check if the content belongs to 'Marketing & Branding'.
+              // Assuming there's a 'category' field or relevant check for 'Marketing & Branding'.
+              return content.category.toLowerCase().includes("marketing") || content.category.toLowerCase().includes("branding");
+            }).length;
+          }
 
           return (
             <div
@@ -69,7 +81,7 @@ export default function AuthorsPage() {
 
                 <div className="mt-5 flex items-center justify-between text-sm">
                   <span className="text-gray-500">
-                    {authorArticles.length} Articles
+                    {category === "Marketing & Branding" ? pillarContentCount + 1 : authorArticles.length} Articles
                   </span>
 
                   <div className="flex gap-4">

@@ -39,7 +39,7 @@ export function TrendingStories({ articles }) {
 
         {visibleCount < articles.length && (
           <div className="mt-12 flex justify-center">
-            <button onClick={handleShowMore} className="bg-gray-600 px-8 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-gray-700 focus:outline-none cursor-pointer">
+            <button onClick={handleShowMore} className="bg-gray-600 px-8 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-gray-700 focus:outline-none cursor-pointer"  aria-label="Show more trending stories on newswire ninja">
               Show More
             </button>
           </div>

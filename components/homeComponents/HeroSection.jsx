@@ -18,7 +18,7 @@ export function HeroSection({ latestArticles, getAuthorByCategory }) {
             </div>
 
             <div className="mt-5">
-              <Link href={`${latestArticles[0].category}/${latestArticles[0].slug}`} title={latestArticles[0].title}>
+              <Link href={`${latestArticles[0].category}/${latestArticles[0].slug}`} title={`Read the latest article: ${latestArticles[0].title}`}>
                 <h1 className="font-serif text-xl sm:text-3xl lg:text-4xl font-bold leading-tight hover:text-blue-600 hover:underline">
                   {latestArticles[0].title}
                 </h1>
@@ -145,7 +145,7 @@ export function HeroSection({ latestArticles, getAuthorByCategory }) {
 
                 {/* Desktop */}
                 <div className="hidden sm:block space-y-2">
-                  <div className="relative h-32 sm:h-30 w-full">
+                  <div className="relative h-32 sm:h-28 w-full">
                     <Image
                       src={latestArticles[2].image}
                       alt={latestArticles[2].imageAlt}
@@ -198,7 +198,7 @@ export function HeroSection({ latestArticles, getAuthorByCategory }) {
 
                 {/* Desktop */}
                 <div className="hidden sm:block space-y-2">
-                  <div className="relative h-32 sm:h-40 w-full">
+                  <div className="relative h-32 sm:h-28 w-full">
                     <Image
                       src={latestArticles[3].image}
                       alt={latestArticles[3].imageAlt}

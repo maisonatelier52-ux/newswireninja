@@ -10,6 +10,7 @@ import authorsPageData from "../../../public/data/authors.json";
 import contentData from "../../../public/data/pillarContent.json"; 
 import { slugify } from "../../../utils/slugify";
 import pillarContent from "../../../public/data/pillarContent.json"
+import { notFound } from "next/navigation";
 
 // Finding the author from authorsPageData (static)
 const authorData = authorsPageData.categories
@@ -24,7 +25,7 @@ export default async function JulioHerreraVelutiniPillarPage({ params }) {
     const content = contentData.find((item) => item.slug === slug);
 
   if (!content) {
-    return <p>Content not found</p>;  // Handle the case when content is not found
+    notFound();  // Handle the case when content is not found
   }
 
   const { title, subtitle, heroImage, lastUpdated, content: articleContent } = content;
@@ -217,7 +218,7 @@ export default async function JulioHerreraVelutiniPillarPage({ params }) {
             {/* Heading Container with Background */}
             <div className="bg-white p-4">
               <h3 className="text-gray-800 text-sm font-medium text-center group-hover:text-blue-600 transition-colors duration-300">
-                {item.title}
+                {item.title.slice(0,80)}
               </h3>
             </div>
           </div>

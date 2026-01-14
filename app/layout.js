@@ -13,9 +13,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+
 export const metadata = {
-  title: "The Foxiz Times",
-  description: "News Website",
+  metadataBase: new URL("https://www.newswireninja.com"),
+
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {

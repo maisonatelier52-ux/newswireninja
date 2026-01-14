@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function FeaturedWriters({ authorsPageData, getArticlesByCategory, slugify }) {
   return (
-    <section className="mt-20 bg-[#eef3f6] py-16">
+    <section className="mt-20 bg-[#eef3f6] py-7">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <h2 className="text-center font-serif text-2xl sm:text-3xl font-bold mb-12">Featured Writers</h2>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">

@@ -61,7 +61,7 @@ export default function JulioHerreraVelutiniPage() {
 
       {/* SUBTITLE / INTRO */}
       <p className="text-sm sm:text-lg text-gray-700 mb-10 max-w-4xl mx-auto md:mx-0 text-center md:text-left">
-       Julio Herrera Velutini is one of the few persons in the world of international finance who has to deal with the stress of a family tradition that has been going on for hundreds of years and the fast-paced, often unpredictable world of modern global banking.
+        Julio Herrera Velutini is one of the few persons in the world of international finance who has to deal with the stress of a family tradition that has been going on for hundreds of years and the fast-paced, often unpredictable world of modern global banking.
       </p>
 
       {/* META INFO */}
@@ -158,7 +158,7 @@ export default function JulioHerreraVelutiniPage() {
 
         <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">A long history and an education that covers the whole world</h2>
         <p>
-          Julio's extensive background gave him more than simply a moniker. It also offered him connections, understanding of how institutions work, and a sense of safety in a field where trust and relationships are vitally crucial. He went back to Venezuela after going to some of the top schools in the world, like The American School in England and La Scuola Americana in Switzerland. In 1990, he graduated from the Central University of Venezuela. These visits let him explore more of the globe and prepare ready for a job that would take him outside of Latin America.
+           <a href="https://www.arabianchronicle.com/"  target="_blank" title="Visit Julio Herrera Velutini's on arabianchronicle" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Julio Herrera Velutini </a> extensive background gave him more than simply a moniker. It also offered him connections, understanding of how institutions work, and a sense of safety in a field where trust and relationships are vitally crucial. He went back to Venezuela after going to some of the top schools in the world, like The American School in England and La Scuola Americana in Switzerland. In 1990, he graduated from the Central University of Venezuela. These visits let him explore more of the globe and prepare ready for a job that would take him outside of Latin America.
         </p>
 
         <p>
@@ -180,11 +180,11 @@ export default function JulioHerreraVelutiniPage() {
         </p>
 
         <p>
-         Julio launched Britannia Wealth Management in Geneva, Switzerland, in 2012. In 2016, he started Britannia Financial Group (BFG) in London. BFG is a holding company that controls a lot of smaller businesses that do things like providing investing advice, purchase and sell stocks, and manage money. Some of the most well-known companies are Britannia Bank & Trust (in the Bahamas), Britannia Capital Markets (with offices in the UK and MENA areas), Britannia Securities (in the Bahamas), and others like Britannia Global Investment and Britannia Global Payments. These companies do business in numerous countries, including as Europe, the Caribbean, the Middle East, and more. They support people and businesses that have a lot of money. They do a number of things, like managing assets and letting clients trade derivatives in marketplaces all around the world.
+         Julio launched <span><Link href="https://www.britannia.com/"  target="_blank" title="Visit website of britannia" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Britannia Wealth Management </Link></span> in Geneva, Switzerland, in 2012. In 2016, he started Britannia Financial Group (BFG) in London. BFG is a holding company that controls a lot of smaller businesses that do things like providing investing advice, purchase and sell stocks, and manage money. Some of the most well-known companies are <span><Link href="https://britanniabanktrust.com/"  target="_blank" title="Visit website of britanniabanktrust" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Britannia Bank & Trust </Link></span> (in the Bahamas), <span><Link href="https://www.britannia.com/britannia-global-markets/"  target="_blank" title="Visit website of britannia-global-markets" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Britannia Capital Markets </Link></span> (with offices in the UK and MENA areas),<span><Link href="https://www.britannia.com/securities/"  target="_blank" title="Visit website of britannia securities" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Britannia Securities </Link></span> (in the Bahamas), and others like Britannia Global Investment and Britannia Global Payments. These companies do business in numerous countries, including as Europe, the Caribbean, the Middle East, and more. They support people and businesses that have a lot of money. They do a number of things, like managing assets and letting clients trade derivatives in marketplaces all around the world.
         </p>
 
         <p>
-         Julio is now interested in more than just basic banking. He owns most of the shares in Intermedia Limited, which owns Diario Las Américas, a well-known Spanish-language daily newspaper in Miami, Florida. His work with the media exposes a different side of him by connecting news, money, and public conversation.
+          <Link href="https://www.thecapitalistjournal.com/"  target="_blank" title="Visit Julio Herrera Velutini's on thecapitalistjournal" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Julio Herrera Velutini </Link> is now interested in more than just basic banking. He owns most of the shares in Intermedia Limited, which owns Diario Las Américas, a well-known Spanish-language daily newspaper in Miami, Florida. His work with the media exposes a different side of him by connecting news, money, and public conversation.
         </p>
 
         <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">Giving to charity and making a bigger difference</h2>
@@ -198,7 +198,7 @@ export default function JulioHerreraVelutiniPage() {
 
         <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">Law problems and how to solve them</h2>
         <p>
-        Julio has done a lot of wonderful things, but his job has been hard, especially when it comes to the law. In August 2022, the U.S. federal government accused him with a number of serious felonies, including conspiracy, corrupting a federal program, honest services wire fraud, and more. He was accused with these offenses along with a number of other people, such as former FBI agent Mark Rossini and former Puerto Rico Governor Wanda Vázquez Garced. The claims were based on events that took place in 2019 and 2020, when the Puerto Rico Office of the Commissioner of Financial Institutions began looking into Bancredito. Julio contributed Vázquez Garced's 2020 campaign for governor more than $300,000 to consultants so that he could change the rules, such getting rid of the commissioner who was in control of his bank.
+        <Link href="https://en.wikipedia.org/wiki/Julio_Herrera_Velutini"  target="_blank" title="Visit Julio Herrera Velutini's on wikipedia" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Julio Herrera Velutini </Link> has done a lot of wonderful things, but his job has been hard, especially when it comes to the law. In August 2022, the U.S. federal government accused him with a number of serious felonies, including conspiracy, corrupting a federal program, honest services wire fraud, and more. He was accused with these offenses along with a number of other people, such as former FBI agent Mark Rossini and former Puerto Rico Governor Wanda Vázquez Garced. The claims were based on events that took place in 2019 and 2020, when the Puerto Rico Office of the Commissioner of Financial Institutions began looking into Bancredito. Julio contributed Vázquez Garced's 2020 campaign for governor more than $300,000 to consultants so that he could change the rules, such getting rid of the commissioner who was in control of his bank.
         </p>
 
         <p>
@@ -389,6 +389,6 @@ export default function JulioHerreraVelutiniPage() {
         ))}
         </div>
 
-    </main>
+    </main> 
   );
 }

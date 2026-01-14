@@ -1,5 +1,4 @@
 
-
 // "use client";
 
 // import Link from "next/link";
@@ -9,6 +8,7 @@
 // import { LiaSearchSolid } from "react-icons/lia";
 // import { HiMenuAlt2, HiX } from "react-icons/hi";
 // import categoryData from "../public/data/articles.json";
+// import pillarContent from '../public/data/pillarContent.json';
 
 // export default function Header() {
 //   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,20 +17,25 @@
 
 //   const searchRef = useRef(null);
 
-//   // Flatten all articles for search
-//   const allArticles = Object.values(categoryData).flat();
+//   // Flatten all articles and add category info for proper routing
+//   const allArticles = Object.entries(categoryData).flatMap(([category, articles]) =>
+//     articles.map((article) => ({
+//       ...article,
+//       category, // Attach category name to each article
+//     }))
+//   );
 
 //   // Filter articles based on query
 //   const filteredArticles = allArticles.filter((article) =>
 //     article.title.toLowerCase().includes(searchQuery.toLowerCase())
 //   );
 
-//   // Close search when clicking outside
+//   // Close header search dropdown when clicking outside
 //   useEffect(() => {
 //     function handleClickOutside(event) {
 //       if (searchRef.current && !searchRef.current.contains(event.target)) {
 //         setSearchOpen(false);
-//         setSearchQuery("");
+//         // Don't clear query here — mobile menu search uses the same state
 //       }
 //     }
 //     document.addEventListener("mousedown", handleClickOutside);
@@ -42,7 +47,6 @@
 //     function handleEscape(e) {
 //       if (e.key === "Escape") {
 //         setSearchOpen(false);
-//         setSearchQuery("");
 //       }
 //     }
 //     if (searchOpen) {
@@ -56,10 +60,9 @@
 //       {/* ================= HEADER ================= */}
 //       <header className="w-full bg-white text-black mx-auto max-w-7xl px-4 sm:px-6">
 //         {/* Top Bar */}
-//         <div className="relative mx-auto max-w-7xl px-4 py-3 text-sm">
+//         <div className="relative mx-auto max-w-7xl px-4 py-3 lg:py-0 text-sm">
 //           {/* ===== MOBILE TOP BAR ===== */}
 //           <div className="flex items-center justify-between md:hidden relative">
-//             {/* Hamburger */}
 //             <button
 //               onClick={() => setMenuOpen(true)}
 //               className="text-2xl cursor-pointer"
@@ -68,10 +71,17 @@
 //               <HiMenuAlt2 />
 //             </button>
 
-//             {/* Title */}
-//             <h2 className="font-serif text-2xl font-bold">FOXIZ</h2>
+//             <div className="flex flex-col items-center">
+//               <Link href={'/'} title="newswireninja home page">
+//               <h2 className="font-serif text-xl font-bold">NEWSWIRE NINJA</h2>
+//               </Link>
+              
+//               <p className="text-xs mt-1 tracking-wide">
+//                 BREAKING NEWS, SWIFTLY DELIVERED
+//               </p>
+//             </div>
 
-//             {/* Mobile Search */}
+//             {/* Mobile Header Search Icon */}
 //             <div ref={searchRef} className="relative">
 //               <button
 //                 onClick={() => setSearchOpen(!searchOpen)}
@@ -81,7 +91,7 @@
 //                 <LiaSearchSolid />
 //               </button>
 
-//               {/* Mobile Search Dropdown */}
+//               {/* Header Search Dropdown (Mobile) */}
 //               {searchOpen && (
 //                 <div className="absolute right-0 top-12 w-80 bg-white shadow-2xl rounded-lg border z-50">
 //                   <div className="p-4 border-b">
@@ -104,9 +114,12 @@
 //                             setSearchOpen(false);
 //                             setSearchQuery("");
 //                           }}
-//                           className="block px-4 py-3 hover:bg-gray-100 border-b last:border-0 text-sm"
+//                           className="block px-4 py-3 hover:bg-gray-100 border-b last:border-0 text-sm hover:bg-blue-300"
 //                         >
-//                           {article.title}
+//                           <p className="font-medium">{article.title}</p>
+//                           <p className="text-xs text-gray-500 capitalize">
+//                             {article.category}
+//                           </p>
 //                         </Link>
 //                       ))
 //                     ) : searchQuery ? (
@@ -126,7 +139,6 @@
 
 //           {/* ===== DESKTOP LEFT ===== */}
 //           <div ref={searchRef} className="absolute left-4 top-10 hidden md:flex items-center gap-4 relative">
-//             {/* Desktop Search */}
 //             <button
 //               onClick={() => setSearchOpen(!searchOpen)}
 //               className="text-xl cursor-pointer hover:text-gray-600"
@@ -135,7 +147,7 @@
 //               <LiaSearchSolid />
 //             </button>
 
-//             {/* Desktop Search Dropdown */}
+//             {/* Desktop Header Search Dropdown */}
 //             {searchOpen && (
 //               <div className="absolute left-0 top-full mt-3 w-80 bg-white shadow-xl border rounded-lg z-50">
 //                 <div className="p-4 border-b">
@@ -160,7 +172,10 @@
 //                         }}
 //                         className="block px-4 py-3 hover:bg-gray-100 border-b last:border-0 text-sm"
 //                       >
-//                         {article.title}
+//                         <p className="font-medium">{article.title}</p>
+//                         <p className="text-xs text-gray-500 capitalize">
+//                           {article.category}
+//                         </p>
 //                       </Link>
 //                     ))
 //                   ) : searchQuery ? (
@@ -182,33 +197,34 @@
 //               {new Date().toLocaleDateString("en-US", {
 //                 weekday: "long",
 //                 year: "numeric",
-//                 month: "long",
+//                 month: "short",
 //                 day: "numeric",
 //               })}
 //             </span>
 //           </div>
 
-//           {/* ===== DESKTOP CENTER LINKS ===== */}
-//           <div className="hidden md:flex justify-center gap-4 font-medium">
-//             <Link href="#">U.S.</Link>
-//             <Link href="#">International</Link>
-//             <Link href="#">Canada</Link>
-//             <Link href="#">Español</Link>
-//           </div>
+        
+         
 
 //           {/* ===== DESKTOP RIGHT ===== */}
 //           <div className="absolute right-4 top-10 hidden md:flex items-center gap-4 text-lg">
-//             <FaFacebookF />
-//             <FaXTwitter />
-//             <FaYoutube />
+//            <FaFacebookF className="cursor-pointer hover:scale-90 hover:text-blue-600" />
+//             <FaXTwitter className="cursor-pointer hover:scale-90 hover:text-gray-800" />
+//             <FaYoutube className="cursor-pointer hover:scale-90 hover:text-red-600" />
 //           </div>
 //         </div>
 
 //         {/* Desktop Logo */}
-//         <div className="hidden md:flex justify-center py-6">
-//           <h1 className="font-serif text-5xl font-bold tracking-wide">
-//             THE FOXIZ TIMES
+//         <div className="hidden md:flex flex-col items-center pt-2 pb-6">
+//           <Link href={'/'} title="newswireninja home page">
+//            <h1 className="font-serif text-5xl font-bold tracking-wide">
+//            NEWSWIRE NINJA
 //           </h1>
+//           </Link>
+//           <p className="text-xs md:text-base mt-1 tracking-wide">
+//             BREAKING NEWS, SWIFTLY DELIVERED
+          
+//           </p>
 //         </div>
 
 //         <div className="border-t-2 border-black"></div>
@@ -219,17 +235,14 @@
 //           <ul className="flex justify-center gap-8 py-3 text-sm font-medium">
 //             <Link
 //               href="/"
-//               title="home page"
 //               className="uppercase relative cursor-pointer pl-3 hover:underline before:absolute before:left-0 before:top-1/2 before:h-1 before:w-1 before:-translate-y-1/2 before:rounded-full before:bg-black"
 //             >
 //               HOME
 //             </Link>
-
 //             {Object.keys(categoryData).map((cat) => (
 //               <Link
 //                 key={cat}
 //                 href={`/${cat}`}
-//                 title={`${cat} news and analysis on`}
 //                 className="uppercase relative cursor-pointer pl-3 hover:underline before:absolute before:left-0 before:top-1/2 before:h-1 before:w-1 before:-translate-y-1/2 before:rounded-full before:bg-black"
 //               >
 //                 {cat}
@@ -245,8 +258,7 @@
 //       {menuOpen && (
 //         <div className="fixed inset-0 z-50 bg-white text-black overflow-y-auto">
 //           {/* Mobile Header */}
-//          <div className="flex items-center justify-between px-4 py-4 border-b">
-//             {/* Close Button */}
+//           <div className="flex items-center justify-between px-4 py-4 border-b">
 //             <button
 //               onClick={() => setMenuOpen(false)}
 //               className="text-2xl cursor-pointer"
@@ -254,11 +266,14 @@
 //             >
 //               <HiX />
 //             </button>
-
-//             {/* Title */}
-//             <h2 className="font-serif text-2xl font-bold">FOXIZ</h2>
-
-//             {/* Date and Day */}
+//            <div className="flex flex-col items-center">
+//              <Link href={'/'} title="newswireninja home page">
+//               <h2 className="font-serif text-xl font-bold">NEWSWIRE NINJA</h2>
+//              </Link>
+//               <p className="text-xs mt-1 tracking-wide">
+//                 BREAKING NEWS, SWIFTLY DELIVERED
+//               </p>
+//             </div>
 //             <div className="text-center">
 //               <span className="block text-xs text-gray-900 font-medium">
 //                 {new Date().toLocaleDateString("en-US", {
@@ -273,13 +288,11 @@
 //             </div>
 //           </div>
 
-
-//           {/* ===== MOBILE SCROLLABLE CATEGORIES ===== */}
+//           {/* Scrollable Categories */}
 //           <div className="px-6 py-4 border-b overflow-x-auto no-scrollbar">
 //             <div className="flex w-max gap-6 font-medium">
 //               <Link
 //                 href="/"
-//                 title="home page"
 //                 className="whitespace-nowrap"
 //                 onClick={() => setMenuOpen(false)}
 //               >
@@ -289,7 +302,6 @@
 //                 <Link
 //                   key={cat}
 //                   href={`/${cat}`}
-//                   title={`${cat} news and analysis on`}
 //                   className="whitespace-nowrap uppercase"
 //                   onClick={() => setMenuOpen(false)}
 //                 >
@@ -299,17 +311,47 @@
 //             </div>
 //           </div>
 
-//           {/* Search */}
-//           <div className="px-6 py-6">
+//           {/* Search with Dropdown in Mobile Menu */}
+//           <div className="px-6 py-6 relative">
 //             <h3 className="font-semibold mb-3">Search</h3>
 //             <input
 //               type="text"
 //               placeholder="Search Headlines, News..."
-//               className="w-full border px-4 py-2"
+//               className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+//               value={searchQuery}
+//               onChange={(e) => setSearchQuery(e.target.value)}
 //             />
+
+//             {/* Dropdown Results */}
+//             {searchQuery && (
+//               <div className="absolute left-6 right-6 top-full mt-2 bg-white border rounded-lg shadow-xl z-10 max-h-96 overflow-y-auto">
+//                 {filteredArticles.length > 0 ? (
+//                   filteredArticles.slice(0, 8).map((article) => (
+//                     <Link
+//                       key={article.slug}
+//                       href={`/${article.category.toLowerCase()}/${article.slug}`}
+//                       onClick={() => {
+//                         setMenuOpen(false);
+//                         setSearchQuery("");
+//                       }}
+//                       className="block px-4 py-3 hover:bg-gray-100 border-b last:border-0 text-sm"
+//                     >
+//                       <p className="font-medium text-gray-900">{article.title}</p>
+//                       <p className="text-xs text-gray-500 capitalize">
+//                         {article.category}
+//                       </p>
+//                     </Link>
+//                   ))
+//                 ) : (
+//                   <p className="px-4 py-8 text-center text-gray-500 text-sm">
+//                     No results found
+//                   </p>
+//                 )}
+//               </div>
+//             )}
 //           </div>
 
-//           {/* Categories */}
+//           {/* Categories Grid */}
 //           <div className="px-6 py-6 border-t">
 //             <h3 className="font-semibold mb-4">Categories</h3>
 //             <div className="grid grid-cols-2 gap-4">
@@ -317,8 +359,8 @@
 //                 <Link
 //                   key={cat}
 //                   href={`/${cat}`}
-//                   title={`${cat} news and analysis on`}
 //                   onClick={() => setMenuOpen(false)}
+//                   className="capitalize"
 //                 >
 //                   {cat}
 //                 </Link>
@@ -333,7 +375,6 @@
 //               <FaXTwitter />
 //               <FaYoutube />
 //             </div>
-
 //             <p className="mt-6 text-xs text-gray-500">
 //               © 2024 Foxiz News Network. All Rights Reserved.
 //             </p>
@@ -344,7 +385,6 @@
 //   );
 // }
 
-
 "use client";
 
 import Link from "next/link";
@@ -354,6 +394,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { LiaSearchSolid } from "react-icons/lia";
 import { HiMenuAlt2, HiX } from "react-icons/hi";
 import categoryData from "../public/data/articles.json";
+import pillarContent from '../public/data/pillarContent.json';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -362,32 +403,43 @@ export default function Header() {
 
   const searchRef = useRef(null);
 
-  // Flatten all articles and add category info for proper routing
+  // Flatten all articles + attach category
   const allArticles = Object.entries(categoryData).flatMap(([category, articles]) =>
     articles.map((article) => ({
       ...article,
-      category, // Attach category name to each article
+      category,
     }))
   );
 
-  // Filter articles based on query
+  // Filter articles
   const filteredArticles = allArticles.filter((article) =>
     article.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // Close header search dropdown when clicking outside
+  // Filter pillar content
+  const filteredPillars = pillarContent.filter((pillar) =>
+    pillar.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  // Check if we should show the static promoted result
+  const showStaticResult =
+    searchQuery.length > 2 &&
+    "julio herrera velutini a legacy in world finance"
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase().trim());
+
+  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event) {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
         setSearchOpen(false);
-        // Don't clear query here — mobile menu search uses the same state
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Close on Escape key
+  // Close on Escape
   useEffect(() => {
     function handleEscape(e) {
       if (e.key === "Escape") {
@@ -404,6 +456,8 @@ export default function Header() {
     <>
       {/* ================= HEADER ================= */}
       <header className="w-full bg-white text-black mx-auto max-w-7xl px-4 sm:px-6">
+
+        <h1 className="sr-only">NEWSWIRE NINJA - Breaking News</h1>
         {/* Top Bar */}
         <div className="relative mx-auto max-w-7xl px-4 py-3 lg:py-0 text-sm">
           {/* ===== MOBILE TOP BAR ===== */}
@@ -417,16 +471,15 @@ export default function Header() {
             </button>
 
             <div className="flex flex-col items-center">
-              <Link href={'/'} title="newswireninja home page">
-              <h2 className="font-serif text-xl font-bold">NEWSWIRE NINJA</h2>
+              <Link href="/" title="Visit newswire ninja homepage">
+                <h2 className="font-serif text-xl font-bold">NEWSWIRE NINJA</h2>
               </Link>
-              
               <p className="text-xs mt-1 tracking-wide">
                 BREAKING NEWS, SWIFTLY DELIVERED
               </p>
             </div>
 
-            {/* Mobile Header Search Icon */}
+            {/* Mobile Search Icon + Dropdown */}
             <div ref={searchRef} className="relative">
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
@@ -436,7 +489,6 @@ export default function Header() {
                 <LiaSearchSolid />
               </button>
 
-              {/* Header Search Dropdown (Mobile) */}
               {searchOpen && (
                 <div className="absolute right-0 top-12 w-80 bg-white shadow-2xl rounded-lg border z-50">
                   <div className="p-4 border-b">
@@ -450,28 +502,79 @@ export default function Header() {
                     />
                   </div>
                   <div className="max-h-96 overflow-y-auto">
-                    {filteredArticles.length > 0 ? (
-                      filteredArticles.slice(0, 4).map((article) => (
+                    {/* Articles */}
+                    {filteredArticles.length > 0 && (
+                      <>
+                        <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                          Articles
+                        </div>
+                        {filteredArticles.slice(0, 4).map((article) => (
+                          <Link
+                            key={article.slug}
+                            href={`/${article.category.toLowerCase()}/${article.slug}`}
+                            onClick={() => {
+                              setSearchOpen(false);
+                              setSearchQuery("");
+                            }}
+                            className="block px-4 py-3 hover:bg-gray-100 border-b last:border-0 text-sm hover:bg-blue-50"
+                          >
+                            <p className="font-medium">{article.title}</p>
+                            <p className="text-xs text-gray-500 capitalize">{article.category}</p>
+                          </Link>
+                        ))}
+                      </>
+                    )}
+
+                    {/* Pillar Content */}
+                    {filteredPillars.length > 0 && (
+                      <>
+                        <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide mt-2">
+                          Featured
+                        </div>
+                        {filteredPillars.slice(0, 4).map((pillar) => (
+                          <Link
+                            key={pillar.slug}
+                            href={`/julio-herrera-velutini/${pillar.slug}`}
+                            onClick={() => {
+                              setSearchOpen(false);
+                              setSearchQuery("");
+                            }}
+                            className="block px-4 py-3 hover:bg-gray-100 border-b last:border-0 text-sm hover:bg-blue-50"
+                          >
+                            <p className="font-medium">{pillar.title}</p>
+                            <p className="text-xs text-gray-500">Julio Herrera Velutini</p>
+                          </Link>
+                        ))}
+                      </>
+                    )}
+
+                    {/* Static Promoted Result */}
+                    {showStaticResult && (
+                      <>
+                        <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide mt-2">
+                          Promoted
+                        </div>
                         <Link
-                          key={article.slug}
-                          href={`/${article.category.toLowerCase()}/${article.slug}`}
+                          href="/business/julio-herrera-velutini-legacy-finance"
                           onClick={() => {
                             setSearchOpen(false);
                             setSearchQuery("");
                           }}
-                          className="block px-4 py-3 hover:bg-gray-100 border-b last:border-0 text-sm hover:bg-blue-300"
+                          className="block px-4 py-3 hover:bg-gray-100 border-b last:border-0 text-sm hover:bg-blue-50"
                         >
-                          <p className="font-medium">{article.title}</p>
-                          <p className="text-xs text-gray-500 capitalize">
-                            {article.category}
-                          </p>
+                          <p className="font-medium">Julio Herrera Velutini: A Legacy in World Finance</p>
+                          <p className="text-xs text-gray-500 capitalize">business</p>
                         </Link>
-                      ))
-                    ) : searchQuery ? (
+                      </>
+                    )}
+
+                    {/* States */}
+                    {searchQuery && filteredArticles.length === 0 && filteredPillars.length === 0 && !showStaticResult && (
                       <p className="px-4 py-8 text-center text-gray-500 text-sm">
                         No results found
                       </p>
-                    ) : (
+                    )}
+                    {!searchQuery && (
                       <p className="px-4 py-8 text-center text-gray-500 text-sm">
                         Start typing to search...
                       </p>
@@ -482,7 +585,7 @@ export default function Header() {
             </div>
           </div>
 
-          {/* ===== DESKTOP LEFT ===== */}
+          {/* ===== DESKTOP LEFT (search + date) ===== */}
           <div ref={searchRef} className="absolute left-4 top-10 hidden md:flex items-center gap-4 relative">
             <button
               onClick={() => setSearchOpen(!searchOpen)}
@@ -492,9 +595,8 @@ export default function Header() {
               <LiaSearchSolid />
             </button>
 
-            {/* Desktop Header Search Dropdown */}
             {searchOpen && (
-              <div className="absolute left-0 top-full mt-3 w-80 bg-white shadow-xl border rounded-lg z-50">
+              <div className="absolute left-0 top-full mt-3 w-96 bg-white shadow-xl border rounded-lg z-50">
                 <div className="p-4 border-b">
                   <input
                     type="text"
@@ -506,28 +608,76 @@ export default function Header() {
                   />
                 </div>
                 <div className="max-h-96 overflow-y-auto">
-                  {filteredArticles.length > 0 ? (
-                    filteredArticles.slice(0, 4).map((article) => (
+                  {/* Same search result rendering logic as mobile */}
+                  {filteredArticles.length > 0 && (
+                    <>
+                      <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                        Articles
+                      </div>
+                      {filteredArticles.slice(0, 4).map((article) => (
+                        <Link
+                          key={article.slug}
+                          href={`/${article.category.toLowerCase()}/${article.slug}`}
+                          onClick={() => {
+                            setSearchOpen(false);
+                            setSearchQuery("");
+                          }}
+                          className="block px-4 py-3 hover:bg-gray-100 border-b last:border-0 text-sm hover:bg-blue-50"
+                        >
+                          <p className="font-medium">{article.title}</p>
+                          <p className="text-xs text-gray-500 capitalize">{article.category}</p>
+                        </Link>
+                      ))}
+                    </>
+                  )}
+
+                  {filteredPillars.length > 0 && (
+                    <>
+                      <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide mt-2">
+                        Featured
+                      </div>
+                      {filteredPillars.slice(0, 4).map((pillar) => (
+                        <Link
+                          key={pillar.slug}
+                          href={`/julio-herrera-velutini/${pillar.slug}`}
+                          onClick={() => {
+                            setSearchOpen(false);
+                            setSearchQuery("");
+                          }}
+                          className="block px-4 py-3 hover:bg-gray-100 border-b last:border-0 text-sm hover:bg-blue-50"
+                        >
+                          <p className="font-medium">{pillar.title}</p>
+                          <p className="text-xs text-gray-500">Julio Herrera Velutini</p>
+                        </Link>
+                      ))}
+                    </>
+                  )}
+
+                  {showStaticResult && (
+                    <>
+                      <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide mt-2">
+                        Promoted
+                      </div>
                       <Link
-                        key={article.slug}
-                        href={`/${article.category.toLowerCase()}/${article.slug}`}
+                        href="/business/julio-herrera-velutini-legacy-finance"
                         onClick={() => {
                           setSearchOpen(false);
                           setSearchQuery("");
                         }}
-                        className="block px-4 py-3 hover:bg-gray-100 border-b last:border-0 text-sm"
+                        className="block px-4 py-3 hover:bg-gray-100 border-b last:border-0 text-sm hover:bg-blue-50"
                       >
-                        <p className="font-medium">{article.title}</p>
-                        <p className="text-xs text-gray-500 capitalize">
-                          {article.category}
-                        </p>
+                        <p className="font-medium">Julio Herrera Velutini: A Legacy in World Finance</p>
+                        <p className="text-xs text-gray-500 capitalize">business</p>
                       </Link>
-                    ))
-                  ) : searchQuery ? (
+                    </>
+                  )}
+
+                  {searchQuery && filteredArticles.length === 0 && filteredPillars.length === 0 && !showStaticResult && (
                     <p className="px-4 py-8 text-center text-gray-500 text-sm">
                       No results found
                     </p>
-                  ) : (
+                  )}
+                  {!searchQuery && (
                     <p className="px-4 py-8 text-center text-gray-500 text-sm">
                       Start typing to search...
                     </p>
@@ -548,12 +698,9 @@ export default function Header() {
             </span>
           </div>
 
-        
-         
-
-          {/* ===== DESKTOP RIGHT ===== */}
+          {/* ===== DESKTOP RIGHT (social) ===== */}
           <div className="absolute right-4 top-10 hidden md:flex items-center gap-4 text-lg">
-           <FaFacebookF className="cursor-pointer hover:scale-90 hover:text-blue-600" />
+            <FaFacebookF className="cursor-pointer hover:scale-90 hover:text-blue-600" />
             <FaXTwitter className="cursor-pointer hover:scale-90 hover:text-gray-800" />
             <FaYoutube className="cursor-pointer hover:scale-90 hover:text-red-600" />
           </div>
@@ -561,14 +708,13 @@ export default function Header() {
 
         {/* Desktop Logo */}
         <div className="hidden md:flex flex-col items-center pt-2 pb-6">
-          <Link href={'/'} title="newswireninja home page">
-           <h1 className="font-serif text-5xl font-bold tracking-wide">
-           NEWSWIRE NINJA
-          </h1>
+          <Link href="/" title="Visit newswire ninja homepage">
+            <h1 className="font-serif text-5xl font-bold tracking-wide">
+              NEWSWIRE NINJA
+            </h1>
           </Link>
           <p className="text-xs md:text-base mt-1 tracking-wide">
             BREAKING NEWS, SWIFTLY DELIVERED
-          
           </p>
         </div>
 
@@ -581,6 +727,7 @@ export default function Header() {
             <Link
               href="/"
               className="uppercase relative cursor-pointer pl-3 hover:underline before:absolute before:left-0 before:top-1/2 before:h-1 before:w-1 before:-translate-y-1/2 before:rounded-full before:bg-black"
+              title="Visit newswire ninja homepage"
             >
               HOME
             </Link>
@@ -589,6 +736,7 @@ export default function Header() {
                 key={cat}
                 href={`/${cat}`}
                 className="uppercase relative cursor-pointer pl-3 hover:underline before:absolute before:left-0 before:top-1/2 before:h-1 before:w-1 before:-translate-y-1/2 before:rounded-full before:bg-black"
+                title={`Visit newswire ninja ${cat} page`}
               >
                 {cat}
               </Link>
@@ -611,10 +759,10 @@ export default function Header() {
             >
               <HiX />
             </button>
-           <div className="flex flex-col items-center">
-             <Link href={'/'} title="newswireninja home page">
-              <h2 className="font-serif text-xl font-bold">NEWSWIRE NINJA</h2>
-             </Link>
+            <div className="flex flex-col items-center">
+              <Link href="/" title="Visit newswire ninja homepage">
+                <h2 className="font-serif text-xl font-bold">NEWSWIRE NINJA</h2>
+              </Link>
               <p className="text-xs mt-1 tracking-wide">
                 BREAKING NEWS, SWIFTLY DELIVERED
               </p>
@@ -639,6 +787,7 @@ export default function Header() {
               <Link
                 href="/"
                 className="whitespace-nowrap"
+                title="Visit newswire ninja homepage"
                 onClick={() => setMenuOpen(false)}
               >
                 HOME
@@ -648,6 +797,7 @@ export default function Header() {
                   key={cat}
                   href={`/${cat}`}
                   className="whitespace-nowrap uppercase"
+                   title={`Visit newswire ninja ${cat} page`}
                   onClick={() => setMenuOpen(false)}
                 >
                   {cat}
@@ -656,7 +806,7 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Search with Dropdown in Mobile Menu */}
+          {/* Search in Mobile Menu */}
           <div className="px-6 py-6 relative">
             <h3 className="font-semibold mb-3">Search</h3>
             <input
@@ -667,27 +817,76 @@ export default function Header() {
               onChange={(e) => setSearchQuery(e.target.value)}
             />
 
-            {/* Dropdown Results */}
             {searchQuery && (
-              <div className="absolute left-6 right-6 top-full mt-2 bg-white border rounded-lg shadow-xl z-10 max-h-96 overflow-y-auto">
-                {filteredArticles.length > 0 ? (
-                  filteredArticles.slice(0, 8).map((article) => (
+              <div className="mt-3 bg-white border rounded-lg shadow-xl max-h-96 overflow-y-auto">
+                {/* Same logic as header dropdown */}
+                {filteredArticles.length > 0 && (
+                  <>
+                    <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                      Articles
+                    </div>
+                    {filteredArticles.slice(0, 6).map((article) => (
+                      <Link
+                        key={article.slug}
+                        href={`/${article.category.toLowerCase()}/${article.slug}`}
+                        onClick={() => {
+                          setMenuOpen(false);
+                          setSearchQuery("");
+                        }}
+                        className="block px-4 py-3 hover:bg-gray-100 border-b last:border-0 text-sm"
+                         title={article.title}
+                      >
+                        <p className="font-medium">{article.title}</p>
+                        <p className="text-xs text-gray-500 capitalize">{article.category}</p>
+                      </Link>
+                    ))}
+                  </>
+                )}
+
+                {filteredPillars.length > 0 && (
+                  <>
+                    <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide mt-1">
+                      Featured
+                    </div>
+                    {filteredPillars.slice(0, 4).map((pillar) => (
+                      <Link
+                        key={pillar.slug}
+                        href={`/julio-herrera-velutini/${pillar.slug}`}
+                        onClick={() => {
+                          setMenuOpen(false);
+                          setSearchQuery("");
+                        }}
+                        className="block px-4 py-3 hover:bg-gray-100 border-b last:border-0 text-sm"
+                         title={pillar.title}
+                      >
+                        <p className="font-medium">{pillar.title}</p>
+                        <p className="text-xs text-gray-500">Julio Herrera Velutini</p>
+                      </Link>
+                    ))}
+                  </>
+                )}
+
+                {showStaticResult && (
+                  <>
+                    <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide mt-1">
+                      Promoted
+                    </div>
                     <Link
-                      key={article.slug}
-                      href={`/${article.category.toLowerCase()}/${article.slug}`}
+                      href="/business/julio-herrera-velutini-legacy-finance"
                       onClick={() => {
                         setMenuOpen(false);
                         setSearchQuery("");
                       }}
                       className="block px-4 py-3 hover:bg-gray-100 border-b last:border-0 text-sm"
+                       title="Visit newswire ninja Julio Herrera Velutini page"
                     >
-                      <p className="font-medium text-gray-900">{article.title}</p>
-                      <p className="text-xs text-gray-500 capitalize">
-                        {article.category}
-                      </p>
+                      <p className="font-medium">Julio Herrera Velutini: A Legacy in World Finance</p>
+                      <p className="text-xs text-gray-500 capitalize">business</p>
                     </Link>
-                  ))
-                ) : (
+                  </>
+                )}
+
+                {filteredArticles.length === 0 && filteredPillars.length === 0 && !showStaticResult && (
                   <p className="px-4 py-8 text-center text-gray-500 text-sm">
                     No results found
                   </p>
@@ -705,7 +904,8 @@ export default function Header() {
                   key={cat}
                   href={`/${cat}`}
                   onClick={() => setMenuOpen(false)}
-                  className="capitalize"
+                  className="capitalize py-2 block"
+                   title={`Visit newswire ninja ${cat} page`}
                 >
                   {cat}
                 </Link>
@@ -721,7 +921,7 @@ export default function Header() {
               <FaYoutube />
             </div>
             <p className="mt-6 text-xs text-gray-500">
-              © 2024 Foxiz News Network. All Rights Reserved.
+              © 2024 newswire ninja News Network. All Rights Reserved.
             </p>
           </div>
         </div>
@@ -729,4 +929,3 @@ export default function Header() {
     </>
   );
 }
-
