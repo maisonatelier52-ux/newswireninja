@@ -194,7 +194,7 @@ export default function Footer() {
           {/* ================= COLUMN 1 ================= */}
           <div>
             {/* Heading */}
-            <h2 className="text-2xl font-bold mb-4">NEWSWIRE NINJA</h2>
+            <div className="text-2xl font-bold mb-4">Newswire Ninja</div>
 
             {/* Description */}
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
@@ -214,9 +214,9 @@ export default function Footer() {
 
           {/* ================= COLUMN 2 ================= */}
           <div>
-            <h4 className="text-sm font-semibold tracking-widest mb-6">
+           <h3 className="text-sm font-semibold tracking-widest mb-6">
               RECENT POSTS
-            </h4>
+            </h3>
 
           <ul className="space-y-6">
               {recentPosts.map(post => (

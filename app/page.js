@@ -212,6 +212,10 @@ const websiteJsonLd = {
 
       
       <HeroSection latestArticles={latestArticles} getAuthorByCategory={getAuthorByCategory} />
+      <p className="sr-only">
+        Newswire Ninja delivers breaking U.S. and global news, in-depth investigations,
+        business reporting, politics, technology, and world affairs.
+      </p>
 
       <BannerSection />
 

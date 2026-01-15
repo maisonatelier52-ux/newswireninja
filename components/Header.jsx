@@ -457,7 +457,7 @@ export default function Header() {
       {/* ================= HEADER ================= */}
       <header className="w-full bg-white text-black mx-auto max-w-7xl px-4 sm:px-6">
 
-        <h1 className="sr-only">NEWSWIRE NINJA - Breaking News</h1>
+        <p className="sr-only">Newswire Ninja – Breaking News</p>
         {/* Top Bar */}
         <div className="relative mx-auto max-w-7xl px-4 py-3 lg:py-0 text-sm">
           {/* ===== MOBILE TOP BAR ===== */}
@@ -709,9 +709,9 @@ export default function Header() {
         {/* Desktop Logo */}
         <div className="hidden md:flex flex-col items-center pt-2 pb-6">
           <Link href="/" title="Visit newswire ninja homepage">
-            <h1 className="font-serif text-5xl font-bold tracking-wide">
-              NEWSWIRE NINJA
-            </h1>
+           <div className="font-serif text-5xl font-bold tracking-wide">
+            NEWSWIRE NINJA
+            </div>
           </Link>
           <p className="text-xs md:text-base mt-1 tracking-wide">
             BREAKING NEWS, SWIFTLY DELIVERED
