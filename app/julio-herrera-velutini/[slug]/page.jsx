@@ -252,6 +252,7 @@ const authorData = authorsPageData.categories
   ?.author;
 
   const SITE_URL = "https://www.newswireninja.com";
+  
 
 
 
@@ -269,60 +270,89 @@ const authorData = authorsPageData.categories
     };
   }
 
-  const { title, subtitle, heroImage } = content;
+  const { title, subtitle, heroImage, metaTitle, metaDescription } = content;
   const imageUrl = `${SITE_URL}${heroImage}`;
 
-  return {
-    title,
-    description: subtitle,
-    alternates: {
-      canonical: `${SITE_URL}/julio-herrera-velutini/${slug}`,
+  // Breadcrumbs data
+  const breadcrumbs = [
+    {
+      position: 1,
+      name: "Home",
+      url: SITE_URL,
     },
-    openGraph: {
-      title,
-      description: subtitle,
+    {
+      position: 2,
+      name: "Julio Herrera Velutini",
+      url: `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
+    },
+    {
+      position: 3,
+      name: title,
       url: `${SITE_URL}/julio-herrera-velutini/${slug}`,
-      type: "article",
-      siteName: "YourSite",
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: title,
+    },
+  ];
+
+   return {
+        title: metaTitle,
+        description: metaDescription,
+        alternates: {
+          canonical: `${SITE_URL}/julio-herrera-velutini/${slug}`,
         },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description: subtitle,
-      images: [imageUrl],
-    },
-    jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": title,
-      "description": subtitle,
-      "image": [imageUrl],
-      "author": {
-        "@type": "Person",
-        "name": authorData.name,
-        "url": `${SITE_URL}/authors/${slugify(authorData.name)}`,
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "YourSite",
-        "logo": { "@type": "ImageObject", "url": `${SITE_URL}/logo.png` },
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": `${SITE_URL}/julio-herrera-velutini/${slug}`,
-      },
-      "datePublished": new Date().toISOString(),
-      "dateModified": new Date().toISOString(),
-    },
-  };
+        openGraph: {
+          title: metaTitle,
+          description: metaDescription,
+          url: `${SITE_URL}/julio-herrera-velutini/${slug}`,
+          type: "article",
+          siteName: "YourSite",
+          images: [
+            {
+              url: imageUrl,
+              width: 1200,
+              height: 630,
+              alt: title,
+            },
+          ],
+        },
+        twitter: {
+          card: "summary_large_image",
+          title: metaTitle,
+          description: metaDescription,
+          images: [imageUrl],
+        },
+        jsonLd: {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": title,
+          "description": subtitle,
+          "image": [imageUrl],
+          "author": {
+            "@type": "Person",
+            "name": authorData.name,
+            "url": `${SITE_URL}/authors/${slugify(authorData.name)}`,
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "YourSite",
+            "logo": { "@type": "ImageObject", "url": `${SITE_URL}/logo.png` },
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `${SITE_URL}/julio-herrera-velutini/${slug}`,
+          },
+          "datePublished": new Date().toISOString(),
+          "dateModified": new Date().toISOString(),
+          // BreadcrumbList for structured data
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": breadcrumbs.map((breadcrumb) => ({
+              "@type": "ListItem",
+              "position": breadcrumb.position,
+              "name": breadcrumb.name,
+              "item": breadcrumb.url,
+            })),
+          },
+        },
+      };
 }
 
 export default async function JulioHerreraVelutiniPillarPage({ params }) {
@@ -339,7 +369,7 @@ export default async function JulioHerreraVelutiniPillarPage({ params }) {
   const { title, subtitle, heroImage, lastUpdated, content: articleContent } = content;
 
   return (
-    <main className="max-w-5xl mx-auto px-10 sm:px-15 lg:px-30 py-8 sm:py-10 font-serif">
+    <main className="max-w-5xl mx-auto px-10 sm:px-15 lg:px-30 py-8 sm:py-10 font-serif" itemScope itemType="https://schema.org/Article">
       {/* Add JSON-LD Metadata */}
       <script
         id="json-ld-schema"
@@ -354,12 +384,12 @@ export default async function JulioHerreraVelutiniPillarPage({ params }) {
         }}
       />
       {/* TITLE */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6 text-center md:text-left">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6 text-center md:text-left" itemProp="headline">
         {title}
       </h1>
 
       {/* SUBTITLE */}
-      <p className="text-sm sm:text-lg text-gray-700 mb-10 max-w-4xl mx-auto md:mx-0 text-center md:text-left">
+      <p className="text-sm sm:text-lg text-gray-700 mb-10 max-w-4xl mx-auto md:mx-0 text-center md:text-left" itemProp="description">
         {subtitle}
       </p>
 
@@ -372,11 +402,12 @@ export default async function JulioHerreraVelutiniPillarPage({ params }) {
             width={56}
             height={56}
             className="rounded-full object-cover flex-shrink-0"
+            itemProp="author"
           />
           <div>
             <p className="font-semibold text-sm">
               <Link href={`/authors/${slugify(authorData.name)}`} title={authorData.name}>
-                <span className="hover:text-blue-600 hover:underline transition cursor-pointer">
+                <span className="hover:text-blue-600 hover:underline transition cursor-pointer" itemProp="author">
                   {authorData.name}
                 </span>
               </Link>{" "}
@@ -389,8 +420,27 @@ export default async function JulioHerreraVelutiniPillarPage({ params }) {
           </div>
         </div>
 
-        {/* Share buttons... (keep as is) */}
-        {/* ... */}
+         <div className="flex flex-row sm:flex-row sm:items-center gap-4 mt-5">
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            <FaShareSquare />
+            <span>Share</span>
+          </div>
+
+          <div className="flex items-center gap-3">
+            {[{ icon: <FaXTwitter />, label: "X" }, { icon: <FaFacebookF />, label: "Facebook" }, { icon: <FaLinkedinIn />, label: "LinkedIn" }, { icon: <SiMedium />, label: "Medium" }].map((item, index) => (
+              <button
+                key={index}
+                aria-label={`Share on ${item.label}`}
+                title={`Share on ${item.label}`}
+                className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 transition hover:text-white hover:bg-black hover:border-black cursor-pointer"
+                itemProp="sameAs" 
+
+              >
+                {item.icon}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* HERO IMAGE */}
@@ -401,6 +451,7 @@ export default async function JulioHerreraVelutiniPillarPage({ params }) {
           fill
           priority
           className="object-cover"
+          itemProp="image"
         />
       </div>
 
@@ -454,6 +505,7 @@ export default async function JulioHerreraVelutiniPillarPage({ params }) {
                   aria-label={`Share on ${item.label}`}
                   title={`Share on ${item.label}`}
                   className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 transition hover:bg-black hover:text-white hover:border-black cursor-pointer"
+                    itemProp="sameAs" 
                 >
                   {item.icon}
                 </button>
@@ -469,10 +521,11 @@ export default async function JulioHerreraVelutiniPillarPage({ params }) {
             <div className="flex items-center gap-4">
               <Image
                 src={authorData.profileImage}
-                alt="Lauren - Senior Editor"
+                alt={`${authorData?.name || 'Author'} - ${authorData?.role || 'Role'}`}
                 width={56}
                 height={56}
                 className="rounded-full object-cover flex-shrink-0"
+                 itemProp="author"
               />
               <div>
                 <Link href={`/authors/${slugify(authorData.name)}`} title={authorData.name}>
