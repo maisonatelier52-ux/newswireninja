@@ -15,16 +15,16 @@ export async function generateMetadata({ params }) {
     title: article.metaTitle,
     description: article.metaDescription,
     alternates: {
-      canonical: `https://venture-hive.com/${category}/${slug}`,
+      canonical: `https://www.newswireninja.com/${category}/${slug}`,
     },
     openGraph: {
       title: article.metaTitle,
       description: article.metaDescription,
-      url: `https://venture-hive.com/${category}/${slug}`,
-      siteName: "Venture Hive",
+      url: `https://www.newswireninja.com/${category}/${slug}`,
+      siteName: "Newswireninja",
       images: [
         {
-          url: `https://venture-hive.com${article.image}`,
+          url: `https://www.newswireninja.com${article.image}`,
           width: 1200,
           height: 630,
           alt: article.alt,
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: article.metaTitle,
       description: article.metaDescription,
-      images: [`https://venture-hive.com${article.image}`],
+      images: [`https://www.newswireninja.com${article.image}`],
     },
   };
 }
