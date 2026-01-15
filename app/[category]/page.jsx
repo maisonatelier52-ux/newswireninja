@@ -224,11 +224,18 @@ export default async function CategoryPage({ params }) {
       <main className="max-w-7xl mx-auto px-4 py-10 sm:px-6 font-serif">
         {/* CATEGORY TITLE */}
         <header className="mb-6">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold uppercase">
-            {category}
+         <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">
+            {category} News & Analysis - Newswireninja
           </h1>
+
+          {/* Category Description - where the content goes */}
+        <p className="text-sm text-gray-600 max-w-4xl mt-2">
+          Stay updated with the latest <strong>{category} news</strong>. Our experts bring you the latest stories from across the globe. Get <strong>in-depth analysis</strong> on global issues and stay informed with <strong>Newswire Ninja</strong>'s exclusive reports.
+        </p>
+     
           <div className="border-t border-black mt-3 mb-10"></div>
         </header>
+        
 
         {/* MAIN GRID */}
         <div className="grid grid-cols-1 md:grid-cols-[70%_30%] gap-4 pb-10">
@@ -272,7 +279,7 @@ export default async function CategoryPage({ params }) {
                   <div className="relative overflow-hidden">
                     <Image
                       src={latestArticle.image}
-                      alt={latestArticle.title}
+                      alt={latestArticle.imageAlt}
                       width={800}
                       height={600}
                       className="w-full h-64 sm:h-full object-cover"
@@ -315,7 +322,7 @@ export default async function CategoryPage({ params }) {
                   <div className="relative overflow-hidden h-50 sm:h-44 lg:48">
                     <Image
                       src={secondLatestArticle.image}
-                      alt={secondLatestArticle.title}
+                      alt={secondLatestArticle.imageAlt}
                       width={600}
                       height={400}
                       className="w-full h-50 sm:h-44 lg:48object-cover"
@@ -346,7 +353,7 @@ export default async function CategoryPage({ params }) {
                     <div className="relative mb-4 overflow-hidden rounded-md">
                       <Image
                         src={article.image}
-                        alt={article.title}
+                        alt={article.imageAlt}
                         width={400} // Set width
                         height={250} // Set height (smaller to create rectangle shape)
                         className="w-full h-36 sm:h-40 lg:h-48 object-cover transition-transform duration-300 group-hover:scale-105"
@@ -434,7 +441,7 @@ export default async function CategoryPage({ params }) {
           </h3>
 
           {latestInvestigationArticles.length > 0 && latestInvestigationArticles[0] && (
-             <Link href={`/${latestInvestigationArticles[0].category}/${latestInvestigationArticles[0].slug}`}>
+             <Link href={`/${latestInvestigationArticles[0].category}/${latestInvestigationArticles[0].slug}`} title={latestInvestigationArticles[0].title}>
                <div className="grid grid-cols-2 sm:grid-cols-[60%_40%] gap-4 mb-8 group cursor-pointer">
         
               <div>
@@ -491,7 +498,7 @@ export default async function CategoryPage({ params }) {
               <div className="overflow-hidden">
                  <Image
                   src={latestInvestigationArticles[0].image}
-                  alt={latestInvestigationArticles[0].title}
+                  alt={latestInvestigationArticles[0].imageAlt}
                   width={400}
                   height={300}
                   className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105"
@@ -505,7 +512,7 @@ export default async function CategoryPage({ params }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {latestInvestigationArticles.slice(1).map((article) => (
               <div key={article.id} className="border-t border-gray-200 pt-4">
-               <Link href={`/${article.category}/${article.slug}`}>
+               <Link href={`/${article.category}/${article.slug}`} title={article.title}>
                   <h5 className="font-semibold mb-2 hover:text-blue-600 hover:underline cursor-pointer">
                     {article.title.length > 40 ? `${article.title.slice(0, 40)}...` : article.title}
                   </h5>
