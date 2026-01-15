@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GoClock } from "react-icons/go";
 import { LuAlarmClock } from "react-icons/lu";
+import { generateHeroContext } from "../../utils/seoText";
 
 export function HeroSection({ latestArticles, getAuthorByCategory }) {
   return (
@@ -23,6 +24,9 @@ export function HeroSection({ latestArticles, getAuthorByCategory }) {
                   {latestArticles[0].title}
                 </h1>
               </Link>
+               <p className="sr-only">
+                  Newswireninja — Independent U.S. News, Business & Investigations
+                </p>
               <p className="mt-3 text-sm sm:text-base text-gray-700">{latestArticles[0].excerpt}</p>
 
               <div className="mt-5 flex items-center text-xs sm:text-sm text-gray-500">
@@ -50,7 +54,16 @@ export function HeroSection({ latestArticles, getAuthorByCategory }) {
             </div>
           </>
         )}
+
+        <p className="mt-4 text-sm text-gray-600 max-w-3xl">
+              {generateHeroContext(latestArticles[0]?.title)}
+            </p>
+            <p className="mt-2 text-sm text-gray-700 max-w-4xl">
+              Newswireninja is an independent digital news organization delivering trusted
+              U.S. news, business reporting, and in-depth investigations worldwide.
+            </p>
       </section>
+      
 
       {/* Sidebar */}
       <aside className="grid grid-cols-1 gap-8 lg:grid-cols-2">
@@ -123,9 +136,9 @@ export function HeroSection({ latestArticles, getAuthorByCategory }) {
                 <div className="flex items-start gap-4 sm:hidden">
                   <div className="flex-1">
                      <Link href={`${latestArticles[2].category}/${latestArticles[2].slug}`} title={latestArticles[2].title}>
-                    <h4 className="font-serif text-sm font-semibold leading-snug hover:text-blue-600 hover:underline">
+                    <h3 className="font-serif text-sm font-semibold leading-snug hover:text-blue-600 hover:underline">
                          {latestArticles[2].title}
-                    </h4>
+                    </h3>
                     </Link>
                     <div className="mt-1 flex items-center gap-1 text-xs text-gray-500">
                       <GoClock />
@@ -155,9 +168,9 @@ export function HeroSection({ latestArticles, getAuthorByCategory }) {
                   </div>
 
                    <Link href={`${latestArticles[2].category}/${latestArticles[2].slug}`} title={latestArticles[2].title}>
-                  <h4 className="font-serif text-sm sm:text-lg font-semibold leading-snug hover:text-blue-600 hover:underline">
+                  <h3 className="font-serif text-sm sm:text-lg font-semibold leading-snug hover:text-blue-600 hover:underline">
                       {latestArticles[2].title}
-                  </h4>
+                  </h3>
                   </Link>
 
                   <div className="flex items-center justify-between text-xs sm:text-sm text-gray-500">
@@ -176,9 +189,9 @@ export function HeroSection({ latestArticles, getAuthorByCategory }) {
                 <div className="flex items-start gap-4 sm:hidden">
                   <div className="flex-1">
                      <Link href={`${latestArticles[3].category}/${latestArticles[3].slug}`} title={latestArticles[3].title}>
-                    <h4 className="font-serif text-base font-semibold leading-snug hover:text-blue-600 hover:underline">
+                    <h3 className="font-serif text-base font-semibold leading-snug hover:text-blue-600 hover:underline">
                        {latestArticles[3].title}
-                    </h4>
+                    </h3>
                     </Link>
                     <div className="mt-1 flex items-center gap-1 text-xs text-gray-500">
                       <GoClock />
@@ -208,9 +221,9 @@ export function HeroSection({ latestArticles, getAuthorByCategory }) {
                   </div>
 
                    <Link href={`${latestArticles[3].category}/${latestArticles[3].slug}`} title={latestArticles[3].title}>
-                  <h4 className="font-serif text-base sm:text-lg font-semibold leading-snug hover:text-blue-600 hover:underline">
+                  <h3 className="font-serif text-base sm:text-lg font-semibold leading-snug hover:text-blue-600 hover:underline">
                       {latestArticles[3].title}
-                  </h4>
+                  </h3>
                   </Link>
 
                   <div className="flex items-center justify-between text-xs sm:text-sm text-gray-500">

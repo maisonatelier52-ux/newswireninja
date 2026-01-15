@@ -242,9 +242,9 @@ export default function Footer() {
 
           {/* ================= COLUMN 3 ================= */}
           <div>
-            <h4 className="text-sm font-semibold tracking-widest mb-6">
+            <h3 className="text-sm font-semibold tracking-widest mb-6">
               POPULAR POSTS
-            </h4>
+            </h3>
 
             <ul className="space-y-6">
               {popularPosts.map(post => (

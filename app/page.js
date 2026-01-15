@@ -28,7 +28,7 @@ export const metadata = {
   openGraph: {
     title: "Newswireninja — Latest U.S. News & Investigations",
     description: 
-      "Breaking U.S. news, in-depth investigations, and expert reporting across business, world, sports, technology, and more.",
+      "Newswire Ninja delivers fast, factual U.S. news, business reporting, and in-depth investigations with breaking headlines you can trust.",
     url: SITE_URL,
     type: "website",
     siteName: "Newswireninja",
@@ -216,6 +216,8 @@ const websiteJsonLd = {
         Newswire Ninja delivers breaking U.S. and global news, in-depth investigations,
         business reporting, politics, technology, and world affairs.
       </p>
+      
+      
 
       <BannerSection />
 
