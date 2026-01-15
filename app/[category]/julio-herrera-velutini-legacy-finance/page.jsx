@@ -406,7 +406,7 @@ import { slugify } from "../../../utils/slugify";
 import pillarContent from "../../../public/data/pillarContent.json";
 import Script from "next/script";
 
-
+// SEO Metadata
 export async function generateMetadata() {
   const metaTitle = "Julio Herrera Velutini: Biography & Legacy in Global Finance";
   const metaDescription =
@@ -442,18 +442,17 @@ export async function generateMetadata() {
   };
 }
 
-
+// Fetching author data from the provided data
 const authorData =
   authorsPageData.categories.find(
     (item) => item.category.toLowerCase() === "marketing & branding"
   )?.author;
 
 export default function JulioHerreraVelutiniPage() {
-  // Placeholder image URLs - replace with your assets
   const heroImage = "/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp";
 
   return (
-    <main className="max-w-5xl mx-auto px-10 sm:px-15 lg:px-30 py-8 sm:py-10 font-serif">
+    <main className="max-w-5xl mx-auto px-10 sm:px-15 lg:px-30 py-8 sm:py-10 font-serif" itemScope itemType="https://schema.org/Person">
       {/* JSON-LD for Person */}
       <Script
         id="json-ld-person"
@@ -510,75 +509,61 @@ export default function JulioHerreraVelutiniPage() {
         }}
       />
 
-      {/* TITLE */}
+      {/* Page Content */}
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6 text-center md:text-left">
         Julio Herrera Velutini: A Legacy in World Finance
       </h1>
 
-      {/* SUBTITLE / INTRO */}
       <p className="text-sm sm:text-lg text-gray-700 mb-10 max-w-4xl mx-auto md:mx-0 text-center md:text-left">
         Julio Herrera Velutini is one of the few persons in the world of international finance who has to deal with the stress of a family tradition that has been going on for hundreds of years and the fast-paced, often unpredictable world of modern global banking.
       </p>
 
-      {/* META INFO */}
-      
+      {/* Author Info */}
       <div className="mb-8 space-y-6">
-        {/* Author Info */}
         <div className="flex flex-row sm:flex-row sm:items-center gap-4">
           <Image
             src={authorData.profileImage}
-            alt="Lauren - Senior Editor"
+            alt="Author Profile"
             width={56}
             height={56}
             className="rounded-full object-cover flex-shrink-0"
+            itemProp="image"
           />
 
           <div>
             <p className="font-semibold text-sm">
-              <Link  href={`/authors/${slugify(authorData.name)}`} title={authorData.name}>
-              <span className="hover:text-blue-600 hover:underline transition cursor-pointer">{authorData.name}</span>
+              <Link href={`/authors/${slugify(authorData.name)}`} title={authorData.name}>
+                <span itemProp="name" className="hover:text-blue-600 hover:underline transition cursor-pointer">
+                  {authorData.name}
+                </span>
               </Link>
               {" "}
-              <span className="text-gray-500 font-normal">
+              <span className="text-gray-500 font-normal" itemProp="jobTitle">
                 – {authorData.role}
               </span>
             </p>
 
             <div className="flex items-center gap-2 text-sm text-gray-500 mt-1">
               <GoClock />
-              <span>Last updated: January 13, 2026</span>
+              <span itemProp="dateModified">Last updated: January 13, 2026</span>
             </div>
           </div>
         </div>
 
-        {/* Share Section (UNDER AUTHOR) */}
+        {/* Social Share Section */}
         <div className="flex flex-row sm:flex-row sm:items-center gap-4 mt-5">
-          {/* Share Label */}
           <div className="flex items-center gap-2 text-sm text-gray-600">
             <FaShareSquare />
             <span>Share</span>
           </div>
 
-          {/* Social Icons */}
           <div className="flex items-center gap-3">
-            {[
-              { icon: <FaXTwitter />, label: "X" },
-              { icon: <FaFacebookF />, label: "Facebook" },
-              { icon: <FaLinkedinIn />, label: "LinkedIn" },
-              { icon: <SiMedium />, label: "Medium" },
-            ].map((item, index) => (
+            {[{ icon: <FaXTwitter />, label: "X" }, { icon: <FaFacebookF />, label: "Facebook" }, { icon: <FaLinkedinIn />, label: "LinkedIn" }, { icon: <SiMedium />, label: "Medium" }].map((item, index) => (
               <button
                 key={index}
                 aria-label={`Share on ${item.label}`}
                 title={`Share on ${item.label}`}
-                className="
-                  w-9 h-9 flex items-center justify-center
-                  rounded-full border border-gray-400
-                  text-gray-600
-                  transition
-                  hover:text-white hover:bg-black hover:border-black
-                  cursor-pointer
-                "
+                className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 transition hover:text-white hover:bg-black hover:border-black cursor-pointer"
               >
                 {item.icon}
               </button>
@@ -587,7 +572,7 @@ export default function JulioHerreraVelutiniPage() {
         </div>
       </div>
 
-      {/* HERO IMAGE */}
+      {/* Hero Image */}
       <div className="relative w-full aspect-[16/9] mb-12 rounded-xl overflow-hidden shadow-lg">
         <Image
           src={heroImage}
@@ -598,7 +583,7 @@ export default function JulioHerreraVelutiniPage() {
         />
       </div>
 
-      {/* ARTICLE CONTENT - PROSE */}
+      {/* Article Content */}
       <article className="prose prose-lg sm:prose-xl max-w-none mx-auto text-justify leading-relaxed">
         <p className="first-letter:text-6xl first-letter:font-bold first-letter:mr-4 first-letter:float-left first-letter:leading-none first-letter:text-black">
           On December 15, 1971, he was born in Caracas, Venezuela. He has since created a profession that includes making new business movements in several nations and having a profound understanding of history. He has citizenship in both Italy and Venezuela. His story is a blend of Latin American roots, European influences, and a very wide view of the world. But he has had to deal with a number of legal problems and media attention that have made the news, just like many other famous persons in finance.
