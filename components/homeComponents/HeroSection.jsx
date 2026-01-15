@@ -249,7 +249,13 @@ export function HeroSection({ latestArticles, getAuthorByCategory }) {
       <section className="lg:col-span-2">
         {latestArticles[0] && (
           <>
-           <h1 className="sr-only">Latest U.S. News - {latestArticles[0].title}</h1>
+          <h1 className="sr-only">
+            {`Newswire Ninja — Independent U.S. News, Business & Investigations - ${
+              latestArticles[0].title.length + 37 > 70 
+                ? latestArticles[0].title.slice(0, 70 - 37) + "..." 
+                : latestArticles[0].title
+            }`}
+          </h1>
             <div className="relative h-[240px] sm:h-[320px] lg:h-[420px] w-full">
               <Image src={latestArticles[0].image} alt={latestArticles[0].imageAlt} fill priority className="object-cover" />
               <span className="absolute bottom-3 left-3 bg-blue-600 px-2 py-1 text-[10px] sm:text-xs font-semibold text-white">
