@@ -53,6 +53,8 @@
 //   return <ArticleClient category={category} slug={slug} />;
 // }
 
+
+
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Script from "next/script";
@@ -209,146 +211,106 @@ export default async function ArticlePage({ params }) {
         }}
       />
 
-      <main className="max-w-5xl mx-auto px-10 sm:px-15 lg:px-30 py-8 sm:py-10 font-serif">
-      {/* CATEGORY */}
-      <div className="mb-4">
-        <span className="inline-block bg-blue-600 text-white text-xs font-semibold px-3 py-1 uppercase">
-          {category}
-        </span>
-      </div>
+       <main className="max-w-5xl mx-auto px-10 sm:px-15 lg:px-30 py-8 sm:py-10 font-serif" itemScope itemType="https://schema.org/Article">
+        {/* CATEGORY */}
+        <div className="mb-4">
+          <span className="inline-block bg-blue-600 text-white text-xs font-semibold px-3 py-1 uppercase" itemProp="articleSection">
+            {category}
+          </span>
+        </div>
 
-      {/* TITLE */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6">
-        {article.title}
-      </h1>
+        {/* TITLE */}
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6" itemProp="headline">
+          {article.title}
+        </h1>
 
-      {/* SUBTITLE */}
-      <p className="text-base sm:text-lg text-gray-700 mb-8 max-w-3xl">
-       {article.excerpt}
-      </p>
+        {/* DESCRIPTION */}
+        <p className="text-base sm:text-lg text-gray-700 mb-8 max-w-3xl" itemProp="description">
+          {article.excerpt}
+        </p>
 
-      {/* AUTHOR + SHARE */}
-      <div className="mb-8 space-y-6">
-        {/* Author Info */}
-        <div className="flex flex-row sm:flex-row sm:items-center gap-4">
-          <Image
-            src={authorData.profileImage}
-            alt="Lauren - Senior Editor"
-            width={56}
-            height={56}
-            className="rounded-full object-cover flex-shrink-0"
-          />
+        {/* AUTHOR + SHARE */}
+        <div className="mb-8 space-y-6">
+          {/* Author Info */}
+          <div className="flex flex-row sm:flex-row sm:items-center gap-4">
+            <Image
+              src={authorData.profileImage}
+              alt="Lauren - Senior Editor"
+              width={56}
+              height={56}
+              className="rounded-full object-cover flex-shrink-0"
+              itemProp="image"
+            />
 
-          <div>
-            <p className="font-semibold text-sm">
-              <Link  href={`/authors/${slugify(authorData.name)}`} title={authorData.name}>
-              <span className="hover:text-blue-600 hover:underline transition cursor-pointer">{authorData.name}</span>
-              </Link>
-              {" "}
-              <span className="text-gray-500 font-normal">
-                – {authorData.role}
-              </span>
-            </p>
+            <div>
+              <p className="font-semibold text-sm" itemProp="author">
+                <Link  href={`/authors/${slugify(authorData.name)}`} title={authorData.name}>
+                  <span className="hover:text-blue-600 hover:underline transition cursor-pointer">{authorData.name}</span>
+                </Link>
+                {" "}
+                <span className="text-gray-500 font-normal">
+                  – {authorData.role}
+                </span>
+              </p>
 
-            <div className="flex items-center gap-2 text-sm text-gray-500 mt-1">
-              <GoClock />
-              <span>Last updated: {article.date}</span>
+              <div className="flex items-center gap-2 text-sm text-gray-500 mt-1">
+                <GoClock />
+                <span>Last updated: {article.date}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Share Section (UNDER AUTHOR) */}
+          <div className="flex flex-row sm:flex-row sm:items-center gap-4 mt-5">
+            {/* Share Label */}
+            <div className="flex items-center gap-2 text-sm text-gray-600">
+              <FaShareSquare />
+              <span>Share</span>
+            </div>
+
+            {/* Social Icons */}
+            <div className="flex items-center gap-3">
+              {[{ icon: <FaXTwitter />, label: "X" }, { icon: <FaFacebookF />, label: "Facebook" }, { icon: <FaLinkedinIn />, label: "LinkedIn" }, { icon: <SiMedium />, label: "Medium" }].map((item, index) => (
+                <button
+                  key={index}
+                  aria-label={`Share on ${item.label}`}
+                  title={`Share on ${item.label}`}
+                  className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 transition hover:text-white hover:bg-black hover:border-black cursor-pointer"
+                >
+                  {item.icon}
+                </button>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Share Section (UNDER AUTHOR) */}
-        <div className="flex flex-row sm:flex-row sm:items-center gap-4 mt-5">
-          {/* Share Label */}
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            <FaShareSquare />
-            <span>Share</span>
-          </div>
-
-          {/* Social Icons */}
-          <div className="flex items-center gap-3">
-            {[
-              { icon: <FaXTwitter />, label: "X" },
-              { icon: <FaFacebookF />, label: "Facebook" },
-              { icon: <FaLinkedinIn />, label: "LinkedIn" },
-              { icon: <SiMedium />, label: "Medium" },
-            ].map((item, index) => (
-              <button
-                key={index}
-                aria-label={`Share on ${item.label}`}
-                title={`Share on ${item.label}`}
-                className="
-                  w-9 h-9 flex items-center justify-center
-                  rounded-full border border-gray-400
-                  text-gray-600
-                  transition
-                  hover:text-white hover:bg-black hover:border-black
-                  cursor-pointer
-                "
-              >
-                {item.icon}
-              </button>
-            ))}
-          </div>
+        {/* FEATURE IMAGE */}
+        <div className="relative w-full aspect-[16/9] sm:aspect-[2/1] mb-10 rounded-lg overflow-hidden">
+          <Image
+            src={article.image}
+            alt={article.imageAlt}
+            fill
+            priority
+            className="object-cover"
+            itemProp="image"
+          />
         </div>
-      </div>
 
-      {/* FEATURE IMAGE */}
-      <div className="relative w-full aspect-[16/9] sm:aspect-[2/1] mb-10 rounded-lg overflow-hidden">
-        <Image
-          src={article.image}
-          alt={article.imageAlt}
-          fill
-          priority
-          className="object-cover"
-        />
-      </div>
+        {/* ARTICLE CONTENT */}
+        <article className="prose prose-sm sm:prose lg:prose-lg max-w-none mx-auto" itemProp="articleBody">
+          <p itemProp="text">{article.heropara.para1}</p>
+          <p className="mt-5 text-justify" itemProp="text">{article.heropara.para2}</p>
 
-      {/* ARTICLE CONTENT */}
-      <article className="prose prose-sm sm:prose lg:prose-lg max-w-none mx-auto">
-        <p
-          className="
-            first-letter:text-5xl sm:first-letter:text-6xl
-            first-letter:font-bold
-            first-letter:mr-3
-            first-letter:float-left
-            first-letter:leading-none
-            first-letter:text-black
-            text-justify
-          "
-        >
-          {article.heropara.para1}
-        </p>
+          {/* QUOTE */}
+          <blockquote className="mt-12 sm:mt-20 text-center text-xl sm:text-2xl italic px-4 sm:px-20" itemProp="text">
+            <div className="relative">
+              <span className="absolute -top-8 sm:-top-12 left-1/2 -translate-x-1/2 text-4xl sm:text-5xl text-blue-600 font-bold">“</span>
+              <p className="px-6 font-medium">{quoteText?.replace(/"/g, "")}</p>
+              {quoteAuthor && <footer className="mt-4 text-sm text-gray-600">— {quoteAuthor}</footer>}
+            </div>
+          </blockquote>
 
-        <p className="mt-5 text-justify">
-           {article.heropara.para2}
-        </p>
-
-        {/* QUOTE SECTION */}
-        <blockquote className="mt-12 sm:mt-20 text-center text-xl sm:text-2xl italic px-4 sm:px-20">
-          <div className="relative">
-            {/* Opening quote */}
-            <span className="absolute -top-8 sm:-top-12 left-1/2 -translate-x-1/2 text-4xl sm:text-5xl text-blue-600 font-bold">
-              “
-            </span>
-
-            {/* Quote text */}
-            <p className="px-6 font-medium">
-              {quoteText?.replace(/"/g, "")}
-            </p>
-
-            {/* Author */}
-            {quoteAuthor && (
-              <footer className="mt-4 text-sm text-gray-600">
-                — {quoteAuthor}
-              </footer>
-            )}
-          </div>
-        </blockquote>
-
-        <p className="mt-5 text-justify">
-          {article.heropara.para3}
-        </p>
+          <p className="mt-5 text-justify">{article.heropara.para3}</p>
 
         <div>
           <h2 className="text-xl sm:text-2xl font-bold mt-8">{article.subtitles.subtitle1.title}</h2>
@@ -524,10 +486,11 @@ export default async function ArticlePage({ params }) {
                 width={56}
                 height={56}
                 className="rounded-full object-cover flex-shrink-0"
+                itemProp="image"
               />
               <div>
                <Link href={`/authors/${slugify(authorData.name)}`} title={authorData.name}>
-                <p className="font-semibold text-sm hover:text-blue-600 hover:underline transition cursor-pointer">{authorData.name}</p>
+                <p className="font-semibold text-sm hover:text-blue-600 hover:underline transition cursor-pointer" itemProp="author">{authorData.name}</p>
                 </Link>
                 <p className="text-gray-500 text-xs">{authorData.role}</p>
               </div>
