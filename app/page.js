@@ -17,7 +17,7 @@ const SITE_URL = "https://www.newswireninja.com";
 export const metadata = {
   title: "Newswireninja — Independent U.S. News, Business & Investigations",
   description: 
-    "Newswireninja delivers fast, factual U.S. news across business, world, sports, technology, politics, and investigations. Breaking headlines and trusted analysis.",
+    "Newswire Ninja delivers breaking U.S. news, in-depth reporting, and business analysis with trusted headlines. Stay informed with our latest updates.",
   alternates: {
     canonical: SITE_URL,
     languages: {
