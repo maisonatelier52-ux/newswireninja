@@ -157,7 +157,7 @@ export async function generateMetadata() {
       description:
         "Discover the expert writers and journalists behind NewsWireNinja’s trusted news coverage.",
       url: `${SITE_URL}/authors`,
-      siteName: "NewsWireNinja",
+      siteName: "Newswireninja",
       images: [
         {
           url: `${SITE_URL}/images/authors-cover.webp`,
@@ -256,10 +256,13 @@ export default function AuthorsPage() {
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
             Meet Our Expert Authors
           </h1>
+          <p className="sr-only">
+            Meet our authors at NewsWireNinja — expert journalists covering global news.
+          </p>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Meet the expert authors and journalists at <strong>NewsWireNinja</strong>,
-            delivering trusted news and insights across business, politics, health,
-            sports, travel, and more.
+            Meet the expert authors and journalists at <strong>NewsWireNinja</strong>.
+            Our authors at NewsWireNinja deliver trusted news, in-depth analysis,
+            and expert insights across business, politics, world, sports, technology, etc.
           </p>
         </div>
 
@@ -312,9 +315,11 @@ export default function AuthorsPage() {
                         src={author.profileImage}
                         alt={author.name}
                         fill
+                         priority={index === 0}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                         className="object-cover grayscale group-hover:grayscale-0 transition"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70" />
+                     <div className="absolute inset-0 bg-black/50 md:bg-gradient-to-t md:from-black/70" />
                       <div className="absolute bottom-0 p-6 text-white">
                         <h2 className="text-2xl font-bold">{author.name}</h2>
                         <p className="text-sm">{author.role}</p>
