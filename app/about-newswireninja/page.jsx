@@ -107,7 +107,7 @@ export const metadata = {
       "Discover the mission and vision behind NEWSWIRENINJA — an independent news platform delivering cutting-edge news.",
     url: `${SITE_URL}/about-newswireninja`, // Updated URL
     type: "website",
-    siteName: "NEWSWIRENINJA",
+    siteName: "Newswireninja",
     images: [
       {
         url: `${SITE_URL}/newswireninja-about-image.jpg`, // Update with your image path
