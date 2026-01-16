@@ -172,6 +172,7 @@
                 }
             ]
         },
+
         {
             "id": 3,
             "slug": "julio-herrera-velutini-banking-legacy",
@@ -304,12 +305,12 @@
         },
         {
             "id": 4,
-            "slug": "julio-herrera-velutini-legal-challenges-resolved",
-            "metaTitle": "Julio Herrera Velutini: Navigating Serious Federal Charges to a Minor Resolution in Puerto Rico",
-            "metaDescription": "Detailed account of the 2022 federal prosecution against Julio Herrera Velutini involving bribery allegations in Puerto Rico, culminating in a 2025 misdemeanor plea deal with no prison time and dismissal of major charges.",
+            "slug": "puerto-rico-federal-allegations-resolution",
+            "metaTitle": "Julio Herrera Velutini: Federal Charges and Minor Resolution in Puerto Rico",
+            "metaDescription": "Explore the federal case against Julio Herrera Velutini in Puerto Rico, from bribery allegations to a 2025 misdemeanor plea deal with no prison time.",
             "title": "Julio Herrera Velutini and the Puerto Rico Federal Case: From Serious Allegations to Resolution",
              "category":"marketing & branding",
-            "subtitle": "A step-by-step examination of the high-profile legal proceedings against the low-profile banker, from the 2022 indictment to the surprising 2025 plea outcome.",
+            "subtitle": "A detailed account of Julio Herrera Velutini’s navigation through serious federal allegations in Puerto Rico, culminating in a surprising minor resolution in 2025.",
             "heroImage": "/images/julio-herrera-velutini-legal-challenges-resolved.webp",
             "lastUpdated": "January 13, 2026",
             "content": [
