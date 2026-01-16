@@ -403,6 +403,7 @@ export default async function JulioHerreraVelutiniPillarPage({ params }) {
             height={56}
             className="rounded-full object-cover flex-shrink-0"
             itemProp="author"
+            loading="lazy"
           />
           <div>
             <p className="font-semibold text-sm">
@@ -526,6 +527,7 @@ export default async function JulioHerreraVelutiniPillarPage({ params }) {
                 height={56}
                 className="rounded-full object-cover flex-shrink-0"
                  itemProp="author"
+                 loading="lazy"
               />
               <div>
                 <Link href={`/authors/${slugify(authorData.name)}`} title={authorData.name}>
@@ -586,6 +588,7 @@ export default async function JulioHerreraVelutiniPillarPage({ params }) {
                 layout="fill"
                 objectFit="cover"
                 className="object-cover w-full h-full"
+                loading="lazy"
               />
             </div>
 
