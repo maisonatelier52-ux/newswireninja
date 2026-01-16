@@ -1,10 +1,307 @@
-// pages/authors/[slug].js
+// // pages/authors/[slug].js
+// import Image from "next/image";
+// import Link from "next/link";
+
+// import { GoClock } from "react-icons/go";
+// import { LuAlarmClock } from "react-icons/lu";
+
+// import authorsData from "../../../public/data/authors.json"; 
+// import articlesData from "../../../public/data/articles.json"; 
+// import { slugify } from "../../../utils/slugify";
+// import { FaFacebookF } from "react-icons/fa";
+// import { FaXTwitter } from "react-icons/fa6";
+// import { SiMedium } from "react-icons/si";
+// import { FaLinkedin } from "react-icons/fa6";
+// import pillarContent from "../../../public/data/pillarContent.json";
+
+// export default async function AuthorProfile({ params }) {
+//   const { slug } = await params;
+
+//   // Find the author by slugified name
+//   const authorEntry = authorsData.categories.find(
+//     (item) => slugify(item.author.name) === slug
+//   );
+
+//   if (!authorEntry) {
+//     return (
+//       <div className="text-center py-20">
+//         <h1 className="text-3xl font-bold">Author not found</h1>
+//       </div>
+//     );
+//   }
+
+//   const { author, category } = authorEntry;
+
+//   // Get all articles from this author's category (since each category has one main author)
+//   let authorArticles = articlesData[category.toLowerCase()] || [];
+
+//   if (category.toLowerCase() === "marketing & branding") {
+//     // Use pillarContent for Marketing & Branding category
+//     authorArticles = pillarContent.filter(article => article.category.toLowerCase() === "marketing & branding");
+//   }
+
+//   return (
+//     <main className="mx-auto max-w-7xl px-4 sm:px-6 py-16 font-serif">
+//       {/* Hero Section */}
+//       <div className="mb-12 lg:mb-20">
+//         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12 xl:gap-16 
+//                         bg-gradient-to-br from-blue-50 to-blue-100 
+//                         rounded-2xl p-6 sm:p-10 lg:p-12 shadow-xl">
+          
+//           {/* Circular Profile Image */}
+//           <div className="flex-shrink-0 order-1 lg:order-1">
+//             <div className="relative w-40 h-40 xs:w-48 xs:h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 
+//                             mx-auto lg:mx-0">
+//               <Image
+//                 src={author.profileImage}
+//                 alt={author.name}
+//                 fill
+//                 sizes="(max-width: 768px) 160px, (max-width: 1024px) 224px, 256px"
+//                 className="object-cover rounded-full border-8 border-white shadow-2xl 
+//                           transition-transform duration-500 hover:scale-105"
+//                 priority
+//               />
+//             </div>
+//           </div>
+
+//           {/* Author Info */}
+//           <div className="flex-1 text-center lg:text-left order-2">
+//             {/* Category Badge */}
+//             <span className="inline-block bg-blue-600 text-white px-4 py-2 text-xs sm:text-sm font-bold 
+//                             rounded-full mb-4 sm:mb-6 uppercase tracking-wider">
+//               {category}
+//             </span>
+
+//             {/* Name */}
+//             <h1 className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 
+//                           mb-3 sm:mb-4 leading-tight">
+//               {author.name}
+//             </h1>
+
+//             {/* Role */}
+//             <p className="text-lg sm:text-xl text-gray-700 mb-6 sm:mb-8 opacity-90">
+//               {author.role}
+//             </p>
+
+//             {/* Bio - Responsive */}
+//             <div className="text-base sm:text-lg leading-relaxed text-gray-600 max-w-3xl mx-auto lg:mx-0">
+//               {/* Full bio on lg+ screens */}
+//               <p className="hidden lg:block text-sm">{author.bio}</p>
+              
+//               {/* Truncated on smaller screens */}
+//               <p className="block lg:hidden text-sm">
+//                 {author.bio.length > 150 
+//                   ? `${author.bio.slice(0, 150).trim()}...` 
+//                   : author.bio}
+//               </p>
+//             </div>
+
+//             {/* Social Links */}
+//            <div className="mt-8 sm:mt-10 flex gap-5 sm:gap-6 justify-center lg:justify-start">
+//               {author.social.twitter && (
+//                 <a
+//                   href={author.social.twitter}
+//                   target="_blank"
+//                   rel="noopener noreferrer"
+//                   className="text-gray-600 hover:text-black hover:scale-90 transition-all duration-300 text-lg sm:text-xl"
+//                   aria-label={`${author.name} on Twitter`}
+//                 >
+//                   <FaXTwitter />
+//                 </a>
+//               )}
+//               {author.social.facebook && (
+//                 <a
+//                   href={author.social.facebook}
+//                   target="_blank"
+//                   rel="noopener noreferrer"
+//                   className="text-gray-600 hover:text-blue-700 hover:scale-90 transition-all duration-300 text-lg sm:text-xl"
+//                   aria-label={`${author.name} on Facebook`}
+//                 >
+//                   <FaFacebookF />
+//                 </a>
+//               )}
+//               {author.social.linkedIn && (
+//                 <a
+//                   href={author.social.linkedIn}
+//                   target="_blank"
+//                   rel="noopener noreferrer"
+//                   className="text-gray-600 hover:text-blue-700 hover:scale-90 transition-all duration-300 text-lg sm:text-xl"
+//                   aria-label={`${author.name} on LinkedIn`}
+//                 >
+//                   <FaLinkedin />
+//                 </a>
+//               )}
+//               {author.social.medium && (
+//                 <a
+//                   href={author.social.medium}
+//                   target="_blank"
+//                   rel="noopener noreferrer"
+//                   className="text-gray-600 hover:text-black hover:scale-90 transition-all duration-300 text-lg sm:text-xl"
+//                   aria-label={`${author.name} on Medium`}
+//                 >
+//                   <SiMedium />
+//                 </a>
+//               )}
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Articles by this Author */}
+//       {category.toLowerCase() === "marketing & branding" ? (
+//         // Render articles for "Marketing & Branding" category
+//        <section>
+//   <h2 className="text-3xl font-bold mb-10">
+//     Articles by {author.name} ({authorArticles.length + 1})
+//   </h2>
+
+//   {authorArticles.length === 0 ? (
+//     <p className="text-gray-600 text-center py-10">
+//       No articles published yet.
+//     </p>
+//   ) : (
+//     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+//       {/* Static Card for Julio Herrera Velutini */}
+//       <Link
+//         href="/business/julio-herrera-velutini-legacy-finance"
+//         className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+//       >
+//         <div className="relative h-36">
+//           <Image
+//             src="/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp"
+//             alt="Julio Herrera Velutini: A Legacy in World Finance"
+//             fill
+//             className="object-cover group-hover:scale-110 transition-transform duration-500"
+//           />
+//           <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
+//             Business
+//           </span>
+//         </div>
+
+//         <div className="p-5">
+//           <h3 className="font-bold text-lg mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+//             Julio Herrera Velutini: A Legacy in World Finance
+//           </h3>
+//           <p className="text-gray-600 text-sm line-clamp-3 mb-4">
+//             Discover the profound impact of Julio Herrera Velutini's leadership in the world of finance and economic stabilization.
+//           </p>
+
+//           <div className="flex items-center justify-between text-xs text-gray-500">
+//             <div className="flex items-center gap-1">
+//               <GoClock className="text-gray-400" />
+//               <span>January 13, 2026</span>
+//             </div>
+//           </div>
+//         </div>
+//       </Link>
+
+//       {/* Dynamic Cards for Author's Articles */}
+//       {authorArticles.map((article) => (
+//         <Link
+//           key={article.id}
+//           href={`/julio-herrera-velutini/${article.slug}`} // Custom URL structure for Marketing & Branding
+//           className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+//         >
+//           <div className="relative h-36">
+//             <Image
+//               src={article.heroImage}
+//               alt={article.title}
+//               fill
+//               className="object-cover group-hover:scale-110 transition-transform duration-500"
+//             />
+//             <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
+//               {article.category}
+//             </span>
+//           </div>
+
+//           <div className="p-5">
+//             <h3 className="font-bold text-lg mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+//               {article.title}
+//             </h3>
+//             <p className="text-gray-600 text-sm line-clamp-3 mb-4">
+//               {article.subtitle}
+//             </p>
+
+//             <div className="flex items-center justify-between text-xs text-gray-500">
+//               <div className="flex items-center gap-1">
+//                 <GoClock className="text-gray-400" />
+//                 <span>{article.lastUpdated}</span>
+//               </div>
+//             </div>
+//           </div>
+//         </Link>
+//       ))}
+//     </div>
+//   )}
+// </section>
+
+//       ) : (
+//         // Render articles for other categories
+//         <section>
+//           <h2 className="text-3xl font-bold mb-10">
+//             Articles by {author.name} ({authorArticles.length})
+//           </h2>
+
+//           {authorArticles.length === 0 ? (
+//             <p className="text-gray-600 text-center py-10">
+//               No articles published yet.
+//             </p>
+//           ) : (
+//             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+//               {authorArticles.map((article) => (
+//                 <Link
+//                   key={article.id}
+//                   href={`/${article.category.toLowerCase()}/${article.slug}`} // Regular URL structure for other categories
+//                   className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+//                 >
+//                   <div className="relative h-36">
+//                     <Image
+//                       src={article.image}
+//                       alt={article.title}
+//                       fill
+//                       className="object-cover group-hover:scale-110 transition-transform duration-500"
+//                     />
+//                     <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
+//                       {article.category}
+//                     </span>
+//                   </div>
+
+//                   <div className="p-5">
+//                     <h3 className="font-bold text-lg mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+//                       {article.title}
+//                     </h3>
+//                     <p className="text-gray-600 text-sm line-clamp-3 mb-4">
+//                       {article.excerpt}
+//                     </p>
+
+//                     <div className="flex items-center justify-between text-xs text-gray-500">
+//                       <div className="flex items-center gap-1">
+//                         <GoClock className="text-gray-400" />
+//                         <span>{article.date}</span>
+//                       </div>
+//                       <div className="flex items-center gap-1">
+//                         <LuAlarmClock className="text-gray-400" />
+//                         <span>{article.readTime}</span>
+//                       </div>
+//                     </div>
+//                   </div>
+//                 </Link>
+//               ))}
+//             </div>
+//           )}
+//         </section>
+//       )}
+//     </main>
+//   );
+// }
+
+
+
 import Image from "next/image";
 import Link from "next/link";
-
 import { GoClock } from "react-icons/go";
 import { LuAlarmClock } from "react-icons/lu";
-
 import authorsData from "../../../public/data/authors.json"; 
 import articlesData from "../../../public/data/articles.json"; 
 import { slugify } from "../../../utils/slugify";
@@ -13,11 +310,94 @@ import { FaXTwitter } from "react-icons/fa6";
 import { SiMedium } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa6";
 import pillarContent from "../../../public/data/pillarContent.json";
+import Script from "next/script";
+
+export async function generateAuthorProfileMetadata({ params }) {
+  const { slug } = await params;
+  const authorEntry = authorsData.categories.find(
+    (item) => slugify(item.author.name) === slug
+  );
+
+  
+
+  if (!authorEntry) {
+    return {
+      title: "Author not found | NewsWireNinja",
+      description: "The requested author profile could not be found.",
+      robots: "noindex",
+    };
+  }
+
+  const { author, category } = authorEntry;
+  const SITE_URL = "https://www.newswireninja.com";
+
+  return {
+    title: `${author.name} | Author Profile | NewsWireNinja`,
+    description: author.bio,
+    alternates: {
+      canonical: `${SITE_URL}/authors/${slugify(author.name)}`,
+    },
+    openGraph: {
+      title: `${author.name} | Author Profile | NewsWireNinja`,
+      description: author.bio,
+      url: `${SITE_URL}/authors/${slugify(author.name)}`,
+      siteName: "Newswireninja",
+      images: [
+        {
+          url: `${SITE_URL}${author.profileImage}`,
+          width: 1200,
+          height: 630,
+          alt: author.name,
+        },
+      ],
+      type: "profile",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${author.name} | Author Profile | NewsWireNinja`,
+      description: author.bio,
+      images: [`${SITE_URL}${author.profileImage}`],
+    },
+    articleJsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: author.name,
+      url: `${SITE_URL}/authors/${slugify(author.name)}`,
+      image: `${SITE_URL}${author.profileImage}`,
+      description: author.bio,
+      sameAs: [author.social.twitter, author.social.facebook, author.social.linkedin, author.social.medium].filter(Boolean),
+    },
+    breadcrumbJsonLd: {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: SITE_URL,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Authors",
+          item: `${SITE_URL}/authors`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: author.name,
+          item: `${SITE_URL}/authors/${slugify(author.name)}`,
+        },
+      ],
+    },
+  };
+}
 
 export default async function AuthorProfile({ params }) {
   const { slug } = await params;
+  const metadata = await generateAuthorProfileMetadata({ params });
 
-  // Find the author by slugified name
   const authorEntry = authorsData.categories.find(
     (item) => slugify(item.author.name) === slug
   );
@@ -32,266 +412,290 @@ export default async function AuthorProfile({ params }) {
 
   const { author, category } = authorEntry;
 
-  // Get all articles from this author's category (since each category has one main author)
   let authorArticles = articlesData[category.toLowerCase()] || [];
-
   if (category.toLowerCase() === "marketing & branding") {
-    // Use pillarContent for Marketing & Branding category
     authorArticles = pillarContent.filter(article => article.category.toLowerCase() === "marketing & branding");
   }
 
   return (
-    <main className="mx-auto max-w-7xl px-4 sm:px-6 py-16 font-serif">
-      {/* Hero Section */}
-      <div className="mb-12 lg:mb-20">
-        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12 xl:gap-16 
-                        bg-gradient-to-br from-blue-50 to-blue-100 
-                        rounded-2xl p-6 sm:p-10 lg:p-12 shadow-xl">
-          
-          {/* Circular Profile Image */}
-          <div className="flex-shrink-0 order-1 lg:order-1">
-            <div className="relative w-40 h-40 xs:w-48 xs:h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 
-                            mx-auto lg:mx-0">
-              <Image
-                src={author.profileImage}
-                alt={author.name}
-                fill
-                sizes="(max-width: 768px) 160px, (max-width: 1024px) 224px, 256px"
-                className="object-cover rounded-full border-8 border-white shadow-2xl 
-                          transition-transform duration-500 hover:scale-105"
-                priority
-              />
+    <>
+      {/* JSON-LD Scripts */}
+      <Script
+        id="author-profile-json-ld"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(metadata.articleJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+      <Script
+        id="author-profile-opengraph"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(metadata.openGraph).replace(/</g, "\\u003c"),
+        }}
+      />
+      <Script
+        id="author-profile-twitter-card"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(metadata.twitter).replace(/</g, "\\u003c"),
+        }}
+      />
+
+      <main className="mx-auto max-w-7xl px-4 sm:px-6 py-16 font-serif">
+        {/* Hero Section */}
+        <div className="mb-12 lg:mb-20">
+          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12 xl:gap-16 
+                          bg-gradient-to-br from-blue-50 to-blue-100 
+                          rounded-2xl p-6 sm:p-10 lg:p-12 shadow-xl">
+            
+            {/* Circular Profile Image */}
+            <div className="flex-shrink-0 order-1 lg:order-1">
+              <div className="relative w-40 h-40 xs:w-48 xs:h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 
+                              mx-auto lg:mx-0">
+                <Image
+                  src={author.profileImage}
+                  alt={author.name}
+                  fill
+                  sizes="(max-width: 768px) 160px, (max-width: 1024px) 224px, 256px"
+                  className="object-cover rounded-full border-8 border-white shadow-2xl 
+                            transition-transform duration-500 hover:scale-105"
+                  priority
+                />
+              </div>
             </div>
-          </div>
 
-          {/* Author Info */}
-          <div className="flex-1 text-center lg:text-left order-2">
-            {/* Category Badge */}
-            <span className="inline-block bg-blue-600 text-white px-4 py-2 text-xs sm:text-sm font-bold 
-                            rounded-full mb-4 sm:mb-6 uppercase tracking-wider">
-              {category}
-            </span>
+            {/* Author Info */}
+            <div className="flex-1 text-center lg:text-left order-2">
+              {/* Category Badge */}
+              <span className="inline-block bg-blue-600 text-white px-4 py-2 text-xs sm:text-sm font-bold 
+                              rounded-full mb-4 sm:mb-6 uppercase tracking-wider">
+                {category}
+              </span>
 
-            {/* Name */}
-            <h1 className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 
-                          mb-3 sm:mb-4 leading-tight">
-              {author.name}
-            </h1>
+              {/* Name */}
+              <h1 className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 
+                            mb-3 sm:mb-4 leading-tight">
+                {author.name}
+              </h1>
 
-            {/* Role */}
-            <p className="text-lg sm:text-xl text-gray-700 mb-6 sm:mb-8 opacity-90">
-              {author.role}
-            </p>
-
-            {/* Bio - Responsive */}
-            <div className="text-base sm:text-lg leading-relaxed text-gray-600 max-w-3xl mx-auto lg:mx-0">
-              {/* Full bio on lg+ screens */}
-              <p className="hidden lg:block text-sm">{author.bio}</p>
-              
-              {/* Truncated on smaller screens */}
-              <p className="block lg:hidden text-sm">
-                {author.bio.length > 150 
-                  ? `${author.bio.slice(0, 150).trim()}...` 
-                  : author.bio}
+              {/* Role */}
+              <p className="text-lg sm:text-xl text-gray-700 mb-6 sm:mb-8 opacity-90">
+                {author.role}
               </p>
-            </div>
 
-            {/* Social Links */}
-           <div className="mt-8 sm:mt-10 flex gap-5 sm:gap-6 justify-center lg:justify-start">
-              {author.social.twitter && (
-                <a
-                  href={author.social.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-black hover:scale-90 transition-all duration-300 text-lg sm:text-xl"
-                  aria-label={`${author.name} on Twitter`}
-                >
-                  <FaXTwitter />
-                </a>
-              )}
-              {author.social.facebook && (
-                <a
-                  href={author.social.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-blue-700 hover:scale-90 transition-all duration-300 text-lg sm:text-xl"
-                  aria-label={`${author.name} on Facebook`}
-                >
-                  <FaFacebookF />
-                </a>
-              )}
-              {author.social.linkedIn && (
-                <a
-                  href={author.social.linkedIn}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-blue-700 hover:scale-90 transition-all duration-300 text-lg sm:text-xl"
-                  aria-label={`${author.name} on LinkedIn`}
-                >
-                  <FaLinkedin />
-                </a>
-              )}
-              {author.social.medium && (
-                <a
-                  href={author.social.medium}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-black hover:scale-90 transition-all duration-300 text-lg sm:text-xl"
-                  aria-label={`${author.name} on Medium`}
-                >
-                  <SiMedium />
-                </a>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
+              {/* Bio - Responsive */}
+              <div className="text-base sm:text-lg leading-relaxed text-gray-600 max-w-3xl mx-auto lg:mx-0">
+                {/* Full bio on lg+ screens */}
+                <p className="hidden lg:block text-sm">{author.bio}</p>
+                
+                {/* Truncated on smaller screens */}
+                <p className="block lg:hidden text-sm">
+                  {author.bio.length > 150 
+                    ? `${author.bio.slice(0, 150).trim()}...` 
+                    : author.bio}
+                </p>
+              </div>
 
-      {/* Articles by this Author */}
-      {category.toLowerCase() === "marketing & branding" ? (
-        // Render articles for "Marketing & Branding" category
-       <section>
-  <h2 className="text-3xl font-bold mb-10">
-    Articles by {author.name} ({authorArticles.length + 1})
-  </h2>
-
-  {authorArticles.length === 0 ? (
-    <p className="text-gray-600 text-center py-10">
-      No articles published yet.
-    </p>
-  ) : (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      
-      {/* Static Card for Julio Herrera Velutini */}
-      <Link
-        href="/business/julio-herrera-velutini-legacy-finance"
-        className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
-      >
-        <div className="relative h-36">
-          <Image
-            src="/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp"
-            alt="Julio Herrera Velutini: A Legacy in World Finance"
-            fill
-            className="object-cover group-hover:scale-110 transition-transform duration-500"
-          />
-          <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
-            Business
-          </span>
-        </div>
-
-        <div className="p-5">
-          <h3 className="font-bold text-lg mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
-            Julio Herrera Velutini: A Legacy in World Finance
-          </h3>
-          <p className="text-gray-600 text-sm line-clamp-3 mb-4">
-            Discover the profound impact of Julio Herrera Velutini's leadership in the world of finance and economic stabilization.
-          </p>
-
-          <div className="flex items-center justify-between text-xs text-gray-500">
-            <div className="flex items-center gap-1">
-              <GoClock className="text-gray-400" />
-              <span>January 13, 2026</span>
-            </div>
-          </div>
-        </div>
-      </Link>
-
-      {/* Dynamic Cards for Author's Articles */}
-      {authorArticles.map((article) => (
-        <Link
-          key={article.id}
-          href={`/julio-herrera-velutini/${article.slug}`} // Custom URL structure for Marketing & Branding
-          className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
-        >
-          <div className="relative h-36">
-            <Image
-              src={article.heroImage}
-              alt={article.title}
-              fill
-              className="object-cover group-hover:scale-110 transition-transform duration-500"
-            />
-            <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
-              {article.category}
-            </span>
-          </div>
-
-          <div className="p-5">
-            <h3 className="font-bold text-lg mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
-              {article.title}
-            </h3>
-            <p className="text-gray-600 text-sm line-clamp-3 mb-4">
-              {article.subtitle}
-            </p>
-
-            <div className="flex items-center justify-between text-xs text-gray-500">
-              <div className="flex items-center gap-1">
-                <GoClock className="text-gray-400" />
-                <span>{article.lastUpdated}</span>
+              {/* Social Links */}
+              <div className="mt-8 sm:mt-10 flex gap-5 sm:gap-6 justify-center lg:justify-start">
+                {author.social.twitter && (
+                  <a
+                    href={author.social.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:text-black hover:scale-90 transition-all duration-300 text-lg sm:text-xl"
+                    aria-label={`${author.name} on Twitter`}
+                  >
+                    <FaXTwitter />
+                  </a>
+                )}
+                {author.social.facebook && (
+                  <a
+                    href={author.social.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:text-blue-700 hover:scale-90 transition-all duration-300 text-lg sm:text-xl"
+                    aria-label={`${author.name} on Facebook`}
+                  >
+                    <FaFacebookF />
+                  </a>
+                )}
+                {author.social.linkedIn && (
+                  <a
+                    href={author.social.linkedIn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:text-blue-700 hover:scale-90 transition-all duration-300 text-lg sm:text-xl"
+                    aria-label={`${author.name} on LinkedIn`}
+                  >
+                    <FaLinkedin />
+                  </a>
+                )}
+                {author.social.medium && (
+                  <a
+                    href={author.social.medium}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:text-black hover:scale-90 transition-all duration-300 text-lg sm:text-xl"
+                    aria-label={`${author.name} on Medium`}
+                  >
+                    <SiMedium />
+                  </a>
+                )}
               </div>
             </div>
           </div>
-        </Link>
-      ))}
-    </div>
-  )}
-</section>
+        </div>
 
-      ) : (
-        // Render articles for other categories
-        <section>
-          <h2 className="text-3xl font-bold mb-10">
-            Articles by {author.name} ({authorArticles.length})
-          </h2>
+        {/* Articles by this Author */}
+        {category.toLowerCase() === "marketing & branding" ? (
+          // Render articles for "Marketing & Branding" category
+          <section>
+            <h2 className="text-3xl font-bold mb-10">
+              Articles by {author.name} ({authorArticles.length + 1})
+            </h2>
 
-          {authorArticles.length === 0 ? (
-            <p className="text-gray-600 text-center py-10">
-              No articles published yet.
-            </p>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {authorArticles.map((article) => (
+            {authorArticles.length === 0 ? (
+              <p className="text-gray-600 text-center py-10">
+                No articles published yet.
+              </p>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {/* Static Card for Julio Herrera Velutini */}
                 <Link
-                  key={article.id}
-                  href={`/${article.category.toLowerCase()}/${article.slug}`} // Regular URL structure for other categories
+                  href="/business/julio-herrera-velutini-legacy-finance"
                   className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
                 >
                   <div className="relative h-36">
                     <Image
-                      src={article.image}
-                      alt={article.title}
+                      src="/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp"
+                      alt="Julio Herrera Velutini: A Legacy in World Finance"
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
-                      {article.category}
+                      Business
                     </span>
                   </div>
 
                   <div className="p-5">
                     <h3 className="font-bold text-lg mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
-                      {article.title}
+                      Julio Herrera Velutini: A Legacy in World Finance
                     </h3>
                     <p className="text-gray-600 text-sm line-clamp-3 mb-4">
-                      {article.excerpt}
+                      Discover the profound impact of Julio Herrera Velutini's leadership in the world of finance and economic stabilization.
                     </p>
 
                     <div className="flex items-center justify-between text-xs text-gray-500">
                       <div className="flex items-center gap-1">
                         <GoClock className="text-gray-400" />
-                        <span>{article.date}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <LuAlarmClock className="text-gray-400" />
-                        <span>{article.readTime}</span>
+                        <span>January 13, 2026</span>
                       </div>
                     </div>
                   </div>
                 </Link>
-              ))}
-            </div>
-          )}
-        </section>
-      )}
-    </main>
+
+                {/* Dynamic Cards for Author's Articles */}
+                {authorArticles.map((article) => (
+                  <Link
+                    key={article.id}
+                    href={`/julio-herrera-velutini/${article.slug}`} // Custom URL structure for Marketing & Branding
+                    className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+                  >
+                    <div className="relative h-36">
+                      <Image
+                        src={article.heroImage}
+                        alt={article.title}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
+                        {article.category}
+                      </span>
+                    </div>
+
+                    <div className="p-5">
+                      <h3 className="font-bold text-lg mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                        {article.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm line-clamp-3 mb-4">
+                        {article.subtitle}
+                      </p>
+
+                      <div className="flex items-center justify-between text-xs text-gray-500">
+                        <div className="flex items-center gap-1">
+                          <GoClock className="text-gray-400" />
+                          <span>{article.lastUpdated}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </section>
+        ) : (
+          // Render articles for other categories
+          <section>
+            <h2 className="text-3xl font-bold mb-10">
+              Articles by {author.name} ({authorArticles.length})
+            </h2>
+
+            {authorArticles.length === 0 ? (
+              <p className="text-gray-600 text-center py-10">
+                No articles published yet.
+              </p>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {authorArticles.map((article) => (
+                  <Link
+                    key={article.id}
+                    href={`/${article.category.toLowerCase()}/${article.slug}`} // Regular URL structure for other categories
+                    className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+                  >
+                    <div className="relative h-36">
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
+                        {article.category}
+                      </span>
+                    </div>
+
+                    <div className="p-5">
+                      <h3 className="font-bold text-lg mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                        {article.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm line-clamp-3 mb-4">
+                        {article.excerpt}
+                      </p>
+
+                      <div className="flex items-center justify-between text-xs text-gray-500">
+                        <div className="flex items-center gap-1">
+                          <GoClock className="text-gray-400" />
+                          <span>{article.date}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <LuAlarmClock className="text-gray-400" />
+                          <span>{article.readTime}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </section>
+        )}
+      </main>
+    </>
   );
 }
+
