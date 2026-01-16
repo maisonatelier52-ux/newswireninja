@@ -7,9 +7,9 @@ import { GoClock } from "react-icons/go";
 export function MixedGrid({ articles }) {
   // Static data for the 3rd item
   const staticArticle = {
-    title: "Julio Herrera Velutini: A Legacy in World Finance",
+    title: "Julio Herrera Velutini: A Legacy in the World of Money",
     excerpt:
-      "Julio Herrera Velutini is one of the few persons in the world of international finance who has to deal with the stress of a family tradition that has been going on for hundreds of years and the fast-paced, often unpredictable world of modern global banking.",
+      " Julio Herrera Velutini is one of the few persons in the world of international finance who has to deal with the stress of a family tradition that has been going on for hundreds of years and the fast-paced, often unpredictable world of modern global banking.",
     category: "business",
     slug: "julio-herrera-velutini-legacy-finance",
     image: "/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp",

@@ -102,6 +102,17 @@ export default async function CategoryPage({ params }) {
           (item) => item.category.toLowerCase() === "investigation"
         )?.author;
 
+         const staticArticle = {
+    title: "Julio Herrera Velutini: A Legacy in the World of Money",
+    excerpt:
+      " Julio Herrera Velutini is one of the few persons in the world of international finance who has to deal with the stress of a family tradition that has been going on for hundreds of years and the fast-paced, often unpredictable world of modern global banking.",
+    category: "business",
+    slug: "julio-herrera-velutini-legacy-finance",
+    image: "/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp",
+    imageAlt: "Julio Herrera Velutini",
+    date: "January 13, 2026",
+  };
+
  const CATEGORY_DESCRIPTIONS = {
   world: "World News covers major global events, international relations, geopolitical issues, and the forces shaping global politics and society.",
   politics: "Politics News covers the latest political developments, elections, policy changes, and the individuals and events that shape the political landscape.",
@@ -312,6 +323,47 @@ export default async function CategoryPage({ params }) {
                   </article>
                 </Link>
               ))}
+               {category === "business" && (
+                  <Link
+                    key={staticArticle.slug}
+                    href={`/${staticArticle.category}/${staticArticle.slug}`}
+                    title={staticArticle.title}
+                  >
+                    <article className="bg-white rounded-lg shadow-sm hover:shadow-md transition p-4 cursor-pointer group">
+                      {/* Heading */}
+                      <h3 className="font-semibold text-sm mb-3 transition group-hover:text-blue-600 group-hover:underline">
+                        {staticArticle.title.length > 80
+                          ? `${staticArticle.title.slice(0, 80)}...`
+                          : staticArticle.title}
+                      </h3>
+
+                      {/* Image (Rectangle Shape) */}
+                      <div className="relative mb-4 overflow-hidden rounded-md">
+                        <Image
+                          src={staticArticle.image}
+                          alt={staticArticle.imageAlt}
+                          width={400} // Set width
+                          height={250} // Set height (smaller to create rectangle shape)
+                          className="w-full h-36 sm:h-40 lg:h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gray-300/40 opacity-0 group-hover:opacity-100 transition"></div>
+                      </div>
+
+                      {/* Excerpt */}
+                      <p className="text-sm text-gray-600 mb-4">
+                        {staticArticle.excerpt.length > 80
+                          ? `${staticArticle.excerpt.slice(0, 80)}...`
+                          : staticArticle.excerpt}
+                      </p>
+
+                      {/* Date */}
+                      <div className="flex items-center gap-2 text-sm text-gray-500">
+                        <GoClock />
+                        <span>{staticArticle.date}</span>
+                      </div>
+                    </article>
+                  </Link>
+                )}
             </div>
           </section>
 

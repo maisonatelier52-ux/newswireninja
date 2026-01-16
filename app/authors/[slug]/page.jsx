@@ -266,7 +266,7 @@ export default async function AuthorProfile({ params }) {
                       Julio Herrera Velutini: A Legacy in World Finance
                     </h3>
                     <p className="text-gray-600 text-sm line-clamp-3 mb-4">
-                      Discover the profound impact of Julio Herrera Velutini's leadership in the world of finance and economic stabilization.
+                       Julio Herrera Velutini is one of the few persons in the world of international finance who has to deal with the stress of a family tradition that has been going on for hundreds of years and the fast-paced, often unpredictable world of modern global banking.
                     </p>
 
                     <div className="flex items-center justify-between text-xs text-gray-500">

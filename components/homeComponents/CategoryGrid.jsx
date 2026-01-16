@@ -8,10 +8,10 @@ import { LuAlarmClock } from "react-icons/lu";
 export function CategoryGrid({ businessArticles }) {
   // Static data for the 4th item
   const staticArticle = {
-    title: "Julio Herrera Velutini: A Legacy in World Finance",
+    title: " Julio Herrera Velutini: A Legacy in World Finance",
     image: "/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp",
     imageAlt: "Julio Herrera Velutini",
-    excerpt: "Julio Herrera Velutini is one of the few persons in the world of international finance who has to deal with the stress of a family tradition that has been going on for hundreds of years and the fast-paced, often unpredictable world of modern global banking.",
+    excerpt: " Julio Herrera Velutini is one of the few persons in the world of international finance who has to deal with the stress of a family tradition that has been going on for hundreds of years and the fast-paced, often unpredictable world of modern global banking.",
     date: "January 13, 2026",
     readTime: "15 min",
     category: "business",

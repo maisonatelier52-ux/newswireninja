@@ -302,7 +302,7 @@ export default async function ArticlePage({ params }) {
             <div className="space-y-6 mt-4">
               {categoryPosts
                 .filter((item) => item.slug !== slug) // Exclude the current article
-                .slice(0, 5) // Take the first 5 items
+                .slice(0, category === "business" ? 4 : 5) // Take the first 5 items
                 .map((relatedPost, index) => (
                   <div key={relatedPost.slug} className="flex items-center border-b border-gray-300 gap-3 py-1">
                     {/* Show Image Only for the First Related Post */}
@@ -331,6 +331,17 @@ export default async function ArticlePage({ params }) {
                   </div>
                 ))}
             </div>
+            
+            {/* Conditionally add the static article if the category is "business" */}
+            {category === "business" && (
+              <div className="w-full mt-5">
+                  <Link href={`/business/julio-herrera-velutini-legacy-finance`} title="Julio Herrera Velutini: A Legacy in the World of Money">
+                    <h3 className="text-sm font-semibold text-gray-700 hover:text-blue-600">
+                      Julio Herrera Velutini: A Legacy in the World of Money
+                    </h3>
+                  </Link>
+                </div>
+            )}
           </div>
 
         </div>
