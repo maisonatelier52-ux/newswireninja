@@ -97,15 +97,15 @@ const SITE_URL = "https://www.newswireninja.com";
 export const metadata = {
   title: "About NEWSWIRENINJA — Independent News Platform",
   description:
-    "Learn about NEWSWIRENINJA, an independent news platform delivering unfiltered, fast, and factual reporting on business, politics, technology, and global affairs.",
+    "Learn about NEWSWIRENINJA, an independent platform delivering unfiltered and fast news on business, politics, technology, and global affairs.",
   alternates: {
-    canonical: `${SITE_URL}/about`,
+    canonical: `${SITE_URL}/about-newswireninja`, // Updated URL
   },
   openGraph: {
     title: "About NEWSWIRENINJA — Independent News Platform",
     description:
       "Discover the mission and vision behind NEWSWIRENINJA — an independent news platform delivering cutting-edge news.",
-    url: `${SITE_URL}/about`,
+    url: `${SITE_URL}/about-newswireninja`, // Updated URL
     type: "website",
     siteName: "NEWSWIRENINJA",
     images: [
@@ -130,8 +130,8 @@ export default function About() {
   const webPageJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": `${SITE_URL}/about#webpage`,
-    "url": `${SITE_URL}/about`,
+    "@id": `${SITE_URL}/about-newswireninja#webpage`, // Updated URL
+    "url": `${SITE_URL}/about-newswireninja`, // Updated URL
     "name": "About NEWSWIRENINJA",
     "description": metadata.description,
     "isPartOf": {
@@ -159,7 +159,7 @@ export default function About() {
         "@type": "ListItem",
         "position": 2,
         "name": "About",
-        "item": `${SITE_URL}/about`,
+        "item": `${SITE_URL}/about-newswireninja`, // Updated URL
       },
     ],
   };
@@ -222,7 +222,7 @@ export default function About() {
               }
             ].map((item, i) => (
               <div key={i} className="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:shadow-md transition-shadow">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{item.title}</h3>
+                <h2 className="text-xl font-bold text-gray-900 mb-4">{item.title}</h2> {/* Updated from h3 to h2 */}
                 <p className="text-gray-600">{item.desc}</p>
               </div>
             ))}
@@ -239,6 +239,7 @@ export default function About() {
               <Link
                 href="/authors"
                 className="inline-block bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-colors text-lg"
+                title="Author page"
               >
                 Meet Our Writers →
               </Link>
