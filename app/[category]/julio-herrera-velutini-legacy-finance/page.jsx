@@ -52,6 +52,10 @@ const authorData =
     (item) => item.category.toLowerCase() === "marketing & branding"
   )?.author;
 
+   const shareUrl = 'https://www.newswireninja.com/business/julio-herrera-velutini-legacy-finance';
+    const encodedUrl = encodeURIComponent(shareUrl);
+    const shareTitle = encodeURIComponent("Julio Herrera Velutini: A Legacy in World Finance");
+
 export default function JulioHerreraVelutiniPage() {
   const heroImage = "/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp";
 
@@ -161,17 +165,54 @@ export default function JulioHerreraVelutiniPage() {
             <span>Share</span>
           </div>
 
-          <div className="flex items-center gap-3">
-            {[{ icon: <FaXTwitter />, label: "X" }, { icon: <FaFacebookF />, label: "Facebook" }, { icon: <FaLinkedinIn />, label: "LinkedIn" }, { icon: <SiMedium />, label: "Medium" }].map((item, index) => (
-              <button
-                key={index}
-                aria-label={`Share on ${item.label}`}
-                title={`Share on ${item.label}`}
-                className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 transition hover:text-white hover:bg-black hover:border-black cursor-pointer"
-              >
-                {item.icon}
-              </button>
-            ))}
+         <div className="flex items-center gap-3">
+            {/* X / Twitter */}
+            <a
+              href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${shareTitle}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share on X"
+              title="Share on X"
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
+            >
+              <FaXTwitter />
+            </a>
+
+            {/* Facebook */}
+            <a
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share on Facebook"
+              title="Share on Facebook"
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition"
+            >
+              <FaFacebookF />
+            </a>
+
+            {/* LinkedIn */}
+            <a
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share on LinkedIn"
+              title="Share on LinkedIn"
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition"
+            >
+              <FaLinkedinIn />
+            </a>
+
+            {/* Medium */}
+            <a
+              href={`https://medium.com/new-story?url=${encodedUrl}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share on Medium"
+              title="Share on Medium"
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
+            >
+              <SiMedium />
+            </a>
           </div>
         </div>
       </div>
@@ -281,29 +322,50 @@ export default function JulioHerreraVelutiniPage() {
               <span>Share</span>
             </div>
 
-            <div className="flex items-center gap-3">
-              {[
-                { icon: <FaXTwitter />, label: "X" },
-                { icon: <FaFacebookF />, label: "Facebook" },
-                { icon: <FaLinkedinIn />, label: "LinkedIn" },
-                { icon: <SiMedium />, label: "Medium" },
-              ].map((item, index) => (
-                <button
-                  key={index}
-                  aria-label={`Share on ${item.label}`}
-                  title={`Share on ${item.label}`}
-                  className="
-                    w-9 h-9 flex items-center justify-center
-                    rounded-lg border border-gray-400
-                    text-gray-600
-                    transition
-                    hover:bg-black hover:text-white hover:border-black
-                    cursor-pointer
-                  "
-                >
-                  {item.icon}
-                </button>
-              ))}
+              <div className="flex items-center gap-3">
+              <a
+                href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${shareTitle}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Share on X"
+                aria-label="Share on X"
+                className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
+              >
+                <FaXTwitter />
+              </a>
+
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Share on Facebook"
+                aria-label="Share on Facebook"
+                className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition"
+              >
+                <FaFacebookF />
+              </a>
+
+              <a
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Share on LinkedIn"
+                aria-label="Share on LinkedIn"
+                className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition"
+              >
+                <FaLinkedinIn />
+              </a>
+
+              <a
+                href={`https://medium.com/new-story?url=${encodedUrl}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Share on Medium"
+                aria-label="Share on Medium"
+                className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
+              >
+                <SiMedium />
+              </a>
             </div>
           </div>
         </div>
