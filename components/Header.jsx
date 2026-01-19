@@ -15,8 +15,10 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  
+  const mobileSearchRef = useRef(null);
+const desktopSearchRef = useRef(null);
 
-  const searchRef = useRef(null);
 
   // Flatten all articles + attach category
   const allArticles = Object.entries(categoryData).flatMap(([category, articles]) =>
@@ -44,15 +46,25 @@ export default function Header() {
       .includes(searchQuery.toLowerCase().trim());
 
   // Close dropdown when clicking outside
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (searchRef.current && !searchRef.current.contains(event.target)) {
-        setSearchOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+ useEffect(() => {
+  function handleClickOutside(event) {
+    if (
+      mobileSearchRef.current &&
+      mobileSearchRef.current.contains(event.target)
+    ) return;
+
+    if (
+      desktopSearchRef.current &&
+      desktopSearchRef.current.contains(event.target)
+    ) return;
+
+    setSearchOpen(false);
+  }
+
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => document.removeEventListener("mousedown", handleClickOutside);
+}, []);
+
 
   // Close on Escape
   useEffect(() => {
@@ -95,7 +107,7 @@ export default function Header() {
             </div>
 
             {/* Mobile Search Icon + Dropdown */}
-            <div ref={searchRef} className="relative">
+            <div ref={mobileSearchRef} className="relative">
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
                 className="text-2xl cursor-pointer"
@@ -201,7 +213,7 @@ export default function Header() {
           </div>
 
           {/* ===== DESKTOP LEFT (search + date) ===== */}
-          <div ref={searchRef} className="absolute left-4 top-10 hidden md:flex items-center gap-4 relative">
+          <div ref={desktopSearchRef} className="absolute left-4 top-10 hidden md:flex items-center gap-4 relative">
             <button
               onClick={() => setSearchOpen(!searchOpen)}
               className="text-xl cursor-pointer hover:text-gray-600"
