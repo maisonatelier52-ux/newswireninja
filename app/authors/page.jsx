@@ -31,7 +31,7 @@ export async function generateMetadata() {
       siteName: "Newswireninja",
       images: [
         {
-          url: `${SITE_URL}/images/authors-cover.webp`,
+          url: `${SITE_URL}/images/newswireninja-logo.webp`,
           width: 1200,
           height: 630,
           alt: "Meet Our Authors at NewsWireNinja",
@@ -44,7 +44,7 @@ export async function generateMetadata() {
       title: "Meet Our Authors | NewsWireNinja",
       description:
         "Discover the expert writers and journalists behind NewsWireNinja.",
-      images: [`${SITE_URL}/images/authors-cover.webp`],
+      images: [`${SITE_URL}/images/newswireninja-logo.webp`],
     },
   };
 }

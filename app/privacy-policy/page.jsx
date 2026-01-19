@@ -17,7 +17,7 @@ export const metadata = {
     siteName: "Newswireninja",
     images: [
       {
-        url: `${SITE_URL}/newswireninja-about-image.jpg`, // Update with your image path
+        url: `${SITE_URL}/images/newswireninja-logo.webp`, // Update with your image path
         width: 1200,
         height: 630,
         alt: "Privacy Policy - NEWSWIRENINJA",
@@ -29,7 +29,7 @@ export const metadata = {
     title: "NEWSWIRENINJA Privacy Policy",
     description:
       "Understand how NEWSWIRENINJA collects, uses, and safeguards user information across our platform.",
-    images: [`${SITE_URL}/newswireninja-about-image.jpg`], // Update with your image path
+    images: [`${SITE_URL}/images/newswireninja-logo.webp`], // Update with your image path
   },
 };
 

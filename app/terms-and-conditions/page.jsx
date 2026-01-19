@@ -18,7 +18,7 @@ export const metadata = {
     siteName: "Newswireninja",
     images: [
       {
-        url: `${SITE_URL}/newswireninja-about-image.jpg`, // Reuse or update with a suitable image
+        url: `${SITE_URL}/images/newswireninja-logo.webp`, // Reuse or update with a suitable image
         width: 1200,
         height: 630,
         alt: "Terms and Conditions - NEWSWIRENINJA",
@@ -30,7 +30,7 @@ export const metadata = {
     title: "NEWSWIRENINJA Terms and Conditions",
     description:
       "The legal terms that apply when accessing or using content from NEWSWIRENINJA.",
-    images: [`${SITE_URL}/newswireninja-about-image.jpg`],
+    images: [`${SITE_URL}/images/newswireninja-logo.webp`],
   },
 };
 
