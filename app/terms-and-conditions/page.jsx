@@ -3,16 +3,16 @@ import Link from "next/link";
 const SITE_URL = "https://www.newswireninja.com";
 
 export const metadata = {
-  title: "Terms and Conditions — NEWSWIRENINJA",
+  title: "Terms and Conditions | NEWSWIRENINJA",
   description:
-    "Read the Terms and Conditions governing your use of NEWSWIRENINJA, our independent news platform delivering unfiltered news on business, politics, technology, and global affairs.",
+    "Official Terms and Conditions for using NEWSWIRENINJA, including content use, rights, disclaimers, and liability limits.",
   alternates: {
     canonical: `${SITE_URL}/terms-and-conditions`,
   },
   openGraph: {
-    title: "NEWSWIRENINJA Terms and Conditions",
+    title: "Terms and Conditions | NEWSWIRENINJA",
     description:
-      "Understand the rules and guidelines for using NEWSWIRENINJA, including content usage, intellectual property, and liability limitations.",
+      "Review the official Terms and Conditions governing use of the NEWSWIRENINJA website and services.",
     url: `${SITE_URL}/terms-and-conditions`,
     type: "website",
     siteName: "Newswireninja",
