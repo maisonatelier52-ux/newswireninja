@@ -107,7 +107,7 @@ export default function About() {
               Welcome to <strong>NEWSWIRENINJA</strong> — your independent source of news that cuts through the noise.
             </p>
             <p>
-              Launched in 2024, we exist because too many stories are filtered, softened, or simply ignored.
+              Launched in 2025, we exist because too many stories are filtered, softened, or simply ignored.
               Our mission is simple: deliver the truth — fast, clear, and without corporate spin.
             </p>
             <p>
