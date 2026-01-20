@@ -192,6 +192,7 @@ export default async function AuthorProfile({ params }) {
                   title={`${author.name} on X`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="hover:scale-90 transition"
                 >
                   <FaXTwitter />
                 </a>
@@ -202,6 +203,7 @@ export default async function AuthorProfile({ params }) {
                   title={`${author.name} on Quora`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="hover:scale-90 transition"
                 >
                   <FaQuora />
                 </a>
@@ -212,6 +214,7 @@ export default async function AuthorProfile({ params }) {
                   title={`${author.name} on Reddit`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="hover:scale-90 transition"
                 >
                   <FaRedditAlien />
                 </a>
@@ -222,6 +225,7 @@ export default async function AuthorProfile({ params }) {
                   title={`${author.name} on Medium`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="hover:scale-90 transition"
                 >
                   <SiMedium />
                 </a>

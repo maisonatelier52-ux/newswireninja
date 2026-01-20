@@ -219,6 +219,7 @@ export default function AuthorsPage() {
                             title={`Follow ${author.name} on X`}
                             target="_blank"
                             rel="noopener noreferrer"
+                            className="hover:scale-90 transition"
                           >
                             <FaXTwitter />
                           </a>
@@ -229,6 +230,7 @@ export default function AuthorsPage() {
                             title={`Follow ${author.name} on Quora`}
                             target="_blank"
                             rel="noopener noreferrer"
+                            className="hover:scale-90 transition"
                           >
                             <FaQuora />
                           </a>
@@ -239,6 +241,7 @@ export default function AuthorsPage() {
                             title={`Read ${author.name} on Medium`}
                             target="_blank"
                             rel="noopener noreferrer"
+                            className="hover:scale-90 transition"
                           >
                             <SiMedium />
                           </a>

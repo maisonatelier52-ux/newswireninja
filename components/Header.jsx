@@ -334,7 +334,7 @@ const desktopSearchRef = useRef(null);
               rel="noopener noreferrer"
               aria-label="Follow us on Quora"
               title="Follow us on Quora"
-              className="cursor-pointer hover:scale-90 hover:text-blue-600 transition"
+              className="cursor-pointer hover:scale-90 hover:text-red-600 transition"
             >
               <FaQuora />
             </a>
@@ -579,7 +579,7 @@ const desktopSearchRef = useRef(null);
                 rel="noopener noreferrer"
                 aria-label="Follow us on Quora"
                 title="Follow us on Quora"
-                className="hover:text-blue-600 transition"
+                className="hover:text-red-600 transition"
               >
                 <FaQuora />
               </a>
