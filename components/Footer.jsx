@@ -13,6 +13,9 @@ import {
 } from "react-icons/fa";
 import { FaArrowUp } from "react-icons/fa";
 import articleData from "../public/data/articles.json";
+import { SiMedium } from "react-icons/si";
+import { FaRedditAlien } from "react-icons/fa";
+import { FaQuora } from "react-icons/fa";
 
 export default function Footer() {
 
@@ -56,19 +59,74 @@ export default function Footer() {
             <div className="text-2xl font-bold mb-4">Newswire Ninja</div>
 
             {/* Description */}
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl
-              aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            <p className="text-gray-400 text-sm leading-relaxed mb-6 text-justify">
+              NEWSWIRENINJA is powered by a network of experienced journalists, analysts, and subject-matter experts
+              who are obsessed with getting the story right.
             </p>
 
             {/* Social Icons */}
             <div className="flex gap-4 text-lg">
-              <Link href="#" className="hover:text-red-500" title="Follow us on Facebook"><FaFacebookF /></Link>
-              <Link href="#" className="hover:text-red-500" title="Follow us on Twitter"><FaTwitter /></Link>
-              <Link href="#" className="hover:text-red-500" title="Follow us on Youtube"><FaYoutube /></Link>
-              <Link href="#" className="hover:text-red-500" title="Follow us on Pinterest"><FaPinterestP /></Link>
-              <Link href="#" className="hover:text-red-500" title="Follow us on Instagram"><FaInstagram /></Link>
+              {/* Quora */}
+              <a
+                href="https://www.quora.com/profile/Newswire-Ninja-1"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Follow us on Quora"
+                aria-label="Follow us on Quora"
+                className="hover:text-red-500 transition"
+              >
+                <FaQuora />
+              </a>
+
+              {/* Twitter / X */}
+              <a
+                href="https://x.com/NewswireN29245"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Follow us on X (Twitter)"
+                aria-label="Follow us on X"
+                className="hover:text-red-500 transition"
+              >
+                <FaTwitter />
+              </a>
+
+              {/* Reddit */}
+              <a
+                href="https://www.reddit.com/user/Newswire_Ninja/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Follow us on Reddit"
+                aria-label="Follow us on Reddit"
+                className="hover:text-red-500 transition"
+              >
+                <FaRedditAlien />
+              </a>
+
+              {/* Pinterest */}
+              <a
+                href="https://www.pinterest.com/newswireninja/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Follow us on Pinterest"
+                aria-label="Follow us on Pinterest"
+                className="hover:text-red-500 transition"
+              >
+                <FaPinterestP />
+              </a>
+
+              {/* Medium */}
+              <a
+                href="https://medium.com/@newswireninja_97993"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Follow us on Medium"
+                aria-label="Follow us on Medium"
+                className="hover:text-red-500 transition"
+              >
+                <SiMedium />
+              </a>
             </div>
+
           </div>
 
           {/* ================= COLUMN 2 ================= */}

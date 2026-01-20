@@ -11,6 +11,8 @@ import { FaShareSquare } from "react-icons/fa";
 import { FaXTwitter, FaFacebookF, FaLinkedinIn } from "react-icons/fa6";
 import { SiMedium } from "react-icons/si";
 import Link from "next/link";
+import { FaRedditAlien } from "react-icons/fa";
+import { FaQuora } from "react-icons/fa";
 
 const SITE_URL = "https://www.newswireninja.com";
 
@@ -515,28 +517,53 @@ export default async function ArticlePage({ params }) {
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-3">
               <span className="text-sm text-gray-600 hidden sm:block">Follow:</span>
+
               <div className="flex items-center gap-3">
                 {[
-                  { icon: <FaFacebookF />, label: "Facebook" },
-                  { icon: <FaLinkedinIn />, label: "LinkedIn" },
-                  { icon: <FaXTwitter />, label: "Twitter" },
-                  { icon: <SiMedium />, label: "Medium" },
-                ].map((item, index) => (
-                  <div key={index} className="relative group">
-                    <button
-                      aria-label={`Follow on ${item.label}`}
-                      title={`Follow on ${item.label}`}
-                      className="flex items-center justify-center hover:text-gray-400 cursor-pointer"
-                    >
-                      {item.icon}
-                    </button>
-                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity text-xs text-white bg-black px-2 py-1 rounded-md">
-                      {item.label}
+                  {
+                    icon: <FaQuora />,
+                    label: "Quora",
+                    url: authorData?.social?.quora,
+                  },
+                  {
+                    icon: <FaRedditAlien />,
+                    label: "Reddit",
+                    url: authorData?.social?.reddit,
+                  },
+                  {
+                    icon: <FaXTwitter />,
+                    label: "Twitter",
+                    url: authorData?.social?.twitter,
+                  },
+                  {
+                    icon: <SiMedium />,
+                    label: "Medium",
+                    url: authorData?.social?.medium,
+                  },
+                ]
+                  .filter(item => item.url) // only show icons that actually have links
+                  .map((item, index) => (
+                    <div key={index} className="relative group">
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Follow on ${item.label}`}
+                        title={`Follow on ${item.label}`}
+                        className="flex items-center justify-center hover:text-gray-400 cursor-pointer transition"
+                      >
+                        {item.icon}
+                      </a>
+
+                      {/* Tooltip */}
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity text-xs text-white bg-black px-2 py-1 rounded-md whitespace-nowrap">
+                        {item.label}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             </div>
+
           </div>
 
           <p className="mt-6 text-sm text-gray-600">

@@ -4,12 +4,13 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { FaFacebookF, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaYoutube, FaPinterestP, } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { LiaSearchSolid } from "react-icons/lia";
 import { HiMenuAlt2, HiX } from "react-icons/hi";
 import categoryData from "../public/data/articles.json";
 import pillarContent from '../public/data/pillarContent.json';
+import { FaQuora } from "react-icons/fa";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -327,9 +328,38 @@ const desktopSearchRef = useRef(null);
 
           {/* ===== DESKTOP RIGHT (social) ===== */}
           <div className="absolute right-4 top-10 hidden md:flex items-center gap-4 text-lg">
-            <FaFacebookF className="cursor-pointer hover:scale-90 hover:text-blue-600" />
-            <FaXTwitter className="cursor-pointer hover:scale-90 hover:text-gray-800" />
-            <FaYoutube className="cursor-pointer hover:scale-90 hover:text-red-600" />
+             <a
+              href="https://www.quora.com/profile/Newswire-Ninja-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on Quora"
+              title="Follow us on Quora"
+              className="cursor-pointer hover:scale-90 hover:text-blue-600 transition"
+            >
+              <FaQuora />
+            </a>
+
+            <a
+              href="https://x.com/NewswireN29245"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on X"
+              title="Follow us on X (Twitter)"
+              className="cursor-pointer hover:scale-90 hover:text-gray-800 transition"
+            >
+              <FaXTwitter />
+            </a>
+
+            <a
+              href="https://www.pinterest.com/newswireninja/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on Pinterest"
+              title="Follow us on Pinterest"
+              className="cursor-pointer hover:scale-90 hover:text-red-600 transition"
+            >
+              <FaPinterestP />
+            </a>
           </div>
         </div>
 
@@ -543,9 +573,38 @@ const desktopSearchRef = useRef(null);
           {/* Footer */}
           <div className="px-6 py-6 border-t">
             <div className="flex gap-6 text-xl">
-              <FaFacebookF />
-              <FaXTwitter />
-              <FaYoutube />
+              <a
+                href="https://www.quora.com/profile/Newswire-Ninja-1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Quora"
+                title="Follow us on Quora"
+                className="hover:text-blue-600 transition"
+              >
+                <FaQuora />
+              </a>
+
+              <a
+                href="https://x.com/NewswireN29245"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on X"
+                title="Follow us on X (Twitter)"
+                className="hover:text-gray-800 transition"
+              >
+                <FaXTwitter />
+              </a>
+
+              <a
+                href="https://www.pinterest.com/newswireninja/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Pinterest"
+                title="Follow us on Pinterest"
+                className="hover:text-red-600 transition"
+              >
+                <FaPinterestP />
+              </a>
             </div>
             <p className="mt-6 text-xs text-gray-500">
               © 2024 newswire ninja News Network. All Rights Reserved.

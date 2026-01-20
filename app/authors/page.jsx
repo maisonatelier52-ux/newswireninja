@@ -9,6 +9,7 @@ import { slugify } from "../../utils/slugify";
 import { FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { SiMedium } from "react-icons/si";
+import { FaQuora } from "react-icons/fa";
 
 const SITE_URL = "https://www.newswireninja.com";
 
@@ -222,14 +223,14 @@ export default function AuthorsPage() {
                             <FaXTwitter />
                           </a>
                         )}
-                        {author.social?.facebook && (
+                        {author.social?.quora && (
                           <a
-                            href={author.social.facebook}
-                            title={`Follow ${author.name} on Facebook`}
+                            href={author.social.quora}
+                            title={`Follow ${author.name} on Quora`}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            <FaFacebookF />
+                            <FaQuora />
                           </a>
                         )}
                         {author.social?.medium && (

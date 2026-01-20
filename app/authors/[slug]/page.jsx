@@ -15,6 +15,8 @@ import { LuAlarmClock } from "react-icons/lu";
 import { FaFacebookF, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { SiMedium } from "react-icons/si";
+import { FaRedditAlien } from "react-icons/fa";
+import { FaQuora } from "react-icons/fa";
 
 const SITE_URL = "https://www.newswireninja.com";
 
@@ -194,24 +196,24 @@ export default async function AuthorProfile({ params }) {
                   <FaXTwitter />
                 </a>
               )}
-              {author.social?.facebook && (
+              {author.social?.quora && (
                 <a
-                  href={author.social.facebook}
-                  title={`${author.name} on Facebook`}
+                  href={author.social.quora}
+                  title={`${author.name} on Quora`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FaFacebookF />
+                  <FaQuora />
                 </a>
               )}
-              {author.social?.linkedIn && (
+              {author.social?.reddit && (
                 <a
-                  href={author.social.linkedIn}
-                  title={`${author.name} on LinkedIn`}
+                  href={author.social.reddit}
+                  title={`${author.name} on Reddit`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FaLinkedin />
+                  <FaRedditAlien />
                 </a>
               )}
               {author.social?.medium && (
