@@ -56,7 +56,7 @@ export default function Footer() {
           {/* ================= COLUMN 1 ================= */}
           <div>
             {/* Heading */}
-            <div className="text-2xl font-bold mb-4">Newswire Ninja</div>
+            <div className="text-2xl font-bold mb-4"><Link href={'/'} title="newswireninja home page">Newswire Ninja</Link></div>
 
             {/* Description */}
             <p className="text-gray-400 text-sm leading-relaxed mb-6 text-justify">

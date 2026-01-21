@@ -365,11 +365,13 @@ const desktopSearchRef = useRef(null);
 
         {/* Desktop Logo */}
         <div className="hidden md:flex flex-col items-center pt-2 pb-6">
-          <Link href="/" title="Visit newswire ninja homepage">
+          
            <div className="font-serif text-5xl font-bold tracking-wide">
+            <Link href="/" title="Visit newswire ninja homepage">
             NEWSWIRE NINJA
+            </Link>
             </div>
-          </Link>
+          
           <p className="text-xs md:text-base mt-1 tracking-wide">
             BREAKING NEWS, SWIFTLY DELIVERED
           </p>
