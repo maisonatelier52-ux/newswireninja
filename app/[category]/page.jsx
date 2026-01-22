@@ -45,7 +45,7 @@ export async function generateMetadata({ params }) {
       type: "website",
       images: [
         {
-          url: `${SITE_URL}/images/newswireninja-logo.jpeg`,
+          url: `${SITE_URL}/images/newswireninja-logo.png`,
           width: 1200,
           height: 630,
           alt: `${formatted} News – Newswireninja`,
@@ -58,7 +58,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title,
       description,
-      images: [`${SITE_URL}/images/newswireninja-logo.jpeg`],
+      images: [`${SITE_URL}/images/newswireninja-logo.png`],
     },
   };
 }

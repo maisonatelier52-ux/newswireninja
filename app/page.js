@@ -34,7 +34,7 @@ export const metadata = {
     siteName: "Newswireninja",
     images: [
       {
-        url: `${SITE_URL}/images/newswireninja-logo.webp`,
+        url: `${SITE_URL}/images/newswireninja-logo.png`,
         width: 1200,
         height: 630,
         alt: "Newswireninja U.S. News",
@@ -46,7 +46,7 @@ export const metadata = {
     title: "Newswireninja — Latest U.S. News",
     description: 
       "Fast, factual U.S. news with in-depth reporting and investigations.",
-    images: [`${SITE_URL}/images/newswireninja-logo.webp`],
+    images: [`${SITE_URL}/images/newswireninja-logo.png`],
   },
 };
 
