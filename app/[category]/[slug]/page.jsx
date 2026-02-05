@@ -31,6 +31,10 @@ export async function generateMetadata({ params }) {
   return {
     title: article.metaTitle,
     description: article.metaDescription,
+    robots: {
+      index: true,
+      follow: true,
+    },
     alternates: {
       canonical: `${SITE_URL}/${category}/${slug}`,
     },

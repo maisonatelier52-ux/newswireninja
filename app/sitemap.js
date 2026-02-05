@@ -54,7 +54,7 @@ export default function sitemap() {
 
   /* ---------------- CATEGORY PAGES ---------------- */
   const categoryPages = Object.keys(articlesData).map(category => ({
-    url: `${SITE_URL}/${slugify(category)}`,
+    url: `${SITE_URL}/${category}`,
     lastModified: now,
     changeFrequency: "daily",
     priority: 0.8,
@@ -65,7 +65,7 @@ export default function sitemap() {
   const articlePages = Object.entries(articlesData).flatMap(
     ([category, articles]) =>
       articles.map(article => ({
-        url: `${SITE_URL}/${slugify(category)}/${article.slug}`,
+        url: `${SITE_URL}/${category}/${article.slug}`,
         lastModified: article.date
           ? new Date(article.date)
           : now,

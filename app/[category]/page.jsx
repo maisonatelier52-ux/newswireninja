@@ -32,6 +32,10 @@ export async function generateMetadata({ params }) {
   return {
     title,
     description,
+    robots: {
+      index: true,
+      follow: true,
+    },
     alternates: {
       canonical: url,
     },
@@ -170,18 +174,45 @@ export default async function CategoryPage({ params }) {
       />
       <main className="max-w-7xl mx-auto px-4 py-10 sm:px-6 font-serif">
         {/* CATEGORY TITLE */}
-        <header className="mb-6">
+        {/* <header className="mb-6">
          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">
             {category} News & Analysis - Newswireninja
           </h1>
 
-          {/* Category Description - where the content goes */}
+         
         <p className="text-sm text-gray-600 max-w-4xl mt-2">
           Stay updated with the latest <strong>{category} news</strong>. Our experts bring you the latest stories from across the globe. Get <strong>in-depth analysis</strong> on global issues and stay informed with <strong>Newswire Ninja</strong>'s exclusive reports.
         </p>
      
           <div className="border-t border-black mt-3 mb-10"></div>
+        </header> */}
+        <header className="mb-6">
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">
+            {category} News & Analysis - Newswireninja
+          </h1>
+
+          <p className="text-sm text-gray-600 max-w-4xl mt-2">
+            Stay updated with the latest <strong>{category} news</strong>. Our experts bring you
+            in-depth analysis, investigative reporting, and exclusive stories.
+          </p>
+
+          <div className="border-t border-black mt-3 mb-6"></div>
         </header>
+
+        {/* ✅ ADD THIS BLOCK HERE */}
+        <section className="prose max-w-4xl mb-10">
+          <h2>{category.charAt(0).toUpperCase() + category.slice(1)} News Coverage</h2>
+          <p>
+            Newswireninja’s {category} section delivers original journalism focused on
+            accuracy, accountability, and insight. Our editorial team covers breaking
+            developments, long-form investigations, and expert analysis.
+          </p>
+          <p>
+            We aim to provide context behind the headlines, helping readers understand
+            the forces shaping today’s world through independent reporting.
+          </p>
+        </section>
+
         
 
         {/* MAIN GRID */}
