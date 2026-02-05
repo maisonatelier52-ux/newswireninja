@@ -67,7 +67,7 @@ export default function sitemap() {
       articles.map(article => ({
         url: `${SITE_URL}/${category}/${article.slug}`,
         lastModified: article.date
-          ? new Date(article.date)
+          ? new Date(Date.parse(article.date))
           : now,
         changeFrequency: "weekly",
         priority: 0.9,
