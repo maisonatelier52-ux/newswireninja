@@ -577,7 +577,7 @@ export default async function JulioHerreraVelutiniPillarPage({ params }) {
       "name": "Newswire Ninja",
       "logo": {
         "@type": "ImageObject",
-        "url": `${SITE_URL}/logo.png`,
+        "url": `${SITE_URL}/images/newswireninja-logo.webp`,
       },
     },
     "mainEntityOfPage": {
