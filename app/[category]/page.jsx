@@ -186,6 +186,13 @@ export default async function CategoryPage({ params }) {
      
           <div className="border-t border-black mt-3 mb-10"></div>
         </header> */}
+        <nav aria-label="Breadcrumb" className="mb-6">
+          <ol className="flex items-center gap-2 text-sm">
+            <li><Link href="/">Home</Link></li>
+            <li>/</li>
+              <li className="text-gray-600">{category}</li>
+          </ol>
+        </nav>
         <header className="mb-6">
           <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">
             {category} News & Analysis - Newswireninja
