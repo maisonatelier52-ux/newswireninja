@@ -137,7 +137,8 @@ export default async function CategoryPage({ params }) {
       "@type": "NewsArticle",
       "headline": article.title,
       "url": `${SITE_URL}/${category}/${article.slug}`,
-      "datePublished": new Date(article.date).toISOString(),
+      // "datePublished": new Date(article.date).toISOString(),
+      "datePublished":new Date(article.date.replace(/(\w+)\s(\d+),\s(\d+)/, '$2 $1 $3')).toISOString(),
     })),
   };
 

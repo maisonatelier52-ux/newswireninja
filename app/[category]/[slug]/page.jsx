@@ -729,8 +729,10 @@ export default async function ArticlePage({ params }) {
     headline: article.title,
     description: article.excerpt,
     image: [`${SITE_URL}${article.image}`],
-    datePublished: new Date(article.date).toISOString(),
-    dateModified: new Date(article.date).toISOString(),
+    datePublished: new Date(article.date.replace(/(\w+)\s(\d+),\s(\d+)/, '$2 $1 $3')).toISOString(),
+    dateModified: new Date(article.date.replace(/(\w+)\s(\d+),\s(\d+)/, '$2 $1 $3')).toISOString(),
+    // datePublished: new Date(article.date).toISOString(),
+    // dateModified: new Date(article.date).toISOString(),
     author: {
       "@type": "Person",
       name: authorData?.name || "NewsWireNinja Staff",
