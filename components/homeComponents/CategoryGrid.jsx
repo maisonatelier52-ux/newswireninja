@@ -12,7 +12,7 @@ export function CategoryGrid({ businessArticles }) {
     image: "/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp",
     imageAlt: "Julio Herrera Velutini",
     excerpt: " Julio Herrera Velutini is one of the few persons in the world of international finance who has to deal with the stress of a family tradition that has been going on for hundreds of years and the fast-paced, often unpredictable world of modern global banking.",
-    date: "January 13, 2026",
+    date: "13/01/2026",
     readTime: "15 min",
     category: "business",
     slug: "julio-herrera-velutini-legacy-finance",
@@ -20,6 +20,21 @@ export function CategoryGrid({ businessArticles }) {
 
   // Get the first 3 articles from businessArticles
   const articlesToShow = businessArticles.slice(0, 3);
+
+  // Helper: format DD/MM/YYYY → "January 1, 2026"
+const formatDate = (dateStr) => {
+  if (!dateStr) return "";
+  if (dateStr.includes("/")) {
+    const [day, month, year] = dateStr.split("/");
+    const date = new Date(year, month - 1, day);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  }
+  return dateStr;
+};
 
   return (
     <section className="mt-16">
@@ -50,7 +65,7 @@ export function CategoryGrid({ businessArticles }) {
               <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] sm:text-xs text-gray-500">
                 <div className="flex items-center gap-1">
                   <GoClock />
-                  <span>{item.date}</span>
+                  <span>{formatDate(item.date)}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <LuAlarmClock />
@@ -89,7 +104,7 @@ export function CategoryGrid({ businessArticles }) {
             <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] sm:text-xs text-gray-500">
               <div className="flex items-center gap-1">
                 <GoClock />
-                <span>{staticArticle.date}</span>
+                <span>{formatDate(staticArticle.date)}</span>
               </div>
               <div className="flex items-center gap-2">
                 <LuAlarmClock />

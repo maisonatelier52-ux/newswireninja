@@ -2,7 +2,7 @@ import articlesData from "../../public/data/articles.json";
 
 const SITE_URL = "https://www.newswireninja.com";
 const SITE_NAME = "NewsWireNinja";
-const SITE_DESCRIPTION = "Latest news from NewsWireNinja — Independent U.S. News, Business & Investigations";
+const SITE_DESCRIPTION = "Latest news from NewsWireNinja — Independent U.S. News, Business and Investigations";
 
 // Helper: parse DD/MM/YYYY → Date object
 function parseDate(dateStr) {
@@ -14,18 +14,30 @@ function parseDate(dateStr) {
   return new Date(dateStr);
 }
 
+// Helper: escape XML special characters OUTSIDE of CDATA blocks
+// Use this for attributes and plain text nodes
+function escapeXml(str) {
+  if (!str) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
 export async function GET() {
   // Flatten all articles from all categories and sort by date (newest first)
   const allArticles = Object.entries(articlesData)
     .flatMap(([category, posts]) =>
       posts.map((post) => ({
         url: `${SITE_URL}/${category}/${post.slug}`,
-        title: post.title,
+        title: post.title || "",
         description: post.excerpt || post.metaDescription || "",
         date: parseDate(post.date),
         category,
         image: post.image ? `${SITE_URL}${post.image}` : null,
-        imageAlt: post.imageAlt || post.title,
+        imageAlt: post.imageAlt || post.title || "",
       }))
     )
     .sort((a, b) => b.date - a.date)
@@ -36,14 +48,14 @@ export async function GET() {
       (article) => `
     <item>
       <title><![CDATA[${article.title}]]></title>
-      <link>${article.url}</link>
-      <guid isPermaLink="true">${article.url}</guid>
+      <link>${escapeXml(article.url)}</link>
+      <guid isPermaLink="true">${escapeXml(article.url)}</guid>
       <description><![CDATA[${article.description}]]></description>
       <pubDate>${article.date.toUTCString()}</pubDate>
-      <category>${article.category}</category>
+      <category><![CDATA[${article.category}]]></category>
       ${
         article.image
-          ? `<enclosure url="${article.image}" type="image/webp" length="0" />`
+          ? `<enclosure url="${escapeXml(article.image)}" type="image/webp" length="0" />`
           : ""
       }
     </item>`
@@ -56,15 +68,15 @@ export async function GET() {
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>${SITE_NAME}</title>
+    <title><![CDATA[${SITE_NAME}]]></title>
     <link>${SITE_URL}</link>
-    <description>${SITE_DESCRIPTION}</description>
+    <description><![CDATA[${SITE_DESCRIPTION}]]></description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>${SITE_URL}/images/newswireninja-logo.webp</url>
-      <title>${SITE_NAME}</title>
+      <title><![CDATA[${SITE_NAME}]]></title>
       <link>${SITE_URL}</link>
     </image>
     ${rssItems}

@@ -6,6 +6,22 @@ import { generateHeroContext } from "../../utils/seoText";
 
 
 export function HeroSection({ latestArticles, getAuthorByCategory }) {
+
+  // Helper: format DD/MM/YYYY → "January 1, 2026"
+const formatDate = (dateStr) => {
+  if (!dateStr) return "";
+  if (dateStr.includes("/")) {
+    const [day, month, year] = dateStr.split("/");
+    const date = new Date(year, month - 1, day);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  }
+  return dateStr;
+};
+
   return (
     <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
       {/* Main Feature */}
@@ -52,7 +68,7 @@ export function HeroSection({ latestArticles, getAuthorByCategory }) {
 
                 <div className="flex items-center gap-1 px-3 border-r border-gray-300">
                   <GoClock />
-                  <span>{latestArticles[0].date}</span>
+                  <span>{formatDate(latestArticles[0].date)}</span>
                 </div>
 
                 <div className="hidden md:flex items-center gap-1 px-3">

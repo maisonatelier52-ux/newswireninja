@@ -20,6 +20,21 @@ export function MixedGrid({ articles }) {
   // Get the first 2 items from the articles
   const displayedArticles = articles.slice(0, 2);
 
+   // Helper: format DD/MM/YYYY → "January 1, 2026"
+const formatDate = (dateStr) => {
+  if (!dateStr) return "";
+  if (dateStr.includes("/")) {
+    const [day, month, year] = dateStr.split("/");
+    const date = new Date(year, month - 1, day);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  }
+  return dateStr;
+};
+
   // Add the static article as the 3rd item
   const mixedArticles = [...displayedArticles, staticArticle];
 
@@ -34,7 +49,7 @@ export function MixedGrid({ articles }) {
                   <span className="inline-block mb-3 bg-blue-600 px-3 py-1 text-xs font-semibold text-white">{item.category}</span>
                   <h3 className="font-serif text-sm sm:text-md font-semibold leading-snug hover:text-blue-600 hover:underline">{item.title}</h3>
                   <p className="text-sm text-gray-700 mt-2">{item.excerpt.slice(0, 55)}...</p>
-                  <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500 mt-4"><GoClock /><span>{item.date}</span></div>
+                  <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500 mt-4"><GoClock /><span>{formatDate(item.date)}</span></div>
                 </div>
                 <div className="sm:w-1/3 relative w-full sm:w-32 sm:h-32 h-40 sm:h-40 overflow-hidden rounded-lg">
                   <Image src={item.image} alt={item.imageAlt} fill className="object-cover transition-transform duration-500 hover:scale-105" />

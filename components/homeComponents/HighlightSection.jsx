@@ -27,6 +27,21 @@ export function HighlightSection({ articles, getAuthorByCategory }) {
   // Create a new array with the static article at the start
   const modifiedCards = [staticBusinessArticle, ...cards];
 
+   // Helper: format DD/MM/YYYY → "January 1, 2026"
+const formatDate = (dateStr) => {
+  if (!dateStr) return "";
+  if (dateStr.includes("/")) {
+    const [day, month, year] = dateStr.split("/");
+    const date = new Date(year, month - 1, day);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  }
+  return dateStr;
+};
+
   return (
     <section className="mt-20 bg-[#eef3f6] py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -51,7 +66,7 @@ export function HighlightSection({ articles, getAuthorByCategory }) {
               <span className="text-gray-300">|</span>
               <div className="flex items-center gap-1">
                 <GoClock />
-                <span>{main?.date}</span>
+                <span>{formatDate(main?.date)}</span>
               </div>
             </div>
           </div>

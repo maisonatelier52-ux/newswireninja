@@ -12,6 +12,21 @@ export function TrendingStories({ articles }) {
 
   const visibleArticles = articles.slice(0, visibleCount);
 
+   // Helper: format DD/MM/YYYY → "January 1, 2026"
+const formatDate = (dateStr) => {
+  if (!dateStr) return "";
+  if (dateStr.includes("/")) {
+    const [day, month, year] = dateStr.split("/");
+    const date = new Date(year, month - 1, day);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  }
+  return dateStr;
+};
+
   return (
     <section className="mt-20">
       <div className="mx-auto max-w-7xl">
@@ -31,7 +46,7 @@ export function TrendingStories({ articles }) {
                   </h3>
                 </Link>
                 <p className="mt-2 text-sm text-gray-700">{item.excerpt}</p>
-                <div className="mt-3 flex items-center gap-1 text-xs text-gray-500"><GoClock /><span>{item.date}</span></div>
+                <div className="mt-3 flex items-center gap-1 text-xs text-gray-500"><GoClock /><span>{formatDate(item.date)}</span></div>
               </div>
             </article>
           ))}
