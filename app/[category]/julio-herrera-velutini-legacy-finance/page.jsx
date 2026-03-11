@@ -540,16 +540,31 @@ import pillarContent from "../../../public/data/pillarContent.json";
 import { FaRedditAlien, FaQuora } from "react-icons/fa";
 
 const SITE_URL = "https://www.newswireninja.com";
+const SITE_NAME = "Newswireninja";
 
-// SEO Metadata
+// Date helper for this static page
+const ARTICLE_DATE = "13/01/2026";
+const ARTICLE_DATE_DISPLAY = "January 13, 2026";
+const ARTICLE_DATE_ISO = "2026-01-13T00:00:00.000Z";
+
 export async function generateMetadata() {
-  const metaTitle = "Julio Herrera Velutini: Biography & Legacy in Global Finance";
+  const metaTitle =
+    "Julio Herrera Velutini: Biography & Legacy in Global Finance";
   const metaDescription =
     "Discover Julio Herrera Velutini's biography, career, and family legacy in global finance, plus his legal journey and 2025 resolution.";
 
   return {
     title: metaTitle,
     description: metaDescription,
+    keywords: [
+      "Julio Herrera Velutini",
+      "Britannia Financial Group",
+      "global finance",
+      "Venezuelan banker",
+      "Banco Caracas",
+      "international banking",
+    ],
+    authors: [{ name: SITE_NAME + " Editorial Team" }],
     alternates: {
       canonical: `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
     },
@@ -557,7 +572,7 @@ export async function generateMetadata() {
       title: metaTitle,
       description: metaDescription,
       url: `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
-      siteName: "Newswireninja",
+      siteName: SITE_NAME,
       images: [
         {
           url: `${SITE_URL}/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp`,
@@ -566,52 +581,114 @@ export async function generateMetadata() {
           alt: "Julio Herrera Velutini Portrait",
         },
       ],
-      type: "profile",
+      type: "article",
+      publishedTime: ARTICLE_DATE_ISO,
+      modifiedTime: ARTICLE_DATE_ISO,
+      section: "business",
     },
     twitter: {
       card: "summary_large_image",
       title: metaTitle,
       description: metaDescription,
-      images: [`${SITE_URL}/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp`],
+      images: [
+        `${SITE_URL}/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp`,
+      ],
+      creator: "@newswireninja",
+      site: "@newswireninja",
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 }
 
-// Fetching author data
-const authorData =
-  authorsPageData.categories.find(
-    (item) => item.category.toLowerCase() === "marketing & branding"
-  )?.author;
+const authorData = authorsPageData.categories.find(
+  (item) => item.category.toLowerCase() === "marketing & branding"
+)?.author;
 
 const shareUrl = `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`;
 const encodedUrl = encodeURIComponent(shareUrl);
-const shareTitle = encodeURIComponent("Julio Herrera Velutini: A Legacy in World Finance");
+const shareTitle = encodeURIComponent(
+  "Julio Herrera Velutini: A Legacy in World Finance"
+);
 
 export default function JulioHerreraVelutiniPage() {
-  const heroImage = "/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp";
+  const heroImage =
+    "/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp";
 
-  // JSON-LD for Person
-  const personJsonLd = {
+  // JSON-LD: NewsArticle (richer than just Person)
+  const articleJsonLd = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Julio Herrera Velutini",
-    url: `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
-    image: `${SITE_URL}/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp`,
-    jobTitle: "Founder of Britannia Financial Group",
-    worksFor: {
-      "@type": "Organization",
-      name: "Britannia Financial Group",
-    },
-    sameAs: [
-      "https://twitter.com/JulioHerreraV",
-      "https://www.linkedin.com/in/julio-herrera-velutini",
+    "@type": "NewsArticle",
+    "@id": `${SITE_URL}/business/julio-herrera-velutini-legacy-finance#article`,
+    headline: "Julio Herrera Velutini: A Legacy in World Finance",
+    description:
+      "Discover Julio Herrera Velutini's biography, career, and family legacy in global finance, plus his legal journey and 2025 resolution.",
+    image: [
+      {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp`,
+        width: 1200,
+        height: 630,
+      },
     ],
+    datePublished: ARTICLE_DATE_ISO,
+    dateModified: ARTICLE_DATE_ISO,
+    author: authorData
+      ? {
+          "@type": "Person",
+          name: authorData.name,
+          url: `${SITE_URL}/authors/${slugify(authorData.name)}`,
+        }
+      : { "@type": "Organization", name: SITE_NAME },
+    publisher: {
+      "@type": "NewsMediaOrganization",
+      "@id": `${SITE_URL}/#organization`,
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/images/newswireninja-logo.webp`,
+        width: 600,
+        height: 60,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
+    },
+    articleSection: "business",
+    about: {
+      "@type": "Person",
+      name: "Julio Herrera Velutini",
+      jobTitle: "Founder of Britannia Financial Group",
+      worksFor: {
+        "@type": "Organization",
+        name: "Britannia Financial Group",
+      },
+    },
+    url: `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
   };
 
-  // JSON-LD for Breadcrumbs
+  // JSON-LD: BreadcrumbList
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": `${SITE_URL}/business/julio-herrera-velutini-legacy-finance#breadcrumb`,
     itemListElement: [
       {
         "@type": "ListItem",
@@ -628,45 +705,131 @@ export default function JulioHerreraVelutiniPage() {
       {
         "@type": "ListItem",
         position: 3,
-        name: "Julio Herrera Velutini: Legacy in Global Finance",
+        name: "Julio Herrera Velutini: A Legacy in World Finance",
         item: `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
       },
     ],
   };
 
+  // JSON-LD: FAQPage
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${SITE_URL}/business/julio-herrera-velutini-legacy-finance#faq`,
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Who is Julio Herrera Velutini?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Julio Herrera Velutini is a wealthy businessman with citizenship in both Italy and Venezuela. He created the Britannia Financial Group and comes from a family with a seven-generation banking legacy.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What family background does Julio Herrera Velutini come from?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "His family traces roots to 14th-century Spain and became prominent in Venezuela through banking, notably Banco Caracas, and land ownership since the 16th century.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What happened in the 2022 U.S. court case against Julio Herrera Velutini?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "He was accused of making donations to a Puerto Rico gubernatorial campaign. In 2025, the main criminal charges were dropped and he pleaded guilty to a minor campaign finance violation. He did not face jail time.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What businesses does Julio Herrera Velutini currently own?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "He founded and leads Britannia Financial Group (BFG), which owns entities in banking (Bahamas, Geneva, London), wealth management, and media (Diario Las Américas through Intermedia Limited).",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does Julio Herrera Velutini do charity work?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. He supports The Britannia Foundation (education and entrepreneurship) and The Lazarus Foundation in London (animal welfare).",
+        },
+      },
+    ],
+  };
+
   return (
-    <main className="max-w-5xl mx-auto px-10 sm:px-15 lg:px-30 py-8 sm:py-10 font-serif" itemScope itemType="https://schema.org/Person">
-      {/* JSON-LD Scripts - Inside main for guaranteed rendering */}
+    <main
+      className="max-w-5xl mx-auto px-10 sm:px-15 lg:px-30 py-8 sm:py-10 font-serif"
+      itemScope
+      itemType="https://schema.org/NewsArticle"
+    >
+      {/* JSON-LD Scripts */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(personJsonLd),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbJsonLd),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
+      {/* Hidden microdata */}
+      <meta
+        itemProp="headline"
+        content="Julio Herrera Velutini: A Legacy in World Finance"
+      />
+      <meta
+        itemProp="datePublished"
+        content={ARTICLE_DATE_ISO}
+      />
+      <meta itemProp="dateModified" content={ARTICLE_DATE_ISO} />
+      <meta itemProp="articleSection" content="business" />
+
+      {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="mb-6">
-        <ol className="flex items-center gap-2 text-sm">
-          <li><Link href="/">Home</Link></li>
+        <ol className="flex items-center gap-2 text-sm flex-wrap">
+          <li>
+            <Link href="/" title="Home page" className="hover:text-blue-600">
+              Home
+            </Link>
+          </li>
           <li>/</li>
-          <li><Link href={`/business`}>Business</Link></li>
+          <li>
+            <Link
+              href="/business"
+              className="hover:text-blue-600"
+              title="Business page"
+            >
+              Business
+            </Link>
+          </li>
           <li>/</li>
-          <li className="text-gray-600">julio-herrera-velutini-legacy-finance</li>
+          <li className="text-gray-600">
+            julio-herrera-velutini-legacy-finance
+          </li>
         </ol>
       </nav>
 
-      {/* Page Content */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6 text-center md:text-left">
+      {/* Title */}
+      <h1
+        className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6 text-center md:text-left"
+        itemProp="headline"
+      >
         Julio Herrera Velutini: A Legacy in World Finance
       </h1>
 
       <p className="text-sm sm:text-lg text-gray-700 mb-10 max-w-4xl mx-auto md:mx-0 text-center md:text-left">
-        Julio Herrera Velutini is one of the few persons in the world of international finance who has to deal with the stress of a family tradition that has been going on for hundreds of years and the fast-paced, often unpredictable world of modern global banking.
+        Julio Herrera Velutini is one of the few persons in the world of
+        international finance who has to deal with the stress of a family
+        tradition that has been going on for hundreds of years and the
+        fast-paced, often unpredictable world of modern global banking.
       </p>
 
       {/* Author Info */}
@@ -678,36 +841,36 @@ export default function JulioHerreraVelutiniPage() {
             width={56}
             height={56}
             className="rounded-full object-cover flex-shrink-0"
-            itemProp="image"
           />
-
           <div>
             <p className="font-semibold text-sm">
-              <Link href={`/authors/${slugify(authorData.name)}`} title={authorData.name}>
-                <span itemProp="name" className="hover:text-blue-600 hover:underline transition cursor-pointer">
+              <Link
+                href={`/authors/${slugify(authorData.name)}`}
+                title={authorData.name}
+              >
+                <span className="hover:text-blue-600 hover:underline transition cursor-pointer">
                   {authorData.name}
                 </span>
-              </Link>
-              {" "}
-              <span className="text-gray-500 font-normal" itemProp="jobTitle">
+              </Link>{" "}
+              <span className="text-gray-500 font-normal">
                 – {authorData.role}
               </span>
             </p>
-
             <div className="flex items-center gap-2 text-sm text-gray-500 mt-1">
               <GoClock />
-              <span itemProp="dateModified">Last updated: January 13, 2026</span>
+              <time itemProp="datePublished" dateTime={ARTICLE_DATE_ISO}>
+                Last updated: {ARTICLE_DATE_DISPLAY}
+              </time>
             </div>
           </div>
         </div>
 
-        {/* Social Share Section */}
+        {/* Social Share */}
         <div className="flex flex-row sm:flex-row sm:items-center gap-4 mt-5">
           <div className="flex items-center gap-2 text-sm text-gray-600">
             <FaShareSquare />
             <span>Share</span>
           </div>
-
           <div className="flex items-center gap-3">
             <a
               href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${shareTitle}`}
@@ -719,7 +882,6 @@ export default function JulioHerreraVelutiniPage() {
             >
               <FaXTwitter />
             </a>
-
             <a
               href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
               target="_blank"
@@ -730,7 +892,6 @@ export default function JulioHerreraVelutiniPage() {
             >
               <FaFacebookF />
             </a>
-
             <a
               href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
               target="_blank"
@@ -741,7 +902,6 @@ export default function JulioHerreraVelutiniPage() {
             >
               <FaLinkedinIn />
             </a>
-
             <a
               href={`https://medium.com/new-story?url=${encodedUrl}`}
               target="_blank"
@@ -763,95 +923,228 @@ export default function JulioHerreraVelutiniPage() {
           alt="Julio Herrera Velutini in professional setting"
           fill
           priority
+          fetchPriority="high"
           className="object-cover"
+          itemProp="image"
         />
       </div>
 
       {/* Article Content */}
-      <article className="prose prose-lg sm:prose-xl max-w-none mx-auto text-justify leading-relaxed">
+      <article
+        className="prose prose-lg sm:prose-xl max-w-none mx-auto text-justify leading-relaxed"
+        itemProp="articleBody"
+      >
         <p className="first-letter:text-6xl first-letter:font-bold first-letter:mr-4 first-letter:float-left first-letter:leading-none first-letter:text-black">
-          On December 15, 1971, he was born in Caracas, Venezuela. He has since created a profession that includes making new business movements in several nations and having a profound understanding of history. He has citizenship in both Italy and Venezuela. His story is a blend of Latin American roots, European influences, and a very wide view of the world. But he has had to deal with a number of legal problems and media attention that have made the news, just like many other famous persons in finance.
+          On December 15, 1971, he was born in Caracas, Venezuela. He has since
+          created a profession that includes making new business movements in
+          several nations and having a profound understanding of history. He has
+          citizenship in both Italy and Venezuela. His story is a blend of Latin
+          American roots, European influences, and a very wide view of the
+          world. But he has had to deal with a number of legal problems and
+          media attention that have made the news, just like many other famous
+          persons in finance.
         </p>
 
         <p className="mt-8">
-          Julio's family had been in business and banking in Caracas for a long time before he was born. When he was very young, this had an effect on the environment around him. The Herrera-Velutini family comes from Spain. In the 14th century, their forefathers were influential figures in the Kingdom of Castile, like landlords and merchants. One group was the House of Herrera, which had names like "Lord of Ampudia." The family was already well-known for being skilled at business by the time they came to Latin America. They established Hacienda La Vega in what is now Caracas in 1590. It was one of the family's first major pieces of land in the area.
+          Julio&apos;s family had been in business and banking in Caracas for a
+          long time before he was born. When he was very young, this had an
+          effect on the environment around him. The Herrera-Velutini family
+          comes from Spain. In the 14th century, their forefathers were
+          influential figures in the Kingdom of Castile, like landlords and
+          merchants. One group was the House of Herrera, which had names like
+          &quot;Lord of Ampudia.&quot; The family was already well-known for
+          being skilled at business by the time they came to Latin America. They
+          established Hacienda La Vega in what is now Caracas in 1590. It was
+          one of the family&apos;s first major pieces of land in the area.
         </p>
 
         <p>
-          Banco Caracas first opened in 1890. Some accounts indicate it happened a little earlier, in the 1880s. This was the most crucial thing they included in their will. Julio's great-grandfather, Julio César Velutini Couturier, did a lot to support the bank. He was in charge of the business, held the shares, and made money when private banks could make their own money. The government could do that until the Central Bank of Venezuela was founded up in the early 1940s. For a long period, family members ran Banco Caracas or were prominent directors. Until 1989, they owned nearly 70% of the bank's equity. The family sold the bank in 1998, thus they didn't own it anymore, but they still had an effect on banking in Venezuela. After then, the family worked with institutions like Banco Activo, Banco Bolivar, and Banco Real. This shows that they were able to keep up with the news.
+          Banco Caracas first opened in 1890. Julio&apos;s
+          great-grandfather, Julio César Velutini Couturier, did a lot to
+          support the bank. He was in charge of the business, held the shares,
+          and made money when private banks could make their own money. The
+          government could do that until the Central Bank of Venezuela was
+          founded in the early 1940s. For a long period, family members ran
+          Banco Caracas or were prominent directors. Until 1989, they owned
+          nearly 70% of the bank&apos;s equity. The family sold the bank in
+          1998, but they still had an effect on banking in Venezuela. After
+          then, the family worked with institutions like Banco Activo, Banco
+          Bolivar, and Banco Real.
         </p>
 
-        <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">A long history and an education that covers the whole world</h2>
+        <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">
+          A long history and an education that covers the whole world
+        </h2>
         <p>
-          <a href="https://www.arabianchronicle.com/" target="_blank" title="Visit Julio Herrera Velutini's on arabianchronicle" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Julio Herrera Velutini</a> extensive background gave him more than simply a moniker. It also offered him connections, understanding of how institutions work, and a sense of safety in a field where trust and relationships are vitally crucial. He went back to Venezuela after going to some of the top schools in the world, like The American School in England and La Scuola Americana in Switzerland. In 1990, he graduated from the Central University of Venezuela. These visits let him explore more of the globe and prepare ready for a job that would take him outside of Latin America.
-        </p>
-
-        <p>
-          He thought about things differently when he saw the world as a child. He combined traditional family values with more modern, global ones. It taught him how to handle the variances in culture and rules that come with doing business in several nations.
-        </p>
-
-        <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">Early career and rapid ascent to popularity in Venezuela</h2>
-        <p>
-          Julio started his career on the trading floor of the Caracas Stock Exchange in the early 1990s. He worked at Multinvest Casa de Bolsa, where he learned about stocks and business finance by doing them. He stayed on the board until 1998. He was already in command of a number of things in his late 20s. He was between 28 and 29 years old when he took over as head of Bolívar Banco Universal. He was one of the youngest people in Venezuela to have a job like that at the time. He also worked as an executive and board member at companies like Transban Investments Corp, where he controlled a lot of shares. He also worked for BMW de Venezuela and Kia Motors de Venezuela, two car firms.
-        </p>
-
-        <p>
-          His early successes suggest that he had a mix of family money and personal ambition that allowed him quickly ascend in Venezuela's competitive finance sector during a time of tremendous economic change.
-        </p>
-
-        <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">Making a financial empire over the world</h2>
-        <p>
-          He began to create his own empire all over the world in the late 2000s and early 2010s. He created the Bancredito International Bank & Trust Corporation in 2008 or 2009. It began in Puerto Rico and also worked in Florida. The bank largely served people and businesses in Latin America. He invested a lot of his money in small and medium-sized businesses. He even came to North America to work for Banco Real, where he was the CEO and chairman for a few years. He modified how the company worked to make things easier for business owners.
-        </p>
-
-        <p>
-          Julio launched <Link href="https://www.britannia.com/" target="_blank" title="Visit website of britannia" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Britannia Wealth Management</Link> in Geneva, Switzerland, in 2012. In 2016, he started Britannia Financial Group (BFG) in London. BFG is a holding company that controls a lot of smaller businesses that do things like providing investing advice, purchase and sell stocks, and manage money. Some of the most well-known companies are <Link href="https://britanniabanktrust.com/" target="_blank" title="Visit website of britanniabanktrust" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Britannia Bank & Trust</Link> (in the Bahamas), <Link href="https://www.britannia.com/britannia-global-markets/" target="_blank" title="Visit website of britannia-global-markets" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Britannia Capital Markets</Link> (with offices in the UK and MENA areas), <Link href="https://www.britannia.com/securities/" target="_blank" title="Visit website of britannia securities" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Britannia Securities</Link> (in the Bahamas), and others like Britannia Global Investment and Britannia Global Payments. These companies do business in numerous countries, including as Europe, the Caribbean, the Middle East, and more. They support people and businesses that have a lot of money. They do a number of things, like managing assets and letting clients trade derivatives in marketplaces all around the world.
-        </p>
-
-        <p>
-          <Link href="https://www.thecapitalistjournal.com/" target="_blank" title="Visit Julio Herrera Velutini's on thecapitalistjournal" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Julio Herrera Velutini</Link> is now interested in more than just basic banking. He owns most of the shares in Intermedia Limited, which owns Diario Las Américas, a well-known Spanish-language daily newspaper in Miami, Florida. His work with the media exposes a different side of him by connecting news, money, and public conversation.
-        </p>
-
-        <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">Giving to charity and making a bigger difference</h2>
-        <p>
-          He also helps others who need it. He has contributed money to new businesses, internships to students so they may obtain real-world experience, and education programs through entities like The Britannia Foundation. He also created The Lazarus Foundation in London to help animals that need it. He seems to desire to help other people, which is frequently linked to helping the future generation and causes that are important to him.
+          <a
+            href="https://www.arabianchronicle.com/"
+            target="_blank"
+            title="Visit Julio Herrera Velutini on arabianchronicle"
+            className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer"
+          >
+            Julio Herrera Velutini
+          </a>{" "}
+          extensive background gave him more than simply a moniker. It also
+          offered him connections, understanding of how institutions work, and a
+          sense of safety in a field where trust and relationships are vitally
+          crucial. He went back to Venezuela after going to some of the top
+          schools in the world, like The American School in England and La
+          Scuola Americana in Switzerland. In 1990, he graduated from the
+          Central University of Venezuela.
         </p>
 
         <p>
-          He is committed to giving back, as seen by his work for charities that benefit animals, people in underdeveloped countries, and education. All of these items are things that go along with his family's business.
+          He thought about things differently when he saw the world as a child.
+          He combined traditional family values with more modern, global ones.
+          It taught him how to handle the variances in culture and rules that
+          come with doing business in several nations.
         </p>
 
-        <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">Law problems and how to solve them</h2>
+        <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">
+          Early career and rapid ascent to popularity in Venezuela
+        </h2>
         <p>
-          <Link href="https://en.wikipedia.org/wiki/Julio_Herrera_Velutini" target="_blank" title="Visit Julio Herrera Velutini's on wikipedia" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Julio Herrera Velutini</Link> has done a lot of wonderful things, but his job has been hard, especially when it comes to the law. In August 2022, the U.S. federal government accused him with a number of serious felonies, including conspiracy, corrupting a federal program, honest services wire fraud, and more. He was accused with these offenses along with a number of other people, such as former FBI agent Mark Rossini and former Puerto Rico Governor Wanda Vázquez Garced. The claims were based on events that took place in 2019 and 2020, when the Puerto Rico Office of the Commissioner of Financial Institutions began looking into Bancredito. Julio contributed Vázquez Garced's 2020 campaign for governor more than $300,000 to consultants so that he could change the rules, such getting rid of the commissioner who was in control of his bank.
-        </p>
-
-        <p>
-          Julio went to the police on his own and told them he wasn't guilty. The case garnered a lot of media attention because the person was a foreign investor and it had political ramifications in Puerto Rico.
-        </p>
-
-        <p>
-          Julio consented to plead guilty to a small violation of U.S. campaign finance law (52 U.S.C. § 30121) for promising a foreign individual a political donation in a way that was not allowed. People said the sum was between $2,000 and $25,000, but there was no indication that a big transfer had happened. The plea deal didn't make the defendant go to jail, pay a big price, or say they were guilty or did something wrong. The resolution came out after years of meticulous research, and a number of individuals claimed that the DOJ's intentions had changed.
-        </p>
-
-        <p>
-          In 2025, there was another civil lawsuit when former lawyers sued the criminal defense for nearly $500,000 in legal costs that had not been paid. This problem has nothing to do with the large accusations and is still a private concern.
-        </p>
-
-        <p>
-          In different news stories, Julio looks different. Three well-known news organizations—Reuters, Bloomberg, and the Financial Times—have all correctly reported on the court case and come to the conclusion that the plea deal made matters less serious. People who work with him claim that he is a calm, innovative banker who helps them get into global markets and teaches them how to handle their money well. Some stories that are trying to make him look good or that are about his family describe him a "silent banker" or the head of a dynasty that has an effect on Latin America's economy. Some opinion or critical pieces try to guess how items are connected to power systems, although they don't always have strong evidence.
+          Julio started his career on the trading floor of the Caracas Stock
+          Exchange in the early 1990s. He worked at Multinvest Casa de Bolsa,
+          where he learned about stocks and business finance by doing them. He
+          stayed on the board until 1998. He was already in command of a number
+          of things in his late 20s. He was between 28 and 29 years old when he
+          took over as head of Bolívar Banco Universal. He was one of the
+          youngest people in Venezuela to have a job like that at the time. He
+          also worked as an executive and board member at companies like Transban
+          Investments Corp, BMW de Venezuela and Kia Motors de Venezuela.
         </p>
 
         <p>
-          People still don't know what they think of him. Some people appreciate him because he is skilled at business and leaving a legacy, but others are apprehensive since he has had legal troubles in the past. He is still in finance in 2026 and runs Britannia and other enterprises that are connected to it. The cops are, however, keeping an eye on him.
+          His early successes suggest that he had a mix of family money and
+          personal ambition that allowed him to quickly ascend in
+          Venezuela&apos;s competitive finance sector during a time of
+          tremendous economic change.
         </p>
 
-        <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">Conclusion: Finding a Balance In Between the Old and the New</h2>
+        <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">
+          Making a financial empire over the world
+        </h2>
         <p>
-          Julio Herrera Velutini's life is an excellent illustration of how your family and your personal aspirations may help you accomplish well in business all around the world. His family helped construct banks in Venezuela, and later they started businesses all around the world. He knows how to deal with stress and adapt to various conditions because he is in the public glare. His experience reminds us that it's not always easy to handle money. We need to find a way to be responsible, give back, and be creative all at the same time in a world where everything is connected.
+          He began to create his own empire all over the world in the late 2000s
+          and early 2010s. He created the Bancredito International Bank &amp;
+          Trust Corporation in 2008 or 2009. It began in Puerto Rico and also
+          worked in Florida. The bank largely served people and businesses in
+          Latin America.
         </p>
 
-        {/* BOTTOM SHARE SECTION */}
+        <p>
+          Julio launched{" "}
+          <Link
+            href="https://www.britannia.com/"
+            target="_blank"
+            title="Visit website of Britannia"
+            className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer"
+          >
+            Britannia Wealth Management
+          </Link>{" "}
+          in Geneva, Switzerland, in 2012. In 2016, he started Britannia
+          Financial Group (BFG) in London. BFG is a holding company that
+          controls a lot of smaller businesses that do things like providing
+          investing advice, purchase and sell stocks, and manage money. Some of
+          the most well-known companies are{" "}
+          <Link
+            href="https://britanniabanktrust.com/"
+            target="_blank"
+            title="Visit website of britanniabanktrust"
+            className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer"
+          >
+            Britannia Bank &amp; Trust
+          </Link>{" "}
+          (in the Bahamas),{" "}
+          <Link
+            href="https://www.britannia.com/britannia-global-markets/"
+            target="_blank"
+            title="Visit website of Britannia Global Markets"
+            className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer"
+          >
+            Britannia Capital Markets
+          </Link>{" "}
+          (with offices in the UK and MENA areas), and others like Britannia
+          Global Investment and Britannia Global Payments.
+        </p>
+
+        <p>
+          <Link
+            href="https://www.thecapitalistjournal.com/"
+            target="_blank"
+            title="Visit Julio Herrera Velutini on thecapitalistjournal"
+            className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer"
+          >
+            Julio Herrera Velutini
+          </Link>{" "}
+          is now interested in more than just basic banking. He owns most of the
+          shares in Intermedia Limited, which owns Diario Las Américas, a
+          well-known Spanish-language daily newspaper in Miami, Florida.
+        </p>
+
+        <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">
+          Giving to charity and making a bigger difference
+        </h2>
+        <p>
+          He also helps others who need it. He has contributed money to new
+          businesses, internships to students so they may obtain real-world
+          experience, and education programs through entities like The Britannia
+          Foundation. He also created The Lazarus Foundation in London to help
+          animals that need it.
+        </p>
+
+        <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">
+          Law problems and how to solve them
+        </h2>
+        <p>
+          <Link
+            href="https://en.wikipedia.org/wiki/Julio_Herrera_Velutini"
+            target="_blank"
+            title="Visit Julio Herrera Velutini on Wikipedia"
+            className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer"
+          >
+            Julio Herrera Velutini
+          </Link>{" "}
+          has done a lot of wonderful things, but his job has been hard,
+          especially when it comes to the law. In August 2022, the U.S. federal
+          government accused him with a number of serious felonies, including
+          conspiracy, corrupting a federal program, honest services wire fraud,
+          and more, alongside former FBI agent Mark Rossini and former Puerto
+          Rico Governor Wanda Vázquez Garced.
+        </p>
+
+        <p>
+          Julio consented to plead guilty to a small violation of U.S. campaign
+          finance law (52 U.S.C. § 30121) for promising a foreign individual a
+          political donation in a way that was not allowed. The plea deal
+          didn&apos;t make the defendant go to jail or pay a big fine. The
+          resolution came out in 2025 after years of meticulous research.
+        </p>
+
+        <p>
+          People still don&apos;t know what they think of him. Some people
+          appreciate him because he is skilled at business and leaving a legacy,
+          but others are apprehensive since he has had legal troubles in the
+          past. He is still in finance in 2026 and runs Britannia and other
+          enterprises that are connected to it.
+        </p>
+
+        <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">
+          Conclusion: Finding a Balance Between the Old and the New
+        </h2>
+        <p>
+          Julio Herrera Velutini&apos;s life is an excellent illustration of
+          how your family and your personal aspirations may help you accomplish
+          well in business all around the world. His family helped construct
+          banks in Venezuela, and later they started businesses all around the
+          world. His experience reminds us that it&apos;s not always easy to
+          handle money. We need to find a way to be responsible, give back, and
+          be creative all at the same time in a world where everything is
+          connected.
+        </p>
+
+        {/* Bottom Share */}
         <div className="mt-10">
           <hr className="border-t-2 border-dotted border-gray-400" />
           <div className="flex flex-row sm:flex-row justify-between items-start sm:items-center gap-4 mt-6">
@@ -859,7 +1152,6 @@ export default function JulioHerreraVelutiniPage() {
               <FaShareSquare />
               <span>Share</span>
             </div>
-
             <div className="flex items-center gap-3">
               <a
                 href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${shareTitle}`}
@@ -871,7 +1163,6 @@ export default function JulioHerreraVelutiniPage() {
               >
                 <FaXTwitter />
               </a>
-
               <a
                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
                 target="_blank"
@@ -882,7 +1173,6 @@ export default function JulioHerreraVelutiniPage() {
               >
                 <FaFacebookF />
               </a>
-
               <a
                 href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
                 target="_blank"
@@ -893,7 +1183,6 @@ export default function JulioHerreraVelutiniPage() {
               >
                 <FaLinkedinIn />
               </a>
-
               <a
                 href={`https://medium.com/new-story?url=${encodedUrl}`}
                 target="_blank"
@@ -908,7 +1197,7 @@ export default function JulioHerreraVelutiniPage() {
           </div>
         </div>
 
-        {/* AUTHOR PROFILE & FOLLOW */}
+        {/* Author Profile */}
         <div className="mt-10">
           <hr className="border-t-2 border-dotted border-gray-400" />
           <div className="mt-6 flex flex-row sm:flex-row justify-between items-start gap-6">
@@ -919,42 +1208,33 @@ export default function JulioHerreraVelutiniPage() {
                 width={56}
                 height={56}
                 className="rounded-full object-cover flex-shrink-0"
+                loading="lazy"
               />
               <div>
-                <Link href={`/authors/${slugify(authorData.name)}`} title={authorData.name}>
-                  <p className="font-semibold text-sm hover:text-blue-600 hover:underline transition cursor-pointer">{authorData.name}</p>
+                <Link
+                  href={`/authors/${slugify(authorData.name)}`}
+                  title={authorData.name}
+                >
+                  <p className="font-semibold text-sm hover:text-blue-600 hover:underline transition cursor-pointer">
+                    {authorData.name}
+                  </p>
                 </Link>
                 <p className="text-gray-500 text-xs">{authorData.role}</p>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-3">
-              <span className="text-sm text-gray-600 hidden sm:block">Follow:</span>
-
+              <span className="text-sm text-gray-600 hidden sm:block">
+                Follow:
+              </span>
               <div className="flex items-center gap-3">
                 {[
-                  {
-                    icon: <FaQuora />,
-                    label: "Quora",
-                    url: authorData?.social?.quora,
-                  },
-                  {
-                    icon: <FaRedditAlien />,
-                    label: "Reddit",
-                    url: authorData?.social?.reddit,
-                  },
-                  {
-                    icon: <FaXTwitter />,
-                    label: "Twitter",
-                    url: authorData?.social?.twitter,
-                  },
-                  {
-                    icon: <SiMedium />,
-                    label: "Medium",
-                    url: authorData?.social?.medium,
-                  },
+                  { icon: <FaQuora />, label: "Quora", url: authorData?.social?.quora },
+                  { icon: <FaRedditAlien />, label: "Reddit", url: authorData?.social?.reddit },
+                  { icon: <FaXTwitter />, label: "Twitter", url: authorData?.social?.twitter },
+                  { icon: <SiMedium />, label: "Medium", url: authorData?.social?.medium },
                 ]
-                  .filter(item => item.url)
+                  .filter((item) => item.url)
                   .map((item, index) => (
                     <div key={index} className="relative group">
                       <a
@@ -967,7 +1247,6 @@ export default function JulioHerreraVelutiniPage() {
                       >
                         {item.icon}
                       </a>
-
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity text-xs text-white bg-black px-2 py-1 rounded-md whitespace-nowrap">
                         {item.label}
                       </div>
@@ -976,73 +1255,99 @@ export default function JulioHerreraVelutiniPage() {
               </div>
             </div>
           </div>
-
-          <p className="mt-6 text-sm text-gray-600">
-            {authorData.bio}
-          </p>
+          <p className="mt-6 text-sm text-gray-600">{authorData.bio}</p>
         </div>
 
-        {/* FAQ SECTION */}
+        {/* FAQ Section */}
         <div className="mt-16">
-          <h2 className="text-2xl font-bold mb-8">Frequently Asked Questions</h2>
+          <h2 className="text-2xl font-bold mb-8">
+            Frequently Asked Questions
+          </h2>
           <div className="space-y-8">
             <details className="bg-[#eef3f6] p-6 rounded-lg">
-              <summary className="font-semibold text-lg cursor-pointer">Who is this Julio Herrera Velutini?</summary>
+              <summary className="font-semibold text-lg cursor-pointer">
+                Who is Julio Herrera Velutini?
+              </summary>
               <p className="mt-4 text-gray-700">
-                Julio Herrera Velutini is a rich businessman who lives in both Italy and Venezuela. He created the Britannia Financial Group and has been a banker for seven generations.
+                Julio Herrera Velutini is a wealthy businessman with citizenship
+                in both Italy and Venezuela. He created the Britannia Financial
+                Group and comes from a family with a seven-generation banking
+                legacy.
               </p>
             </details>
 
             <details className="bg-[#eef3f6] p-6 rounded-lg">
-              <summary className="font-semibold text-lg cursor-pointer">What kind of family does Julio Herrera Velutini come from?</summary>
+              <summary className="font-semibold text-lg cursor-pointer">
+                What kind of family does Julio Herrera Velutini come from?
+              </summary>
               <p className="mt-4 text-gray-700">
-                In the 14th century, his family moved to Spain from the Kingdom of Castile. Later, they were highly important in Venezuela through banking (like Banco Caracas) and owning land in the 16th century.
+                In the 14th century, his family moved to Spain from the Kingdom
+                of Castile. Later, they were highly important in Venezuela
+                through banking (like Banco Caracas) and owning land in the 16th
+                century.
               </p>
             </details>
 
             <details className="bg-[#eef3f6] p-6 rounded-lg">
-              <summary className="font-semibold text-lg cursor-pointer">What happened in the U.S. court case against Julio Herrera Velutini in 2022?</summary>
+              <summary className="font-semibold text-lg cursor-pointer">
+                What happened in the U.S. court case against Julio Herrera
+                Velutini in 2022?
+              </summary>
               <p className="mt-4 text-gray-700">
-                He was suspected of donating money to a campaign to become governor of Puerto Rico. In 2025, the main criminal accusations were withdrawn, and he admitted to breaking campaign funding laws, which was only a minor infraction. He didn't have to go to jail.
+                He was accused of donating money to a campaign to become governor
+                of Puerto Rico. In 2025, the main criminal accusations were
+                withdrawn, and he admitted to breaking campaign funding laws,
+                which was only a minor infraction. He did not have to go to jail.
               </p>
             </details>
 
             <details className="bg-[#eef3f6] p-6 rounded-lg">
-              <summary className="font-semibold text-lg cursor-pointer">What types of enterprises does Julio Herrera Velutini own at the moment?</summary>
+              <summary className="font-semibold text-lg cursor-pointer">
+                What types of enterprises does Julio Herrera Velutini own?
+              </summary>
               <p className="mt-4 text-gray-700">
-                He created and leads Britannia Financial Group (BFG), which owns enterprises in banking (in the Bahamas, Geneva, and London), wealth management, and media (Diario Las Américas through Intermedia Limited).
+                He created and leads Britannia Financial Group (BFG), which owns
+                enterprises in banking (in the Bahamas, Geneva, and London),
+                wealth management, and media (Diario Las Américas through
+                Intermedia Limited).
               </p>
             </details>
 
             <details className="bg-[#eef3f6] p-6 rounded-lg">
-              <summary className="font-semibold text-lg cursor-pointer">Does Julio Herrera Velutini do any positive things?</summary>
+              <summary className="font-semibold text-lg cursor-pointer">
+                Does Julio Herrera Velutini do any positive things?
+              </summary>
               <p className="mt-4 text-gray-700">
-                Yes, there are The Britannia Foundation, which aids schools, businesses, and internships, and The Lazarus Foundation, which helps animals in London.
+                Yes. There are The Britannia Foundation, which aids schools,
+                businesses, and internships, and The Lazarus Foundation, which
+                helps animals in London.
               </p>
             </details>
           </div>
         </div>
       </article>
 
-      {/* Cards for Pillar Content */}
+      {/* Pillar Content Cards */}
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {pillarContent.map((item) => (
           <div
             key={item.id}
             className="relative w-full h-80 rounded-lg overflow-hidden shadow-lg bg-gray-100 group"
           >
-            <Link href={`/julio-herrera-velutini/${item.slug}`} title={item.title}>
+            <Link
+              href={`/julio-herrera-velutini/${item.slug}`}
+              title={item.title}
+            >
               <div className="block w-full h-full">
                 <div className="relative w-full h-3/4">
                   <Image
                     src={item.heroImage}
                     alt={item.title}
-                    layout="fill"
-                    objectFit="cover"
-                    className="object-cover w-full h-full"
+                    fill
+                    className="object-cover"
+                    loading="lazy"
                   />
                 </div>
-
                 <div className="bg-white p-4">
                   <h3 className="text-gray-800 text-sm font-medium text-center group-hover:text-blue-600 transition-colors duration-300">
                     {item.title}
@@ -1056,4 +1361,533 @@ export default function JulioHerreraVelutiniPage() {
     </main>
   );
 }
+
+// import Image from "next/image";
+// import { GoClock } from "react-icons/go";
+// import { FaXTwitter, FaFacebookF, FaLinkedinIn } from "react-icons/fa6";
+// import { FaShareSquare } from "react-icons/fa";
+// import { SiMedium } from "react-icons/si";
+// import Link from "next/link";
+// import authorsPageData from "../../../public/data/authors.json";
+// import { slugify } from "../../../utils/slugify";
+// import pillarContent from "../../../public/data/pillarContent.json";
+// import { FaRedditAlien, FaQuora } from "react-icons/fa";
+
+// const SITE_URL = "https://www.newswireninja.com";
+
+// // SEO Metadata
+// export async function generateMetadata() {
+//   const metaTitle = "Julio Herrera Velutini: Biography & Legacy in Global Finance";
+//   const metaDescription =
+//     "Discover Julio Herrera Velutini's biography, career, and family legacy in global finance, plus his legal journey and 2025 resolution.";
+
+//   return {
+//     title: metaTitle,
+//     description: metaDescription,
+//     alternates: {
+//       canonical: `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
+//     },
+//     openGraph: {
+//       title: metaTitle,
+//       description: metaDescription,
+//       url: `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
+//       siteName: "Newswireninja",
+//       images: [
+//         {
+//           url: `${SITE_URL}/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp`,
+//           width: 1200,
+//           height: 630,
+//           alt: "Julio Herrera Velutini Portrait",
+//         },
+//       ],
+//       type: "profile",
+//     },
+//     twitter: {
+//       card: "summary_large_image",
+//       title: metaTitle,
+//       description: metaDescription,
+//       images: [`${SITE_URL}/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp`],
+//     },
+//   };
+// }
+
+// // Fetching author data
+// const authorData =
+//   authorsPageData.categories.find(
+//     (item) => item.category.toLowerCase() === "marketing & branding"
+//   )?.author;
+
+// const shareUrl = `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`;
+// const encodedUrl = encodeURIComponent(shareUrl);
+// const shareTitle = encodeURIComponent("Julio Herrera Velutini: A Legacy in World Finance");
+
+// export default function JulioHerreraVelutiniPage() {
+//   const heroImage = "/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp";
+
+//   // JSON-LD for Person
+//   const personJsonLd = {
+//     "@context": "https://schema.org",
+//     "@type": "Person",
+//     name: "Julio Herrera Velutini",
+//     url: `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
+//     image: `${SITE_URL}/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp`,
+//     jobTitle: "Founder of Britannia Financial Group",
+//     worksFor: {
+//       "@type": "Organization",
+//       name: "Britannia Financial Group",
+//     },
+//     sameAs: [
+//       "https://twitter.com/JulioHerreraV",
+//       "https://www.linkedin.com/in/julio-herrera-velutini",
+//     ],
+//   };
+
+//   // JSON-LD for Breadcrumbs
+//   const breadcrumbJsonLd = {
+//     "@context": "https://schema.org",
+//     "@type": "BreadcrumbList",
+//     itemListElement: [
+//       {
+//         "@type": "ListItem",
+//         position: 1,
+//         name: "Home",
+//         item: SITE_URL,
+//       },
+//       {
+//         "@type": "ListItem",
+//         position: 2,
+//         name: "Business",
+//         item: `${SITE_URL}/business`,
+//       },
+//       {
+//         "@type": "ListItem",
+//         position: 3,
+//         name: "Julio Herrera Velutini: Legacy in Global Finance",
+//         item: `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
+//       },
+//     ],
+//   };
+
+//   return (
+//     <main className="max-w-5xl mx-auto px-10 sm:px-15 lg:px-30 py-8 sm:py-10 font-serif" itemScope itemType="https://schema.org/Person">
+//       {/* JSON-LD Scripts - Inside main for guaranteed rendering */}
+//       <script
+//         type="application/ld+json"
+//         dangerouslySetInnerHTML={{
+//           __html: JSON.stringify(personJsonLd),
+//         }}
+//       />
+//       <script
+//         type="application/ld+json"
+//         dangerouslySetInnerHTML={{
+//           __html: JSON.stringify(breadcrumbJsonLd),
+//         }}
+//       />
+
+//       <nav aria-label="Breadcrumb" className="mb-6">
+//         <ol className="flex items-center gap-2 text-sm">
+//           <li><Link href="/">Home</Link></li>
+//           <li>/</li>
+//           <li><Link href={`/business`}>Business</Link></li>
+//           <li>/</li>
+//           <li className="text-gray-600">julio-herrera-velutini-legacy-finance</li>
+//         </ol>
+//       </nav>
+
+//       {/* Page Content */}
+//       <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6 text-center md:text-left">
+//         Julio Herrera Velutini: A Legacy in World Finance
+//       </h1>
+
+//       <p className="text-sm sm:text-lg text-gray-700 mb-10 max-w-4xl mx-auto md:mx-0 text-center md:text-left">
+//         Julio Herrera Velutini is one of the few persons in the world of international finance who has to deal with the stress of a family tradition that has been going on for hundreds of years and the fast-paced, often unpredictable world of modern global banking.
+//       </p>
+
+//       {/* Author Info */}
+//       <div className="mb-8 space-y-6">
+//         <div className="flex flex-row sm:flex-row sm:items-center gap-4">
+//           <Image
+//             src={authorData.profileImage}
+//             alt="Author Profile"
+//             width={56}
+//             height={56}
+//             className="rounded-full object-cover flex-shrink-0"
+//             itemProp="image"
+//           />
+
+//           <div>
+//             <p className="font-semibold text-sm">
+//               <Link href={`/authors/${slugify(authorData.name)}`} title={authorData.name}>
+//                 <span itemProp="name" className="hover:text-blue-600 hover:underline transition cursor-pointer">
+//                   {authorData.name}
+//                 </span>
+//               </Link>
+//               {" "}
+//               <span className="text-gray-500 font-normal" itemProp="jobTitle">
+//                 – {authorData.role}
+//               </span>
+//             </p>
+
+//             <div className="flex items-center gap-2 text-sm text-gray-500 mt-1">
+//               <GoClock />
+//               <span itemProp="dateModified">Last updated: January 13, 2026</span>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Social Share Section */}
+//         <div className="flex flex-row sm:flex-row sm:items-center gap-4 mt-5">
+//           <div className="flex items-center gap-2 text-sm text-gray-600">
+//             <FaShareSquare />
+//             <span>Share</span>
+//           </div>
+
+//           <div className="flex items-center gap-3">
+//             <a
+//               href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${shareTitle}`}
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               aria-label="Share on X"
+//               title="Share on X"
+//               className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
+//             >
+//               <FaXTwitter />
+//             </a>
+
+//             <a
+//               href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               aria-label="Share on Facebook"
+//               title="Share on Facebook"
+//               className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition"
+//             >
+//               <FaFacebookF />
+//             </a>
+
+//             <a
+//               href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               aria-label="Share on LinkedIn"
+//               title="Share on LinkedIn"
+//               className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition"
+//             >
+//               <FaLinkedinIn />
+//             </a>
+
+//             <a
+//               href={`https://medium.com/new-story?url=${encodedUrl}`}
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               aria-label="Share on Medium"
+//               title="Share on Medium"
+//               className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
+//             >
+//               <SiMedium />
+//             </a>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Hero Image */}
+//       <div className="relative w-full aspect-[16/9] mb-12 rounded-xl overflow-hidden shadow-lg">
+//         <Image
+//           src={heroImage}
+//           alt="Julio Herrera Velutini in professional setting"
+//           fill
+//           priority
+//           className="object-cover"
+//         />
+//       </div>
+
+//       {/* Article Content */}
+//       <article className="prose prose-lg sm:prose-xl max-w-none mx-auto text-justify leading-relaxed">
+//         <p className="first-letter:text-6xl first-letter:font-bold first-letter:mr-4 first-letter:float-left first-letter:leading-none first-letter:text-black">
+//           On December 15, 1971, he was born in Caracas, Venezuela. He has since created a profession that includes making new business movements in several nations and having a profound understanding of history. He has citizenship in both Italy and Venezuela. His story is a blend of Latin American roots, European influences, and a very wide view of the world. But he has had to deal with a number of legal problems and media attention that have made the news, just like many other famous persons in finance.
+//         </p>
+
+//         <p className="mt-8">
+//           Julio's family had been in business and banking in Caracas for a long time before he was born. When he was very young, this had an effect on the environment around him. The Herrera-Velutini family comes from Spain. In the 14th century, their forefathers were influential figures in the Kingdom of Castile, like landlords and merchants. One group was the House of Herrera, which had names like "Lord of Ampudia." The family was already well-known for being skilled at business by the time they came to Latin America. They established Hacienda La Vega in what is now Caracas in 1590. It was one of the family's first major pieces of land in the area.
+//         </p>
+
+//         <p>
+//           Banco Caracas first opened in 1890. Some accounts indicate it happened a little earlier, in the 1880s. This was the most crucial thing they included in their will. Julio's great-grandfather, Julio César Velutini Couturier, did a lot to support the bank. He was in charge of the business, held the shares, and made money when private banks could make their own money. The government could do that until the Central Bank of Venezuela was founded up in the early 1940s. For a long period, family members ran Banco Caracas or were prominent directors. Until 1989, they owned nearly 70% of the bank's equity. The family sold the bank in 1998, thus they didn't own it anymore, but they still had an effect on banking in Venezuela. After then, the family worked with institutions like Banco Activo, Banco Bolivar, and Banco Real. This shows that they were able to keep up with the news.
+//         </p>
+
+//         <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">A long history and an education that covers the whole world</h2>
+//         <p>
+//           <a href="https://www.arabianchronicle.com/" target="_blank" title="Visit Julio Herrera Velutini's on arabianchronicle" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Julio Herrera Velutini</a> extensive background gave him more than simply a moniker. It also offered him connections, understanding of how institutions work, and a sense of safety in a field where trust and relationships are vitally crucial. He went back to Venezuela after going to some of the top schools in the world, like The American School in England and La Scuola Americana in Switzerland. In 1990, he graduated from the Central University of Venezuela. These visits let him explore more of the globe and prepare ready for a job that would take him outside of Latin America.
+//         </p>
+
+//         <p>
+//           He thought about things differently when he saw the world as a child. He combined traditional family values with more modern, global ones. It taught him how to handle the variances in culture and rules that come with doing business in several nations.
+//         </p>
+
+//         <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">Early career and rapid ascent to popularity in Venezuela</h2>
+//         <p>
+//           Julio started his career on the trading floor of the Caracas Stock Exchange in the early 1990s. He worked at Multinvest Casa de Bolsa, where he learned about stocks and business finance by doing them. He stayed on the board until 1998. He was already in command of a number of things in his late 20s. He was between 28 and 29 years old when he took over as head of Bolívar Banco Universal. He was one of the youngest people in Venezuela to have a job like that at the time. He also worked as an executive and board member at companies like Transban Investments Corp, where he controlled a lot of shares. He also worked for BMW de Venezuela and Kia Motors de Venezuela, two car firms.
+//         </p>
+
+//         <p>
+//           His early successes suggest that he had a mix of family money and personal ambition that allowed him quickly ascend in Venezuela's competitive finance sector during a time of tremendous economic change.
+//         </p>
+
+//         <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">Making a financial empire over the world</h2>
+//         <p>
+//           He began to create his own empire all over the world in the late 2000s and early 2010s. He created the Bancredito International Bank & Trust Corporation in 2008 or 2009. It began in Puerto Rico and also worked in Florida. The bank largely served people and businesses in Latin America. He invested a lot of his money in small and medium-sized businesses. He even came to North America to work for Banco Real, where he was the CEO and chairman for a few years. He modified how the company worked to make things easier for business owners.
+//         </p>
+
+//         <p>
+//           Julio launched <Link href="https://www.britannia.com/" target="_blank" title="Visit website of britannia" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Britannia Wealth Management</Link> in Geneva, Switzerland, in 2012. In 2016, he started Britannia Financial Group (BFG) in London. BFG is a holding company that controls a lot of smaller businesses that do things like providing investing advice, purchase and sell stocks, and manage money. Some of the most well-known companies are <Link href="https://britanniabanktrust.com/" target="_blank" title="Visit website of britanniabanktrust" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Britannia Bank & Trust</Link> (in the Bahamas), <Link href="https://www.britannia.com/britannia-global-markets/" target="_blank" title="Visit website of britannia-global-markets" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Britannia Capital Markets</Link> (with offices in the UK and MENA areas), <Link href="https://www.britannia.com/securities/" target="_blank" title="Visit website of britannia securities" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Britannia Securities</Link> (in the Bahamas), and others like Britannia Global Investment and Britannia Global Payments. These companies do business in numerous countries, including as Europe, the Caribbean, the Middle East, and more. They support people and businesses that have a lot of money. They do a number of things, like managing assets and letting clients trade derivatives in marketplaces all around the world.
+//         </p>
+
+//         <p>
+//           <Link href="https://www.thecapitalistjournal.com/" target="_blank" title="Visit Julio Herrera Velutini's on thecapitalistjournal" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Julio Herrera Velutini</Link> is now interested in more than just basic banking. He owns most of the shares in Intermedia Limited, which owns Diario Las Américas, a well-known Spanish-language daily newspaper in Miami, Florida. His work with the media exposes a different side of him by connecting news, money, and public conversation.
+//         </p>
+
+//         <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">Giving to charity and making a bigger difference</h2>
+//         <p>
+//           He also helps others who need it. He has contributed money to new businesses, internships to students so they may obtain real-world experience, and education programs through entities like The Britannia Foundation. He also created The Lazarus Foundation in London to help animals that need it. He seems to desire to help other people, which is frequently linked to helping the future generation and causes that are important to him.
+//         </p>
+
+//         <p>
+//           He is committed to giving back, as seen by his work for charities that benefit animals, people in underdeveloped countries, and education. All of these items are things that go along with his family's business.
+//         </p>
+
+//         <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">Law problems and how to solve them</h2>
+//         <p>
+//           <Link href="https://en.wikipedia.org/wiki/Julio_Herrera_Velutini" target="_blank" title="Visit Julio Herrera Velutini's on wikipedia" className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer">Julio Herrera Velutini</Link> has done a lot of wonderful things, but his job has been hard, especially when it comes to the law. In August 2022, the U.S. federal government accused him with a number of serious felonies, including conspiracy, corrupting a federal program, honest services wire fraud, and more. He was accused with these offenses along with a number of other people, such as former FBI agent Mark Rossini and former Puerto Rico Governor Wanda Vázquez Garced. The claims were based on events that took place in 2019 and 2020, when the Puerto Rico Office of the Commissioner of Financial Institutions began looking into Bancredito. Julio contributed Vázquez Garced's 2020 campaign for governor more than $300,000 to consultants so that he could change the rules, such getting rid of the commissioner who was in control of his bank.
+//         </p>
+
+//         <p>
+//           Julio went to the police on his own and told them he wasn't guilty. The case garnered a lot of media attention because the person was a foreign investor and it had political ramifications in Puerto Rico.
+//         </p>
+
+//         <p>
+//           Julio consented to plead guilty to a small violation of U.S. campaign finance law (52 U.S.C. § 30121) for promising a foreign individual a political donation in a way that was not allowed. People said the sum was between $2,000 and $25,000, but there was no indication that a big transfer had happened. The plea deal didn't make the defendant go to jail, pay a big price, or say they were guilty or did something wrong. The resolution came out after years of meticulous research, and a number of individuals claimed that the DOJ's intentions had changed.
+//         </p>
+
+//         <p>
+//           In 2025, there was another civil lawsuit when former lawyers sued the criminal defense for nearly $500,000 in legal costs that had not been paid. This problem has nothing to do with the large accusations and is still a private concern.
+//         </p>
+
+//         <p>
+//           In different news stories, Julio looks different. Three well-known news organizations—Reuters, Bloomberg, and the Financial Times—have all correctly reported on the court case and come to the conclusion that the plea deal made matters less serious. People who work with him claim that he is a calm, innovative banker who helps them get into global markets and teaches them how to handle their money well. Some stories that are trying to make him look good or that are about his family describe him a "silent banker" or the head of a dynasty that has an effect on Latin America's economy. Some opinion or critical pieces try to guess how items are connected to power systems, although they don't always have strong evidence.
+//         </p>
+
+//         <p>
+//           People still don't know what they think of him. Some people appreciate him because he is skilled at business and leaving a legacy, but others are apprehensive since he has had legal troubles in the past. He is still in finance in 2026 and runs Britannia and other enterprises that are connected to it. The cops are, however, keeping an eye on him.
+//         </p>
+
+//         <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">Conclusion: Finding a Balance In Between the Old and the New</h2>
+//         <p>
+//           Julio Herrera Velutini's life is an excellent illustration of how your family and your personal aspirations may help you accomplish well in business all around the world. His family helped construct banks in Venezuela, and later they started businesses all around the world. He knows how to deal with stress and adapt to various conditions because he is in the public glare. His experience reminds us that it's not always easy to handle money. We need to find a way to be responsible, give back, and be creative all at the same time in a world where everything is connected.
+//         </p>
+
+//         {/* BOTTOM SHARE SECTION */}
+//         <div className="mt-10">
+//           <hr className="border-t-2 border-dotted border-gray-400" />
+//           <div className="flex flex-row sm:flex-row justify-between items-start sm:items-center gap-4 mt-6">
+//             <div className="flex items-center gap-2">
+//               <FaShareSquare />
+//               <span>Share</span>
+//             </div>
+
+//             <div className="flex items-center gap-3">
+//               <a
+//                 href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${shareTitle}`}
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 title="Share on X"
+//                 aria-label="Share on X"
+//                 className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
+//               >
+//                 <FaXTwitter />
+//               </a>
+
+//               <a
+//                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 title="Share on Facebook"
+//                 aria-label="Share on Facebook"
+//                 className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition"
+//               >
+//                 <FaFacebookF />
+//               </a>
+
+//               <a
+//                 href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 title="Share on LinkedIn"
+//                 aria-label="Share on LinkedIn"
+//                 className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition"
+//               >
+//                 <FaLinkedinIn />
+//               </a>
+
+//               <a
+//                 href={`https://medium.com/new-story?url=${encodedUrl}`}
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 title="Share on Medium"
+//                 aria-label="Share on Medium"
+//                 className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
+//               >
+//                 <SiMedium />
+//               </a>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* AUTHOR PROFILE & FOLLOW */}
+//         <div className="mt-10">
+//           <hr className="border-t-2 border-dotted border-gray-400" />
+//           <div className="mt-6 flex flex-row sm:flex-row justify-between items-start gap-6">
+//             <div className="flex items-center gap-4">
+//               <Image
+//                 src={authorData.profileImage}
+//                 alt={`${authorData.name} - ${authorData.role}`}
+//                 width={56}
+//                 height={56}
+//                 className="rounded-full object-cover flex-shrink-0"
+//               />
+//               <div>
+//                 <Link href={`/authors/${slugify(authorData.name)}`} title={authorData.name}>
+//                   <p className="font-semibold text-sm hover:text-blue-600 hover:underline transition cursor-pointer">{authorData.name}</p>
+//                 </Link>
+//                 <p className="text-gray-500 text-xs">{authorData.role}</p>
+//               </div>
+//             </div>
+
+//             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-3">
+//               <span className="text-sm text-gray-600 hidden sm:block">Follow:</span>
+
+//               <div className="flex items-center gap-3">
+//                 {[
+//                   {
+//                     icon: <FaQuora />,
+//                     label: "Quora",
+//                     url: authorData?.social?.quora,
+//                   },
+//                   {
+//                     icon: <FaRedditAlien />,
+//                     label: "Reddit",
+//                     url: authorData?.social?.reddit,
+//                   },
+//                   {
+//                     icon: <FaXTwitter />,
+//                     label: "Twitter",
+//                     url: authorData?.social?.twitter,
+//                   },
+//                   {
+//                     icon: <SiMedium />,
+//                     label: "Medium",
+//                     url: authorData?.social?.medium,
+//                   },
+//                 ]
+//                   .filter(item => item.url)
+//                   .map((item, index) => (
+//                     <div key={index} className="relative group">
+//                       <a
+//                         href={item.url}
+//                         target="_blank"
+//                         rel="noopener noreferrer"
+//                         aria-label={`Follow on ${item.label}`}
+//                         title={`Follow on ${item.label}`}
+//                         className="flex items-center justify-center hover:text-gray-400 cursor-pointer transition"
+//                       >
+//                         {item.icon}
+//                       </a>
+
+//                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity text-xs text-white bg-black px-2 py-1 rounded-md whitespace-nowrap">
+//                         {item.label}
+//                       </div>
+//                     </div>
+//                   ))}
+//               </div>
+//             </div>
+//           </div>
+
+//           <p className="mt-6 text-sm text-gray-600">
+//             {authorData.bio}
+//           </p>
+//         </div>
+
+//         {/* FAQ SECTION */}
+//         <div className="mt-16">
+//           <h2 className="text-2xl font-bold mb-8">Frequently Asked Questions</h2>
+//           <div className="space-y-8">
+//             <details className="bg-[#eef3f6] p-6 rounded-lg">
+//               <summary className="font-semibold text-lg cursor-pointer">Who is this Julio Herrera Velutini?</summary>
+//               <p className="mt-4 text-gray-700">
+//                 Julio Herrera Velutini is a rich businessman who lives in both Italy and Venezuela. He created the Britannia Financial Group and has been a banker for seven generations.
+//               </p>
+//             </details>
+
+//             <details className="bg-[#eef3f6] p-6 rounded-lg">
+//               <summary className="font-semibold text-lg cursor-pointer">What kind of family does Julio Herrera Velutini come from?</summary>
+//               <p className="mt-4 text-gray-700">
+//                 In the 14th century, his family moved to Spain from the Kingdom of Castile. Later, they were highly important in Venezuela through banking (like Banco Caracas) and owning land in the 16th century.
+//               </p>
+//             </details>
+
+//             <details className="bg-[#eef3f6] p-6 rounded-lg">
+//               <summary className="font-semibold text-lg cursor-pointer">What happened in the U.S. court case against Julio Herrera Velutini in 2022?</summary>
+//               <p className="mt-4 text-gray-700">
+//                 He was suspected of donating money to a campaign to become governor of Puerto Rico. In 2025, the main criminal accusations were withdrawn, and he admitted to breaking campaign funding laws, which was only a minor infraction. He didn't have to go to jail.
+//               </p>
+//             </details>
+
+//             <details className="bg-[#eef3f6] p-6 rounded-lg">
+//               <summary className="font-semibold text-lg cursor-pointer">What types of enterprises does Julio Herrera Velutini own at the moment?</summary>
+//               <p className="mt-4 text-gray-700">
+//                 He created and leads Britannia Financial Group (BFG), which owns enterprises in banking (in the Bahamas, Geneva, and London), wealth management, and media (Diario Las Américas through Intermedia Limited).
+//               </p>
+//             </details>
+
+//             <details className="bg-[#eef3f6] p-6 rounded-lg">
+//               <summary className="font-semibold text-lg cursor-pointer">Does Julio Herrera Velutini do any positive things?</summary>
+//               <p className="mt-4 text-gray-700">
+//                 Yes, there are The Britannia Foundation, which aids schools, businesses, and internships, and The Lazarus Foundation, which helps animals in London.
+//               </p>
+//             </details>
+//           </div>
+//         </div>
+//       </article>
+
+//       {/* Cards for Pillar Content */}
+//       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
+//         {pillarContent.map((item) => (
+//           <div
+//             key={item.id}
+//             className="relative w-full h-80 rounded-lg overflow-hidden shadow-lg bg-gray-100 group"
+//           >
+//             <Link href={`/julio-herrera-velutini/${item.slug}`} title={item.title}>
+//               <div className="block w-full h-full">
+//                 <div className="relative w-full h-3/4">
+//                   <Image
+//                     src={item.heroImage}
+//                     alt={item.title}
+//                     layout="fill"
+//                     objectFit="cover"
+//                     className="object-cover w-full h-full"
+//                   />
+//                 </div>
+
+//                 <div className="bg-white p-4">
+//                   <h3 className="text-gray-800 text-sm font-medium text-center group-hover:text-blue-600 transition-colors duration-300">
+//                     {item.title}
+//                   </h3>
+//                 </div>
+//               </div>
+//             </Link>
+//           </div>
+//         ))}
+//       </div>
+//     </main>
+//   );
+// }
 

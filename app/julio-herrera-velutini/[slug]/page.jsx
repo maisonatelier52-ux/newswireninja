@@ -471,42 +471,43 @@
 // }
 
 
-// app/julio-herrera-velutini/[slug]/page.jsx
+
 
 import Image from "next/image";
 import { GoClock } from "react-icons/go";
-import { FaXTwitter, FaFacebookF, FaLinkedinIn, FaMedium } from "react-icons/fa6";
+import { FaXTwitter, FaFacebookF, FaLinkedinIn } from "react-icons/fa6";
 import { FaShareSquare } from "react-icons/fa";
 import { SiMedium } from "react-icons/si";
 import Link from "next/link";
 import authorsPageData from "../../../public/data/authors.json";
-import contentData from "../../../public/data/pillarContent.json"; 
+import contentData from "../../../public/data/pillarContent.json";
 import { slugify } from "../../../utils/slugify";
-import pillarContent from "../../../public/data/pillarContent.json"
+import pillarContent from "../../../public/data/pillarContent.json";
 import { notFound } from "next/navigation";
 import { FaRedditAlien } from "react-icons/fa";
 import { FaQuora } from "react-icons/fa";
 
 const SITE_URL = "https://www.newswireninja.com";
+const SITE_NAME = "Newswireninja";
 
-// STATIC AUTHOR
-const authorData = authorsPageData.categories
-  .find((item) => item.category.toLowerCase() === "marketing & branding")
-  ?.author;
+// Static author
+const authorData = authorsPageData.categories.find(
+  (item) => item.category.toLowerCase() === "marketing & branding"
+)?.author;
 
-/* ----------------------------------
-   METADATA (NO BREADCRUMBS HERE)
----------------------------------- */
+export async function generateStaticParams() {
+  return contentData.map((item) => ({ slug: item.slug }));
+}
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-
   const content = contentData.find((item) => item.slug === slug);
 
   if (!content) {
     return {
-      title: "Content not found",
+      title: "Content not found | Newswireninja",
       description: "This content does not exist.",
-      robots: "noindex",
+      robots: { index: false },
     };
   }
 
@@ -516,6 +517,7 @@ export async function generateMetadata({ params }) {
   return {
     title: metaTitle,
     description: metaDescription,
+    authors: [{ name: authorData?.name || SITE_NAME }],
     alternates: {
       canonical: `${SITE_URL}/julio-herrera-velutini/${slug}`,
     },
@@ -523,7 +525,7 @@ export async function generateMetadata({ params }) {
       title: metaTitle,
       description: metaDescription,
       url: `${SITE_URL}/julio-herrera-velutini/${slug}`,
-      siteName: "Newswire Ninja",
+      siteName: SITE_NAME,
       type: "article",
       images: [
         {
@@ -539,16 +541,25 @@ export async function generateMetadata({ params }) {
       title: metaTitle,
       description: metaDescription,
       images: [imageUrl],
+      creator: "@newswireninja",
+      site: "@newswireninja",
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 }
 
-/* ----------------------------------
-   PAGE
----------------------------------- */
 export default async function JulioHerreraVelutiniPillarPage({ params }) {
   const { slug } = await params;
-
   const content = contentData.find((item) => item.slug === slug);
   if (!content) notFound();
 
@@ -557,65 +568,103 @@ export default async function JulioHerreraVelutiniPillarPage({ params }) {
 
   const shareUrl = `${SITE_URL}/julio-herrera-velutini/${slug}`;
   const encodedUrl = encodeURIComponent(shareUrl);
-  const encodedTitle = encodeURIComponent(title);
   const shareTitle = encodeURIComponent(title);
 
-  /* -------- ARTICLE JSON-LD -------- */
+  // Convert lastUpdated to ISO - handle both DD/MM/YYYY and display formats
+  const toISOString = (dateStr) => {
+    if (!dateStr) return new Date().toISOString();
+    if (dateStr.includes("/")) {
+      const [day, month, year] = dateStr.split("/");
+      return new Date(year, month - 1, day).toISOString();
+    }
+    return new Date(dateStr).toISOString();
+  };
+
+  const dateISO = toISOString(lastUpdated);
+
+  // JSON-LD: NewsArticle
   const articleJsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": title,
-    "description": subtitle,
-    "image": [`${SITE_URL}${heroImage}`],
-    "author": {
-      "@type": "Person",
-      "name": authorData.name,
-      "url": `${SITE_URL}/authors/${slugify(authorData.name)}`,
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Newswire Ninja",
-      "logo": {
+    "@type": "NewsArticle",
+    "@id": `${shareUrl}#article`,
+    headline: title,
+    description: subtitle,
+    image: [
+      {
         "@type": "ImageObject",
-        "url": `${SITE_URL}/images/newswireninja-logo.webp`,
+        url: `${SITE_URL}${heroImage}`,
+        width: 1200,
+        height: 630,
+      },
+    ],
+    datePublished: dateISO,
+    dateModified: dateISO,
+    author: authorData
+      ? {
+          "@type": "Person",
+          name: authorData.name,
+          url: `${SITE_URL}/authors/${slugify(authorData.name)}`,
+        }
+      : { "@type": "Organization", name: SITE_NAME },
+    publisher: {
+      "@type": "NewsMediaOrganization",
+      "@id": `${SITE_URL}/#organization`,
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/images/newswireninja-logo.webp`,
+        width: 600,
+        height: 60,
       },
     },
-    "mainEntityOfPage": {
+    mainEntityOfPage: {
       "@type": "WebPage",
       "@id": shareUrl,
     },
-    "datePublished": new Date().toISOString(),
-    "dateModified": new Date().toISOString(),
+    articleSection: "business",
+    about: {
+      "@type": "Person",
+      name: "Julio Herrera Velutini",
+    },
+    url: shareUrl,
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
   };
 
-  /* -------- BREADCRUMB JSON-LD -------- */
+  // JSON-LD: BreadcrumbList
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    "@id": `${shareUrl}#breadcrumb`,
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": SITE_URL,
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "Business",
-        "item": `${SITE_URL}/business`,
+        position: 2,
+        name: "Business",
+        item: `${SITE_URL}/business`,
       },
       {
         "@type": "ListItem",
-        "position": 3,
-        "name": "Julio Herrera Velutini",
-        "item": `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
+        position: 3,
+        name: "Julio Herrera Velutini",
+        item: `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
       },
       {
         "@type": "ListItem",
-        "position": 4,
-        "name": title,
-        "item": shareUrl,
+        position: 4,
+        name: title,
+        item: shareUrl,
       },
     ],
   };
@@ -633,195 +682,147 @@ export default async function JulioHerreraVelutiniPillarPage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-         <main className="max-w-5xl mx-auto px-10 sm:px-15 lg:px-30 py-8 sm:py-10 font-serif" itemScope itemType="https://schema.org/Article">
-      
-      {/* TITLE */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6 text-center md:text-left" itemProp="headline">
-        {title}
-      </h1>
 
-      {/* SUBTITLE */}
-      <p className="text-sm sm:text-lg text-gray-700 mb-10 max-w-4xl mx-auto md:mx-0 text-center md:text-left" itemProp="description">
-        {subtitle}
-      </p>
+      <main
+        className="max-w-5xl mx-auto px-10 sm:px-15 lg:px-30 py-8 sm:py-10 font-serif"
+        itemScope
+        itemType="https://schema.org/NewsArticle"
+      >
+        {/* Hidden microdata */}
+        <meta itemProp="headline" content={title} />
+        <meta itemProp="description" content={subtitle} />
+        <meta itemProp="datePublished" content={dateISO} />
+        <meta itemProp="dateModified" content={dateISO} />
+        <meta itemProp="articleSection" content="business" />
 
-      {/* META INFO */}
-      <div className="mb-8 space-y-6">
-        <div className="flex flex-row items-center gap-4">
-          <Image
-            src={authorData.profileImage}
-            alt={`${authorData.name} - ${authorData.role}`}
-            width={56}
-            height={56}
-            className="rounded-full object-cover flex-shrink-0"
-            itemProp="author"
-            loading="lazy"
-          />
-          <div>
-            <p className="font-semibold text-sm">
-              <Link href={`/authors/${slugify(authorData.name)}`} title={authorData.name}>
-                <span className="hover:text-blue-600 hover:underline transition cursor-pointer" itemProp="author">
-                  {authorData.name}
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="mb-6">
+          <ol className="flex items-center gap-2 text-sm flex-wrap">
+            <li>
+              <Link href="/" title="Home page" className="hover:text-blue-600">
+                Home
+              </Link>
+            </li>
+            <li>/</li>
+            <li>
+              <Link
+                href="/business"
+                className="hover:text-blue-600"
+                title="Business page"
+              >
+                Business
+              </Link>
+            </li>
+            <li>/</li>
+            <li>
+              <Link
+                href="/business/julio-herrera-velutini-legacy-finance"
+                className="hover:text-blue-600"
+                title="Julio Herrera Velutini"
+              >
+                Julio Herrera Velutini
+              </Link>
+            </li>
+            <li>/</li>
+            <li className="text-gray-600 line-clamp-1">{title}</li>
+          </ol>
+        </nav>
+
+        {/* Title */}
+        <h1
+          className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6 text-center md:text-left"
+          itemProp="headline"
+        >
+          {title}
+        </h1>
+
+        {/* Subtitle */}
+        <p
+          className="text-sm sm:text-lg text-gray-700 mb-10 max-w-4xl mx-auto md:mx-0 text-center md:text-left"
+          itemProp="description"
+        >
+          {subtitle}
+        </p>
+
+        {/* Author + Meta */}
+        <div className="mb-8 space-y-6">
+          <div className="flex flex-row items-center gap-4">
+            <Image
+              src={authorData.profileImage}
+              alt={`${authorData.name} - ${authorData.role}`}
+              width={56}
+              height={56}
+              className="rounded-full object-cover flex-shrink-0"
+              loading="lazy"
+            />
+            <div>
+              <p className="font-semibold text-sm">
+                <Link
+                  href={`/authors/${slugify(authorData.name)}`}
+                  title={authorData.name}
+                >
+                  <span
+                    className="hover:text-blue-600 hover:underline transition cursor-pointer"
+                    itemProp="author"
+                  >
+                    {authorData.name}
+                  </span>
+                </Link>{" "}
+                <span className="text-gray-500 font-normal">
+                  – {authorData.role}
                 </span>
-              </Link>{" "}
-              <span className="text-gray-500 font-normal">– {authorData.role}</span>
-            </p>
-            <div className="flex items-center gap-2 text-sm text-gray-500 mt-1">
-              <GoClock />
-              <span>Last updated: {lastUpdated}</span>
+              </p>
+              <div className="flex items-center gap-2 text-sm text-gray-500 mt-1">
+                <GoClock />
+                <time dateTime={dateISO}>Last updated: {lastUpdated}</time>
+              </div>
             </div>
           </div>
-        </div>
 
-         <div className="flex flex-row sm:flex-row sm:items-center gap-4 mt-5">
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            <FaShareSquare />
-            <span>Share</span>
-          </div>
-
-          <div className="flex items-center gap-3">
-            {/* X / Twitter */}
-            <a
-              href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${shareTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Share on X"
-              title="Share on X"
-              className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
-            >
-              <FaXTwitter />
-            </a>
-
-            {/* Facebook */}
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Share on Facebook"
-              title="Share on Facebook"
-              className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition"
-            >
-              <FaFacebookF />
-            </a>
-
-            {/* LinkedIn */}
-            <a
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Share on LinkedIn"
-              title="Share on LinkedIn"
-              className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition"
-            >
-              <FaLinkedinIn />
-            </a>
-
-            {/* Medium */}
-            <a
-              href={`https://medium.com/new-story?url=${encodedUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Share on Medium"
-              title="Share on Medium"
-              className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
-            >
-              <SiMedium />
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* HERO IMAGE */}
-      <div className="relative w-full aspect-[16/9] mb-12 rounded-xl overflow-hidden shadow-lg">
-        <Image
-          src={heroImage}
-          alt="Julio Herrera Velutini in professional setting"
-          fill
-          priority
-          className="object-cover"
-          itemProp="image"
-        />
-      </div>
-
-      {/* DYNAMIC ARTICLE CONTENT */}
-      <article className="prose prose-lg sm:prose-xl max-w-none mx-auto text-justify leading-relaxed">
-        {articleContent.map((block, index) => {
-          if (block.type === "heading") {
-            const HeadingTag = `h${block.level}`; // Dynamically create the heading tag
-            return (
-              <HeadingTag
-                key={index}
-                className="text-xl md:text-2xl font-bold mt-12 mb-6"
-              >
-                {block.text}
-              </HeadingTag>
-            );
-          }
-
-          if (block.type === "paragraph") {
-            return (
-              <p
-                key={index}
-                className={block.dropCap ? "first-letter:text-6xl first-letter:font-bold first-letter:mr-4 first-letter:float-left first-letter:leading-none first-letter:text-black" : ""}
-              >
-                {block.content}
-              </p>
-            );
-          }
-
-          return null;
-        })}
-
-        {/* BOTTOM SHARE SECTION */}
-        <div className="mt-10">
-          <hr className="border-t-2 border-dotted border-gray-400" />
-          <div className="flex flex-row sm:flex-row justify-between items-start sm:items-center gap-4 mt-6">
-            <div className="flex items-center gap-2">
+          {/* Share */}
+          <div className="flex flex-row sm:flex-row sm:items-center gap-4 mt-5">
+            <div className="flex items-center gap-2 text-sm text-gray-600">
               <FaShareSquare />
               <span>Share</span>
             </div>
-
             <div className="flex items-center gap-3">
               <a
                 href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${shareTitle}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Share on X"
                 aria-label="Share on X"
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
+                title="Share on X"
+                className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
               >
                 <FaXTwitter />
               </a>
-
               <a
                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Share on Facebook"
                 aria-label="Share on Facebook"
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition"
+                title="Share on Facebook"
+                className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition"
               >
                 <FaFacebookF />
               </a>
-
               <a
                 href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Share on LinkedIn"
                 aria-label="Share on LinkedIn"
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition"
+                title="Share on LinkedIn"
+                className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition"
               >
                 <FaLinkedinIn />
               </a>
-
               <a
                 href={`https://medium.com/new-story?url=${encodedUrl}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Share on Medium"
                 aria-label="Share on Medium"
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
+                title="Share on Medium"
+                className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
               >
                 <SiMedium />
               </a>
@@ -829,122 +830,686 @@ export default async function JulioHerreraVelutiniPillarPage({ params }) {
           </div>
         </div>
 
-        {/* AUTHOR PROFILE & FOLLOW */}
-        <div className="mt-10">
-          <hr className="border-t-2 border-dotted border-gray-400" />
-          <div className="mt-6 flex flex-row sm:flex-row justify-between items-start gap-6">
-            <div className="flex items-center gap-4">
-              <Image
-                src={authorData.profileImage}
-                alt={`${authorData?.name || 'Author'} - ${authorData?.role || 'Role'}`}
-                width={56}
-                height={56}
-                className="rounded-full object-cover flex-shrink-0"
-                 itemProp="author"
-                 loading="lazy"
-              />
-              <div>
-                <Link href={`/authors/${slugify(authorData.name)}`} title={authorData.name}>
-                  <p className="font-semibold text-sm hover:text-blue-600 hover:underline transition cursor-pointer">{authorData.name}</p>
-                </Link>
-                <p className="text-gray-500 text-xs">{authorData.role}</p>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-3">
-              <span className="text-sm text-gray-600 hidden sm:block">Follow:</span>
-
-              <div className="flex items-center gap-3">
-                {[
-                  {
-                    icon: <FaQuora />,
-                    label: "Quora",
-                    url: authorData?.social?.quora,
-                  },
-                  {
-                    icon: <FaRedditAlien />,
-                    label: "Reddit",
-                    url: authorData?.social?.reddit,
-                  },
-                  {
-                    icon: <FaXTwitter />,
-                    label: "Twitter",
-                    url: authorData?.social?.twitter,
-                  },
-                  {
-                    icon: <SiMedium />,
-                    label: "Medium",
-                    url: authorData?.social?.medium,
-                  },
-                ]
-                  .filter(item => item.url) // only show icons that actually have links
-                  .map((item, index) => (
-                    <div key={index} className="relative group">
-                      <a
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`Follow on ${item.label}`}
-                        title={`Follow on ${item.label}`}
-                        className="flex items-center justify-center hover:text-gray-400 cursor-pointer transition"
-                      >
-                        {item.icon}
-                      </a>
-
-                      {/* Tooltip */}
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity text-xs text-white bg-black px-2 py-1 rounded-md whitespace-nowrap">
-                        {item.label}
-                      </div>
-                    </div>
-                  ))}
-              </div>
-            </div>
-
-          </div>
-
-          <p className="mt-6 text-sm text-gray-600">
-            {authorData.bio}
-          </p>
+        {/* Hero Image */}
+        <div className="relative w-full aspect-[16/9] mb-12 rounded-xl overflow-hidden shadow-lg">
+          <Image
+            src={heroImage}
+            alt={`${title} - Julio Herrera Velutini`}
+            fill
+            priority
+            fetchPriority="high"
+            className="object-cover"
+            itemProp="image"
+          />
         </div>
-      </article>
-      {/* Cards for Pillar Content */}
-      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
-  {pillarContent
-    .filter((item) => item.slug !== slug) // Filter out the current slug
-    .map((item) => (
-      <div
-        key={item.id}
-        className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-100 group" // Reduced height to h-64
-      >
-        {/* Link to the individual pillar article page */}
-        <Link href={`/julio-herrera-velutini/${item.slug}`} title={item.title}>
-          <div className="block w-full h-full">
-            {/* Hero Image */}
-            <div className="relative w-full h-3/4 md:h-3/6">
-              <Image
-                src={item.heroImage}
-                alt={item.title}
-                layout="fill"
-                objectFit="cover"
-                className="object-cover w-full h-full"
-                loading="lazy"
-              />
-            </div>
 
-            {/* Heading Container with Background */}
-            <div className="bg-white p-4">
-              <h3 className="text-gray-800 text-sm font-medium text-center group-hover:text-blue-600 transition-colors duration-300">
-                {item.title.slice(0,80)}
-              </h3>
+        {/* Dynamic Article Content */}
+        <article
+          className="prose prose-lg sm:prose-xl max-w-none mx-auto text-justify leading-relaxed"
+          itemProp="articleBody"
+        >
+          {articleContent.map((block, index) => {
+            if (block.type === "heading") {
+              const HeadingTag = `h${block.level}`;
+              return (
+                <HeadingTag
+                  key={index}
+                  className="text-xl md:text-2xl font-bold mt-12 mb-6"
+                >
+                  {block.text}
+                </HeadingTag>
+              );
+            }
+
+            if (block.type === "paragraph") {
+              return (
+                <p
+                  key={index}
+                  className={
+                    block.dropCap
+                      ? "first-letter:text-6xl first-letter:font-bold first-letter:mr-4 first-letter:float-left first-letter:leading-none first-letter:text-black"
+                      : ""
+                  }
+                >
+                  {block.content}
+                </p>
+              );
+            }
+
+            return null;
+          })}
+
+          {/* Bottom Share */}
+          <div className="mt-10">
+            <hr className="border-t-2 border-dotted border-gray-400" />
+            <div className="flex flex-row sm:flex-row justify-between items-start sm:items-center gap-4 mt-6">
+              <div className="flex items-center gap-2">
+                <FaShareSquare />
+                <span>Share</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <a
+                  href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${shareTitle}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Share on X"
+                  aria-label="Share on X"
+                  className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
+                >
+                  <FaXTwitter />
+                </a>
+                <a
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Share on Facebook"
+                  aria-label="Share on Facebook"
+                  className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition"
+                >
+                  <FaFacebookF />
+                </a>
+                <a
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Share on LinkedIn"
+                  aria-label="Share on LinkedIn"
+                  className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition"
+                >
+                  <FaLinkedinIn />
+                </a>
+                <a
+                  href={`https://medium.com/new-story?url=${encodedUrl}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Share on Medium"
+                  aria-label="Share on Medium"
+                  className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
+                >
+                  <SiMedium />
+                </a>
+              </div>
             </div>
           </div>
-        </Link>
-      </div>
-    ))}
-</div>
 
-    </main>
+          {/* Author Profile */}
+          <div className="mt-10">
+            <hr className="border-t-2 border-dotted border-gray-400" />
+            <div className="mt-6 flex flex-row sm:flex-row justify-between items-start gap-6">
+              <div className="flex items-center gap-4">
+                <Image
+                  src={authorData.profileImage}
+                  alt={`${authorData?.name || "Author"} - ${
+                    authorData?.role || "Role"
+                  }`}
+                  width={56}
+                  height={56}
+                  className="rounded-full object-cover flex-shrink-0"
+                  loading="lazy"
+                />
+                <div>
+                  <Link
+                    href={`/authors/${slugify(authorData.name)}`}
+                    title={authorData.name}
+                  >
+                    <p className="font-semibold text-sm hover:text-blue-600 hover:underline transition cursor-pointer">
+                      {authorData.name}
+                    </p>
+                  </Link>
+                  <p className="text-gray-500 text-xs">{authorData.role}</p>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-3">
+                <span className="text-sm text-gray-600 hidden sm:block">
+                  Follow:
+                </span>
+                <div className="flex items-center gap-3">
+                  {[
+                    { icon: <FaQuora />, label: "Quora", url: authorData?.social?.quora },
+                    { icon: <FaRedditAlien />, label: "Reddit", url: authorData?.social?.reddit },
+                    { icon: <FaXTwitter />, label: "Twitter", url: authorData?.social?.twitter },
+                    { icon: <SiMedium />, label: "Medium", url: authorData?.social?.medium },
+                  ]
+                    .filter((item) => item.url)
+                    .map((item, index) => (
+                      <div key={index} className="relative group">
+                        <a
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Follow on ${item.label}`}
+                          title={`Follow on ${item.label}`}
+                          className="flex items-center justify-center hover:text-gray-400 cursor-pointer transition"
+                        >
+                          {item.icon}
+                        </a>
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity text-xs text-white bg-black px-2 py-1 rounded-md whitespace-nowrap">
+                          {item.label}
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            </div>
+
+            <p className="mt-6 text-sm text-gray-600">{authorData.bio}</p>
+          </div>
+        </article>
+
+        {/* Related Pillar Content Cards */}
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {pillarContent
+            .filter((item) => item.slug !== slug)
+            .map((item) => (
+              <div
+                key={item.id}
+                className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-100 group"
+              >
+                <Link
+                  href={`/julio-herrera-velutini/${item.slug}`}
+                  title={item.title}
+                >
+                  <div className="block w-full h-full">
+                    <div className="relative w-full h-3/4 md:h-3/6">
+                      <Image
+                        src={item.heroImage}
+                        alt={item.title}
+                        fill
+                        className="object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="bg-white p-4">
+                      <h3 className="text-gray-800 text-sm font-medium text-center group-hover:text-blue-600 transition-colors duration-300">
+                        {item.title.slice(0, 80)}
+                      </h3>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            ))}
+        </div>
+      </main>
     </>
   );
 }
+
+
+// // app/julio-herrera-velutini/[slug]/page.jsx
+
+// import Image from "next/image";
+// import { GoClock } from "react-icons/go";
+// import { FaXTwitter, FaFacebookF, FaLinkedinIn, FaMedium } from "react-icons/fa6";
+// import { FaShareSquare } from "react-icons/fa";
+// import { SiMedium } from "react-icons/si";
+// import Link from "next/link";
+// import authorsPageData from "../../../public/data/authors.json";
+// import contentData from "../../../public/data/pillarContent.json"; 
+// import { slugify } from "../../../utils/slugify";
+// import pillarContent from "../../../public/data/pillarContent.json"
+// import { notFound } from "next/navigation";
+// import { FaRedditAlien } from "react-icons/fa";
+// import { FaQuora } from "react-icons/fa";
+
+// const SITE_URL = "https://www.newswireninja.com";
+
+// // STATIC AUTHOR
+// const authorData = authorsPageData.categories
+//   .find((item) => item.category.toLowerCase() === "marketing & branding")
+//   ?.author;
+
+// /* ----------------------------------
+//    METADATA (NO BREADCRUMBS HERE)
+// ---------------------------------- */
+// export async function generateMetadata({ params }) {
+//   const { slug } = await params;
+
+//   const content = contentData.find((item) => item.slug === slug);
+
+//   if (!content) {
+//     return {
+//       title: "Content not found",
+//       description: "This content does not exist.",
+//       robots: "noindex",
+//     };
+//   }
+
+//   const { title, metaTitle, metaDescription, heroImage } = content;
+//   const imageUrl = `${SITE_URL}${heroImage}`;
+
+//   return {
+//     title: metaTitle,
+//     description: metaDescription,
+//     alternates: {
+//       canonical: `${SITE_URL}/julio-herrera-velutini/${slug}`,
+//     },
+//     openGraph: {
+//       title: metaTitle,
+//       description: metaDescription,
+//       url: `${SITE_URL}/julio-herrera-velutini/${slug}`,
+//       siteName: "Newswire Ninja",
+//       type: "article",
+//       images: [
+//         {
+//           url: imageUrl,
+//           width: 1200,
+//           height: 630,
+//           alt: title,
+//         },
+//       ],
+//     },
+//     twitter: {
+//       card: "summary_large_image",
+//       title: metaTitle,
+//       description: metaDescription,
+//       images: [imageUrl],
+//     },
+//   };
+// }
+
+// /* ----------------------------------
+//    PAGE
+// ---------------------------------- */
+// export default async function JulioHerreraVelutiniPillarPage({ params }) {
+//   const { slug } = await params;
+
+//   const content = contentData.find((item) => item.slug === slug);
+//   if (!content) notFound();
+
+//   const { title, subtitle, heroImage, lastUpdated, content: articleContent } =
+//     content;
+
+//   const shareUrl = `${SITE_URL}/julio-herrera-velutini/${slug}`;
+//   const encodedUrl = encodeURIComponent(shareUrl);
+//   const encodedTitle = encodeURIComponent(title);
+//   const shareTitle = encodeURIComponent(title);
+
+//   /* -------- ARTICLE JSON-LD -------- */
+//   const articleJsonLd = {
+//     "@context": "https://schema.org",
+//     "@type": "Article",
+//     "headline": title,
+//     "description": subtitle,
+//     "image": [`${SITE_URL}${heroImage}`],
+//     "author": {
+//       "@type": "Person",
+//       "name": authorData.name,
+//       "url": `${SITE_URL}/authors/${slugify(authorData.name)}`,
+//     },
+//     "publisher": {
+//       "@type": "Organization",
+//       "name": "Newswire Ninja",
+//       "logo": {
+//         "@type": "ImageObject",
+//         "url": `${SITE_URL}/images/newswireninja-logo.webp`,
+//       },
+//     },
+//     "mainEntityOfPage": {
+//       "@type": "WebPage",
+//       "@id": shareUrl,
+//     },
+//     "datePublished": new Date().toISOString(),
+//     "dateModified": new Date().toISOString(),
+//   };
+
+//   /* -------- BREADCRUMB JSON-LD -------- */
+//   const breadcrumbJsonLd = {
+//     "@context": "https://schema.org",
+//     "@type": "BreadcrumbList",
+//     "itemListElement": [
+//       {
+//         "@type": "ListItem",
+//         "position": 1,
+//         "name": "Home",
+//         "item": SITE_URL,
+//       },
+//       {
+//         "@type": "ListItem",
+//         "position": 2,
+//         "name": "Business",
+//         "item": `${SITE_URL}/business`,
+//       },
+//       {
+//         "@type": "ListItem",
+//         "position": 3,
+//         "name": "Julio Herrera Velutini",
+//         "item": `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
+//       },
+//       {
+//         "@type": "ListItem",
+//         "position": 4,
+//         "name": title,
+//         "item": shareUrl,
+//       },
+//     ],
+//   };
+
+//   return (
+//     <>
+//       {/* JSON-LD */}
+//       <script
+//         id="article-jsonld"
+//         type="application/ld+json"
+//         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+//       />
+//       <script
+//         id="breadcrumb-jsonld"
+//         type="application/ld+json"
+//         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+//       />
+//          <main className="max-w-5xl mx-auto px-10 sm:px-15 lg:px-30 py-8 sm:py-10 font-serif" itemScope itemType="https://schema.org/Article">
+      
+//       {/* TITLE */}
+//       <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6 text-center md:text-left" itemProp="headline">
+//         {title}
+//       </h1>
+
+//       {/* SUBTITLE */}
+//       <p className="text-sm sm:text-lg text-gray-700 mb-10 max-w-4xl mx-auto md:mx-0 text-center md:text-left" itemProp="description">
+//         {subtitle}
+//       </p>
+
+//       {/* META INFO */}
+//       <div className="mb-8 space-y-6">
+//         <div className="flex flex-row items-center gap-4">
+//           <Image
+//             src={authorData.profileImage}
+//             alt={`${authorData.name} - ${authorData.role}`}
+//             width={56}
+//             height={56}
+//             className="rounded-full object-cover flex-shrink-0"
+//             itemProp="author"
+//             loading="lazy"
+//           />
+//           <div>
+//             <p className="font-semibold text-sm">
+//               <Link href={`/authors/${slugify(authorData.name)}`} title={authorData.name}>
+//                 <span className="hover:text-blue-600 hover:underline transition cursor-pointer" itemProp="author">
+//                   {authorData.name}
+//                 </span>
+//               </Link>{" "}
+//               <span className="text-gray-500 font-normal">– {authorData.role}</span>
+//             </p>
+//             <div className="flex items-center gap-2 text-sm text-gray-500 mt-1">
+//               <GoClock />
+//               <span>Last updated: {lastUpdated}</span>
+//             </div>
+//           </div>
+//         </div>
+
+//          <div className="flex flex-row sm:flex-row sm:items-center gap-4 mt-5">
+//           <div className="flex items-center gap-2 text-sm text-gray-600">
+//             <FaShareSquare />
+//             <span>Share</span>
+//           </div>
+
+//           <div className="flex items-center gap-3">
+//             {/* X / Twitter */}
+//             <a
+//               href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${shareTitle}`}
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               aria-label="Share on X"
+//               title="Share on X"
+//               className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
+//             >
+//               <FaXTwitter />
+//             </a>
+
+//             {/* Facebook */}
+//             <a
+//               href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               aria-label="Share on Facebook"
+//               title="Share on Facebook"
+//               className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition"
+//             >
+//               <FaFacebookF />
+//             </a>
+
+//             {/* LinkedIn */}
+//             <a
+//               href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               aria-label="Share on LinkedIn"
+//               title="Share on LinkedIn"
+//               className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition"
+//             >
+//               <FaLinkedinIn />
+//             </a>
+
+//             {/* Medium */}
+//             <a
+//               href={`https://medium.com/new-story?url=${encodedUrl}`}
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               aria-label="Share on Medium"
+//               title="Share on Medium"
+//               className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
+//             >
+//               <SiMedium />
+//             </a>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* HERO IMAGE */}
+//       <div className="relative w-full aspect-[16/9] mb-12 rounded-xl overflow-hidden shadow-lg">
+//         <Image
+//           src={heroImage}
+//           alt="Julio Herrera Velutini in professional setting"
+//           fill
+//           priority
+//           className="object-cover"
+//           itemProp="image"
+//         />
+//       </div>
+
+//       {/* DYNAMIC ARTICLE CONTENT */}
+//       <article className="prose prose-lg sm:prose-xl max-w-none mx-auto text-justify leading-relaxed">
+//         {articleContent.map((block, index) => {
+//           if (block.type === "heading") {
+//             const HeadingTag = `h${block.level}`; // Dynamically create the heading tag
+//             return (
+//               <HeadingTag
+//                 key={index}
+//                 className="text-xl md:text-2xl font-bold mt-12 mb-6"
+//               >
+//                 {block.text}
+//               </HeadingTag>
+//             );
+//           }
+
+//           if (block.type === "paragraph") {
+//             return (
+//               <p
+//                 key={index}
+//                 className={block.dropCap ? "first-letter:text-6xl first-letter:font-bold first-letter:mr-4 first-letter:float-left first-letter:leading-none first-letter:text-black" : ""}
+//               >
+//                 {block.content}
+//               </p>
+//             );
+//           }
+
+//           return null;
+//         })}
+
+//         {/* BOTTOM SHARE SECTION */}
+//         <div className="mt-10">
+//           <hr className="border-t-2 border-dotted border-gray-400" />
+//           <div className="flex flex-row sm:flex-row justify-between items-start sm:items-center gap-4 mt-6">
+//             <div className="flex items-center gap-2">
+//               <FaShareSquare />
+//               <span>Share</span>
+//             </div>
+
+//             <div className="flex items-center gap-3">
+//               <a
+//                 href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${shareTitle}`}
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 title="Share on X"
+//                 aria-label="Share on X"
+//                 className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
+//               >
+//                 <FaXTwitter />
+//               </a>
+
+//               <a
+//                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 title="Share on Facebook"
+//                 aria-label="Share on Facebook"
+//                 className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition"
+//               >
+//                 <FaFacebookF />
+//               </a>
+
+//               <a
+//                 href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 title="Share on LinkedIn"
+//                 aria-label="Share on LinkedIn"
+//                 className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition"
+//               >
+//                 <FaLinkedinIn />
+//               </a>
+
+//               <a
+//                 href={`https://medium.com/new-story?url=${encodedUrl}`}
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 title="Share on Medium"
+//                 aria-label="Share on Medium"
+//                 className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
+//               >
+//                 <SiMedium />
+//               </a>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* AUTHOR PROFILE & FOLLOW */}
+//         <div className="mt-10">
+//           <hr className="border-t-2 border-dotted border-gray-400" />
+//           <div className="mt-6 flex flex-row sm:flex-row justify-between items-start gap-6">
+//             <div className="flex items-center gap-4">
+//               <Image
+//                 src={authorData.profileImage}
+//                 alt={`${authorData?.name || 'Author'} - ${authorData?.role || 'Role'}`}
+//                 width={56}
+//                 height={56}
+//                 className="rounded-full object-cover flex-shrink-0"
+//                  itemProp="author"
+//                  loading="lazy"
+//               />
+//               <div>
+//                 <Link href={`/authors/${slugify(authorData.name)}`} title={authorData.name}>
+//                   <p className="font-semibold text-sm hover:text-blue-600 hover:underline transition cursor-pointer">{authorData.name}</p>
+//                 </Link>
+//                 <p className="text-gray-500 text-xs">{authorData.role}</p>
+//               </div>
+//             </div>
+
+//             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-3">
+//               <span className="text-sm text-gray-600 hidden sm:block">Follow:</span>
+
+//               <div className="flex items-center gap-3">
+//                 {[
+//                   {
+//                     icon: <FaQuora />,
+//                     label: "Quora",
+//                     url: authorData?.social?.quora,
+//                   },
+//                   {
+//                     icon: <FaRedditAlien />,
+//                     label: "Reddit",
+//                     url: authorData?.social?.reddit,
+//                   },
+//                   {
+//                     icon: <FaXTwitter />,
+//                     label: "Twitter",
+//                     url: authorData?.social?.twitter,
+//                   },
+//                   {
+//                     icon: <SiMedium />,
+//                     label: "Medium",
+//                     url: authorData?.social?.medium,
+//                   },
+//                 ]
+//                   .filter(item => item.url) // only show icons that actually have links
+//                   .map((item, index) => (
+//                     <div key={index} className="relative group">
+//                       <a
+//                         href={item.url}
+//                         target="_blank"
+//                         rel="noopener noreferrer"
+//                         aria-label={`Follow on ${item.label}`}
+//                         title={`Follow on ${item.label}`}
+//                         className="flex items-center justify-center hover:text-gray-400 cursor-pointer transition"
+//                       >
+//                         {item.icon}
+//                       </a>
+
+//                       {/* Tooltip */}
+//                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity text-xs text-white bg-black px-2 py-1 rounded-md whitespace-nowrap">
+//                         {item.label}
+//                       </div>
+//                     </div>
+//                   ))}
+//               </div>
+//             </div>
+
+//           </div>
+
+//           <p className="mt-6 text-sm text-gray-600">
+//             {authorData.bio}
+//           </p>
+//         </div>
+//       </article>
+//       {/* Cards for Pillar Content */}
+//       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
+//   {pillarContent
+//     .filter((item) => item.slug !== slug) // Filter out the current slug
+//     .map((item) => (
+//       <div
+//         key={item.id}
+//         className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-100 group" // Reduced height to h-64
+//       >
+//         {/* Link to the individual pillar article page */}
+//         <Link href={`/julio-herrera-velutini/${item.slug}`} title={item.title}>
+//           <div className="block w-full h-full">
+//             {/* Hero Image */}
+//             <div className="relative w-full h-3/4 md:h-3/6">
+//               <Image
+//                 src={item.heroImage}
+//                 alt={item.title}
+//                 layout="fill"
+//                 objectFit="cover"
+//                 className="object-cover w-full h-full"
+//                 loading="lazy"
+//               />
+//             </div>
+
+//             {/* Heading Container with Background */}
+//             <div className="bg-white p-4">
+//               <h3 className="text-gray-800 text-sm font-medium text-center group-hover:text-blue-600 transition-colors duration-300">
+//                 {item.title.slice(0,80)}
+//               </h3>
+//             </div>
+//           </div>
+//         </Link>
+//       </div>
+//     ))}
+// </div>
+
+//     </main>
+//     </>
+//   );
+// }
 
