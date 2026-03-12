@@ -581,41 +581,49 @@ export default async function AuthorProfile({ params }) {
   };
 
   // JSON-LD: ProfilePage
-  const profilePageJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    "@id": `${SITE_URL}/authors/${slug}#profilepage`,
+ const profilePageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": `${SITE_URL}/authors/${slug}#profilepage`,
+  url: `${SITE_URL}/authors/${slug}`,
+  name: `${author.name} — Author Profile`,
+  description: `Author profile of ${author.name}, journalist at Newswireninja.`,
+
+  mainEntity: {
+    "@type": "Person",
+    "@id": `${SITE_URL}/authors/${slug}#person`,
+    name: author.name,
     url: `${SITE_URL}/authors/${slug}`,
-    name: `${author.name} — Author Profile`,
-    description: `Author profile of ${author.name}, journalist at Newswireninja.`,
-    mainEntity: {
-      "@id": `${SITE_URL}/authors/${slug}#person`,
-    },
-    breadcrumb: {
-      "@id": `${SITE_URL}/authors/${slug}#breadcrumb`,
-    },
-    isPartOf: {
-      "@type": "WebSite",
-      "@id": `${SITE_URL}/#website`,
+    image: `${SITE_URL}${author.profileImage}`,
+    jobTitle: author.role,
+    description: author.bio,
+    worksFor: {
+      "@type": "NewsMediaOrganization",
       name: SITE_NAME,
       url: SITE_URL,
     },
-  };
+    sameAs: [
+      author.social?.twitter,
+      author.social?.facebook,
+      author.social?.linkedIn,
+      author.social?.medium,
+      author.social?.quora,
+      author.social?.reddit,
+    ].filter(Boolean),
+  },
 
-   // Helper: format DD/MM/YYYY → "January 1, 2026"
-const formatDate = (dateStr) => {
-  if (!dateStr) return "";
-  if (dateStr.includes("/")) {
-    const [day, month, year] = dateStr.split("/");
-    const date = new Date(year, month - 1, day);
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  }
-  return dateStr;
+  breadcrumb: {
+    "@id": `${SITE_URL}/authors/${slug}#breadcrumb`,
+  },
+
+  isPartOf: {
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: SITE_NAME,
+    url: SITE_URL,
+  },
 };
+   
 
   return (
     <main
