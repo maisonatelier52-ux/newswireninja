@@ -394,13 +394,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-
 import authorsData from "../../../public/data/authors.json";
 import articlesData from "../../../public/data/articles.json";
 import pillarContent from "../../../public/data/pillarContent.json";
-
 import { slugify } from "../../../utils/slugify";
-
 import { GoClock } from "react-icons/go";
 import { LuAlarmClock } from "react-icons/lu";
 import { FaXTwitter } from "react-icons/fa6";
@@ -433,11 +430,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-
   const authorEntry = authorsData.categories.find(
     (item) => slugify(item.author.name) === slug
   );
-
   if (!authorEntry) {
     return {
       title: "Author not found | Newswireninja",
@@ -445,9 +440,7 @@ export async function generateMetadata({ params }) {
       robots: { index: false },
     };
   }
-
   const { author } = authorEntry;
-
   return {
     title: `${author.name} — Journalist & Author | Newswireninja`,
     description: `Read articles and expert insights by ${author.name}, journalist at Newswireninja.`,
@@ -505,125 +498,101 @@ export async function generateMetadata({ params }) {
 
 export default async function AuthorProfile({ params }) {
   const { slug } = await params;
-
   const authorEntry = authorsData.categories.find(
     (item) => slugify(item.author.name) === slug
   );
-
   if (!authorEntry) notFound();
 
   const { author, category } = authorEntry;
 
   let authorArticles = articlesData[category.toLowerCase()] || [];
-
   if (category.toLowerCase() === "marketing & branding") {
     authorArticles = pillarContent.filter(
       (a) => a.category.toLowerCase() === "marketing & branding"
     );
   }
 
-  // JSON-LD: Person
-  const personJsonLd = {
+  // ────────────────────────────────────────────────
+  // Single consolidated JSON-LD with @graph
+  // ────────────────────────────────────────────────
+  const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": `${SITE_URL}/authors/${slug}#person`,
-    name: author.name,
-    url: `${SITE_URL}/authors/${slug}`,
-    image: {
-      "@type": "ImageObject",
-      url: `${SITE_URL}${author.profileImage}`,
-      width: 400,
-      height: 400,
-    },
-    jobTitle: author.role,
-    description: author.bio,
-    worksFor: {
-      "@type": "NewsMediaOrganization",
-      "@id": `${SITE_URL}/#organization`,
-      name: SITE_NAME,
-      url: SITE_URL,
-    },
-    sameAs: [
-      author.social?.twitter,
-      author.social?.facebook,
-      author.social?.linkedIn,
-      author.social?.medium,
-      author.social?.quora,
-      author.social?.reddit,
-    ].filter(Boolean),
-  };
-
-  // JSON-LD: BreadcrumbList
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "@id": `${SITE_URL}/authors/${slug}#breadcrumb`,
-    itemListElement: [
+    "@graph": [
       {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: SITE_URL,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Authors",
-        item: `${SITE_URL}/authors`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
+        "@type": "Person",
+        "@id": `${SITE_URL}/authors/${slug}#person`,
         name: author.name,
-        item: `${SITE_URL}/authors/${slug}`,
+        url: `${SITE_URL}/authors/${slug}`,
+        image: {
+          "@type": "ImageObject",
+          url: `${SITE_URL}${author.profileImage}`,
+          width: 400,
+          height: 400,
+        },
+        jobTitle: author.role,
+        description: author.bio,
+        worksFor: {
+          "@type": "NewsMediaOrganization",
+          "@id": `${SITE_URL}/#organization`,
+          name: SITE_NAME,
+          url: SITE_URL,
+        },
+        sameAs: [
+          author.social?.twitter,
+          author.social?.facebook,
+          author.social?.linkedIn,
+          author.social?.medium,
+          author.social?.quora,
+          author.social?.reddit,
+        ].filter(Boolean),
+      },
+
+      {
+        "@type": "ProfilePage",
+        "@id": `${SITE_URL}/authors/${slug}#profilepage`,
+        url: `${SITE_URL}/authors/${slug}`,
+        name: `${author.name} — Author Profile`,
+        description: `Author profile of ${author.name}, journalist at Newswireninja.`,
+        mainEntity: {
+          "@id": `${SITE_URL}/authors/${slug}#person`,
+        },
+        breadcrumb: {
+          "@id": `${SITE_URL}/authors/${slug}#breadcrumb`,
+        },
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: SITE_NAME,
+          url: SITE_URL,
+        },
+      },
+
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${SITE_URL}/authors/${slug}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: SITE_URL,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Authors",
+            item: `${SITE_URL}/authors`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: author.name,
+            item: `${SITE_URL}/authors/${slug}`,
+          },
+        ],
       },
     ],
   };
-
-  // JSON-LD: ProfilePage
- const profilePageJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  "@id": `${SITE_URL}/authors/${slug}#profilepage`,
-  url: `${SITE_URL}/authors/${slug}`,
-  name: `${author.name} — Author Profile`,
-  description: `Author profile of ${author.name}, journalist at Newswireninja.`,
-
-  mainEntity: {
-    "@type": "Person",
-    "@id": `${SITE_URL}/authors/${slug}#person`,
-    name: author.name,
-    url: `${SITE_URL}/authors/${slug}`,
-    image: `${SITE_URL}${author.profileImage}`,
-    jobTitle: author.role,
-    description: author.bio,
-    worksFor: {
-      "@type": "NewsMediaOrganization",
-      name: SITE_NAME,
-      url: SITE_URL,
-    },
-    sameAs: [
-      author.social?.twitter,
-      author.social?.facebook,
-      author.social?.linkedIn,
-      author.social?.medium,
-      author.social?.quora,
-      author.social?.reddit,
-    ].filter(Boolean),
-  },
-
-  breadcrumb: {
-    "@id": `${SITE_URL}/authors/${slug}#breadcrumb`,
-  },
-
-  isPartOf: {
-    "@type": "WebSite",
-    "@id": `${SITE_URL}/#website`,
-    name: SITE_NAME,
-    url: SITE_URL,
-  },
-};
-   
 
   return (
     <main
@@ -631,18 +600,10 @@ export default async function AuthorProfile({ params }) {
       itemScope
       itemType="https://schema.org/ProfilePage"
     >
-      {/* JSON-LD Scripts */}
+      {/* Single JSON-LD script */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
       {/* Breadcrumb */}
@@ -691,20 +652,15 @@ export default async function AuthorProfile({ params }) {
             className="rounded-full object-cover border-8 border-white"
           />
         </div>
-
         <div className="text-center lg:text-left">
           <h1 className="text-3xl font-bold" itemProp="name">
             {author.name}
           </h1>
-
           <p className="sr-only">
             {author.name} is a journalist and author at Newswireninja.
           </p>
-
           <p className="text-lg text-gray-700 mt-2">{author.role}</p>
-
           <p className="mt-4 max-w-2xl text-gray-600">{author.bio}</p>
-
           <div className="flex gap-4 mt-6 justify-center lg:justify-start">
             {author.social?.twitter && (
               <a
@@ -764,7 +720,6 @@ export default async function AuthorProfile({ params }) {
           <h2 className="text-3xl font-bold mb-10">
             Articles by {author.name} ({authorArticles.length + 1})
           </h2>
-
           {authorArticles.length === 0 ? (
             <p className="text-gray-600 text-center py-10">
               No articles published yet.
@@ -851,7 +806,6 @@ export default async function AuthorProfile({ params }) {
           <h2 className="text-3xl font-bold mb-10">
             Articles by {author.name} ({authorArticles.length})
           </h2>
-
           {authorArticles.length === 0 ? (
             <p className="text-gray-600 text-center py-10">
               No articles published yet.
