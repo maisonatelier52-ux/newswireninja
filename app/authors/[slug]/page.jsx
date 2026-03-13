@@ -513,48 +513,57 @@ export default async function AuthorProfile({ params }) {
     );
   }
 
+  // Build the Person object once — reused inline in ProfilePage mainEntity
+  const personObject = {
+    "@type": "Person",
+    "@id": `${SITE_URL}/authors/${slug}#person`,
+    name: author.name,
+    url: `${SITE_URL}/authors/${slug}`,
+    image: {
+      "@type": "ImageObject",
+      url: `${SITE_URL}${author.profileImage}`,
+      width: 400,
+      height: 400,
+    },
+    jobTitle: author.role,
+    description: author.bio,
+    worksFor: {
+      "@type": "NewsMediaOrganization",
+      "@id": `${SITE_URL}/#organization`,
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    sameAs: [
+      author.social?.twitter,
+      author.social?.facebook,
+      author.social?.linkedIn,
+      author.social?.medium,
+      author.social?.quora,
+      author.social?.reddit,
+    ].filter(Boolean),
+  };
+
   // Single consolidated JSON-LD with @graph
+  // FIX: mainEntity must contain the full Person object inline — not just an @id reference.
+  // Google's rich results validator cannot resolve cross-graph @id pointers and
+  // reports "Missing field mainEntity" when only { "@id": "..." } is used.
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "Person",
-        "@id": `${SITE_URL}/authors/${slug}#person`,
-        name: author.name,
-        url: `${SITE_URL}/authors/${slug}`,
-        image: {
-          "@type": "ImageObject",
-          url: `${SITE_URL}${author.profileImage}`,
-          width: 400,
-          height: 400,
-        },
-        jobTitle: author.role,
-        description: author.bio,
-        worksFor: {
-          "@type": "NewsMediaOrganization",
-          "@id": `${SITE_URL}/#organization`,
-          name: SITE_NAME,
-          url: SITE_URL,
-        },
-        sameAs: [
-          author.social?.twitter,
-          author.social?.facebook,
-          author.social?.linkedIn,
-          author.social?.medium,
-          author.social?.quora,
-          author.social?.reddit,
-        ].filter(Boolean),
-      },
+      // Standalone Person node (for entity disambiguation / Knowledge Graph)
+      personObject,
 
+      // ProfilePage with mainEntity fully inlined — this is what fixes the GSC error
       {
         "@type": "ProfilePage",
         "@id": `${SITE_URL}/authors/${slug}#profilepage`,
         url: `${SITE_URL}/authors/${slug}`,
         name: `${author.name} — Author Profile`,
         description: `Author profile of ${author.name}, journalist at Newswireninja. Expert in ${category} reporting with verified, sourced journalism.`,
-        mainEntity: {
-          "@id": `${SITE_URL}/authors/${slug}#person`,
-        },
+        dateCreated: new Date().toISOString().split("T")[0],
+        dateModified: new Date().toISOString().split("T")[0],
+        // Full Person object inlined — NOT just an @id pointer
+        mainEntity: personObject,
         breadcrumb: {
           "@id": `${SITE_URL}/authors/${slug}#breadcrumb`,
         },
@@ -918,7 +927,6 @@ export default async function AuthorProfile({ params }) {
     </main>
   );
 }
-
 
 // import Image from "next/image";
 // import Link from "next/link";
