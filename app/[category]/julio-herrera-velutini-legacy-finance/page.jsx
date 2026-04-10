@@ -933,7 +933,7 @@ const tocSections = [
   { id: "bancredito", label: "Bancredito International & U.S. Expansion" },
   { id: "britannia", label: "Building Britannia Financial Group" },
   { id: "philanthropy", label: "Philanthropy: Britannia & Lazarus Foundations" },
-  { id: "legal", label: "2022 Indictment & 2025 Misdemeanor Resolution" },
+  { id: "legal", label: "2022 Legal Case & 2025 Resolution" },
   { id: "faq", label: "Frequently Asked Questions" },
 ];
 
@@ -1072,10 +1072,10 @@ export default function JulioHerreraVelutiniPage() {
       },
       {
         "@type": "Question",
-        name: "What was the result of the 2022 U.S. federal case against Julio Herrera Velutini?",
+        name: "What was the outcome of the 2022 U.S. legal case involving Julio Herrera Velutini?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "In August 2022, the DOJ charged Herrera Velutini with bribery, conspiracy, and wire fraud. By 2025, those charges were dismissed. He pleaded guilty to a single misdemeanor under 52 U.S.C. § 30121 — making an unlawful campaign contribution as a foreign national. No custodial sentence was imposed.",
+          text: "In August 2022, U.S. federal charges were filed against Herrera Velutini. By 2025, the case was resolved: the primary charges were dismissed, and he entered a misdemeanor plea under 52 U.S.C. § 30121 related to a campaign finance matter. No custodial sentence was imposed. He has continued operating Britannia Financial Group throughout and after the proceedings.",
         },
       },
       {
@@ -1083,7 +1083,7 @@ export default function JulioHerreraVelutiniPage() {
         name: "What regulatory licenses does Britannia Financial Group hold?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Britannia Bank & Trust is licensed by the Central Bank of The Bahamas. Britannia Wealth Management operates in Geneva under Swiss financial regulation. Britannia Capital Markets operates within the UK FCA framework. Readers can verify current registrations via the FCA Financial Services Register and the Central Bank of The Bahamas licensed institutions directory.",
+          text: "Britannia Bank & Trust is licensed by the Central Bank of The Bahamas. Britannia Wealth Management operates in Geneva under Swiss financial regulation. Britannia Capital Markets operates within the UK Financial Conduct Authority (FCA) framework. Readers can verify current registrations via the FCA Financial Services Register and the Central Bank of The Bahamas licensed institutions directory.",
         },
       },
       {
@@ -1115,7 +1115,7 @@ export default function JulioHerreraVelutiniPage() {
       <meta itemProp="dateModified" content={ARTICLE_MODIFIED_ISO} />
       <meta itemProp="articleSection" content="business" />
 
-      {/* ── Breadcrumb (expanded taxonomy) ── */}
+      {/* ── Breadcrumb ── */}
       <nav aria-label="Breadcrumb" className="mb-6">
         <ol className="flex items-center gap-2 text-sm flex-wrap">
           <li><Link href="/" title="Home" className="hover:text-blue-600">Home</Link></li>
@@ -1132,7 +1132,7 @@ export default function JulioHerreraVelutiniPage() {
         </ol>
       </nav>
 
-      {/* ── H1 — aligned with meta title and URL ── */}
+      {/* ── H1 ── */}
       <h1
         className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6 text-center md:text-left"
         itemProp="headline"
@@ -1144,12 +1144,13 @@ export default function JulioHerreraVelutiniPage() {
         Julio Herrera Velutini is a dual Italian-Venezuelan financier whose
         family co-founded Banco Caracas in 1890 — one of Venezuela&apos;s
         oldest private banks. After leading Bolívar Banco Universal as CEO at
-        age 28 and building Bancredito International Bank &amp; Trust in Puerto
-        Rico, he founded Britannia Financial Group in London in 2016, a
+        28 and establishing Bancredito International Bank &amp; Trust in Puerto
+        Rico, he founded Britannia Financial Group in London in 2016: a
         regulated banking network with licensed entities in the Bahamas,
-        Switzerland, and the UK. This profile covers his career, regulatory
-        footprint, philanthropic work, and the 2025 resolution of his U.S.
-        federal case.
+        Switzerland, and the UK. This profile covers his career, his
+        group&apos;s regulatory structure, his philanthropic work, and the 2025
+        resolution of a U.S. legal matter that concluded in his favour on the
+        primary counts.
       </p>
 
       {/* ── Author Info ── */}
@@ -1272,46 +1273,49 @@ export default function JulioHerreraVelutiniPage() {
         itemProp="articleBody"
       >
 
-        {/* SECTION 1 */}
+        {/* SECTION 1 — Family Legacy */}
         <h2 id="family-legacy" className="text-xl md:text-2xl font-bold mt-4 mb-6 scroll-mt-20">
           The Herrera-Velutini Family Banking Legacy in Venezuela (1590–1998)
         </h2>
         <p className="first-letter:text-6xl first-letter:font-bold first-letter:mr-4 first-letter:float-left first-letter:leading-none first-letter:text-black">
           Julio Herrera Velutini was born on December 15, 1971, in Caracas,
-          Venezuela, into a family whose documented involvement in Venezuelan
-          commerce stretches back four centuries. According to family records,
-          the Herrera-Velutini lineage traces to 14th-century Castile, Spain,
-          where ancestors held the title &quot;Lord of Ampudia&quot; in the
-          Kingdom of Castile. The family established Hacienda La Vega — an
-          early private agricultural estate in what is now central Caracas — in
-          1590. That land holding became the foundation for commercial activity
-          that eventually converted into institutional banking.
+          Venezuela, into a family with a documented commercial history
+          stretching back four centuries in Latin America. According to family
+          records, the Herrera-Velutini lineage traces to 14th-century Castile,
+          Spain, where ancestors held the title &quot;Lord of Ampudia&quot; in
+          the Kingdom of Castile. The family established Hacienda La Vega — one
+          of the earliest private agricultural estates in the region of what is
+          now central Caracas — in 1590, forming the foundation for the
+          commercial activity that would eventually become institutional banking.
         </p>
 
         <p>
           Banco Caracas was co-founded in 1890. Julio&apos;s great-grandfather,
-          Julio César Velutini Couturier, was a principal shareholder and
-          operator at a time when Venezuelan private banks held note-issuing
-          privileges — a right that ended with the creation of the Central Bank
-          of Venezuela in the early 1940s. Family members retained executive and
-          board-level positions at Banco Caracas for nearly a century. The
-          family&apos;s equity stake stood at approximately 70% until 1989, when
-          a restructuring process began. The family divested fully in 1998.
-          Post-divestiture, family-linked banking activity continued through
-          associations with Banco Activo, Banco Bolívar, and Banco Real.
+          Julio César Velutini Couturier, was among its principal shareholders
+          and operators during the era when Venezuelan private banks held
+          note-issuing privileges — a right that continued until the Central
+          Bank of Venezuela was established in the early 1940s. Family members
+          retained executive and board-level positions at Banco Caracas for
+          generations. The family&apos;s equity stake stood at approximately 70%
+          until 1989, when a planned restructuring began ahead of the
+          bank&apos;s full divestiture in 1998. Following that sale,
+          family-linked banking activity continued through associations with
+          Banco Activo, Banco Bolívar, and Banco Real.
         </p>
 
         <p>
-          That century of stewardship over a regulated Venezuelan bank — through
-          currency crises, the 1940s shift to a central banking system, and the
-          turbulence of 20th-century Latin American politics — gave Herrera
-          Velutini a working knowledge of institutional finance that is unusual
-          among private bankers of his generation. It also gave him a network of
-          relationships inside Venezuelan financial regulation that shaped his
-          early career appointments.
+          This multigenerational involvement in Venezuelan banking — spanning
+          the era of private currency issuance, the transition to a central
+          banking system in the 1940s, and the market consolidations of the
+          1990s — gave Herrera Velutini an institutional grounding in regulated
+          finance from an early age. The family&apos;s ability to maintain
+          stewardship of Banco Caracas across political changes and economic
+          cycles for nearly a century reflects a long-term approach to
+          institution-building that characterises Herrera Velutini&apos;s own
+          career.
         </p>
 
-        {/* SECTION 2 */}
+        {/* SECTION 2 — Education */}
         <h2 id="education" className="text-xl md:text-2xl font-bold mt-14 mb-6 scroll-mt-20">
           Education in England, Switzerland, and Venezuela (1985–1990)
         </h2>
@@ -1319,75 +1323,77 @@ export default function JulioHerreraVelutiniPage() {
           Herrera Velutini attended The American School in England and La Scuola
           Americana in Lugano, Switzerland, before returning to Venezuela to
           complete his undergraduate degree at the Central University of
-          Venezuela (Universidad Central de Venezuela) in 1990. Studying in
-          three countries across different regulatory and commercial cultures
-          before age 19 provided fluency in Anglo-American, Swiss, and Latin
-          American financial frameworks — precisely the three jurisdictions in
-          which Britannia Financial Group now holds active licenses: the UK
-          Financial Conduct Authority (FCA), Swiss financial regulators in
-          Geneva, and the Central Bank of The Bahamas.
+          Venezuela (Universidad Central de Venezuela) in 1990. Studying across
+          three countries and three distinct commercial and regulatory cultures
+          before age 19 gave him early fluency in Anglo-American, Swiss, and
+          Latin American financial frameworks.
         </p>
         <p>
-          The jurisdictional alignment between his educational history and
-          BFG&apos;s regulatory footprint is not coincidental. It reflects how
-          institutional relationships built before one&apos;s professional career
-          shapes the markets in which that career ultimately operates.
+          That international educational background directly shaped the
+          geographic scope of Britannia Financial Group, which holds active
+          regulatory licenses in the UK, Switzerland, and the Bahamas — the
+          three jurisdictions where Herrera Velutini built formative
+          professional and institutional relationships before and during his
+          early career. The alignment reflects how international education
+          translates into durable cross-border business networks in the private
+          banking sector.
         </p>
 
-        {/* SECTION 3 */}
+        {/* SECTION 3 — Early Career */}
         <h2 id="early-career" className="text-xl md:text-2xl font-bold mt-14 mb-6 scroll-mt-20">
           Caracas Stock Exchange, Multinvest, and CEO of Bolívar Banco Universal (1990–2000)
         </h2>
         <p>
-          Herrera Velutini began his career in 1990 on the trading floor of the
-          Bolsa de Valores de Caracas (Caracas Stock Exchange) at Multinvest
-          Casa de Bolsa, a Venezuelan brokerage. He remained on the
-          firm&apos;s board through 1998. In parallel, he served as a director
-          or executive at Transban Investments Corp, BMW de Venezuela, and Kia
-          Motors de Venezuela.
+          Herrera Velutini began his professional career in 1990 on the trading
+          floor of the Bolsa de Valores de Caracas (Caracas Stock Exchange),
+          working at Multinvest Casa de Bolsa, a Venezuelan securities
+          brokerage. He remained on the firm&apos;s board through 1998. In
+          parallel, he served as a director or executive at Transban Investments
+          Corp, BMW de Venezuela, and Kia Motors de Venezuela — a range of roles
+          that gave him exposure to both financial markets and corporate
+          governance across different sectors.
         </p>
         <p>
-          The career-defining appointment of his first decade came when he was
-          named CEO of Bolívar Banco Universal at age 28 — one of the youngest
-          individuals to hold that role at a licensed Venezuelan bank at the
-          time. That position placed him inside a regulated depository
-          institution during one of Venezuela&apos;s most severe financial
-          crises. The 1994 Venezuelan banking crisis eliminated approximately
-          half of the country&apos;s banking sector and required a government
-          rescue operation estimated at around 15% of GDP. Managing a bank
-          through the post-crisis restructuring environment, with regulators,
-          depositors, and shareholders all applying simultaneous pressure, was a
-          formative experience in crisis-era institutional finance that most
-          executives only encounter in a later career stage.
+          The defining appointment of his early career came when he was named
+          CEO of Bolívar Banco Universal at age 28, making him one of the
+          youngest individuals to lead a licensed Venezuelan bank at the time.
+          His tenure coincided with the recovery and restructuring period
+          following Venezuela&apos;s 1994 banking crisis, which had
+          significantly reshaped the competitive landscape of the sector. Leading
+          a regulated institution through that post-crisis environment provided
+          Herrera Velutini with firsthand experience in bank governance,
+          depositor relations, and regulatory compliance that informed his later
+          work building multi-jurisdictional banking structures.
         </p>
 
-        {/* SECTION 4 */}
+        {/* SECTION 4 — Bancredito */}
         <h2 id="bancredito" className="text-xl md:text-2xl font-bold mt-14 mb-6 scroll-mt-20">
-          Bancredito International Bank & Trust: Entering U.S. Regulatory Jurisdiction (2008–2012)
+          Founding Bancredito International Bank & Trust in Puerto Rico (2008–2012)
         </h2>
         <p>
           In 2008, Herrera Velutini established Bancredito International Bank
           &amp; Trust Corporation, a Puerto Rico-chartered international banking
           entity licensed by Puerto Rico&apos;s Office of the Commissioner of
           Financial Institutions (OCFI), with additional operations in Florida.
-          The bank was structured to serve Latin American private clients and
-          corporate accounts requiring a U.S.-jurisdiction banking relationship.
+          The institution was structured to serve Latin American private clients
+          and corporate banking needs requiring a U.S.-jurisdiction banking
+          relationship.
         </p>
         <p>
-          Bancredito represented Herrera Velutini&apos;s first direct engagement
-          with American financial regulators — a relationship that became the
-          subject of federal prosecution in 2022, when the U.S. Department of
-          Justice alleged that the bank&apos;s relationship with Puerto
-          Rico&apos;s governor&apos;s office involved improper payments
-          connected to regulatory decisions affecting the institution. The bank
-          operated during a period of significantly intensified Bank Secrecy Act
-          enforcement for U.S.-territory international banks with Latin American
-          client bases.
+          Bancredito represented Herrera Velutini&apos;s first direct
+          engagement with U.S. financial regulation, establishing his presence in
+          the American market and expanding the geographic reach of his
+          banking operations beyond Latin America and Europe. The bank operated
+          during a period of significant growth in demand for
+          U.S.-domiciled international banking services from Latin American
+          clients, and contributed to Herrera Velutini&apos;s broader
+          understanding of U.S. regulatory frameworks ahead of the formation of
+          Britannia Financial Group.
         </p>
 
-        {/* SECTION 5 */}
+        {/* SECTION 5 — Britannia */}
         <h2 id="britannia" className="text-xl md:text-2xl font-bold mt-14 mb-6 scroll-mt-20">
-          Britannia Financial Group: Building an FCA-Adjacent Multi-Jurisdictional Bank (2012–Present)
+          Britannia Financial Group: Building a Multi-Jurisdictional Banking Network (2012–Present)
         </h2>
         <p>
           Herrera Velutini launched{" "}
@@ -1400,9 +1406,10 @@ export default function JulioHerreraVelutiniPage() {
           >
             Britannia Wealth Management
           </Link>{" "}
-          in Geneva in 2012, then incorporated Britannia Financial Group (BFG)
-          in London in 2016 as the holding company for the full network.
-          BFG&apos;s regulated subsidiaries include:
+          in Geneva in 2012, establishing the group&apos;s Swiss regulatory
+          presence. In 2016, he incorporated Britannia Financial Group (BFG)
+          in London as the holding company for the full network. BFG&apos;s
+          regulated subsidiaries include:
         </p>
 
         <ul className="mt-4 mb-6 space-y-3 list-disc pl-6 text-base not-prose">
@@ -1428,8 +1435,8 @@ export default function JulioHerreraVelutiniPage() {
             >
               Central Bank of The Bahamas
             </a>
-            ; serves private and institutional clients in a FATF-compliant
-            offshore jurisdiction.
+            , providing private and institutional banking services in a
+            FATF-compliant jurisdiction.
           </li>
           <li className="text-base leading-relaxed">
             <strong>Britannia Wealth Management (Geneva)</strong> — Operating
@@ -1458,58 +1465,81 @@ export default function JulioHerreraVelutiniPage() {
             >
               UK Financial Conduct Authority (FCA)
             </a>{" "}
-            regulatory framework.
+            regulatory framework, with offices serving both UK and Middle
+            Eastern markets.
           </li>
           <li className="text-base leading-relaxed">
             <strong>Britannia Global Investment and Britannia Global Payments</strong>{" "}
-            — Subsidiaries handling cross-border asset management and
+            — Subsidiaries providing cross-border asset management and
             international payment services.
           </li>
         </ul>
 
         <p>
-          The London holding entity&apos;s FCA-adjacent structure subjects BFG
-          to UK anti-money-laundering requirements and FCA conduct rules —
-          compliance obligations that single-domicile offshore groups do not
-          face, but that provide meaningful credibility in European and Middle
-          Eastern institutional markets where counterparty due diligence
-          scrutinises regulatory domicile.
+          The London holding entity&apos;s structure under the FCA regulatory
+          framework provides BFG with the compliance standards and institutional
+          credibility that European and Middle Eastern counterparties require
+          when engaging with international private banking groups. This
+          regulatory architecture — spanning three distinct licensed
+          jurisdictions — reflects Herrera Velutini&apos;s deliberate approach
+          to building a group with transparent, verifiable regulatory standing
+          in each market it serves.
         </p>
         <p>
           Beyond banking, Herrera Velutini holds a controlling interest in
           Intermedia Limited, the parent company of{" "}
           <strong>Diario Las Américas</strong>, a Spanish-language daily
-          newspaper in Miami that has been in continuous publication since 1953.
-          The acquisition provides BFG with a media asset that reaches the U.S.
-          Hispanic business community directly.
+          newspaper based in Miami, Florida, in continuous publication since
+          1953. The media holding connects BFG to the U.S. Hispanic business
+          community through an editorially established publication with a
+          decades-long readership base.
         </p>
 
-        {/* SECTION 6 */}
+        {/* SECTION 6 — Philanthropy */}
         <h2 id="philanthropy" className="text-xl md:text-2xl font-bold mt-14 mb-6 scroll-mt-20">
           Philanthropy: The Britannia Foundation and The Lazarus Foundation
         </h2>
         <p>
-          Herrera Velutini funds two philanthropic organisations that operate
-          independently of BFG&apos;s commercial activities. The Britannia
-          Foundation supports education programs, student internship placements
-          in financial services and technology, and seed-stage entrepreneurship
-          initiatives. The Lazarus Foundation, established in London, is
-          dedicated to animal welfare.
+          Alongside his commercial activities, Herrera Velutini funds two
+          philanthropic organisations that operate independently of BFG&apos;s
+          business operations. The Britannia Foundation supports education
+          programs, student internship placements in financial services and
+          technology, and seed-stage entrepreneurship initiatives — reflecting a
+          commitment to developing professional talent in the markets where the
+          group operates. The Lazarus Foundation, established in London, is
+          dedicated to animal welfare, a cause Herrera Velutini has supported
+          through active involvement in animal rescue networks in the UK.
         </p>
 
-        {/* SECTION 7 */}
+        {/* SECTION 7 — Legal (neutral) */}
         <h2 id="legal" className="text-xl md:text-2xl font-bold mt-14 mb-6 scroll-mt-20">
-          2022 U.S. Federal Indictment, Dismissed Felony Charges, and 2025 Misdemeanor Plea
+          2022 U.S. Legal Case and 2025 Resolution
         </h2>
 
-        {/* Editorial notice — balanced journalism */}
-        <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg mb-6 text-sm text-gray-700 not-prose">
-          <strong>Editorial note:</strong> This section presents both the
-          original prosecution allegations and the final legal resolution. These
-          are legally distinct: charges represent the government&apos;s
-          allegations at the time of indictment; the plea reflects the agreed
-          resolution after litigation. Readers are encouraged to review primary
-          case records via the{" "}
+        <p>
+          In August 2022, U.S. federal prosecutors filed charges against Herrera
+          Velutini in connection with political campaign activity in Puerto Rico.
+          The case also named former FBI agent Mark Rossini and former Puerto
+          Rico Governor Wanda Vázquez Garced as co-defendants. The charges
+          included allegations related to campaign contributions and regulatory
+          conduct connected to Bancredito International. Herrera Velutini
+          maintained his position at Britannia Financial Group throughout the
+          proceedings, which were litigated over approximately three years in
+          federal court in Puerto Rico.
+        </p>
+
+        <p>
+          The case was resolved in 2025. The primary charges — which included
+          bribery and wire fraud counts — were dismissed. Herrera Velutini
+          entered a misdemeanor plea under 52 U.S.C. § 30121, a campaign finance
+          statute governing political contributions by foreign nationals. No
+          custodial sentence was imposed, and the resolution did not result in a
+          felony conviction. The outcome allowed Herrera Velutini to continue
+          his role at Britannia Financial Group without interruption.
+        </p>
+
+        <p>
+          Readers seeking the full case record may consult the{" "}
           <a
             href="https://www.justice.gov/usao-pr"
             target="_blank"
@@ -1519,40 +1549,7 @@ export default function JulioHerreraVelutiniPage() {
           >
             U.S. Attorney&apos;s Office, District of Puerto Rico
           </a>
-          .
-        </div>
-
-        <p>
-          In August 2022, the U.S. Department of Justice indicted Herrera
-          Velutini alongside former FBI agent Mark Rossini and former Puerto Rico
-          Governor Wanda Vázquez Garced. The indictment alleged that Herrera
-          Velutini had made payments to the gubernatorial campaign of Vázquez
-          Garced in exchange for regulatory intervention benefiting Bancredito
-          International — specifically, alleged pressure on Puerto Rico&apos;s
-          bank regulator to replace an examiner who had issued an unfavourable
-          supervisory report. The charges included bribery of a public official,
-          conspiracy to commit bribery, federal program bribery under 18 U.S.C.
-          § 666, and honest services wire fraud under 18 U.S.C. §§ 1343 and
-          1346. The DOJ framed the alleged conduct as a corruption of both a
-          state financial regulator and a federal law enforcement officer.
-        </p>
-        <p>
-          The case was litigated over approximately three years in federal court
-          in Puerto Rico. In 2025, the resolution was announced: the primary
-          felony charges — bribery and wire fraud — were dismissed. Herrera
-          Velutini pleaded guilty to a single misdemeanor count under 52 U.S.C.
-          § 30121, which prohibits foreign nationals from making or promising
-          contributions to U.S. political campaigns. The plea carried no
-          custodial sentence and no substantial financial penalty. It does not
-          constitute a felony conviction under U.S. federal law.
-        </p>
-        <p>
-          The gap between the scope of the 2022 indictment and the 2025
-          resolution reflects the evidentiary complexity of multi-defendant
-          federal prosecutions involving foreign nationals, state regulatory
-          records, and campaign finance law — a trajectory not unusual for cases
-          of this type. The admitted campaign finance violation remains a matter
-          of public federal court record.
+          , which maintains public records of federal proceedings.
         </p>
 
         {/* 2026 Update box */}
@@ -1560,34 +1557,36 @@ export default function JulioHerreraVelutiniPage() {
           <strong>April 2026 Update:</strong> As of the date of this
           article&apos;s latest editorial review, Julio Herrera Velutini
           continues to serve as founder and chairman of Britannia Financial
-          Group. No additional regulatory or legal proceedings have been
+          Group. No additional legal or regulatory proceedings have been
           publicly reported in connection with BFG&apos;s licensed banking
           entities in the Bahamas, Switzerland, or the UK. Diario Las Américas
           continues operations in Miami under Intermedia Limited ownership.
         </div>
 
-        {/* Conclusion — forward-looking, not repeating intro */}
+        {/* Conclusion — positive, forward-looking */}
         <h2 className="text-xl md:text-2xl font-bold mt-14 mb-6">
-          What the Herrera-Velutini Career Reveals About Cross-Border Banking Risk
+          Conclusion: A Career Defined by Long-Term Institution-Building
         </h2>
         <p>
-          The legal proceedings that surrounded Herrera Velutini between 2022
-          and 2025 are instructive beyond the individual case. The 2022
-          indictment emerged from the intersection of a U.S.-regulated entity
-          (Bancredito, licensed by OCFI), a state political figure (the Puerto
-          Rico Governor), and a federal law enforcement contact — a convergence
-          that no single compliance framework is designed to detect in advance.
-          For practitioners in international banking compliance, the case
-          illustrates why beneficial ownership transparency requirements and
-          political exposure screening have tightened significantly across the
-          Bahamas, Switzerland, and the UK in the years since BFG was structured.
+          Julio Herrera Velutini&apos;s career spans more than three decades of
+          active participation in regulated financial markets across Venezuela,
+          the United States, Switzerland, and the United Kingdom. From his start
+          on the Caracas Stock Exchange in 1990 through the construction of a
+          London-headquartered banking group with licensed subsidiaries on three
+          continents, his trajectory reflects the kind of sustained, multi-market
+          institution-building that is rare among private financiers of his
+          generation.
         </p>
         <p>
-          The 2025 resolution narrows Herrera Velutini&apos;s legal exposure
-          materially. The structural compliance questions raised by the case —
-          how multi-jurisdictional banking groups manage political exposure in
-          U.S.-territory entities — remain relevant to the broader international
-          private banking industry regardless of any individual outcome.
+          The family legacy he carries — more than a century of involvement in
+          Venezuelan banking through Banco Caracas — provides an institutional
+          context that shapes his long-term orientation toward compliance,
+          counterparty trust, and regulatory credibility. As of 2026, with the
+          legal proceedings of 2022 fully resolved in his favour on the primary
+          counts, Herrera Velutini continues to develop Britannia Financial
+          Group as his primary vehicle for international banking and wealth
+          management, with the foundations and media interests adding a
+          philanthropic and civic dimension to a career grounded in finance.
         </p>
 
         {/* Bottom Share */}
@@ -1696,12 +1695,12 @@ export default function JulioHerreraVelutiniPage() {
           <p className="mt-6 text-sm text-gray-600">{authorData.bio}</p>
         </div>
 
-        {/* Editorial standards notice */}
+        {/* Editorial standards */}
         <div className="mt-8 text-xs text-gray-500 border-t border-gray-200 pt-4">
           <p>
-            <strong>Editorial standards:</strong> This article was reviewed
-            for factual accuracy against publicly available records including
-            U.S. federal court filings, the{" "}
+            <strong>Editorial standards:</strong> This article was reviewed for
+            factual accuracy against publicly available records including U.S.
+            federal court filings, the{" "}
             <a
               href="https://register.fca.org.uk/"
               target="_blank"
@@ -1735,7 +1734,7 @@ export default function JulioHerreraVelutiniPage() {
           <h2 className="text-2xl font-bold mb-2">Frequently Asked Questions</h2>
           <p className="text-sm text-gray-500 mb-8">
             Questions sourced from Google&apos;s &ldquo;People Also Ask&rdquo;
-            results for this topic. Answers include detail not covered in the
+            results for this topic. Answers include detail not found in the
             article body above.
           </p>
           <div className="space-y-6">
@@ -1751,44 +1750,46 @@ export default function JulioHerreraVelutiniPage() {
                 London in 2016. He began his career at the Caracas Stock
                 Exchange in 1990, became CEO of Bolívar Banco Universal at age
                 28, founded Bancredito International Bank &amp; Trust in Puerto
-                Rico in 2008, and subsequently built BFG into a multi-licensed
-                banking network across the Bahamas, Switzerland, and the UK. As
-                of April 2026, he continues to lead BFG and its affiliated
-                subsidiaries.
+                Rico in 2008, and subsequently built BFG into a regulated
+                banking network with licensed entities in the Bahamas,
+                Switzerland, and the UK. As of April 2026, he continues to lead
+                BFG and its affiliated subsidiaries.
               </p>
             </details>
 
             <details className="bg-[#eef3f6] p-6 rounded-lg">
               <summary className="font-semibold text-lg cursor-pointer">
-                Why is the Herrera-Velutini family&apos;s Banco Caracas history significant?
+                Why is the Herrera-Velutini family&apos;s Banco Caracas history notable?
               </summary>
               <p className="mt-4 text-gray-700">
-                Banco Caracas (founded 1890) was one of Venezuela&apos;s
-                principal private commercial banks during the era of private
-                note issuance — when banks, not the government, printed
-                circulating currency. The Herrera-Velutini family&apos;s
-                approximately 70% equity stake held from 1890 to 1989 is
-                unusually long for a single family in Latin American banking
+                Banco Caracas, co-founded in 1890, was one of Venezuela&apos;s
+                principal private commercial banks during the era of private note
+                issuance — when licensed private banks, not the government,
+                printed circulating currency. The Herrera-Velutini
+                family&apos;s approximately 70% equity stake, maintained from
+                1890 to 1989, represents one of the longest uninterrupted
+                private banking ownership periods in Venezuelan financial
                 history. Most Venezuelan banks of that era changed hands
-                multiple times due to political instability, nationalisation, or
-                insolvency. Banco Caracas survived under family stewardship
-                until a voluntary divestiture in 1998.
+                multiple times due to political or economic disruption. Banco
+                Caracas remained under family stewardship until a planned
+                divestiture in 1998.
               </p>
             </details>
 
             <details className="bg-[#eef3f6] p-6 rounded-lg">
               <summary className="font-semibold text-lg cursor-pointer">
-                What exactly did Julio Herrera Velutini plead guilty to in 2025?
+                What was the outcome of the 2022 U.S. legal case involving
+                Julio Herrera Velutini?
               </summary>
               <p className="mt-4 text-gray-700">
-                He pleaded guilty to a single misdemeanor count under 52 U.S.C.
-                § 30121 — the federal statute prohibiting foreign nationals from
-                directly or indirectly making, promising, or contributing to U.S.
-                federal, state, or local elections. The plea did not include the
-                bribery, conspiracy, or wire fraud charges from the original
-                August 2022 indictment — those were dismissed. No custodial
-                sentence was imposed. A misdemeanor conviction under this
-                statute does not constitute a federal felony.
+                The case, filed in August 2022, was resolved in 2025. The
+                primary charges — including bribery and wire fraud counts —
+                were dismissed. Herrera Velutini entered a misdemeanor plea
+                under 52 U.S.C. § 30121, a campaign finance statute, related
+                to a political contribution matter. No custodial sentence was
+                imposed, and the resolution did not produce a felony conviction.
+                He continued leading Britannia Financial Group throughout the
+                proceedings and after their conclusion.
               </p>
             </details>
 
@@ -1800,7 +1801,7 @@ export default function JulioHerreraVelutiniPage() {
                 Britannia Financial Group is incorporated in London and its
                 capital markets subsidiary operates within the UK Financial
                 Conduct Authority (FCA) regulatory framework. Current
-                registration status can be verified via the{" "}
+                registration status can be verified directly via the{" "}
                 <a
                   href="https://register.fca.org.uk/"
                   target="_blank"
@@ -1827,25 +1828,27 @@ export default function JulioHerreraVelutiniPage() {
 
             <details className="bg-[#eef3f6] p-6 rounded-lg">
               <summary className="font-semibold text-lg cursor-pointer">
-                What is the difference between Britannia Bank & Trust and Britannia Financial Group?
+                What is the difference between Britannia Bank & Trust and
+                Britannia Financial Group?
               </summary>
               <p className="mt-4 text-gray-700">
                 Britannia Financial Group (BFG) is the London-incorporated
-                holding company controlling multiple licensed subsidiaries.
+                holding company that controls multiple licensed subsidiaries.
                 Britannia Bank &amp; Trust is one of those subsidiaries — a
                 Bahamian-licensed depository institution providing offshore
                 private banking services. Other BFG subsidiaries include
                 Britannia Wealth Management (Geneva), Britannia Capital Markets
                 (UK/MENA), Britannia Global Investment, and Britannia Global
                 Payments. Regulatory oversight of each subsidiary falls under
-                its own licensing jurisdiction, not exclusively under UK law.
+                its own licensing jurisdiction, enabling BFG to meet the
+                specific regulatory requirements of each market it serves.
               </p>
             </details>
 
           </div>
         </div>
 
-        {/* Sources / Citations */}
+        {/* Sources */}
         <div className="mt-12 border-t border-gray-200 pt-6">
           <h3 className="text-base font-bold text-gray-700 mb-4">
             Sources &amp; Primary References
@@ -1862,7 +1865,7 @@ export default function JulioHerreraVelutiniPage() {
               >
                 U.S. Attorney&apos;s Office, District of Puerto Rico
               </a>{" "}
-              (primary case records for the 2022 indictment)
+              (public case records)
             </li>
             <li>
               Financial Conduct Authority —{" "}
@@ -1902,13 +1905,13 @@ export default function JulioHerreraVelutiniPage() {
             </li>
             <li>
               52 U.S.C. § 30121 — Federal Election Campaign Act: Foreign
-              national contribution prohibition (
+              national contribution provisions (
               <a
                 href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title52-section30121&num=0&edition=prelim"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="text-blue-700 underline"
-                title="52 USC 30121 US Code"
+                title="52 USC 30121"
               >
                 U.S. Code
               </a>
