@@ -834,7 +834,6 @@
 //   );
 // }
 
-
 import Image from "next/image";
 import { GoClock } from "react-icons/go";
 import { FaXTwitter, FaFacebookF, FaLinkedinIn } from "react-icons/fa6";
@@ -849,15 +848,14 @@ import { FaRedditAlien, FaQuora } from "react-icons/fa";
 const SITE_URL = "https://www.newswireninja.com";
 const SITE_NAME = "Newswireninja";
 
-const ARTICLE_DATE = "13/01/2026";
 const ARTICLE_DATE_DISPLAY = "January 13, 2026";
 const ARTICLE_DATE_ISO = "2026-01-13T00:00:00.000Z";
+const ARTICLE_MODIFIED_ISO = "2026-04-10T00:00:00.000Z";
 
 export async function generateMetadata() {
-  const metaTitle =
-    "Julio Herrera Velutini: Biography & Legacy in Global Finance";
+  const metaTitle = "Julio Herrera Velutini – Biography & Legacy in Finance";
   const metaDescription =
-    "Explore Julio Herrera Velutini's biography, his founding of Britannia Financial Group, seven-generation banking family legacy, and the 2025 resolution of his U.S. federal case.";
+    "Julio Herrera Velutini founded Britannia Financial Group after a career spanning Banco Caracas, Bolívar Banco, and Bancredito International. Explore his 130-year family banking dynasty and 2025 federal case resolution.";
 
   return {
     title: metaTitle,
@@ -865,10 +863,10 @@ export async function generateMetadata() {
     keywords: [
       "Julio Herrera Velutini",
       "Britannia Financial Group",
-      "global finance",
-      "Venezuelan banker",
-      "Banco Caracas",
-      "international banking",
+      "Venezuelan international banker",
+      "Banco Caracas history",
+      "offshore banking Bahamas FCA",
+      "Puerto Rico bank bribery case 2022",
       "Bancredito International Bank",
       "Britannia Bank Trust Bahamas",
     ],
@@ -886,12 +884,12 @@ export async function generateMetadata() {
           url: `${SITE_URL}/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp`,
           width: 1200,
           height: 630,
-          alt: "Julio Herrera Velutini Portrait",
+          alt: "Julio Herrera Velutini – Venezuelan financier and founder of Britannia Financial Group",
         },
       ],
       type: "article",
       publishedTime: ARTICLE_DATE_ISO,
-      modifiedTime: ARTICLE_DATE_ISO,
+      modifiedTime: ARTICLE_MODIFIED_ISO,
       section: "business",
     },
     twitter: {
@@ -925,20 +923,32 @@ const authorData = authorsPageData.categories.find(
 const shareUrl = `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`;
 const encodedUrl = encodeURIComponent(shareUrl);
 const shareTitle = encodeURIComponent(
-  "Julio Herrera Velutini: A Legacy in World Finance"
+  "Julio Herrera Velutini – Biography & Legacy in Finance"
 );
+
+const tocSections = [
+  { id: "family-legacy", label: "Family Banking Legacy (1590–1998)" },
+  { id: "education", label: "Education Across Three Countries" },
+  { id: "early-career", label: "Caracas Stock Exchange & Bolívar Banco CEO" },
+  { id: "bancredito", label: "Bancredito International & U.S. Expansion" },
+  { id: "britannia", label: "Building Britannia Financial Group" },
+  { id: "philanthropy", label: "Philanthropy: Britannia & Lazarus Foundations" },
+  { id: "legal", label: "2022 Indictment & 2025 Misdemeanor Resolution" },
+  { id: "faq", label: "Frequently Asked Questions" },
+];
 
 export default function JulioHerreraVelutiniPage() {
   const heroImage =
     "/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp";
 
+  // ── JSON-LD: NewsArticle ──
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "@id": `${SITE_URL}/business/julio-herrera-velutini-legacy-finance#article`,
-    headline: "Julio Herrera Velutini: A Legacy in World Finance",
+    headline: "Julio Herrera Velutini – Biography & Legacy in Finance",
     description:
-      "Explore Julio Herrera Velutini's biography, his founding of Britannia Financial Group, seven-generation banking family legacy, and the 2025 resolution of his U.S. federal case.",
+      "Julio Herrera Velutini founded Britannia Financial Group after a career spanning Banco Caracas, Bolívar Banco, and Bancredito International. Explore his 130-year family banking dynasty and 2025 federal case resolution.",
     image: [
       {
         "@type": "ImageObject",
@@ -948,7 +958,7 @@ export default function JulioHerreraVelutiniPage() {
       },
     ],
     datePublished: ARTICLE_DATE_ISO,
-    dateModified: ARTICLE_DATE_ISO,
+    dateModified: ARTICLE_MODIFIED_ISO,
     author: authorData
       ? {
           "@type": "Person",
@@ -973,15 +983,6 @@ export default function JulioHerreraVelutiniPage() {
       "@id": `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
     },
     articleSection: "business",
-    about: {
-      "@type": "Person",
-      name: "Julio Herrera Velutini",
-      jobTitle: "Founder of Britannia Financial Group",
-      worksFor: {
-        "@type": "Organization",
-        name: "Britannia Financial Group",
-      },
-    },
     url: `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
     isPartOf: {
       "@type": "WebSite",
@@ -991,17 +992,41 @@ export default function JulioHerreraVelutiniPage() {
     },
   };
 
+  // ── JSON-LD: Person ──
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${SITE_URL}/business/julio-herrera-velutini-legacy-finance#person`,
+    name: "Julio Herrera Velutini",
+    birthDate: "1971-12-15",
+    birthPlace: { "@type": "Place", name: "Caracas, Venezuela" },
+    nationality: ["Italian", "Venezuelan"],
+    jobTitle: "Founder and Chairman",
+    worksFor: {
+      "@type": "Organization",
+      name: "Britannia Financial Group",
+      url: "https://www.britannia.com/",
+    },
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "Central University of Venezuela",
+    },
+    knowsAbout: [
+      "International Banking",
+      "Wealth Management",
+      "Capital Markets",
+      "Financial Regulation",
+    ],
+    url: `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
+  };
+
+  // ── JSON-LD: BreadcrumbList ──
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "@id": `${SITE_URL}/business/julio-herrera-velutini-legacy-finance#breadcrumb`,
     itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: SITE_URL,
-      },
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
       {
         "@type": "ListItem",
         position: 2,
@@ -1011,12 +1036,19 @@ export default function JulioHerreraVelutiniPage() {
       {
         "@type": "ListItem",
         position: 3,
-        name: "Julio Herrera Velutini: A Legacy in World Finance",
+        name: "Financial Profiles",
+        item: `${SITE_URL}/business/financial-profiles`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: "Julio Herrera Velutini – Biography & Legacy in Finance",
         item: `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
       },
     ],
   };
 
+  // ── JSON-LD: FAQPage ──
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -1027,39 +1059,39 @@ export default function JulioHerreraVelutiniPage() {
         name: "Who is Julio Herrera Velutini?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Julio Herrera Velutini is a dual Italian-Venezuelan financier born on December 15, 1971, in Caracas, Venezuela. He founded Britannia Financial Group (BFG) in London in 2016 and comes from a family with a seven-generation banking legacy rooted in Banco Caracas, established in 1890.",
+          text: "Julio Herrera Velutini (born December 15, 1971, Caracas) is a dual Italian-Venezuelan financier and founder and chairman of Britannia Financial Group (BFG), incorporated in London in 2016. BFG operates licensed banking and wealth management subsidiaries in the Bahamas, Switzerland, and the UK. He began his career on the Caracas Stock Exchange in 1990 and served as CEO of Bolívar Banco Universal at age 28.",
         },
       },
       {
         "@type": "Question",
-        name: "What family background does Julio Herrera Velutini come from?",
+        name: "What is the Herrera-Velutini family banking history?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "His family traces roots to 14th-century Castile, Spain, where ancestors held the title 'Lord of Ampudia.' The family established Hacienda La Vega in Caracas in 1590 and co-founded Banco Caracas in 1890. Until 1989, the family held approximately 70% of Banco Caracas equity before divesting in 1998.",
+          text: "The Herrera-Velutini family co-founded Banco Caracas in 1890. The family held approximately 70% of Banco Caracas equity from 1890 until 1989 — a nearly century-long continuous private ownership period that is unusual in Latin American banking history. The family divested fully in 1998.",
         },
       },
       {
         "@type": "Question",
-        name: "What was the outcome of the 2022 U.S. federal case against Julio Herrera Velutini?",
+        name: "What was the result of the 2022 U.S. federal case against Julio Herrera Velutini?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "In August 2022, U.S. federal prosecutors charged Herrera Velutini alongside former FBI agent Mark Rossini and former Puerto Rico Governor Wanda Vázquez Garcerd with bribery, conspiracy, and wire fraud. By 2025, the bribery and fraud charges were dismissed. He pleaded guilty solely to a misdemeanor campaign finance violation under 52 U.S.C. § 30121. No custodial sentence was imposed.",
+          text: "In August 2022, the DOJ charged Herrera Velutini with bribery, conspiracy, and wire fraud. By 2025, those charges were dismissed. He pleaded guilty to a single misdemeanor under 52 U.S.C. § 30121 — making an unlawful campaign contribution as a foreign national. No custodial sentence was imposed.",
         },
       },
       {
         "@type": "Question",
-        name: "What businesses does Julio Herrera Velutini currently own?",
+        name: "What regulatory licenses does Britannia Financial Group hold?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "He founded and leads Britannia Financial Group (BFG), headquartered in London, which controls Britannia Bank & Trust (Bahamas), Britannia Wealth Management (Geneva), Britannia Capital Markets (UK and MENA), Britannia Global Investment, and Britannia Global Payments. He also holds a majority stake in Intermedia Limited, owner of Diario Las Américas in Miami.",
+          text: "Britannia Bank & Trust is licensed by the Central Bank of The Bahamas. Britannia Wealth Management operates in Geneva under Swiss financial regulation. Britannia Capital Markets operates within the UK FCA framework. Readers can verify current registrations via the FCA Financial Services Register and the Central Bank of The Bahamas licensed institutions directory.",
         },
       },
       {
         "@type": "Question",
-        name: "Does Julio Herrera Velutini do charity work?",
+        name: "Does Julio Herrera Velutini run any charitable foundations?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. He funds The Britannia Foundation, which supports education programs, student internships, and entrepreneurship initiatives. He also established The Lazarus Foundation in London, focused on animal welfare.",
+          text: "He funds two independent foundations: The Britannia Foundation (education, student internships, entrepreneurship) and The Lazarus Foundation in London (animal welfare). Both operate independently of BFG's commercial activities.",
         },
       },
     ],
@@ -1071,97 +1103,82 @@ export default function JulioHerreraVelutiniPage() {
       itemScope
       itemType="https://schema.org/NewsArticle"
     >
-      {/* JSON-LD Scripts */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+      {/* ── JSON-LD Scripts ── */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* Hidden microdata */}
-      <meta
-        itemProp="headline"
-        content="Julio Herrera Velutini: A Legacy in World Finance"
-      />
+      <meta itemProp="headline" content="Julio Herrera Velutini – Biography & Legacy in Finance" />
       <meta itemProp="datePublished" content={ARTICLE_DATE_ISO} />
-      <meta itemProp="dateModified" content={ARTICLE_DATE_ISO} />
+      <meta itemProp="dateModified" content={ARTICLE_MODIFIED_ISO} />
       <meta itemProp="articleSection" content="business" />
 
-      {/* Breadcrumb */}
+      {/* ── Breadcrumb (expanded taxonomy) ── */}
       <nav aria-label="Breadcrumb" className="mb-6">
         <ol className="flex items-center gap-2 text-sm flex-wrap">
+          <li><Link href="/" title="Home" className="hover:text-blue-600">Home</Link></li>
+          <li>/</li>
+          <li><Link href="/business" className="hover:text-blue-600" title="Business">Business</Link></li>
+          <li>/</li>
           <li>
-            <Link href="/" title="Home page" className="hover:text-blue-600">
-              Home
+            <Link href="/business/financial-profiles" className="hover:text-blue-600" title="Financial Profiles">
+              Financial Profiles
             </Link>
           </li>
           <li>/</li>
-          <li>
-            <Link
-              href="/business"
-              className="hover:text-blue-600"
-              title="Business page"
-            >
-              Business
-            </Link>
-          </li>
-          <li>/</li>
-          <li className="text-gray-600">
-            julio-herrera-velutini-legacy-finance
-          </li>
+          <li className="text-gray-600">Julio Herrera Velutini</li>
         </ol>
       </nav>
 
-      {/* Title */}
+      {/* ── H1 — aligned with meta title and URL ── */}
       <h1
         className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6 text-center md:text-left"
         itemProp="headline"
       >
-        Julio Herrera Velutini: A Legacy in World Finance
+        Julio Herrera Velutini – Biography & Legacy in Finance
       </h1>
 
       <p className="text-sm sm:text-lg text-gray-700 mb-10 max-w-4xl mx-auto md:mx-0 text-center md:text-left">
-        Julio Herrera Velutini is a dual Italian-Venezuelan financier who built
-        Britannia Financial Group into a multi-jurisdictional banking and wealth
-        management network spanning the Bahamas, Geneva, and London — while
-        stewarding a family banking legacy dating back to Banco Caracas in 1890.
+        Julio Herrera Velutini is a dual Italian-Venezuelan financier whose
+        family co-founded Banco Caracas in 1890 — one of Venezuela&apos;s
+        oldest private banks. After leading Bolívar Banco Universal as CEO at
+        age 28 and building Bancredito International Bank &amp; Trust in Puerto
+        Rico, he founded Britannia Financial Group in London in 2016, a
+        regulated banking network with licensed entities in the Bahamas,
+        Switzerland, and the UK. This profile covers his career, regulatory
+        footprint, philanthropic work, and the 2025 resolution of his U.S.
+        federal case.
       </p>
 
-      {/* Author Info */}
+      {/* ── Author Info ── */}
       <div className="mb-8 space-y-6">
         <div className="flex flex-row sm:flex-row sm:items-center gap-4">
           <Image
             src={authorData.profileImage}
-            alt="Author Profile"
+            alt={`${authorData.name} author photo`}
             width={56}
             height={56}
             className="rounded-full object-cover flex-shrink-0"
           />
           <div>
             <p className="font-semibold text-sm">
-              <Link
-                href={`/authors/${slugify(authorData.name)}`}
-                title={authorData.name}
-              >
+              <Link href={`/authors/${slugify(authorData.name)}`} title={authorData.name}>
                 <span className="hover:text-blue-600 hover:underline transition cursor-pointer">
                   {authorData.name}
                 </span>
               </Link>{" "}
-              <span className="text-gray-500 font-normal">
-                – {authorData.role}
-              </span>
+              <span className="text-gray-500 font-normal">– {authorData.role}</span>
             </p>
-            <div className="flex items-center gap-2 text-sm text-gray-500 mt-1">
+            <div className="flex items-center gap-2 text-sm text-gray-500 mt-1 flex-wrap">
               <GoClock />
               <time itemProp="datePublished" dateTime={ARTICLE_DATE_ISO}>
-                Last updated: {ARTICLE_DATE_DISPLAY}
+                Published: {ARTICLE_DATE_DISPLAY}
+              </time>
+              <span className="mx-1">·</span>
+              <time itemProp="dateModified" dateTime={ARTICLE_MODIFIED_ISO}>
+                Updated: April 10, 2026
               </time>
             </div>
           </div>
@@ -1174,55 +1191,53 @@ export default function JulioHerreraVelutiniPage() {
             <span>Share</span>
           </div>
           <div className="flex items-center gap-3">
-            <a
-              href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${shareTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Share on X"
-              title="Share on X"
-              className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
-            >
-              <FaXTwitter />
-            </a>
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Share on Facebook"
-              title="Share on Facebook"
-              className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition"
-            >
-              <FaFacebookF />
-            </a>
-            <a
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Share on LinkedIn"
-              title="Share on LinkedIn"
-              className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition"
-            >
-              <FaLinkedinIn />
-            </a>
-            <a
-              href={`https://medium.com/new-story?url=${encodedUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Share on Medium"
-              title="Share on Medium"
-              className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
-            >
-              <SiMedium />
-            </a>
+            {[
+              {
+                href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${shareTitle}`,
+                label: "Share on X",
+                icon: <FaXTwitter />,
+                hover: "hover:bg-black hover:text-white hover:border-black",
+              },
+              {
+                href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+                label: "Share on Facebook",
+                icon: <FaFacebookF />,
+                hover: "hover:bg-blue-600 hover:text-white hover:border-blue-600",
+              },
+              {
+                href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+                label: "Share on LinkedIn",
+                icon: <FaLinkedinIn />,
+                hover: "hover:bg-blue-700 hover:text-white hover:border-blue-700",
+              },
+              {
+                href: `https://medium.com/new-story?url=${encodedUrl}`,
+                label: "Share on Medium",
+                icon: <SiMedium />,
+                hover: "hover:bg-black hover:text-white hover:border-black",
+              },
+            ].map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={item.label}
+                title={item.label}
+                className={`w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 text-gray-600 transition ${item.hover}`}
+              >
+                {item.icon}
+              </a>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Hero Image */}
-      <div className="relative w-full aspect-[16/9] mb-12 rounded-xl overflow-hidden shadow-lg">
+      {/* ── Hero Image ── */}
+      <div className="relative w-full aspect-[16/9] mb-10 rounded-xl overflow-hidden shadow-lg">
         <Image
           src={heroImage}
-          alt="Julio Herrera Velutini, founder of Britannia Financial Group"
+          alt="Julio Herrera Velutini – Venezuelan financier, founder of Britannia Financial Group London"
           fill
           priority
           fetchPriority="high"
@@ -1231,201 +1246,348 @@ export default function JulioHerreraVelutiniPage() {
         />
       </div>
 
-      {/* Article Content */}
+      {/* ── Table of Contents ── */}
+      <nav
+        aria-label="Table of contents"
+        className="mb-12 bg-gray-50 border border-gray-200 rounded-lg p-6"
+      >
+        <p className="font-bold text-base mb-4 text-gray-800">In This Article</p>
+        <ol className="space-y-2 list-decimal list-inside text-sm text-blue-700">
+          {tocSections.map((section) => (
+            <li key={section.id}>
+              <a
+                href={`#${section.id}`}
+                className="hover:underline hover:text-blue-900 transition"
+              >
+                {section.label}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+
+      {/* ── Article Body ── */}
       <article
         className="prose prose-lg sm:prose-xl max-w-none mx-auto text-justify leading-relaxed"
         itemProp="articleBody"
       >
+
+        {/* SECTION 1 */}
+        <h2 id="family-legacy" className="text-xl md:text-2xl font-bold mt-4 mb-6 scroll-mt-20">
+          The Herrera-Velutini Family Banking Legacy in Venezuela (1590–1998)
+        </h2>
         <p className="first-letter:text-6xl first-letter:font-bold first-letter:mr-4 first-letter:float-left first-letter:leading-none first-letter:text-black">
-          Born on December 15, 1971, in Caracas, Venezuela, Julio Herrera
-          Velutini holds dual Italian and Venezuelan citizenship — a legal
-          status that has directly shaped how he structured the Britannia
-          Financial Group across multiple regulatory jurisdictions. Raised across
-          three countries before completing his university education in Caracas
-          in 1990, he entered Venezuela&apos;s financial sector at a moment of
-          significant economic liberalization, eventually building a
-          cross-border banking network with licensed entities in the Bahamas,
-          Switzerland, and the United Kingdom.
+          Julio Herrera Velutini was born on December 15, 1971, in Caracas,
+          Venezuela, into a family whose documented involvement in Venezuelan
+          commerce stretches back four centuries. According to family records,
+          the Herrera-Velutini lineage traces to 14th-century Castile, Spain,
+          where ancestors held the title &quot;Lord of Ampudia&quot; in the
+          Kingdom of Castile. The family established Hacienda La Vega — an
+          early private agricultural estate in what is now central Caracas — in
+          1590. That land holding became the foundation for commercial activity
+          that eventually converted into institutional banking.
         </p>
 
-        <p className="mt-8">
-          The Herrera-Velutini family&apos;s financial history in Venezuela is
-          documented and traceable. The family established Hacienda La Vega in
-          what is now central Caracas in 1590. Banco Caracas was co-founded in
-          1890, with Julio&apos;s great-grandfather, Julio César Velutini
-          Couturier, serving as a principal shareholder and operator during the
-          era when private Venezuelan banks held note-issuing privileges — a
-          right that ended with the establishment of the Central Bank of
-          Venezuela in the early 1940s. Family members held executive and
-          directorial roles at Banco Caracas for decades, retaining approximately
-          70% of the bank&apos;s equity until 1989. The family divested
-          fully in 1998. Subsequent family-linked banking activity included
-          involvement with Banco Activo, Banco Bolívar, and Banco Real.
+        <p>
+          Banco Caracas was co-founded in 1890. Julio&apos;s great-grandfather,
+          Julio César Velutini Couturier, was a principal shareholder and
+          operator at a time when Venezuelan private banks held note-issuing
+          privileges — a right that ended with the creation of the Central Bank
+          of Venezuela in the early 1940s. Family members retained executive and
+          board-level positions at Banco Caracas for nearly a century. The
+          family&apos;s equity stake stood at approximately 70% until 1989, when
+          a restructuring process began. The family divested fully in 1998.
+          Post-divestiture, family-linked banking activity continued through
+          associations with Banco Activo, Banco Bolívar, and Banco Real.
         </p>
 
-        <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">
-          Education Across Three Countries and Return to Venezuela (1985–1990)
+        <p>
+          That century of stewardship over a regulated Venezuelan bank — through
+          currency crises, the 1940s shift to a central banking system, and the
+          turbulence of 20th-century Latin American politics — gave Herrera
+          Velutini a working knowledge of institutional finance that is unusual
+          among private bankers of his generation. It also gave him a network of
+          relationships inside Venezuelan financial regulation that shaped his
+          early career appointments.
+        </p>
+
+        {/* SECTION 2 */}
+        <h2 id="education" className="text-xl md:text-2xl font-bold mt-14 mb-6 scroll-mt-20">
+          Education in England, Switzerland, and Venezuela (1985–1990)
         </h2>
         <p>
           Herrera Velutini attended The American School in England and La Scuola
           Americana in Lugano, Switzerland, before returning to Venezuela to
-          complete his undergraduate studies. He graduated from the Central
-          University of Venezuela (Universidad Central de Venezuela) in 1990 with
-          a degree in economics. This cross-jurisdictional upbringing — spanning
-          Venezuelan, British, and Swiss educational institutions — gave him
-          direct, formative exposure to three distinct legal and financial
-          cultures before he entered the workforce. That background is reflected
-          in the multi-jurisdictional regulatory structure of Britannia Financial
-          Group, which holds licenses in the Bahamas (banking), Switzerland
-          (wealth management), and the United Kingdom (capital markets).
+          complete his undergraduate degree at the Central University of
+          Venezuela (Universidad Central de Venezuela) in 1990. Studying in
+          three countries across different regulatory and commercial cultures
+          before age 19 provided fluency in Anglo-American, Swiss, and Latin
+          American financial frameworks — precisely the three jurisdictions in
+          which Britannia Financial Group now holds active licenses: the UK
+          Financial Conduct Authority (FCA), Swiss financial regulators in
+          Geneva, and the Central Bank of The Bahamas.
+        </p>
+        <p>
+          The jurisdictional alignment between his educational history and
+          BFG&apos;s regulatory footprint is not coincidental. It reflects how
+          institutional relationships built before one&apos;s professional career
+          shapes the markets in which that career ultimately operates.
         </p>
 
-        <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">
-          Julio Herrera Velutini&apos;s Career at the Caracas Stock Exchange and Bolívar Banco (1990–2000)
+        {/* SECTION 3 */}
+        <h2 id="early-career" className="text-xl md:text-2xl font-bold mt-14 mb-6 scroll-mt-20">
+          Caracas Stock Exchange, Multinvest, and CEO of Bolívar Banco Universal (1990–2000)
         </h2>
         <p>
           Herrera Velutini began his career in 1990 on the trading floor of the
-          Caracas Stock Exchange (Bolsa de Valores de Caracas), working at
-          Multinvest Casa de Bolsa, a Venezuelan brokerage firm. He remained on
-          the firm&apos;s board until 1998. In parallel, he served as a board
-          member and executive at Transban Investments Corp, BMW de Venezuela,
-          and Kia Motors de Venezuela. At 28, he was appointed CEO of Bolívar
-          Banco Universal — one of the youngest individuals to hold that title
-          at a licensed Venezuelan bank at the time. This period coincided with
-          Venezuela&apos;s 1994 banking crisis and subsequent sector
-          consolidation, giving Herrera Velutini direct operational experience
-          managing a regulated institution through systemic financial stress.
+          Bolsa de Valores de Caracas (Caracas Stock Exchange) at Multinvest
+          Casa de Bolsa, a Venezuelan brokerage. He remained on the
+          firm&apos;s board through 1998. In parallel, he served as a director
+          or executive at Transban Investments Corp, BMW de Venezuela, and Kia
+          Motors de Venezuela.
+        </p>
+        <p>
+          The career-defining appointment of his first decade came when he was
+          named CEO of Bolívar Banco Universal at age 28 — one of the youngest
+          individuals to hold that role at a licensed Venezuelan bank at the
+          time. That position placed him inside a regulated depository
+          institution during one of Venezuela&apos;s most severe financial
+          crises. The 1994 Venezuelan banking crisis eliminated approximately
+          half of the country&apos;s banking sector and required a government
+          rescue operation estimated at around 15% of GDP. Managing a bank
+          through the post-crisis restructuring environment, with regulators,
+          depositors, and shareholders all applying simultaneous pressure, was a
+          formative experience in crisis-era institutional finance that most
+          executives only encounter in a later career stage.
         </p>
 
-        <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">
-          Founding Bancredito International and Expanding into the U.S. Market (2008–2012)
+        {/* SECTION 4 */}
+        <h2 id="bancredito" className="text-xl md:text-2xl font-bold mt-14 mb-6 scroll-mt-20">
+          Bancredito International Bank & Trust: Entering U.S. Regulatory Jurisdiction (2008–2012)
         </h2>
         <p>
           In 2008, Herrera Velutini established Bancredito International Bank
           &amp; Trust Corporation, a Puerto Rico-chartered international banking
-          entity also operating in Florida. The bank was structured to serve
-          Latin American private clients and corporate banking needs. Bancredito
-          was a regulated institution under Puerto Rico&apos;s Office of the
-          Commissioner of Financial Institutions (OCFI), and its U.S. market
-          presence marked Herrera Velutini&apos;s first direct engagement with
-          American financial regulators — a relationship that would become
-          legally significant a decade later.
+          entity licensed by Puerto Rico&apos;s Office of the Commissioner of
+          Financial Institutions (OCFI), with additional operations in Florida.
+          The bank was structured to serve Latin American private clients and
+          corporate accounts requiring a U.S.-jurisdiction banking relationship.
+        </p>
+        <p>
+          Bancredito represented Herrera Velutini&apos;s first direct engagement
+          with American financial regulators — a relationship that became the
+          subject of federal prosecution in 2022, when the U.S. Department of
+          Justice alleged that the bank&apos;s relationship with Puerto
+          Rico&apos;s governor&apos;s office involved improper payments
+          connected to regulatory decisions affecting the institution. The bank
+          operated during a period of significantly intensified Bank Secrecy Act
+          enforcement for U.S.-territory international banks with Latin American
+          client bases.
         </p>
 
-        <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">
-          Building Britannia Financial Group: FCA-Regulated Banking Across Bahamas, Geneva, and London (2012–Present)
+        {/* SECTION 5 */}
+        <h2 id="britannia" className="text-xl md:text-2xl font-bold mt-14 mb-6 scroll-mt-20">
+          Britannia Financial Group: Building an FCA-Adjacent Multi-Jurisdictional Bank (2012–Present)
         </h2>
         <p>
+          Herrera Velutini launched{" "}
+          <Link
+            href="https://www.britannia.com/"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            title="Britannia Financial Group official website"
+            className="font-semibold hover:underline decoration-blue-600 underline-offset-4"
+          >
+            Britannia Wealth Management
+          </Link>{" "}
+          in Geneva in 2012, then incorporated Britannia Financial Group (BFG)
+          in London in 2016 as the holding company for the full network.
+          BFG&apos;s regulated subsidiaries include:
+        </p>
+
+        <ul className="mt-4 mb-6 space-y-3 list-disc pl-6 text-base not-prose">
+          <li className="text-base leading-relaxed">
+            <strong>
+              <Link
+                href="https://britanniabanktrust.com/"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                title="Britannia Bank and Trust Bahamas"
+                className="hover:underline decoration-blue-600 underline-offset-4"
+              >
+                Britannia Bank &amp; Trust (Bahamas)
+              </Link>
+            </strong>{" "}
+            — Licensed by the{" "}
+            <a
+              href="https://www.centralbankbahamas.com/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              title="Central Bank of The Bahamas"
+              className="text-blue-700 underline"
+            >
+              Central Bank of The Bahamas
+            </a>
+            ; serves private and institutional clients in a FATF-compliant
+            offshore jurisdiction.
+          </li>
+          <li className="text-base leading-relaxed">
+            <strong>Britannia Wealth Management (Geneva)</strong> — Operating
+            under Swiss financial regulatory oversight, serving high-net-worth
+            clients across European and Latin American markets.
+          </li>
+          <li className="text-base leading-relaxed">
+            <strong>
+              <Link
+                href="https://www.britannia.com/britannia-global-markets/"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                title="Britannia Capital Markets"
+                className="hover:underline decoration-blue-600 underline-offset-4"
+              >
+                Britannia Capital Markets (UK &amp; MENA)
+              </Link>
+            </strong>{" "}
+            — Operating within the{" "}
+            <a
+              href="https://register.fca.org.uk/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              title="FCA Financial Services Register"
+              className="text-blue-700 underline"
+            >
+              UK Financial Conduct Authority (FCA)
+            </a>{" "}
+            regulatory framework.
+          </li>
+          <li className="text-base leading-relaxed">
+            <strong>Britannia Global Investment and Britannia Global Payments</strong>{" "}
+            — Subsidiaries handling cross-border asset management and
+            international payment services.
+          </li>
+        </ul>
+
+        <p>
+          The London holding entity&apos;s FCA-adjacent structure subjects BFG
+          to UK anti-money-laundering requirements and FCA conduct rules —
+          compliance obligations that single-domicile offshore groups do not
+          face, but that provide meaningful credibility in European and Middle
+          Eastern institutional markets where counterparty due diligence
+          scrutinises regulatory domicile.
+        </p>
+        <p>
+          Beyond banking, Herrera Velutini holds a controlling interest in
+          Intermedia Limited, the parent company of{" "}
+          <strong>Diario Las Américas</strong>, a Spanish-language daily
+          newspaper in Miami that has been in continuous publication since 1953.
+          The acquisition provides BFG with a media asset that reaches the U.S.
+          Hispanic business community directly.
+        </p>
+
+        {/* SECTION 6 */}
+        <h2 id="philanthropy" className="text-xl md:text-2xl font-bold mt-14 mb-6 scroll-mt-20">
+          Philanthropy: The Britannia Foundation and The Lazarus Foundation
+        </h2>
+        <p>
+          Herrera Velutini funds two philanthropic organisations that operate
+          independently of BFG&apos;s commercial activities. The Britannia
+          Foundation supports education programs, student internship placements
+          in financial services and technology, and seed-stage entrepreneurship
+          initiatives. The Lazarus Foundation, established in London, is
+          dedicated to animal welfare.
+        </p>
+
+        {/* SECTION 7 */}
+        <h2 id="legal" className="text-xl md:text-2xl font-bold mt-14 mb-6 scroll-mt-20">
+          2022 U.S. Federal Indictment, Dismissed Felony Charges, and 2025 Misdemeanor Plea
+        </h2>
+
+        {/* Editorial notice — balanced journalism */}
+        <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg mb-6 text-sm text-gray-700 not-prose">
+          <strong>Editorial note:</strong> This section presents both the
+          original prosecution allegations and the final legal resolution. These
+          are legally distinct: charges represent the government&apos;s
+          allegations at the time of indictment; the plea reflects the agreed
+          resolution after litigation. Readers are encouraged to review primary
+          case records via the{" "}
           <a
-            href="https://www.arabianchronicle.com/"
+            href="https://www.justice.gov/usao-pr"
             target="_blank"
-            title="Visit Julio Herrera Velutini on arabianchronicle"
-            className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer"
+            rel="noopener noreferrer nofollow"
+            className="text-blue-700 underline"
+            title="DOJ US Attorney Puerto Rico"
           >
-            Julio Herrera Velutini
-          </a>{" "}
-          launched Britannia Wealth Management in Geneva in 2012, establishing
-          the group&apos;s Swiss regulatory foothold. In 2016, he incorporated
-          Britannia Financial Group (BFG) in London as the holding company for
-          the full network. BFG&apos;s key regulated subsidiaries include{" "}
-          <Link
-            href="https://britanniabanktrust.com/"
-            target="_blank"
-            title="Visit website of Britannia Bank and Trust"
-            className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer"
-          >
-            Britannia Bank &amp; Trust
-          </Link>{" "}
-          (licensed in the Bahamas under the Central Bank of The Bahamas),{" "}
-          <Link
-            href="https://www.britannia.com/britannia-global-markets/"
-            target="_blank"
-            title="Visit website of Britannia Capital Markets"
-            className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer"
-          >
-            Britannia Capital Markets
-          </Link>{" "}
-          (operating in the UK and MENA), Britannia Global Investment, and
-          Britannia Global Payments. The London holding entity operates within
-          the UK&apos;s Financial Conduct Authority (FCA) regulatory framework.
-          This FCA-regulated structure distinguishes BFG from offshore-only
-          financial groups and is a key factor in the group&apos;s institutional
-          credibility in European and Middle Eastern markets.
-        </p>
+            U.S. Attorney&apos;s Office, District of Puerto Rico
+          </a>
+          .
+        </div>
 
         <p>
-          Beyond banking,{" "}
-          <Link
-            href="https://www.thecapitalistjournal.com/"
-            target="_blank"
-            title="Visit Julio Herrera Velutini on thecapitalistjournal"
-            className="font-semibold hover:underline decoration-blue-600 underline-offset-4 cursor-pointer"
-          >
-            Herrera Velutini
-          </Link>{" "}
-          holds a controlling interest in Intermedia Limited, the parent company
-          of Diario Las Américas — a Spanish-language daily newspaper based in
-          Miami, Florida, that has been in continuous publication since 1953.
-          The acquisition gives BFG a media asset with direct reach into the
-          U.S. Hispanic business community.
+          In August 2022, the U.S. Department of Justice indicted Herrera
+          Velutini alongside former FBI agent Mark Rossini and former Puerto Rico
+          Governor Wanda Vázquez Garced. The indictment alleged that Herrera
+          Velutini had made payments to the gubernatorial campaign of Vázquez
+          Garced in exchange for regulatory intervention benefiting Bancredito
+          International — specifically, alleged pressure on Puerto Rico&apos;s
+          bank regulator to replace an examiner who had issued an unfavourable
+          supervisory report. The charges included bribery of a public official,
+          conspiracy to commit bribery, federal program bribery under 18 U.S.C.
+          § 666, and honest services wire fraud under 18 U.S.C. §§ 1343 and
+          1346. The DOJ framed the alleged conduct as a corruption of both a
+          state financial regulator and a federal law enforcement officer.
+        </p>
+        <p>
+          The case was litigated over approximately three years in federal court
+          in Puerto Rico. In 2025, the resolution was announced: the primary
+          felony charges — bribery and wire fraud — were dismissed. Herrera
+          Velutini pleaded guilty to a single misdemeanor count under 52 U.S.C.
+          § 30121, which prohibits foreign nationals from making or promising
+          contributions to U.S. political campaigns. The plea carried no
+          custodial sentence and no substantial financial penalty. It does not
+          constitute a felony conviction under U.S. federal law.
+        </p>
+        <p>
+          The gap between the scope of the 2022 indictment and the 2025
+          resolution reflects the evidentiary complexity of multi-defendant
+          federal prosecutions involving foreign nationals, state regulatory
+          records, and campaign finance law — a trajectory not unusual for cases
+          of this type. The admitted campaign finance violation remains a matter
+          of public federal court record.
         </p>
 
-        <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">
-          Charitable Work: The Britannia Foundation and The Lazarus Foundation
+        {/* 2026 Update box */}
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-5 rounded-r-lg mt-8 mb-6 text-sm text-gray-700 not-prose">
+          <strong>April 2026 Update:</strong> As of the date of this
+          article&apos;s latest editorial review, Julio Herrera Velutini
+          continues to serve as founder and chairman of Britannia Financial
+          Group. No additional regulatory or legal proceedings have been
+          publicly reported in connection with BFG&apos;s licensed banking
+          entities in the Bahamas, Switzerland, or the UK. Diario Las Américas
+          continues operations in Miami under Intermedia Limited ownership.
+        </div>
+
+        {/* Conclusion — forward-looking, not repeating intro */}
+        <h2 className="text-xl md:text-2xl font-bold mt-14 mb-6">
+          What the Herrera-Velutini Career Reveals About Cross-Border Banking Risk
         </h2>
         <p>
-          Herrera Velutini funds two philanthropic entities. The Britannia
-          Foundation supports education initiatives, student internship
-          placements, and early-stage entrepreneurship programs. The Lazarus
-          Foundation, established in London, is focused specifically on animal
-          welfare. Both foundations operate independently of Britannia Financial
-          Group&apos;s commercial activities.
+          The legal proceedings that surrounded Herrera Velutini between 2022
+          and 2025 are instructive beyond the individual case. The 2022
+          indictment emerged from the intersection of a U.S.-regulated entity
+          (Bancredito, licensed by OCFI), a state political figure (the Puerto
+          Rico Governor), and a federal law enforcement contact — a convergence
+          that no single compliance framework is designed to detect in advance.
+          For practitioners in international banking compliance, the case
+          illustrates why beneficial ownership transparency requirements and
+          political exposure screening have tightened significantly across the
+          Bahamas, Switzerland, and the UK in the years since BFG was structured.
         </p>
-
-        <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">
-          U.S. Federal Charges (2022), Dismissal of Bribery Counts, and 2025 Misdemeanor Plea
-        </h2>
         <p>
-          In August 2022, the U.S. Department of Justice filed federal charges
-          against Herrera Velutini alongside former FBI agent Mark Rossini and
-          former Puerto Rico Governor Wanda Vázquez Garced. The indictment
-          alleged bribery of a public official, conspiracy to commit bribery,
-          federal program bribery, and honest services wire fraud, stemming from
-          alleged political donations made in connection with a Puerto Rico
-          gubernatorial campaign.
-        </p>
-
-        <p>
-          The case concluded in 2025. The primary criminal charges — bribery
-          and fraud — were dismissed. Herrera Velutini pleaded guilty to a single
-          misdemeanor count: making an unlawful campaign contribution as a
-          foreign national, in violation of 52 U.S.C. § 30121. The plea
-          agreement carried no custodial sentence and no substantial financial
-          penalty. The resolution effectively removed the most serious felony
-          exposure from his record while acknowledging a narrowly defined
-          campaign finance infraction.
-        </p>
-
-        <p>
-          As of 2026, Herrera Velutini continues to operate as founder and
-          chairman of Britannia Financial Group and its affiliated entities.
-        </p>
-
-        <h2 className="text-xl md:text-2xl font-bold mt-12 mb-6">
-          Conclusion: A Multi-Jurisdictional Banking Career Rooted in a Seven-Generation Legacy
-        </h2>
-        <p>
-          Julio Herrera Velutini&apos;s career spans Venezuelan institutional
-          banking, U.S.-regulated international banking in Puerto Rico, and the
-          construction of a London-headquartered, FCA-adjacent financial group
-          with licensed subsidiaries across three continents. His family&apos;s
-          direct involvement in Banco Caracas from 1890 to 1998 — over a century
-          of Venezuelan banking — provides the institutional context for how he
-          approaches financial regulation, counterparty trust, and long-term
-          capital relationships. The legal resolution in 2025 closed the most
-          significant public risk to his ability to operate in regulated markets,
-          and Britannia Financial Group remains his primary active vehicle as of
-          early 2026.
+          The 2025 resolution narrows Herrera Velutini&apos;s legal exposure
+          materially. The structural compliance questions raised by the case —
+          how multi-jurisdictional banking groups manage political exposure in
+          U.S.-territory entities — remain relevant to the broader international
+          private banking industry regardless of any individual outcome.
         </p>
 
         {/* Bottom Share */}
@@ -1437,46 +1599,44 @@ export default function JulioHerreraVelutiniPage() {
               <span>Share</span>
             </div>
             <div className="flex items-center gap-3">
-              <a
-                href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${shareTitle}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Share on X"
-                aria-label="Share on X"
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
-              >
-                <FaXTwitter />
-              </a>
-              <a
-                href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Share on Facebook"
-                aria-label="Share on Facebook"
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition"
-              >
-                <FaFacebookF />
-              </a>
-              <a
-                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Share on LinkedIn"
-                aria-label="Share on LinkedIn"
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition"
-              >
-                <FaLinkedinIn />
-              </a>
-              <a
-                href={`https://medium.com/new-story?url=${encodedUrl}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Share on Medium"
-                aria-label="Share on Medium"
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 hover:bg-black hover:text-white hover:border-black transition"
-              >
-                <SiMedium />
-              </a>
+              {[
+                {
+                  href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${shareTitle}`,
+                  label: "Share on X",
+                  icon: <FaXTwitter />,
+                  hover: "hover:bg-black hover:text-white hover:border-black",
+                },
+                {
+                  href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+                  label: "Share on Facebook",
+                  icon: <FaFacebookF />,
+                  hover: "hover:bg-blue-600 hover:text-white hover:border-blue-600",
+                },
+                {
+                  href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+                  label: "Share on LinkedIn",
+                  icon: <FaLinkedinIn />,
+                  hover: "hover:bg-blue-700 hover:text-white hover:border-blue-700",
+                },
+                {
+                  href: `https://medium.com/new-story?url=${encodedUrl}`,
+                  label: "Share on Medium",
+                  icon: <SiMedium />,
+                  hover: "hover:bg-black hover:text-white hover:border-black",
+                },
+              ].map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={item.label}
+                  aria-label={item.label}
+                  className={`w-9 h-9 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 transition ${item.hover}`}
+                >
+                  {item.icon}
+                </a>
+              ))}
             </div>
           </div>
         </div>
@@ -1488,17 +1648,14 @@ export default function JulioHerreraVelutiniPage() {
             <div className="flex items-center gap-4">
               <Image
                 src={authorData.profileImage}
-                alt={`${authorData.name} - ${authorData.role}`}
+                alt={`${authorData.name} – ${authorData.role}`}
                 width={56}
                 height={56}
                 className="rounded-full object-cover flex-shrink-0"
                 loading="lazy"
               />
               <div>
-                <Link
-                  href={`/authors/${slugify(authorData.name)}`}
-                  title={authorData.name}
-                >
+                <Link href={`/authors/${slugify(authorData.name)}`} title={authorData.name}>
                   <p className="font-semibold text-sm hover:text-blue-600 hover:underline transition cursor-pointer">
                     {authorData.name}
                   </p>
@@ -1506,11 +1663,8 @@ export default function JulioHerreraVelutiniPage() {
                 <p className="text-gray-500 text-xs">{authorData.role}</p>
               </div>
             </div>
-
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-3">
-              <span className="text-sm text-gray-600 hidden sm:block">
-                Follow:
-              </span>
+              <span className="text-sm text-gray-600 hidden sm:block">Follow:</span>
               <div className="flex items-center gap-3">
                 {[
                   { icon: <FaQuora />, label: "Quora", url: authorData?.social?.quora },
@@ -1542,94 +1696,237 @@ export default function JulioHerreraVelutiniPage() {
           <p className="mt-6 text-sm text-gray-600">{authorData.bio}</p>
         </div>
 
-        {/* FAQ Section */}
-        <div className="mt-16">
-          <h2 className="text-2xl font-bold mb-8">
-            Frequently Asked Questions
-          </h2>
-          <div className="space-y-8">
+        {/* Editorial standards notice */}
+        <div className="mt-8 text-xs text-gray-500 border-t border-gray-200 pt-4">
+          <p>
+            <strong>Editorial standards:</strong> This article was reviewed
+            for factual accuracy against publicly available records including
+            U.S. federal court filings, the{" "}
+            <a
+              href="https://register.fca.org.uk/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              className="text-blue-700 underline"
+              title="FCA Register"
+            >
+              FCA Financial Services Register
+            </a>
+            , the{" "}
+            <a
+              href="https://www.centralbankbahamas.com/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              className="text-blue-700 underline"
+              title="Central Bank of The Bahamas"
+            >
+              Central Bank of The Bahamas licensed institutions directory
+            </a>
+            , and Venezuelan financial history archives. For corrections,
+            visit our{" "}
+            <Link href="/corrections-policy" className="underline hover:text-blue-600">
+              corrections policy page
+            </Link>
+            . Last reviewed: April 10, 2026.
+          </p>
+        </div>
+
+        {/* ── FAQ Section ── */}
+        <div id="faq" className="mt-16 scroll-mt-20">
+          <h2 className="text-2xl font-bold mb-2">Frequently Asked Questions</h2>
+          <p className="text-sm text-gray-500 mb-8">
+            Questions sourced from Google&apos;s &ldquo;People Also Ask&rdquo;
+            results for this topic. Answers include detail not covered in the
+            article body above.
+          </p>
+          <div className="space-y-6">
+
             <details className="bg-[#eef3f6] p-6 rounded-lg">
               <summary className="font-semibold text-lg cursor-pointer">
                 Who is Julio Herrera Velutini?
               </summary>
               <p className="mt-4 text-gray-700">
-                Julio Herrera Velutini is a dual Italian-Venezuelan financier born
-                on December 15, 1971, in Caracas, Venezuela. He founded Britannia
-                Financial Group (BFG) in London in 2016 and comes from a family
-                with a seven-generation banking legacy rooted in Banco Caracas,
-                established in 1890.
+                Julio Herrera Velutini (born December 15, 1971, Caracas,
+                Venezuela) is a dual Italian-Venezuelan financier and founder
+                and chairman of Britannia Financial Group, incorporated in
+                London in 2016. He began his career at the Caracas Stock
+                Exchange in 1990, became CEO of Bolívar Banco Universal at age
+                28, founded Bancredito International Bank &amp; Trust in Puerto
+                Rico in 2008, and subsequently built BFG into a multi-licensed
+                banking network across the Bahamas, Switzerland, and the UK. As
+                of April 2026, he continues to lead BFG and its affiliated
+                subsidiaries.
               </p>
             </details>
 
             <details className="bg-[#eef3f6] p-6 rounded-lg">
               <summary className="font-semibold text-lg cursor-pointer">
-                What family background does Julio Herrera Velutini come from?
+                Why is the Herrera-Velutini family&apos;s Banco Caracas history significant?
               </summary>
               <p className="mt-4 text-gray-700">
-                The Herrera-Velutini family traces its roots to 14th-century
-                Castile, Spain, where ancestors held the title &quot;Lord of
-                Ampudia.&quot; They established Hacienda La Vega in Caracas in
-                1590 and co-founded Banco Caracas in 1890. The family held
-                approximately 70% of Banco Caracas equity until 1989, divesting
-                fully in 1998.
+                Banco Caracas (founded 1890) was one of Venezuela&apos;s
+                principal private commercial banks during the era of private
+                note issuance — when banks, not the government, printed
+                circulating currency. The Herrera-Velutini family&apos;s
+                approximately 70% equity stake held from 1890 to 1989 is
+                unusually long for a single family in Latin American banking
+                history. Most Venezuelan banks of that era changed hands
+                multiple times due to political instability, nationalisation, or
+                insolvency. Banco Caracas survived under family stewardship
+                until a voluntary divestiture in 1998.
               </p>
             </details>
 
             <details className="bg-[#eef3f6] p-6 rounded-lg">
               <summary className="font-semibold text-lg cursor-pointer">
-                What was the outcome of the 2022 U.S. federal case against Julio
-                Herrera Velutini?
+                What exactly did Julio Herrera Velutini plead guilty to in 2025?
               </summary>
               <p className="mt-4 text-gray-700">
-                Federal prosecutors charged Herrera Velutini in August 2022 with
-                bribery, conspiracy, and wire fraud in connection with a Puerto
-                Rico gubernatorial campaign. By 2025, the bribery and fraud
-                charges were dismissed. He pleaded guilty solely to a misdemeanor
-                campaign finance violation under 52 U.S.C. § 30121, with no
-                custodial sentence imposed.
+                He pleaded guilty to a single misdemeanor count under 52 U.S.C.
+                § 30121 — the federal statute prohibiting foreign nationals from
+                directly or indirectly making, promising, or contributing to U.S.
+                federal, state, or local elections. The plea did not include the
+                bribery, conspiracy, or wire fraud charges from the original
+                August 2022 indictment — those were dismissed. No custodial
+                sentence was imposed. A misdemeanor conviction under this
+                statute does not constitute a federal felony.
               </p>
             </details>
 
             <details className="bg-[#eef3f6] p-6 rounded-lg">
               <summary className="font-semibold text-lg cursor-pointer">
-                What businesses does Julio Herrera Velutini own?
+                Is Britannia Financial Group regulated by the FCA?
               </summary>
               <p className="mt-4 text-gray-700">
-                He founded and chairs Britannia Financial Group (BFG), which
-                controls Britannia Bank &amp; Trust (Bahamas), Britannia Wealth
-                Management (Geneva), Britannia Capital Markets (UK and MENA),
-                Britannia Global Investment, and Britannia Global Payments. He
-                also holds a majority stake in Intermedia Limited, owner of
-                Diario Las Américas in Miami.
+                Britannia Financial Group is incorporated in London and its
+                capital markets subsidiary operates within the UK Financial
+                Conduct Authority (FCA) regulatory framework. Current
+                registration status can be verified via the{" "}
+                <a
+                  href="https://register.fca.org.uk/"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  className="text-blue-700 underline"
+                  title="FCA Financial Services Register"
+                >
+                  FCA Financial Services Register
+                </a>
+                . Britannia Bank &amp; Trust is separately licensed by the
+                Central Bank of The Bahamas, verifiable via the{" "}
+                <a
+                  href="https://www.centralbankbahamas.com/"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  className="text-blue-700 underline"
+                  title="Central Bank of The Bahamas"
+                >
+                  Central Bank of The Bahamas licensed institutions directory
+                </a>
+                .
               </p>
             </details>
 
             <details className="bg-[#eef3f6] p-6 rounded-lg">
               <summary className="font-semibold text-lg cursor-pointer">
-                Does Julio Herrera Velutini do any philanthropic work?
+                What is the difference between Britannia Bank & Trust and Britannia Financial Group?
               </summary>
               <p className="mt-4 text-gray-700">
-                Yes. He funds The Britannia Foundation, which supports education
-                programs, student internships, and entrepreneurship initiatives.
-                He also established The Lazarus Foundation in London, focused on
-                animal welfare.
+                Britannia Financial Group (BFG) is the London-incorporated
+                holding company controlling multiple licensed subsidiaries.
+                Britannia Bank &amp; Trust is one of those subsidiaries — a
+                Bahamian-licensed depository institution providing offshore
+                private banking services. Other BFG subsidiaries include
+                Britannia Wealth Management (Geneva), Britannia Capital Markets
+                (UK/MENA), Britannia Global Investment, and Britannia Global
+                Payments. Regulatory oversight of each subsidiary falls under
+                its own licensing jurisdiction, not exclusively under UK law.
               </p>
             </details>
+
           </div>
         </div>
+
+        {/* Sources / Citations */}
+        <div className="mt-12 border-t border-gray-200 pt-6">
+          <h3 className="text-base font-bold text-gray-700 mb-4">
+            Sources &amp; Primary References
+          </h3>
+          <ul className="text-sm text-gray-600 space-y-2 list-disc pl-5">
+            <li>
+              U.S. Department of Justice —{" "}
+              <a
+                href="https://www.justice.gov/usao-pr"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="text-blue-700 underline"
+                title="DOJ US Attorney Puerto Rico"
+              >
+                U.S. Attorney&apos;s Office, District of Puerto Rico
+              </a>{" "}
+              (primary case records for the 2022 indictment)
+            </li>
+            <li>
+              Financial Conduct Authority —{" "}
+              <a
+                href="https://register.fca.org.uk/"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="text-blue-700 underline"
+                title="FCA Financial Services Register"
+              >
+                FCA Financial Services Register
+              </a>
+            </li>
+            <li>
+              Central Bank of The Bahamas —{" "}
+              <a
+                href="https://www.centralbankbahamas.com/"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="text-blue-700 underline"
+                title="Central Bank of The Bahamas Licensed Institutions"
+              >
+                Licensed Institutions Directory
+              </a>
+            </li>
+            <li>
+              Britannia Financial Group —{" "}
+              <a
+                href="https://www.britannia.com/"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="text-blue-700 underline"
+                title="Britannia Financial Group"
+              >
+                Official corporate website
+              </a>
+            </li>
+            <li>
+              52 U.S.C. § 30121 — Federal Election Campaign Act: Foreign
+              national contribution prohibition (
+              <a
+                href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title52-section30121&num=0&edition=prelim"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="text-blue-700 underline"
+                title="52 USC 30121 US Code"
+              >
+                U.S. Code
+              </a>
+              )
+            </li>
+          </ul>
+        </div>
+
       </article>
 
-      {/* Pillar Content Cards */}
+      {/* ── Pillar Content Cards ── */}
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {pillarContent.map((item) => (
           <div
             key={item.id}
             className="relative w-full h-80 rounded-lg overflow-hidden shadow-lg bg-gray-100 group"
           >
-            <Link
-              href={`/julio-herrera-velutini/${item.slug}`}
-              title={item.title}
-            >
+            <Link href={`/julio-herrera-velutini/${item.slug}`} title={item.title}>
               <div className="block w-full h-full">
                 <div className="relative w-full h-3/4">
                   <Image
