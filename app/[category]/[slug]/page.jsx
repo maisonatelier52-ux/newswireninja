@@ -524,11 +524,11 @@ export default async function ArticlePage({ params }) {
                 {category === "business" && (
                   <div className="w-full mt-5">
                     <Link
-                      href="/business/julio-herrera-velutini-legacy-finance"
-                      title="Julio Herrera Velutini: A Legacy in the World of Money"
+                      href="/business/banking-dynasties-modern-global-finance-evolution"
+                      title="How Old Banking Dynasties Are Evolving in a Global Financial World"
                     >
                       <h3 className="text-sm font-semibold text-gray-700 hover:text-blue-600">
-                        Julio Herrera Velutini: A Legacy in the World of Money
+                        How Old Banking Dynasties Are Evolving in a Global Financial World
                       </h3>
                     </Link>
                   </div>

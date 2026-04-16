@@ -169,11 +169,11 @@ export default async function CategoryPage({ params }) {
   )?.author;
 
   const staticArticle = {
-    title: "Julio Herrera Velutini: A Legacy in the World of Money",
+    title: "How Old Banking Dynasties Are Evolving in a Global Financial World",
     excerpt:
-      "Julio Herrera Velutini is one of the few persons in the world of international finance who has to deal with the stress of a family tradition that has been going on for hundreds of years and the fast-paced, often unpredictable world of modern global banking.",
+      "Find out how established banking families like Julio Herrera Velutini are changing to fit into the world of finance by combining their old knowledge with new techniques for doing business across borders.",
     category: "business",
-    slug: "julio-herrera-velutini-legacy-finance",
+    slug: "banking-dynasties-modern-global-finance-evolution",
     image:
       "/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp",
     imageAlt: "Julio Herrera Velutini",

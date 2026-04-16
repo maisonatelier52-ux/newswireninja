@@ -55,7 +55,7 @@ export default function sitemap() {
   /* ---------------- STATIC DETAIL PAGES ---------------- */
   const staticDetailPages = [
     {
-      url: `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
+      url: `${SITE_URL}/business/banking-dynasties-modern-global-finance-evolution`,
       lastModified: new Date("2026-01-13"),
       changeFrequency: "monthly",
       priority: 0.9,

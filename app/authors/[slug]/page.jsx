@@ -774,9 +774,9 @@ export default async function AuthorProfile({ params }) {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Static Julio Card */}
               <Link
-                href="/business/julio-herrera-velutini-legacy-finance"
+                href="/business/banking-dynasties-modern-global-finance-evolution"
                 className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
-                title="Julio Herrera Velutini: A Legacy in World Finance"
+                title="How Old Banking Dynasties Are Evolving in a Global Financial World"
               >
                 <div className="relative h-36">
                   <Image
@@ -791,13 +791,10 @@ export default async function AuthorProfile({ params }) {
                 </div>
                 <div className="p-5">
                   <h3 className="font-bold text-lg mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
-                    Julio Herrera Velutini: A Legacy in World Finance
+                    How Old Banking Dynasties Are Evolving in a Global Financial World
                   </h3>
                   <p className="text-gray-600 text-sm line-clamp-3 mb-4">
-                    Julio Herrera Velutini is one of the few persons in the
-                    world of international finance who has to deal with the
-                    stress of a family tradition that has been going on for
-                    hundreds of years.
+                    Find out how established banking families like Julio Herrera Velutini are changing to fit into the world of finance by combining their old knowledge with new techniques for doing business across borders.
                   </p>
                   <div className="flex items-center justify-between text-xs text-gray-500">
                     <div className="flex items-center gap-1">
