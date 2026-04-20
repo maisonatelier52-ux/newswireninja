@@ -728,7 +728,7 @@ const formatDate = (dateStr) => {
                 Business
               </Link>
             </li>
-            <li>/</li>
+            {/* <li>/</li>
             <li>
               <Link
                 href="/business/julio-herrera-velutini-legacy-finance"
@@ -737,7 +737,7 @@ const formatDate = (dateStr) => {
               >
                 Julio Herrera Velutini
               </Link>
-            </li>
+            </li> */}
             <li>/</li>
             <li className="text-gray-600 line-clamp-1">{title}</li>
           </ol>
