@@ -2678,6 +2678,73 @@
       ]
     }
   }
+},
+{
+  "id": 15,
+  "slug": "china-blocks-meta-manus-ai-acquisition",
+  "metaTitle": "China Blocks Meta's Bid to Buy AI Startup Manus, Citing National Security",
+  "metaDescription": "China's NDRC blocks Meta's acquisition of AI startup Manus over national security concerns, signaling tougher scrutiny on foreign takeovers of AI firms with Chinese ties.",
+  "title": "China Blocks Meta's Bid to Buy AI Startup Manus, Citing National Security",
+  "excerpt": "In a rare and decisive move, Beijing has shut down Meta's acquisition of the artificial intelligence firm Manus, a Singapore-based company with deep Chinese roots.",
+  "category": "business",
+  "date": "27/04/2026",
+  "readTime": "6 Min Read",
+  "image": "/images/china-blocks-meta-manus-ai-acquisition-first-image.webp",
+  "imageAlt": "Blue Meta infinity logo displayed on a dark background during a corporate presentation",
+  "deatilImage": "/images/china-blocks-meta-manus-ai-acquisition-second-image.webp",
+  "deatilImageAlt": "Smartphone showing Meta logo in front of Manus branding, representing proposed AI acquisition deal",
+  "inlineImage": "/images/china-blocks-meta-manus-ai-acquisition-third-image.webp",
+  "inlineImageAlt": "Chinese flag-themed hand holding magnifying glass inspecting AI symbol, illustrating regulatory scrutiny on technology deals",
+  "quote": "\"What matters is not just where a company registers its office, but where its intellectual property was born, where its core engineers were trained, and where its early-stage data came from.\" — Li Wei, Beijing-based technology policy analyst",
+  "heropara": {
+    "para1": "In a rare and decisive move, Beijing has shut down Meta's acquisition of the artificial intelligence firm Manus, a Singapore-based company with deep Chinese roots. The ruling, issued Monday by China's top economic planning agency, sends a clear signal that foreign takeovers of AI-related entities with any ties to China will face intense scrutiny.",
+    "para2": "The National Development and Reform Commission (NDRC), which oversees foreign investment security reviews, announced that it was prohibiting the deal and ordering all involved parties to walk away from the transaction immediately. While the statement did not explicitly name Meta — the parent company of Facebook, Instagram, and WhatsApp — the context left no room for doubt. Meta had publicly confirmed its intent to buy Manus back in December, calling the startup a leader in \"general-purpose\" AI agents capable of autonomously handling multi-step, complex tasks.",
+    "para3": "The NDRC's Office of the Working Mechanism for Security Review of Foreign Investment said the decision was made \"in accordance with Chinese laws and regulations.\" The commission did not elaborate on the specific reasons behind the ban, but the move follows a preliminary investigation launched in January after Beijing first raised concerns over the potential transfer of technology and data."
+  },
+  "subtitles": {
+    "subtitle1": {
+      "title": "Why This Deal Drew Beijing's Attention",
+      "content": [
+        "At first glance, Manus looks like a Singapore-based company. Most of its employees work out of the city-state, and Meta had previously assured investors that \"no continuing Chinese ownership interests\" would remain in Manus after the acquisition. The startup had also agreed to discontinue all services and operations inside China as part of the deal.",
+        "However, China's commerce ministry flagged the deal early this year, noting that any cross-border acquisitions involving technology exports, data transfers, or outward investment must comply with Chinese law — regardless of where the target company is officially headquartered. Manus was founded by Chinese entrepreneurs and retains strong engineering and research links to China. In the eyes of Beijing, that is enough to trigger a national security review.",
+        "\"What matters is not just where a company registers its office, but where its intellectual property was born, where its core engineers were trained, and where its early-stage data came from,\" says Li Wei, a Beijing-based technology policy analyst. \"China is drawing a line: if you have Chinese DNA, you don't get to sell yourself to a U.S. tech giant without permission.\"",
+        "Meta had said there would be \"no continuing Chinese ownership interests in Manus\" and that Manus would discontinue its services and operations in China. But China said in January that it would investigate whether the acquisition would be consistent with its laws and regulations.",
+        "China's commerce ministry said at the time that any enterprises engaging in outward investment, technology exports, data transfers and cross-border acquisitions must comply with Chinese law. Meta had said most of Manus' employees were based in Singapore."
+      ]
+    },
+    "subtitle2": {
+      "title": "Meta's Response and What Happens Next",
+      "content": [
+        "Meta responded to Monday's ruling with a brief but firm statement. \"The transaction complied fully with applicable law,\" the company said. \"We anticipate an appropriate resolution to the inquiry.\" The phrasing suggests that Meta may try to negotiate or appeal the decision, though China's NDRC has rarely reversed a security block once announced.",
+        "The failed acquisition highlights a growing reality for global tech companies: AI assets are becoming as strategically sensitive as semiconductors and rare earth minerals. For Meta, the Manus deal was supposed to accelerate its push into autonomous AI agents — tools that can book travel, manage supply chains, or handle customer service across WhatsApp and Instagram without human hand-holding. Losing Manus leaves a gap in that product roadmap.",
+        "Meta first announced that it was acquiring Manus in December in a rare case of a major U.S. tech group buying an AI company with strong links to China. Its deal with Manus, whose \"general-purpose\" AI agent can perform multi-step complex work autonomously, was expected to help expand AI offerings across Meta's platforms."
+      ]
+    },
+    "subtitle3": {
+      "title": "A Warning for Silicon Valley and Beyond",
+      "content": [
+        "For other U.S. and European tech firms quietly eyeing AI startups with China ties, the message from Beijing is unmistakable. Even if a Chinese-founded startup has legally moved its headquarters abroad, cut off its mainland operations, and hired a foreign workforce, China still claims a right to review — and block — its sale.",
+        "The NDRC did not threaten fines or further penalties, but the order requires all parties to fully withdraw. That means Manus cannot simply rebrand or be sold through a shell structure. China's security review mechanism, established in 2011 and strengthened in 2020, gives Beijing broad authority to review any deal that could affect \"national security\" — a term that now clearly includes advanced AI capabilities.",
+        "For now, Manus remains in limbo. The startup had already wound down some China-based functions in preparation for the Meta deal. Without the acquisition, it will need to find new funding or a different buyer, but any future offer will likely face the same wall of regulatory resistance."
+      ]
+    },
+    "subtitle4": {
+      "title": "China's Extraterritorial Reach Over AI Assets",
+      "content": [
+        "Beijing's decision to block the Meta-Manus deal is not just about one acquisition. It establishes a precedent that China considers itself entitled to review foreign takeovers of any company with Chinese founding, engineering, or data origins — even if that company has legally relocated overseas.",
+        "This approach mirrors similar moves by the United States through CFIUS, which has blocked or forced divestment of numerous deals involving Chinese buyers and American tech firms. The difference is that China is now asserting the same scrutiny in reverse, targeting U.S. buyers of China-rooted AI startups.",
+        "The timing is also significant. With the global AI race heating up between Washington and Beijing, both capitals are racing to lock down domestic AI talent and intellectual property. China's message is clear: you cannot simply offshore a Chinese-born AI company and sell it to an American giant."
+      ]
+    },
+    "subtitle5": {
+      "title": "What the Block Means for Global Tech M&A",
+      "content": [
+        "For cross-border merger and acquisition activity in the AI sector, China's move introduces a new layer of risk. Buyers will now have to conduct much deeper due diligence into a target company's historical ties to China — including where its founders were educated, where its early R&D took place, and whether any data ever passed through Chinese servers.",
+        "Some legal experts predict that AI startups with any Chinese connections may see their valuation drop, as U.S. buyers factor in the possibility of a Beijing veto. Others believe the deal could have been structured differently — for example, by spinning off the Chinese intellectual property into a separate entity before the sale.",
+        "As one unnamed source close to the deal put it: \"You can move the furniture, but you can't move the foundation. And the foundation is Chinese.\" For now, that foundation has proven immovable — and costly for both Meta and Manus."
+      ]
+    }
+  }
 }
     
   ],
