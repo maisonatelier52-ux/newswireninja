@@ -168,18 +168,6 @@ export default async function CategoryPage({ params }) {
     (item) => item.category.toLowerCase() === "investigation"
   )?.author;
 
-  const staticArticle = {
-    title: "How Old Banking Dynasties Are Evolving in a Global Financial World",
-    excerpt:
-      "Find out how established banking families like Julio Herrera Velutini are changing to fit into the world of finance by combining their old knowledge with new techniques for doing business across borders.",
-    category: "business",
-    slug: "banking-dynasties-modern-global-finance-evolution",
-    image:
-      "/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp",
-    imageAlt: "Julio Herrera Velutini",
-    date: "13/01/2026",
-  };
-
   const CATEGORY_DESCRIPTIONS = {
     world:
       "World News covers major global events, international relations, geopolitical issues, and the forces shaping global politics and society.",
@@ -527,43 +515,6 @@ export default async function CategoryPage({ params }) {
                   </article>
                 </Link>
               ))}
-
-              {/* Static card for business category */}
-              {category === "business" && (
-                <Link
-                  href={`/business/${staticArticle.slug}`}
-                  title={staticArticle.title}
-                >
-                  <article className="bg-white rounded-lg shadow-sm hover:shadow-md transition p-4 cursor-pointer group">
-                    <h3 className="font-semibold text-sm mb-3 transition group-hover:text-blue-600 group-hover:underline">
-                      {staticArticle.title.length > 80
-                        ? `${staticArticle.title.slice(0, 80)}...`
-                        : staticArticle.title}
-                    </h3>
-                    <div className="relative mb-4 overflow-hidden rounded-md">
-                      <Image
-                        src={staticArticle.image}
-                        alt={staticArticle.imageAlt}
-                        width={400}
-                        height={250}
-                        className="w-full h-36 sm:h-40 lg:h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gray-300/40 opacity-0 group-hover:opacity-100 transition"></div>
-                    </div>
-                    <p className="text-sm text-gray-600 mb-4">
-                      {staticArticle.excerpt.length > 80
-                        ? `${staticArticle.excerpt.slice(0, 80)}...`
-                        : staticArticle.excerpt}
-                    </p>
-                    <div className="flex items-center gap-2 text-sm text-gray-500">
-                      <GoClock />
-                      <time dateTime={toISOString(staticArticle.date)}>
-                        {formatDate(staticArticle.date)}
-                      </time>
-                    </div>
-                  </article>
-                </Link>
-              )}
             </div>
           </section>
 
@@ -725,6 +676,8 @@ export default async function CategoryPage({ params }) {
     </>
   );
 }
+
+
 // import { notFound } from "next/navigation";
 // import { GoClock } from "react-icons/go";
 // import articleData from "../../public/data/articles.json";
@@ -801,7 +754,7 @@ export default async function CategoryPage({ params }) {
 
 //   const description =
 //     CATEGORY_DESCRIPTIONS[category.toLowerCase()] ||
-//     `Latest ${formatted.toLowerCase()} news, in-depth analysis, and investigative journalism from Newswireninja.`;
+//     `Latest ${formatted.toLowerCase()} news, original analysis, exclusive angles, and investigative journalism from Newswireninja — independent reporting you can trust.`;
 
 //   const title = `${formatted} News & Analysis | Newswireninja`;
 //   const url = `${SITE_URL}/${category}`;
@@ -817,6 +770,8 @@ export default async function CategoryPage({ params }) {
 //       "breaking news",
 //       "news analysis",
 //       "expert coverage",
+//       "independent journalism",
+//       "original reporting",
 //     ],
 //     authors: [{ name: "Newswireninja Editorial Team" }],
 //     creator: SITE_NAME,
@@ -894,11 +849,11 @@ export default async function CategoryPage({ params }) {
 //   )?.author;
 
 //   const staticArticle = {
-//     title: "Julio Herrera Velutini: A Legacy in the World of Money",
+//     title: "How Old Banking Dynasties Are Evolving in a Global Financial World",
 //     excerpt:
-//       "Julio Herrera Velutini is one of the few persons in the world of international finance who has to deal with the stress of a family tradition that has been going on for hundreds of years and the fast-paced, often unpredictable world of modern global banking.",
+//       "Find out how established banking families like Julio Herrera Velutini are changing to fit into the world of finance by combining their old knowledge with new techniques for doing business across borders.",
 //     category: "business",
-//     slug: "julio-herrera-velutini-legacy-finance",
+//     slug: "banking-dynasties-modern-global-finance-evolution",
 //     image:
 //       "/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp",
 //     imageAlt: "Julio Herrera Velutini",
@@ -1068,7 +1023,8 @@ export default async function CategoryPage({ params }) {
 //             Welcome to Newswireninja&apos;s {formattedCategory.toLowerCase()} section,
 //             your trusted source for breaking {formattedCategory.toLowerCase()} news,
 //             in-depth analysis, and expert commentary. Browse our collection of{" "}
-//             {sortedArticles.length} {formattedCategory.toLowerCase()} articles.
+//             {sortedArticles.length} {formattedCategory.toLowerCase()} articles written
+//             by experienced journalists committed to accuracy and independence.
 //           </p>
 //         </section>
 
@@ -1093,26 +1049,30 @@ export default async function CategoryPage({ params }) {
 //           <p className="text-sm text-gray-600 max-w-4xl mt-2">
 //             Stay updated with the latest <strong>{category} news</strong>. Our
 //             experts bring you in-depth analysis, investigative reporting, and
-//             exclusive stories.
+//             exclusive stories you won&apos;t find aggregated elsewhere.
 //           </p>
 //           <div className="border-t border-black mt-3 mb-6"></div>
 //         </header>
 
-//         {/* Category description prose */}
+//         {/* Category description prose — UPDATED for stronger E-E-A-T signals */}
 //         <section className="prose max-w-4xl mb-10">
-//           <h2>
-//             {formattedCategory} News Coverage
-//           </h2>
+//           <h2>{formattedCategory} News Coverage</h2>
 //           <p>
-//             Newswireninja&apos;s {category} section delivers original journalism
-//             focused on accuracy, accountability, and insight. Our editorial team
-//             covers breaking developments, long-form investigations, and expert
-//             analysis.
+//             Newswireninja&apos;s {category} section is built on original journalism
+//             with a commitment to accuracy, independence, and depth. Our editorial
+//             team delivers breaking developments, long-form investigations, expert
+//             commentary, and exclusive perspectives you won&apos;t find aggregated
+//             elsewhere.
 //           </p>
 //           <p>
-//             We aim to provide context behind the headlines, helping readers
-//             understand the forces shaping today&apos;s world through independent
-//             reporting.
+//             We go beyond headlines — providing historical context, future
+//             implications, data-driven insights, and balanced analysis to help
+//             readers understand the real forces shaping{" "}
+//             {category.toLowerCase()} today.
+//           </p>
+//           <p className="font-medium text-blue-700">
+//             Every story is verified, sourced transparently, and written by
+//             experienced journalists who stand behind their reporting.
 //           </p>
 //         </section>
 
@@ -1445,4 +1405,3 @@ export default async function CategoryPage({ params }) {
 //     </>
 //   );
 // }
-

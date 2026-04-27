@@ -107,24 +107,6 @@
           "medium": "https://medium.com/@davidmartinez005"
         }
       }
-    },
-   {
-      "category": "Marketing & Branding",
-      "author": {
-        "id": 7,
-        "name": "John Smith",
-        "gender": "Male",
-        "profileImage": "/images/john_smith.webp",
-        "country": "USA",
-        "bio": "John Smith is a marketing strategist who specializes in brand development, digital marketing, and consumer behavior analysis. He has worked with various companies to build strong brands and impactful marketing campaigns across multiple industries.",
-        "role": "Marketing Strategist & Brand Consultant",
-        "social": {
-          "twitter": "https://x.com/smith_john62754",
-          "quora": "https://www.quora.com/profile/John-Smith-84247",
-          "reddit": "https://www.reddit.com/user/John_Smith0090/",
-          "medium": "https://medium.com/@johnsmith0090"
-        }
-      }
     }
 
 

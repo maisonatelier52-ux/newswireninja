@@ -1,5 +1,4 @@
 import articlesData from "../public/data/articles.json";
-import pillarContent from "../public/data/pillarContent.json";
 import authorData from "../public/data/authors.json";
 import { slugify } from "../utils/slugify";
 
@@ -52,15 +51,6 @@ export default function sitemap() {
     },
   ];
 
-  /* ---------------- STATIC DETAIL PAGES ---------------- */
-  const staticDetailPages = [
-    {
-      url: `${SITE_URL}/business/banking-dynasties-modern-global-finance-evolution`,
-      lastModified: new Date("2026-01-13"),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-  ];
 
   /* ---------------- CATEGORY PAGES ---------------- */
   const categoryPages = Object.keys(articlesData).map((category) => ({
@@ -81,13 +71,7 @@ export default function sitemap() {
       }))
   );
 
-  /* ---------------- PILLAR CONTENT PAGES ---------------- */
-  const pillarPages = pillarContent.map((item) => ({
-    url: `${SITE_URL}/julio-herrera-velutini/${item.slug}`,
-    lastModified: item.lastUpdated ? parseDate(item.lastUpdated) : now,
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
+
 
   /* ---------------- AUTHOR DETAIL PAGES ---------------- */
   const authorDetailPages = authorData.categories.map((cat) => ({
@@ -99,10 +83,8 @@ export default function sitemap() {
 
   return [
     ...staticPages,
-    ...staticDetailPages,
     ...categoryPages,
     ...articlePages,
-    ...pillarPages,
     ...authorDetailPages,
   ];
 }

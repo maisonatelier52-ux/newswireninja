@@ -1,5 +1,3 @@
-
-
 import Image from "next/image";
 import Link from "next/link";
 import { GoClock } from "react-icons/go";
@@ -7,40 +5,24 @@ import { GoClock } from "react-icons/go";
 export function HighlightSection({ articles, getAuthorByCategory }) {
   if (articles.length === 0) return null;
 
-  // Static data for the business category
-  const staticBusinessArticle = {
-    title: "How Old Banking Dynasties Are Evolving in a Global Financial World",
-    excerpt:
-      "Find out how established banking families like Julio Herrera Velutini are changing to fit into the world of finance by combining their old knowledge with new techniques for doing business across borders.",
-    category: "business",
-    slug: "banking-dynasties-modern-global-finance-evolution",
-    image: "/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp",
-    imageAlt: "Julio Herrera Velutini",
-    date: "January 13, 2026",
-    author: "John Smith",
-  };
-
-  // Get the main article and the other cards (excluding static)
+  // Get the main article and the other cards
   const main = articles[0];
-  const cards = articles.slice(1, 4); // Get the next 3 articles (total of 4)
+  const cards = articles.slice(1, 5); // Get the next 3 articles (total of 4 cards)
 
-  // Create a new array with the static article at the start
-  const modifiedCards = [staticBusinessArticle, ...cards];
-
-   // Helper: format DD/MM/YYYY → "January 1, 2026"
-const formatDate = (dateStr) => {
-  if (!dateStr) return "";
-  if (dateStr.includes("/")) {
-    const [day, month, year] = dateStr.split("/");
-    const date = new Date(year, month - 1, day);
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  }
-  return dateStr;
-};
+  // Helper: format DD/MM/YYYY → "January 1, 2026"
+  const formatDate = (dateStr) => {
+    if (!dateStr) return "";
+    if (dateStr.includes("/")) {
+      const [day, month, year] = dateStr.split("/");
+      const date = new Date(year, month - 1, day);
+      return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    }
+    return dateStr;
+  };
 
   return (
     <section className="mt-20 bg-[#eef3f6] py-12">
@@ -53,7 +35,7 @@ const formatDate = (dateStr) => {
 
         <div className="flex flex-col sm:flex-row gap-8 items-center">
           <div className="sm:w-5/6 lg:w-4/5">
-            <Link href={`${main.category}/${main.slug}`} title={main.title}>
+            <Link href={`/${main.category}/${main.slug}`} title={main.title}>
               <h2 className="font-serif text-xl sm:text-2xl font-semibold mb-2 hover:text-blue-600 hover:underline cursor-pointer">
                 {main?.title}
               </h2>
@@ -83,7 +65,7 @@ const formatDate = (dateStr) => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
-          {modifiedCards.map((item, index) => (
+          {cards.map((item, index) => (
             <div key={index} className="flex flex-col gap-4 md:border-r sm:border-b sm:border-gray-300 sm:px-4 py-6">
               <span className="inline-block w-fit bg-gray-500 px-3 py-1 text-xs font-semibold text-white">
                 {item.category}
@@ -97,7 +79,7 @@ const formatDate = (dateStr) => {
                 {item.excerpt.length > 120 ? `${item.excerpt.slice(0, 120)}...` : item.excerpt}
               </p>
               <span className="text-xs sm:text-sm font-semibold text-black">
-                {item.slug === "julio-herrera-velutini-legacy-finance" ? `${item.category} : ${item.author}` : `${item.category} : ${getAuthorByCategory(item?.category)?.name}`}
+                {item.category} : {getAuthorByCategory(item?.category)?.name}
               </span>
             </div>
           ))}

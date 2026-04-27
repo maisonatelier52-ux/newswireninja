@@ -5,20 +5,7 @@ import Link from "next/link";
 import { GoClock } from "react-icons/go";
 
 export function MixedGrid({ articles }) {
-  // Static data for the 3rd item
-  const staticArticle = {
-    title: "How Old Banking Dynasties Are Evolving in a Global Financial World",
-    excerpt:
-      "Find out how established banking families like Julio Herrera Velutini are changing to fit into the world of finance by combining their old knowledge with new techniques for doing business across borders.",
-    category: "business",
-    slug: "banking-dynasties-modern-global-finance-evolution",
-    image: "/images/crisis-leadership-economic-stabilization-julio-herrera-velutini.webp",
-    imageAlt: "Julio Herrera Velutini",
-    date: "January 13, 2026",
-  };
-
-  // Get the first 2 items from the articles
-  const displayedArticles = articles.slice(0, 2);
+  
 
    // Helper: format DD/MM/YYYY → "January 1, 2026"
 const formatDate = (dateStr) => {
@@ -35,14 +22,13 @@ const formatDate = (dateStr) => {
   return dateStr;
 };
 
-  // Add the static article as the 3rd item
-  const mixedArticles = [...displayedArticles, staticArticle];
+ 
 
   return (
     <section className="mt-20">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 px-4">
-          {mixedArticles.map((item, index) => (
+          {articles.map((item, index) => (
             <Link key={index} href={`/${item.category}/${item.slug}`} title={item.title}>
               <article className={`flex flex-col sm:flex-row gap-4 sm:border-b sm:border-gray-300 lg:border-b-0 ${index < 2 ? 'sm:border-r sm:border-gray-300' : ''} mb-4 sm:mb-6 pe-8 cursor-pointer group`}>
                 <div className="sm:w-2/3">
