@@ -483,7 +483,7 @@ export default async function ArticlePage({ params }) {
                 <div className="space-y-6 mt-4">
                   {categoryPosts
                     .filter((item) => item.slug !== slug)
-                    .slice(0, category === "business" ? 4 : 5)
+                    .slice(0, category === "business" ? 5 : 5)
                     .map((relatedPost, index) => (
                       <div
                         key={relatedPost.slug}
@@ -521,18 +521,7 @@ export default async function ArticlePage({ params }) {
                     ))}
                 </div>
 
-                {category === "business" && (
-                  <div className="w-full mt-5">
-                    <Link
-                      href="/business/banking-dynasties-modern-global-finance-evolution"
-                      title="How Old Banking Dynasties Are Evolving in a Global Financial World"
-                    >
-                      <h3 className="text-sm font-semibold text-gray-700 hover:text-blue-600">
-                        How Old Banking Dynasties Are Evolving in a Global Financial World
-                      </h3>
-                    </Link>
-                  </div>
-                )}
+               
               </div>
             </div>
 
