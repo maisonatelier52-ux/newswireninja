@@ -16,6 +16,9 @@ import articleData from "../public/data/articles.json";
 import { SiMedium } from "react-icons/si";
 import { FaRedditAlien } from "react-icons/fa";
 import { FaQuora } from "react-icons/fa";
+import { BsSubstack } from "react-icons/bs";
+import { FaXTwitter } from "react-icons/fa6";
+import { LuInstagram } from "react-icons/lu";
 
 export default function Footer() {
 
@@ -66,33 +69,33 @@ export default function Footer() {
 
             {/* Social Icons */}
             <div className="flex gap-4 text-lg">
-              {/* Quora */}
+              {/* Instagram */}
               <a
-                href="https://www.quora.com/profile/Newswire-Ninja-1"
+                href="https://www.instagram.com/newswireninja_26/"
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Follow us on Quora"
-                aria-label="Follow us on Quora"
+                title="Follow us on Instagram"
+                aria-label="Follow us on Instagram"
                 className="hover:text-red-500 transition"
               >
-                <FaQuora />
+                <LuInstagram />
               </a>
 
               {/* Twitter / X */}
               <a
-                href="https://x.com/NewswireN29245"
+                href="https://x.com/NNews80653"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Follow us on X (Twitter)"
                 aria-label="Follow us on X"
                 className="hover:text-red-500 transition"
               >
-                <FaTwitter />
+                <FaXTwitter />
               </a>
 
               {/* Reddit */}
               <a
-                href="https://www.reddit.com/user/Newswire_Ninja/"
+                href="https://www.reddit.com/user/Newswire_Ninja_news/"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Follow us on Reddit"
@@ -102,21 +105,21 @@ export default function Footer() {
                 <FaRedditAlien />
               </a>
 
-              {/* Pinterest */}
+              {/* Substack */}
               <a
-                href="https://www.pinterest.com/newswireninja/"
+                href="https://substack.com/@newswireninja"
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Follow us on Pinterest"
-                aria-label="Follow us on Pinterest"
+                title="Follow us on Substack"
+                aria-label="Follow us on Substack"
                 className="hover:text-red-500 transition"
               >
-                <FaPinterestP />
+                <BsSubstack />
               </a>
 
               {/* Medium */}
               <a
-                href="https://medium.com/@newswireninja_97993"
+                href="https://medium.com/@newswireninja26"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Follow us on Medium"

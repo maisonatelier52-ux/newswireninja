@@ -8,6 +8,8 @@ import { LiaSearchSolid } from "react-icons/lia";
 import { HiMenuAlt2, HiX } from "react-icons/hi";
 import categoryData from "../public/data/articles.json";
 import { FaQuora } from "react-icons/fa";
+import { LuInstagram } from "react-icons/lu";
+import { BsSubstack } from "react-icons/bs";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -228,18 +230,18 @@ export default function Header() {
           {/* ===== DESKTOP RIGHT (social) ===== */}
           <div className="absolute right-4 top-10 hidden md:flex items-center gap-4 text-lg">
              <a
-              href="https://www.quora.com/profile/Newswire-Ninja-1"
+              href="https://www.instagram.com/newswireninja_26/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Follow us on Quora"
-              title="Follow us on Quora"
+              aria-label="Follow us on Instagram"
+              title="Follow us on Instagram"
               className="cursor-pointer hover:scale-90 hover:text-red-600 transition"
             >
-              <FaQuora />
+              <LuInstagram />
             </a>
 
             <a
-              href="https://x.com/NewswireN29245"
+              href="https://x.com/NNews80653"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Follow us on X"
@@ -250,14 +252,14 @@ export default function Header() {
             </a>
 
             <a
-              href="https://www.pinterest.com/newswireninja/"
+              href="https://substack.com/@newswireninja"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Follow us on Pinterest"
-              title="Follow us on Pinterest"
+              aria-label="Follow us on Substack"
+              title="Follow us on Substack"
               className="cursor-pointer hover:scale-90 hover:text-red-600 transition"
             >
-              <FaPinterestP />
+              <BsSubstack />
             </a>
           </div>
         </div>
@@ -443,7 +445,7 @@ export default function Header() {
               </a>
 
               <a
-                href="https://x.com/NewswireN29245"
+                href="https://x.com/NNews80653"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on X"
