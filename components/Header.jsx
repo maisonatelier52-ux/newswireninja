@@ -433,38 +433,38 @@ export default function Header() {
           {/* Footer */}
           <div className="px-6 py-6 border-t">
             <div className="flex gap-6 text-xl">
-              <a
-                href="https://www.quora.com/profile/Newswire-Ninja-1"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow us on Quora"
-                title="Follow us on Quora"
-                className="hover:text-red-600 transition"
-              >
-                <FaQuora />
-              </a>
+             <a
+              href="https://www.instagram.com/newswireninja_26/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on Instagram"
+              title="Follow us on Instagram"
+              className="cursor-pointer hover:scale-90 hover:text-red-600 transition"
+            >
+              <LuInstagram />
+            </a>
 
-              <a
-                href="https://x.com/NNews80653"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow us on X"
-                title="Follow us on X (Twitter)"
-                className="hover:text-gray-800 transition"
-              >
-                <FaXTwitter />
-              </a>
+            <a
+              href="https://x.com/NNews80653"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on X"
+              title="Follow us on X (Twitter)"
+              className="cursor-pointer hover:scale-90 hover:text-gray-800 transition"
+            >
+              <FaXTwitter />
+            </a>
 
-              <a
-                href="https://www.pinterest.com/newswireninja/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow us on Pinterest"
-                title="Follow us on Pinterest"
-                className="hover:text-red-600 transition"
-              >
-                <FaPinterestP />
-              </a>
+            <a
+              href="https://substack.com/@newswireninja"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on Substack"
+              title="Follow us on Substack"
+              className="cursor-pointer hover:scale-90 hover:text-red-600 transition"
+            >
+              <BsSubstack />
+            </a>
             </div>
             <p className="mt-6 text-xs text-gray-500">
               © 2024 newswire ninja News Network. All Rights Reserved.
