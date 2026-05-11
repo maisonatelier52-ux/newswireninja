@@ -207,6 +207,11 @@ export default function Footer() {
                 Terms & Conditions
               </Link>
             </li>
+            <li>
+              <Link href="/contact" className="hover:text-white" title="Visit newswire ninja contact page">
+                Contact
+              </Link>
+            </li>
           </ul>
 
           {/* ================= COPYRIGHT ================= */}
