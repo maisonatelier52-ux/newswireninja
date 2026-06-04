@@ -629,7 +629,8 @@ export default function About() {
 
       <main className="mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24 font-serif bg-white min-h-screen">
         {/* Breadcrumb */}
-        <nav aria-label="Breadcrumb" className="mb-6">
+         <div className="max-w-4xl mx-auto">
+             <nav aria-label="Breadcrumb" className="mb-6">
           <ol className="flex items-center gap-2 text-sm">
             <li>
               <Link href="/" title="Home page" className="hover:text-blue-600">
@@ -640,6 +641,7 @@ export default function About() {
             <li className="text-gray-600">About</li>
           </ol>
         </nav>
+        </div>
 
         <div className="max-w-4xl mx-auto">
           {/* Header */}

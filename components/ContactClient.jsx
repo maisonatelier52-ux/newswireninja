@@ -95,17 +95,19 @@ export default function ContactClient() {
   return (
     <main className="mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24 font-serif bg-white min-h-screen">
       {/* Breadcrumb */}
-      <nav aria-label="Breadcrumb" className="mb-8">
-        <ol className="flex items-center gap-2 text-sm text-gray-500">
-          <li>
-            <Link href="/" title="Home" className="hover:text-black transition">
-              Home
-            </Link>
-          </li>
-          <li>/</li>
-          <li className="text-gray-800 font-medium">Contact</li>
-        </ol>
-      </nav>
+       <div className="max-w-5xl mx-auto">
+            <nav aria-label="Breadcrumb" className="mb-8">
+              <ol className="flex items-center gap-2 text-sm text-gray-500">
+                <li>
+                  <Link href="/" title="Home" className="hover:text-black transition">
+                    Home
+                  </Link>
+                </li>
+                <li>/</li>
+                <li className="text-gray-800 font-medium">Contact</li>
+              </ol>
+            </nav>
+        </div>
 
       <div className="max-w-5xl mx-auto">
         {/* Header */}

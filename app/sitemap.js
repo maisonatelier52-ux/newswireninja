@@ -43,6 +43,48 @@ export default function sitemap() {
       changeFrequency: "yearly",
       priority: 0.3,
     },
+     {
+      url: `${SITE_URL}/advertising-policy`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/corrections-policy`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/editorial-policy`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/legal`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/ownership-funding`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/right-of-reply`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/source-methodology`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
     {
       url: `${SITE_URL}/authors`,
       lastModified: now,

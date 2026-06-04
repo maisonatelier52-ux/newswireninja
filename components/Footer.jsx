@@ -1,5 +1,238 @@
 
 
+// "use client";
+
+// import Link from "next/link";
+// import Image from "next/image";
+// import {
+//   FaFacebookF,
+//   FaTwitter,
+//   FaYoutube,
+//   FaPinterestP,
+//   FaInstagram,
+// } from "react-icons/fa";
+// import { FaArrowUp } from "react-icons/fa";
+// import articleData from "../public/data/articles.json";
+// import { SiMedium } from "react-icons/si";
+// import { FaRedditAlien } from "react-icons/fa";
+// import { FaQuora } from "react-icons/fa";
+// import { BsSubstack } from "react-icons/bs";
+// import { FaXTwitter } from "react-icons/fa6";
+// import { LuInstagram } from "react-icons/lu";
+
+// export default function Footer() {
+
+//    // 1️⃣ Get all articles
+//   const allArticles = Object.values(articleData).flat();
+
+//   // 2️⃣ Recent Posts → latest by date
+//   const recentPosts = [...allArticles]
+//     .sort((a, b) => new Date(b.date) - new Date(a.date))
+//     .slice(0, 3);
+
+//   // 3️⃣ Popular Posts → different categories, excluding recent
+//   const excludedSlugs = new Set(recentPosts.map(a => a.slug));
+
+//   const popularByCategory = {};
+//   allArticles.forEach(article => {
+//     if (!excludedSlugs.has(article.slug)) {
+//       if (!popularByCategory[article.category]) {
+//         popularByCategory[article.category] = [];
+//       }
+//       popularByCategory[article.category].push(article);
+//     }
+//   });
+
+//   const popularPosts = [];
+//   Object.keys(popularByCategory).forEach(cat => {
+//     if (popularPosts.length < 3 && popularByCategory[cat].length > 0) {
+//       popularPosts.push(popularByCategory[cat][0]);
+//     }
+//   });
+//   return (
+//     <footer className="bg-black text-white mt-20 relative">
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+
+//         {/* ================= MAIN GRID ================= */}
+//         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+//           {/* ================= COLUMN 1 ================= */}
+//           <div>
+//             {/* Heading */}
+//             <div className="text-2xl font-bold mb-4"><Link href={'/'} title="newswireninja home page">Newswire Ninja</Link></div>
+
+//             {/* Description */}
+//             <p className="text-gray-400 text-sm leading-relaxed mb-6 text-justify">
+//               NEWSWIRENINJA is powered by a network of experienced journalists, analysts, and subject-matter experts
+//               who are obsessed with getting the story right.
+//             </p>
+
+//             {/* Social Icons */}
+//             <div className="flex gap-4 text-lg">
+//               {/* Instagram */}
+//               <a
+//                 href="https://www.instagram.com/newswireninja_26/"
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 title="Follow us on Instagram"
+//                 aria-label="Follow us on Instagram"
+//                 className="hover:text-red-500 transition"
+//               >
+//                 <LuInstagram />
+//               </a>
+
+//               {/* Twitter / X */}
+//               <a
+//                 href="https://x.com/NNews80653"
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 title="Follow us on X (Twitter)"
+//                 aria-label="Follow us on X"
+//                 className="hover:text-red-500 transition"
+//               >
+//                 <FaXTwitter />
+//               </a>
+
+//               {/* Reddit */}
+//               <a
+//                 href="https://www.reddit.com/user/Newswire_Ninja_news/"
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 title="Follow us on Reddit"
+//                 aria-label="Follow us on Reddit"
+//                 className="hover:text-red-500 transition"
+//               >
+//                 <FaRedditAlien />
+//               </a>
+
+//               {/* Substack */}
+//               <a
+//                 href="https://substack.com/@newswireninja"
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 title="Follow us on Substack"
+//                 aria-label="Follow us on Substack"
+//                 className="hover:text-red-500 transition"
+//               >
+//                 <BsSubstack />
+//               </a>
+
+//               {/* Medium */}
+//               <a
+//                 href="https://medium.com/@newswireninja26"
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 title="Follow us on Medium"
+//                 aria-label="Follow us on Medium"
+//                 className="hover:text-red-500 transition"
+//               >
+//                 <SiMedium />
+//               </a>
+//             </div>
+
+//           </div>
+
+//           {/* ================= COLUMN 2 ================= */}
+//           <div>
+//            <h3 className="text-sm font-semibold tracking-widest mb-6">
+//               RECENT POSTS
+//             </h3>
+
+//           <ul className="space-y-6">
+//               {recentPosts.map(post => (
+//                 <li key={post.slug} className="flex gap-4">
+//                   <Image
+//                     src={post.image}
+//                     alt={post.title}
+//                     width={60}
+//                     height={40}
+//                     className="object-cover"
+//                   />
+//                   <Link
+//                     href={`/${post.category}/${post.slug}`}
+//                     className="text-xs leading-snug hover:text-red-500"
+//                     title={post.title}
+//                   >
+//                     {post.title}
+//                   </Link>
+//                 </li>
+//               ))}
+//             </ul>
+//           </div>
+
+//           {/* ================= COLUMN 3 ================= */}
+//           <div>
+//             <h3 className="text-sm font-semibold tracking-widest mb-6">
+//               POPULAR POSTS
+//             </h3>
+
+//             <ul className="space-y-6">
+//               {popularPosts.map(post => (
+//                 <li key={post.slug} className="flex gap-4">
+//                   <Image
+//                     src={post.image}
+//                     alt={post.title}
+//                     width={60}
+//                     height={40}
+//                     className="object-cover"
+//                   />
+//                   <Link
+//                     href={`/${post.category}/${post.slug}`}
+//                     className="text-xs leading-snug hover:text-red-500"
+//                     title={post.title}
+//                   >
+//                     {post.title}
+//                   </Link>
+//                 </li>
+//               ))}
+//             </ul>
+//           </div>
+//         </div>
+
+//         {/* ================= COPYRIGHT ================= */}
+//         <div className="border-t border-gray-800 mt-16 pt-6">
+//           <ul className="flex flex-wrap justify-center gap-6 text-sm text-gray-400 mb-4">
+//             <li>
+//               <Link href="/about" className="hover:text-white" title="Visit newswire ninja about page">
+//                 About
+//               </Link>
+//             </li>
+//             <li>
+//               <Link href="/privacy-policy" className="hover:text-white" title="Visit newswire ninja privacy-policy page">
+//                 Privacy Policy
+//               </Link>
+//             </li>
+//             <li>
+//               <Link href="/terms-and-conditions" className="hover:text-white" title="Visit newswire ninja terms & conditions page">
+//                 Terms & Conditions
+//               </Link>
+//             </li>
+//             <li>
+//               <Link href="/contact" className="hover:text-white" title="Visit newswire ninja contact page">
+//                 Contact
+//               </Link>
+//             </li>
+//           </ul>
+
+//           {/* ================= COPYRIGHT ================= */}
+//           <div className="text-center text-sm text-gray-500">
+//             © Newswire Ninja News Network. All Rights Reserved.
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* ================= SCROLL TO TOP ================= */}
+//       <button
+//         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+//         className="fixed bottom-6 right-6 flex h-10 w-10 items-center justify-center bg-white text-black hover:bg-gray-200 transition cursor-pointer"
+//         aria-label="Scroll to top"
+//       >
+//         <FaArrowUp />
+//       </button>
+//     </footer>
+//   );
+// }
+
 "use client";
 
 import Link from "next/link";
@@ -19,10 +252,29 @@ import { FaQuora } from "react-icons/fa";
 import { BsSubstack } from "react-icons/bs";
 import { FaXTwitter } from "react-icons/fa6";
 import { LuInstagram } from "react-icons/lu";
+import React from "react";
+
+const topLinks = [
+  { name: "About Us", href: "/about" },
+  { name: "Our Team", href: "/authors" },
+  { name: "Contact Us", href: "/contact" },
+  { name: "Editorial Policy", href: "/editorial-policy" },
+  { name: "Corrections Policy", href: "/corrections-policy" },
+  { name: "Source Methodology", href: "/source-methodology" },
+];
+
+const bottomLinks = [
+  { name: "Ownership & Funding", href: "/ownership-funding" },
+  { name: "Advertising Policy", href: "/advertising-policy" },
+  { name: "Right of Reply", href: "/right-of-reply" },
+  { name: "Legal", href: "/legal" },
+  { name: "Privacy Policy", href: "/privacy-policy" },
+  { name: "Terms & Conditions", href: "/terms-and-conditions" },
+];
 
 export default function Footer() {
 
-   // 1️⃣ Get all articles
+  // 1️⃣ Get all articles
   const allArticles = Object.values(articleData).flat();
 
   // 2️⃣ Recent Posts → latest by date
@@ -49,26 +301,29 @@ export default function Footer() {
       popularPosts.push(popularByCategory[cat][0]);
     }
   });
+
   return (
     <footer className="bg-black text-white mt-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 py-10 lg:py-16">
 
         {/* ================= MAIN GRID ================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
 
           {/* ================= COLUMN 1 ================= */}
           <div>
             {/* Heading */}
-            <div className="text-2xl font-bold mb-4"><Link href={'/'} title="newswireninja home page">Newswire Ninja</Link></div>
+            <div className="text-2xl font-bold mb-4">
+              <Link href={'/'} title="newswireninja home page">Newswire Ninja</Link>
+            </div>
 
             {/* Description */}
-            <p className="text-gray-400 text-sm leading-relaxed mb-6 text-justify">
+            <p className="text-gray-400 text-sm leading-10 max-w-md text-justify">
               NEWSWIRENINJA is powered by a network of experienced journalists, analysts, and subject-matter experts
               who are obsessed with getting the story right.
             </p>
 
             {/* Social Icons */}
-            <div className="flex gap-4 text-lg">
+            <div className="flex gap-4 text-lg mt-6">
               {/* Instagram */}
               <a
                 href="https://www.instagram.com/newswireninja_26/"
@@ -76,7 +331,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 title="Follow us on Instagram"
                 aria-label="Follow us on Instagram"
-                className="hover:text-red-500 transition"
+                className="h-8 w-8 flex items-center justify-center border border-gray-700 rounded-full hover:bg-white hover:text-black transition"
               >
                 <LuInstagram />
               </a>
@@ -88,7 +343,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 title="Follow us on X (Twitter)"
                 aria-label="Follow us on X"
-                className="hover:text-red-500 transition"
+                className="h-8 w-8 flex items-center justify-center border border-gray-700 rounded-full hover:bg-white hover:text-black transition"
               >
                 <FaXTwitter />
               </a>
@@ -100,7 +355,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 title="Follow us on Reddit"
                 aria-label="Follow us on Reddit"
-                className="hover:text-red-500 transition"
+                className="h-8 w-8 flex items-center justify-center border border-gray-700 rounded-full hover:bg-white hover:text-black transition"
               >
                 <FaRedditAlien />
               </a>
@@ -112,7 +367,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 title="Follow us on Substack"
                 aria-label="Follow us on Substack"
-                className="hover:text-red-500 transition"
+                className="h-8 w-8 flex items-center justify-center border border-gray-700 rounded-full hover:bg-white hover:text-black transition"
               >
                 <BsSubstack />
               </a>
@@ -124,33 +379,32 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 title="Follow us on Medium"
                 aria-label="Follow us on Medium"
-                className="hover:text-red-500 transition"
+                className="h-8 w-8 flex items-center justify-center border border-gray-700 rounded-full hover:bg-white hover:text-black transition"
               >
                 <SiMedium />
               </a>
             </div>
-
           </div>
 
           {/* ================= COLUMN 2 ================= */}
           <div>
-           <h3 className="text-sm font-semibold tracking-widest mb-6">
+            <h3 className="text-md font-bold tracking-[4px] uppercase mb-8">
               RECENT POSTS
             </h3>
 
-          <ul className="space-y-6">
+            <ul className="space-y-6">
               {recentPosts.map(post => (
-                <li key={post.slug} className="flex gap-4">
+                <li key={post.slug} className="flex gap-3 items-start">
                   <Image
                     src={post.image}
                     alt={post.title}
-                    width={60}
-                    height={40}
-                    className="object-cover"
+                    width={80}
+                    height={55}
+                    className="object-cover rounded flex-shrink-0"
                   />
                   <Link
                     href={`/${post.category}/${post.slug}`}
-                    className="text-xs leading-snug hover:text-red-500"
+                    className="text-[13px] leading-5 hover:text-red-500 transition-colors duration-300"
                     title={post.title}
                   >
                     {post.title}
@@ -162,23 +416,23 @@ export default function Footer() {
 
           {/* ================= COLUMN 3 ================= */}
           <div>
-            <h3 className="text-sm font-semibold tracking-widest mb-6">
+            <h3 className="text-md font-bold tracking-[4px] uppercase mb-8">
               POPULAR POSTS
             </h3>
 
             <ul className="space-y-6">
               {popularPosts.map(post => (
-                <li key={post.slug} className="flex gap-4">
+                <li key={post.slug} className="flex gap-3 items-start">
                   <Image
                     src={post.image}
                     alt={post.title}
-                    width={60}
-                    height={40}
-                    className="object-cover"
+                    width={80}
+                    height={55}
+                    className="object-cover rounded flex-shrink-0"
                   />
                   <Link
                     href={`/${post.category}/${post.slug}`}
-                    className="text-xs leading-snug hover:text-red-500"
+                    className="text-[13px] leading-5 hover:text-red-500 transition-colors duration-300"
                     title={post.title}
                   >
                     {post.title}
@@ -189,33 +443,65 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ================= COPYRIGHT ================= */}
-        <div className="border-t border-gray-800 mt-16 pt-6">
-          <ul className="flex flex-wrap justify-center gap-6 text-sm text-gray-400 mb-4">
-            <li>
-              <Link href="/about" className="hover:text-white" title="Visit newswire ninja about page">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/privacy-policy" className="hover:text-white" title="Visit newswire ninja privacy-policy page">
-                Privacy Policy
-              </Link>
-            </li>
-            <li>
-              <Link href="/terms-and-conditions" className="hover:text-white" title="Visit newswire ninja terms & conditions page">
-                Terms & Conditions
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:text-white" title="Visit newswire ninja contact page">
-                Contact
-              </Link>
-            </li>
-          </ul>
+        {/* ================= FOOTER NAVIGATION SECTION ================= */}
+        <div className="border-t border-gray-700 mt-16 pt-3">
+          <nav aria-label="Footer Navigation" className="mx-auto mt-8">
+            
+            {/* DESKTOP LAYOUT - Two rows with separators */}
+            <div className="hidden md:block text-center text-[14px] text-gray-400">
+              {/* First Row */}
+              <div className="flex justify-center items-center flex-wrap">
+                {topLinks.map((link, index) => (
+                  <React.Fragment key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="hover:text-white transition-colors duration-200"
+                    >
+                      {link.name}
+                    </Link>
+                    {index !== topLinks.length - 1 && (
+                      <span className="mx-4 text-gray-600">|</span>
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
 
-          {/* ================= COPYRIGHT ================= */}
-          <div className="text-center text-sm text-gray-500">
+              {/* Second Row */}
+              <div className="flex justify-center items-center flex-wrap mt-3">
+                {bottomLinks.map((link, index) => (
+                  <React.Fragment key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="hover:text-white transition-colors duration-200"
+                    >
+                      {link.name}
+                    </Link>
+                    {index !== bottomLinks.length - 1 && (
+                      <span className="mx-4 text-gray-600">|</span>
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+
+            {/* MOBILE LAYOUT - Single centered column */}
+            <div className="md:hidden flex flex-col items-center gap-3 text-[13px] text-gray-400">
+              {[...topLinks, ...bottomLinks].map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="hover:text-white transition-colors duration-200"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          </nav>
+        </div>
+
+        {/* ================= COPYRIGHT ================= */}
+        <div className="border-t border-gray-700 mt-8 pt-6">
+          <div className="text-center text-xs text-gray-500">
             © Newswire Ninja News Network. All Rights Reserved.
           </div>
         </div>
@@ -224,7 +510,7 @@ export default function Footer() {
       {/* ================= SCROLL TO TOP ================= */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-6 right-6 flex h-10 w-10 items-center justify-center bg-white text-black hover:bg-gray-200 transition cursor-pointer"
+        className="fixed bottom-6 right-6 flex h-10 w-10 items-center justify-center bg-gray-300 text-black hover:bg-gray-200 transition cursor-pointer rounded-lg"
         aria-label="Scroll to top"
       >
         <FaArrowUp />
@@ -232,5 +518,3 @@ export default function Footer() {
     </footer>
   );
 }
-
-
