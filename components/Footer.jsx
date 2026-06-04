@@ -456,6 +456,7 @@ export default function Footer() {
                     <Link
                       href={link.href}
                       className="hover:text-white transition-colors duration-200"
+                      title={link.name}
                     >
                       {link.name}
                     </Link>
@@ -473,6 +474,7 @@ export default function Footer() {
                     <Link
                       href={link.href}
                       className="hover:text-white transition-colors duration-200"
+                       title={link.name}
                     >
                       {link.name}
                     </Link>
@@ -491,6 +493,7 @@ export default function Footer() {
                   key={link.href}
                   href={link.href}
                   className="hover:text-white transition-colors duration-200"
+                   title={link.name}
                 >
                   {link.name}
                 </Link>
