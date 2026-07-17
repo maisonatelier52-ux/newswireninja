@@ -4939,6 +4939,72 @@
           ]
         }
       }
+    },
+     {
+      "id": 11,
+      "slug": "google-vids-ai-avatar-gemini-omni-personal-video-generation-2026",
+      "metaTitle": "Google Vids Introduces AI Avatars That Look and Sound Like You Using Gemini Omni",
+      "metaDescription": "Google Vids now allows users to create AI-generated videos featuring their own digital avatar and voice through Gemini Omni, transforming workplace and personal video creation.",
+      "title": "Google Vids Introduces AI Avatars That Look and Sound Like You Using Gemini Omni",
+      "excerpt": "Google is pushing AI-generated video creation into a more personal direction with a major update to Google Vids, releasing tools that let users create videos that feature a digital version of themselves.",
+      "category": "Technology",
+      "date": "17/07/2026",
+      "readTime": "9 Min Read",
+      "image": "/images/google-vids-ai-avatar-gemini-omni-first-image.webp",
+      "imageAlt": "Google Vids AI video creation platform in Google Workspace powered by Gemini Omni with personal AI avatar features.",
+      "deatilImage": "/images/google-vids-ai-avatar-gemini-omni-second-image.webp",
+      "deatilImageAlt": "Google Vids editor showing a personal AI avatar creating an AI-generated video using Gemini Omni technology.",
+      "inlineImage": "/images/google-vids-ai-avatar-gemini-omni-third-image.webp",
+      "inlineImageAlt": "Gemini Omni personal avatars feature in Google Vids enabling AI-generated videos with digital identities and voice.",
+      "quote": "Google Vids now allows users to create AI-generated videos featuring their own digital avatar and voice through Gemini Omni.",
+      "heropara": {
+        "para1": "Google is pushing AI-generated video creation into a more personal direction with a major update to Google Vids, releasing tools that let users create videos that feature a digital version of themselves.",
+        "para2": "The new platform, called Google Vids, is powered by Google’s latest Gemini Omni AI model and is able to generate videos from a user’s personal avatar, voice, text prompts and reference images.",
+        "para3": "This update is a huge shift on how businesses, content creators, educators, and professionals could make video content — less dependence on the traditional video shoot and more on AI-generated digital identities."
+      },
+      "subtitles": {
+        "subtitle1": {
+          "title": "Google Vids Adds Personal Avatars with Gemini Omni",
+          "content": [
+            "The most important addition to Google Vids is the addition of personal AI avatars. A user can create a digital version of themselves by verifying their likeness and voice.",
+            "After it’s created, the avatar can be selected within Google Vids and used as a character in AI-generated videos. Users can create a script and let the AI avatar deliver the message.",
+            "The feature is designed to help users build their video presence with less time and effort spent on production, Google says. Some potential uses include Corporate Training Videos, Employee Onboarding Content, Marketing decks, Educational content, Product demonstrations and Internal communication of the company.",
+            "The technology lets people have a constant digital presence without having to physically show up in front of the camera for every video. Google’s personal avatars are powered by a combination of AI video generation, voice technology and identity verification.",
+            "The written instructions indicate that the avatar speaks naturally in the video, which is made using the information users provide to create their digital representation, Gemini Omni. It’s designed to prevent other people from creating likenesses for free, and ensures that personal avatars are tied to the original account owner."
+          ]
+        },
+        "subtitle2": {
+          "title": "How Google's AI Avatar Tech Works",
+          "content": [
+            "Google has also added protections around content created by AI, including transparency measures to identify synthetic media. The videos were created with invisible SynthID digital watermarking technology.",
+            "Google is embedding its Gemini Omni model directly into Google Vids with personal avatars. With Gemini Omni, users will be able to create and edit videos using natural language instructions.",
+            "Changes may include background change, better lighting, alter visual style, apply effects, change of scenes, and refresh video elements. The model can receive written prompts and merge them with uploaded images or references to produce custom video clips."
+          ]
+        },
+        "subtitle3": {
+          "title": "AI Video Creation Is No Longer Just for Professional Studios",
+          "content": [
+            "Previously, making good quality video meant you needed cameras, lighting gear, editing skills and heaps of time. AI video tools are disrupting that model, allowing individuals and businesses to create professional-looking content with fewer resources.",
+            "The latest update from Google is part of a broader industry trend in which companies build artificial intelligence systems that can create realistic videos from simple prompts. The aim is to democratise video creation for those without a traditional production background.",
+            "For companies, the technology might lower the costs of creating training materials and corporate communications. For creators, it could mean faster experimentation and content production."
+          ]
+        },
+        "subtitle4": {
+          "title": "Businesses May Be First Adopters",
+          "content": [
+            "Google Vids has been heavily pitched for workplace communication through Google Workspace. AI avatars could allow organisations to quickly create updated materials without requiring executives, instructors or specialists to record new videos over and over again.",
+            "The technology could be especially useful for global organisations that need content translated or adapted to various markets."
+          ]
+        },
+        "subtitle5": {
+          "title": "AI Avatars Raise Privacy, Deepfake Concerns",
+          "content": [
+            "AI avatars create new opportunities, but also new concerns of digital identity and misuse. Google has tried to combat these problems with verification systems, account limits and watermarking technology.",
+            "AI Video Generation Competition Heats Up. Google’s move takes it further into the fray with companies making AI video and avatar tech. The arrival of personal AI avatars means a shift in the way people may interact with video content.",
+            "Google Accelerates To AI-Enabled Video Future. Google Vids’ Gemini Omni update is yet another big leap in the company’s effort to make artificial intelligence a core part of creative workflows."
+          ]
+        }
+      }
     }
   ],
   "investigation":[
