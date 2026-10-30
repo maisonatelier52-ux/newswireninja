@@ -13,3 +13,11 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Article hero artwork: fade into the left only on desktop */
+@media (min-width: 1024px) {
+  .hero-art-mask {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 28%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 28%);
+  }
+}

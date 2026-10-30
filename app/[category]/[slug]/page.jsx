@@ -11,6 +11,10 @@ import { SiMedium } from "react-icons/si";
 import Link from "next/link";
 import { FaRedditAlien } from "react-icons/fa";
 import { FaQuora } from "react-icons/fa";
+import ClientArticlePage from "../../../components/ClientArticlePage";
+
+// Articles that use the custom ClientArticlePage design
+const CLIENT_ARTICLE_SLUG = "alina-habba-50-million-deal-legal-work-allegations";
 
 const SITE_URL = "https://www.newswireninja.com";
 const SITE_NAME = "Newswireninja";
@@ -226,6 +230,45 @@ export default async function ArticlePage({ params }) {
       },
     ],
   };
+
+  // Custom design for the Alina Habba news analysis
+  if (slug === CLIENT_ARTICLE_SLUG) {
+    const others = Object.values(categorypagedata)
+      .flat()
+      .filter((item) => item.slug !== slug)
+      .sort((a, b) => parseDate(b.date) - parseDate(a.date));
+    const related = others
+      .filter((item) => item.category === category)
+      .slice(0, 3);
+    const more = others.slice(0, 6);
+
+    const clientJsonLd = {
+      ...articleJsonLd,
+      author: {
+        "@type": "Person",
+        name: article.author?.name || authorData.name,
+      },
+    };
+
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(clientJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        />
+        <ClientArticlePage
+          article={article}
+          related={related}
+          more={more}
+          shareUrl={shareUrl}
+        />
+      </>
+    );
+  }
 
   return (
     <main

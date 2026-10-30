@@ -411,7 +411,7 @@ export default async function CategoryPage({ params }) {
                       <span className="font-medium text-gray-600">
                         By{" "}
                         <span className="text-black font-medium">
-                          {authorData?.name}
+                          {latestArticle.author?.name || authorData?.name}
                         </span>
                       </span>
                       <span className="h-4 w-px bg-gray-300"></span>
@@ -454,7 +454,7 @@ export default async function CategoryPage({ params }) {
                     </p>
                     <div className="flex items-center text-sm text-gray-500 gap-3">
                       <span className="font-medium text-black">
-                        By {authorData?.name}
+                        By {secondLatestArticle.author?.name || authorData?.name}
                       </span>
                       <span className="h-4 w-px bg-gray-300"></span>
                       <GoClock />
