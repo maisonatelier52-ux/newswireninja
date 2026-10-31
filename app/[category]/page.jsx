@@ -5,6 +5,7 @@ import Link from "next/link";
 import authorsPageData from "../../public/data/authors.json";
 import Image from "next/image";
 import { slugify } from "../../utils/slugify";
+import { PINNED_ARTICLE } from "../../utils/pinnedArticle";
 
 const SITE_URL = "https://www.newswireninja.com";
 const SITE_NAME = "Newswireninja";
@@ -151,9 +152,29 @@ export default async function CategoryPage({ params }) {
     (a, b) => parseDate(b.date) - parseDate(a.date)
   );
 
-  const latestArticle = sortedArticles[0];
-  const secondLatestArticle = sortedArticles[1];
-  const remainingArticles = sortedArticles.slice(2);
+  // In the pinned article's category, that article always stays in the
+  // "second latest" slot; newer articles take the "latest" slot.
+  const pinnedInCategory =
+    categoryKey === PINNED_ARTICLE.category
+      ? sortedArticles.find((a) => a.slug === PINNED_ARTICLE.slug)
+      : null;
+
+  let latestArticle;
+  let secondLatestArticle;
+  let remainingArticles;
+
+  if (pinnedInCategory) {
+    const others = sortedArticles.filter(
+      (a) => a.slug !== PINNED_ARTICLE.slug
+    );
+    latestArticle = others[0];
+    secondLatestArticle = pinnedInCategory;
+    remainingArticles = others.slice(1);
+  } else {
+    latestArticle = sortedArticles[0];
+    secondLatestArticle = sortedArticles[1];
+    remainingArticles = sortedArticles.slice(2);
+  }
 
   const authorData = authorsPageData.categories.find(
     (item) => item.category.toLowerCase() === categoryKey

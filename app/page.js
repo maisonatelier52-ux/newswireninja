@@ -12,6 +12,7 @@ import { TrendingStories } from "../components/homeComponents/TrendingStories";
 import articleData from "../public/data/articles.json";
 import authorsPageData from "../public/data/authors.json";
 import { slugify } from "../utils/slugify";
+import { PINNED_ARTICLE } from "../utils/pinnedArticle";
 
 const SITE_URL = "https://www.newswireninja.com";
 const SITE_NAME = "Newswireninja";
@@ -100,7 +101,20 @@ export default function Home() {
       .sort((a, b) => parseDate(b.date) - parseDate(a.date));
   };
 
-  const latestArticles = getAllLatestArticles().slice(0, 4);
+  // Pinned article always stays at latestArticles[0];
+  // newer articles start from latestArticles[1].
+  const allArticlesSorted = getAllLatestArticles();
+  const pinnedArticle = allArticlesSorted.find(
+    (a) => a.slug === PINNED_ARTICLE.slug
+  );
+  const latestArticles = pinnedArticle
+    ? [
+        pinnedArticle,
+        ...allArticlesSorted
+          .filter((a) => a.slug !== PINNED_ARTICLE.slug)
+          .slice(0, 3),
+      ]
+    : allArticlesSorted.slice(0, 4);
 
   const businessArticles = getAllLatestArticles()
     .filter(

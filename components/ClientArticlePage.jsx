@@ -147,8 +147,8 @@ export default function ClientArticlePage({
             "linear-gradient(90deg, #e9f0fb 0%, #eef3fb 45%, #f4f7fc 100%)",
         }}
       >
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 pb-8 lg:pb-12 lg:min-h-[330px]">
-          <nav aria-label="Breadcrumb" className="text-xs mb-7">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 pb-8 lg:pt-4 lg:pb-7 lg:min-h-[340px]">
+          <nav aria-label="Breadcrumb" className="text-xs mb-7 lg:mb-4">
             <ol className="flex items-center gap-1.5 flex-wrap">
               <li>
                 <Link href="/" className="hover:underline" style={{ color: BLUE }}>
@@ -179,18 +179,18 @@ export default function ClientArticlePage({
             </span>
 
             <h1
-              className={`${playfair.className} mt-4 text-[2rem] sm:text-[2.6rem] lg:text-[2.9rem] leading-[1.08] font-bold`}
+              className={`${playfair.className} mt-4 text-[2rem] sm:text-[2.6rem] lg:text-[2.2rem] leading-[1.1] font-bold`}
               style={{ color: NAVY }}
             >
               {article.title}
             </h1>
-            <GoldRule className="mt-5" />
+            <GoldRule className="mt-5 lg:mt-4" />
 
-            <p className="mt-5 text-base sm:text-[1.05rem] italic text-gray-600 leading-relaxed max-w-md">
+            <p className="mt-5 lg:mt-4 text-base sm:text-[1.05rem] lg:text-[0.95rem] italic text-gray-600 leading-relaxed max-w-md">
               {article.deck}
             </p>
 
-            <div className="mt-6 flex items-center gap-4">
+            <div className="mt-6 lg:mt-5 flex items-center gap-4">
               <div className="flex items-center gap-3">
                 {author.image && (
                   <Image
@@ -214,17 +214,45 @@ export default function ClientArticlePage({
           </div>
         </div>
 
-        {/* Artwork: mobile = below the text, desktop = right side fading into the left */}
-        <div className="relative z-0 w-full aspect-[16/10] sm:aspect-[2/1] lg:aspect-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-[58%]">
-          <Image
-            src={article.heroImage || article.image}
-            alt={article.imageAlt || ""}
-            fill
-            priority
-            sizes="(min-width: 1024px) 58vw, 100vw"
-            className="hero-art-mask object-cover object-[85%_center] lg:object-[75%_20%]"
-          />
-        </div>
+        {/* Artwork */}
+        {article.heroImageDesktop ? (
+          <>
+            {/* Mobile / tablet: current image, below the text */}
+            <div className="relative z-0 w-full aspect-[16/10] sm:aspect-[2/1] lg:hidden">
+              <Image
+                src={article.heroImage || article.image}
+                alt={article.imageAlt || ""}
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover object-[85%_center]"
+              />
+            </div>
+
+            {/* Laptop / desktop: full-width banner, empty left side sits behind the text */}
+            <div className="relative z-0 hidden lg:block lg:absolute lg:inset-0">
+              <Image
+                src={article.heroImageDesktop}
+                alt={article.imageAlt || ""}
+                fill
+                sizes="100vw"
+                className="object-cover object-[center_25%]"
+              />
+            </div>
+          </>
+        ) : (
+          /* Artwork: mobile = below the text, desktop = right side fading into the left */
+          <div className="relative z-0 w-full aspect-[16/10] sm:aspect-[2/1] lg:aspect-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-[42%]">
+            <Image
+              src={article.heroImage || article.image}
+              alt={article.imageAlt || ""}
+              fill
+              priority
+              sizes="(min-width: 1024px) 42vw, 100vw"
+              className="hero-art-mask object-cover object-[85%_center] lg:object-center"
+            />
+          </div>
+        )}
       </section>
 
       {/* ================= BODY ================= */}

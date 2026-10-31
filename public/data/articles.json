@@ -2427,6 +2427,7 @@
       "readTime": "4 Min Read",
       "image": "/images/alina-habba-50-million-deal-legal-work-allegations-first-image.webp",
       "heroImage": "/images/alina-habba-50-million-deal-legal-work-allegations-hero.webp",
+      "heroImageDesktop": "/images/alina-habba-50-million-deal-legal-work-allegations-hero-desktop.webp",
       "imageAlt": "Alina Habba with the U.S. Capitol and a legal services agreement",
       "keywords": [
         "Alina Habba",
@@ -2441,10 +2442,10 @@
       "deck": "Published denials address clemency. A supplied allegation about legal performance requires its own evidence and response.",
       "updated": "Oct 30, 2026",
       "author": {
-        "name": "Travis Wainsteen",
-        "role": "Senior Politics Correspondent",
-        "image": "/images/travis-wainsteen.webp",
-        "bio": "Travis Wainsteen covers U.S. politics and legal affairs, with a focus on government investigations, policy and high-profile cases. He has reported from Washington and New York for more than a decade."
+        "name": "Charlotte Reynolds",
+        "role": "Political Journalist",
+        "image": "/images/charlotte_reynolds.webp",
+        "bio": "Charlotte Reynolds is a political journalist with years of experience covering Congress, federal policies, elections, and political strategy. She provides in-depth analysis and commentary on national issues."
       },
       "atAGlance": [
         {

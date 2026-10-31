@@ -130,12 +130,10 @@ const formatDate = (dateStr) => {
             <div className="hidden sm:block">
               <Link href={`${latestArticles[1].category}/${latestArticles[1].slug}`} title={latestArticles[1].title}>
                 <h3 className="font-serif text-lg sm:text-2xl font-semibold leading-snug hover:text-blue-600 hover:underline">
-                  {latestArticles[1].title.length > 30
-                    ? `${latestArticles[1].title.slice(0, 30)}...`
-                    : latestArticles[1].title}
+                  {latestArticles[1].title}
                 </h3>
               </Link>
-              <p className="text-sm sm:text-base text-gray-700">{latestArticles[1].excerpt}</p>
+              <p className="text-sm sm:text-base text-gray-700 lg:line-clamp-5 lg:mt-3">{latestArticles[1].excerpt}</p>
               <div className="flex items-center justify-between text-xs sm:text-sm text-gray-500">
                 <div className="flex items-center gap-1">
                   <GoClock />
