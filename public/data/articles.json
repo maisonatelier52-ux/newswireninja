@@ -5756,6 +5756,81 @@
           ]
         }
       }
+    },
+    {
+      "id": 13,
+      "slug": "anthropic-ai-development-speeds-up-metr-report-slowdown-calls",
+      "metaTitle": "Anthropic's AI Pace Has Doubled, Research Group Says",
+      "metaDescription": "METR says Anthropic is improving its AI about twice as fast as a year ago, largely with AI's help, even as CEO Dario Amodei calls for a slowdown.",
+      "title": "Anthropic's AI Pace Has Doubled, Research Group Says",
+      "excerpt": "METR says Anthropic is improving its AI about twice as fast as a year ago, largely with AI's help, even as CEO Dario Amodei calls for a slowdown.",
+      "category": "Technology",
+      "date": "06/11/2026",
+      "readTime": "5 Min Read",
+      "image": "/images/anthropic-ai-development-speeds-up-metr-report-slowdown-calls-first-image.webp",
+      "imageAlt": "Anthropic website displaying AI safety research and information about its Claude artificial intelligence models",
+      "deatilImage": "/images/anthropic-ai-development-speeds-up-metr-report-slowdown-calls-second-image.webp",
+      "deatilImageAlt": "Anthropic executive speaking at a technology event about artificial intelligence development and safety",
+      "inlineImage": "/images/anthropic-ai-development-speeds-up-metr-report-slowdown-calls-third-image.webp",
+      "inlineImageAlt": "Anthropic logo displayed on a smartphone screen, representing the artificial intelligence company",
+      "quote": "AI is speeding up our research, but it's hard to say exactly how much. — Sam McCandlish, Anthropic co-founder",
+      "heropara": {
+        "para1": "An independent nonprofit says Anthropic is improving its AI systems about twice as fast as it did a year ago, even as the company's CEO calls on the industry to slow down.",
+        "para2": "The group, Model Evaluation and Threat Research, reviewed internal Anthropic data and interviewed staff, and it believes AI itself is a big reason for the faster pace.",
+        "para3": "The report lands as Anthropic prepares a stock market debut that could be among the largest ever, with debate still swirling over whether advanced AI could escape human control."
+      },
+      "subtitles": {
+        "subtitle1": {
+          "title": "Outside Researchers Find Anthropic's Pace Has Doubled",
+          "content": [
+            "An independent research group says Anthropic is building its AI systems about twice as fast as it was a year ago, even though CEO Dario Amodei has been urging the industry to slow down. The findings came out on Thursday.",
+            "The group is Model Evaluation and Threat Research, or METR, a nonprofit based in Berkeley, California. Anthropic invited its researchers to look through internal data and interview staff while the company prepares to go public.",
+            "METR's team estimates that the company is improving what its models can do on well-specified tasks at roughly double last year's pace. They think a big share of that jump comes from AI itself helping to build better AI.",
+            "The outside look matters because most of what the public knows about AI risk comes from the companies themselves. Under President Donald Trump, the administration has encouraged those firms to police their own safety.",
+            "Anthropic's timing is hard to miss, too. The report arrived as the company plans one of the largest stock debuts ever, later this month, while debate continues over whether advanced models could escape human control."
+          ]
+        },
+        "subtitle2": {
+          "title": "What METR Looked At and How It Worked",
+          "content": [
+            "METR has evaluated model capabilities for Anthropic, OpenAI and other labs for years. It runs on donations and says it takes no payment for its work, though labs it partners with give it access and tokens for testing.",
+            "One of its two reports drew on internal Anthropic data covering about 11 weeks, from mid-August to late October, plus interviews with employees. The group said it received unprecedented access to the company's internal numbers.",
+            "The researchers wanted to know if the growth rate of Anthropic's internal capabilities had sped up, and how much of that came from AI itself. They also read both the public risk report from August and a private version.",
+            "Their verdict on the public document was blunt: it overall understates how much acceleration was happening. Anthropic's redactions also limited how much detail METR could share about its estimates.",
+            "Sam McCandlish, a co-founder of Anthropic, admitted on X that those redactions make it harder for others to check METR's work. He argued that spelling out what drives the speedup is commercially sensitive and could hand others a roadmap."
+          ]
+        },
+        "subtitle3": {
+          "title": "AI Is Helping Build the Next AI",
+          "content": [
+            "One finding stands out. METR said it could confidently rule out growth in training compute as the reason for the faster pace, even though compute has long tracked how well a model performs.",
+            "Its best guess is that Anthropic is using AI to improve AI. The company has said its Claude chatbot increasingly helps develop newer and more capable versions of itself, which fits that picture.",
+            "That idea has a name, recursive self-improvement, and Amodei wrote about it in his September 12 essay. He described AI's growing ability to build the next generation of AI as a main driver of recent progress.",
+            "METR flagged a worry that this loop could start to compound, with each gain making the next one come faster. It also found no clear bottlenecks, such as limits on computing power or data, holding progress back.",
+            "The report is careful, though. It says AI can't yet make highly significant, fully autonomous contributions to the most important parts of training, but Anthropic researchers described real signs of life suggesting that could change soon."
+          ]
+        },
+        "subtitle4": {
+          "title": "Caveats, and Anthropic's Own Response",
+          "content": [
+            "The report is full of cautions. METR said its numbers could overstate the picture, because the acceleration may apply only to well-specified tasks and not to every kind of AI research.",
+            "McCandlish said many of METR's conclusions match his own view. In a long post, he wrote that AI is speeding up the company's research, but that it's hard to say exactly by how much.",
+            "He added that how quickly progress is speeding up matters a lot for safety, since it sets how fast the risks from advanced models grow. Most research happens inside the labs, so outsiders struggle to judge that rate.",
+            "He said this work is separate from the evaluators the company welcomes under its commitment to pacing the frontier. In his view, the METR report shows why bringing in outside reviewers is a good idea.",
+            "Amodei's essay urged the industry to slow the pace at which AI capabilities improve so safety measures can catch up. The findings show the gap between that call and the speed of the company's own work."
+          ]
+        },
+        "subtitle5": {
+          "title": "Why Independent Oversight Is in the Spotlight",
+          "content": [
+            "In the same essay, Amodei backed the idea of placing external evaluators inside the leading AI labs. He named METR as a suitable third party for that role.",
+            "OpenAI CEO Sam Altman said at the time that he also supports independent evaluators who have employee-like access. So the idea has support from the heads of two of the biggest labs.",
+            "Still, the arrangement depends on how much the labs agree to reveal. Redactions like the ones in this report show the tension between transparency and the commercial secrets companies want to protect.",
+            "With the stock offering coming, investors and policymakers will be watching closely. Anthropic's disclosures, and the way outside groups judge them, could shape how much trust the public places in the industry.",
+            "For now, the main takeaway is simple. AI companies are moving faster than many expected, AI is helping drive that speed, and outside checks are only starting to give a clear picture of how fast things really are."
+          ]
+        }
+      }
     }
   ],
   "investigation": [
