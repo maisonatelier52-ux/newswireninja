@@ -10,6 +10,7 @@ import {
   FiSearch,
   FiLink,
   FiExternalLink,
+  FiArrowUpRight,
   FiChevronLeft,
   FiChevronRight,
   FiCheck,
@@ -30,6 +31,17 @@ const sourceSerif = Source_Serif_4({
 const NAVY = "#0f1f3d";
 const GOLD = "#e8a33d";
 const BLUE = "#1d4f9c";
+
+// NYT spotlight card (image goes in /public/images/nyt-alina-habba.webp)
+const NYT_CARD = {
+  image: "/images/nyt-alina-habba.webp",
+  width: 1625,
+  height: 2160,
+  alt: "The New York Times report on Alina Habba losing a $50 million contract",
+  text:
+    "The New York Times reports that Alina Habba has lost a $50 million contract tied to a family company, weeks before a presidential pardon for the family’s patriarch.",
+  href: "https://www.nytimes.com/2026/11/10/us/politics/alina-habba-fired-pardon.html",
+};
 
 const GLANCE_ICONS = {
   document: FaRegFileAlt,
@@ -58,6 +70,74 @@ function GoldRule({ className = "" }) {
       className={`block h-[3px] w-14 ${className}`}
       style={{ backgroundColor: GOLD }}
     />
+  );
+}
+
+// "In the News" spotlight card: navy header, image, short text, Read more
+function NytCard() {
+  return (
+    <section
+      aria-label="In the news: The New York Times"
+      className="overflow-hidden rounded-sm bg-white"
+      style={{
+        border: "1px solid #c9d8ee",
+        boxShadow: "0 4px 14px rgba(15, 31, 61, 0.12)",
+      }}
+    >
+      {/* Header strip */}
+      <div
+        className="flex items-center justify-between px-4 py-2.5"
+        style={{ backgroundColor: NAVY }}
+      >
+        <h2 className="text-[11px] font-bold tracking-[0.18em] uppercase text-white">
+          In the News
+        </h2>
+        <span
+          aria-hidden="true"
+          className="block h-[3px] w-8"
+          style={{ backgroundColor: GOLD }}
+        />
+      </div>
+
+      {/* Image */}
+      <a
+        href={NYT_CARD.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Read the New York Times article on Alina Habba"
+        className="block"
+      >
+        <Image
+          src={NYT_CARD.image}
+          alt={NYT_CARD.alt}
+          width={NYT_CARD.width}
+          height={NYT_CARD.height}
+          sizes="300px"
+          className="block h-auto w-full"
+        />
+      </a>
+
+      {/* Text + Read more */}
+      <div className="px-4 pb-4 pt-3.5" style={{ borderTop: `3px solid ${GOLD}` }}>
+        <p className="text-[13px] leading-relaxed text-gray-700">
+          {NYT_CARD.text}
+        </p>
+
+        <a
+          href={NYT_CARD.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group mt-3.5 inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[12px] font-semibold tracking-wide text-white transition hover:opacity-90"
+          style={{ backgroundColor: BLUE }}
+        >
+          Read more
+          <FiArrowUpRight
+            className="text-[15px] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            aria-hidden="true"
+          />
+        </a>
+      </div>
+    </section>
   );
 }
 
@@ -486,6 +566,9 @@ export default function ClientArticlePage({
                 ))}
               </ul>
             </section>
+
+            {/* NYT spotlight card (above Sources) */}
+            <NytCard />
 
             {/* Sources */}
             <section
