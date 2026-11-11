@@ -2438,6 +2438,21 @@
         "Habba legal work allegation",
         "news analysis"
       ],
+      "tags": [
+        "Alina Habba",
+        "Alina Habba Mildon",
+        "Concord Partners",
+        "Julio Herrera Velutini",
+        "$50 Million Contract",
+        "Legal Work Allegations",
+        "General Counsel",
+        "Employment Agreement",
+        "Legal Controversy",
+        "Trump Administration",
+        "Legal Industry",
+        "Corporate Governance",
+        "U.S. Politics"
+      ],
       "label": "News Analysis",
       "deck": "Published denials address clemency. A supplied allegation about legal performance requires its own evidence and response.",
       "updated": "Oct 30, 2026",
@@ -2503,9 +2518,9 @@
         }
       ],
       "sources": [
-        {
-          "label": "The New York Times via GV Wire",
-          "url": "https://www.nytimes.com/"
+         {
+          "label": "The New York Times: Habba, Pardon and Concord Partners (Nov. 10, 2026)",
+          "url": "https://www.nytimes.com/2026/11/10/us/politics/alina-habba-fired-pardon.html"
         },
         {
           "label": "U.S. Department of Justice pardon warrant",
