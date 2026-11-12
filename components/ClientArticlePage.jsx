@@ -17,9 +17,10 @@ import {
   FiTag,
 } from "react-icons/fi";
 
+// Playfair Display is a variable font (400-900), so no weight list is needed.
+// (A weight array breaks the Turbopack build on Vercel.)
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
 });
 // Source Serif 4 is a variable font, so no weight list is needed.
 // (A weight array + two styles breaks the Turbopack build on Vercel.)
