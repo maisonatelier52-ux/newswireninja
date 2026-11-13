@@ -4068,6 +4068,73 @@
           ]
         }
       }
+    },
+    {
+      "id": 20,
+      "slug": "microsoft-outlook-teams-outage-copilot-users-worldwide-2026",
+      "metaTitle": "Microsoft Outlook, Teams Outage Hits Users Worldwide",
+      "metaDescription": "A widespread Microsoft outage disrupted Outlook, Teams and Copilot for users and some governments, as the company works to restore failed servers.",
+      "title": "Microsoft Outlook, Teams Outage Hits Users Worldwide",
+      "excerpt": "A widespread Microsoft outage disrupted Outlook, Teams and Copilot for users and some governments, as the company works to restore failed servers.",
+      "category": "business",
+      "date": "13/11/2026",
+      "readTime": "4 Min Read",
+      "image": "/images/microsoft-outlook-teams-outage-first-image.webp",
+      "imageAlt": "Microsoft headquarters building with the company's logo displayed outside during the global Microsoft 365 service outage.",
+      "deatilImage": "/images/microsoft-outlook-teams-outage-second-image.webp",
+      "deatilImageAlt": "Microsoft Outlook outage graphic highlighting email service disruptions affecting users worldwide",
+      "inlineImage": "/images/microsoft-outlook-teams-outage-third-image.webp",
+      "inlineImageAlt": "Microsoft logo displayed on an office building facade amid widespread Outlook, Teams and Copilot service disruptions",
+      "quote": "We're aggressively pursuing all pathways to reduce impact. — Microsoft 365 Status",
+      "heropara": {
+        "para1": "A widespread outage hit Microsoft platforms including Outlook on Thursday, leaving many users unable to send or receive email and causing errors across Teams, Copilot and wider Microsoft 365 services.",
+        "para2": "Nearly 130,000 users reported Outlook problems on Downdetector just after 1 p.m. EST. The disruption affected many companies and some government operations, and continued into the night.",
+        "para3": "Microsoft said servers failed automated health checks and that parts of its infrastructure were under elevated load. The company said it was aggressively pursuing all pathways to reduce the impact."
+      },
+      "subtitles": {
+        "subtitle1": {
+          "title": "Outlook Outage Disrupts Email for Users Worldwide",
+          "content": [
+            "A widespread outage hit Microsoft platforms, including Outlook, on Thursday, leaving many people unable to use their email accounts and causing errors across the company's wider suite of apps.",
+            "The problems were first reported shortly after midday Eastern time and carried on into the night. Many companies and some government operations were affected as well, which made this more than an inconvenience for individual users.",
+            "Tracker Downdetector logged nearly 130,000 user reports of Outlook trouble just after 1 p.m. EST. Reports have fallen since that peak, but many people said they still could not send or receive emails or load inboxes.",
+            "Microsoft said parts of its infrastructure were under elevated load, which it partly blamed for the errors. Several servers failed automated health checks, and its first attempts to restore them did not work immediately.",
+            "In posts on X, the Microsoft 365 Status account said it was aggressively pursuing all pathways to reduce the impact. Earlier Thursday, Microsoft said it restored Teams in North America, though some users saw issues."
+          ]
+        },
+        "subtitle2": {
+          "title": "Teams and Copilot Also Hit by Disruptions",
+          "content": [
+            "Outlook was not the only service affected. Thousands of users also reported problems with Teams, Microsoft's workplace messaging app, as well as with Copilot, its AI assistant, and with the broader Microsoft 365 services.",
+            "For many workplaces, those tools sit at the center of the day, handling messages, meetings and calendars. When several of them falter together, the disruption can spread quickly through teams that depend on them.",
+            "Microsoft said earlier in the day that it had successfully restored Teams in North America. Even so, some users continued to report connectivity problems, so the recovery was uneven rather than complete."
+          ]
+        },
+        "subtitle3": {
+          "title": "Asia and Japan's Government Feel the Impact",
+          "content": [
+            "The trouble was not limited to the United States. Users in many parts of Asia also reported problems with Microsoft platforms by Friday mid-morning in the region, showing how far the disruption had reached.",
+            "In Japan, Deputy Chief Cabinet Secretary Masanao Ozaki said on Friday that the outage had affected the government's IT infrastructure. He said officials were keeping a close eye on developments.",
+            "That response shows how many public bodies now rely on commercial cloud and email services. A failure at one provider can reach government offices as well as private businesses, even far from the company's home base."
+          ]
+        },
+        "subtitle4": {
+          "title": "Microsoft Blames Elevated Load and Failed Servers",
+          "content": [
+            "Microsoft, based in Redmond, Washington, posted several notices on social media as it worked on the problem. In them, the company said it was investigating the disruptions and that parts of its infrastructure were experiencing elevated load.",
+            "According to the company, a number of servers failed during automated health checks. The alternatives it tried to bring those servers back online were not immediately taking effect, which slowed the recovery.",
+            "The company's updates framed the problem in terms of infrastructure and server health. While the work continued, users were left mainly with status posts on social media and their own reports of errors."
+          ]
+        },
+        "subtitle5": {
+          "title": "Recovery Continues as Questions Remain",
+          "content": [
+            "For now, the key question is how quickly Microsoft can get its servers stable again and bring every service fully back. Teams had been restored in North America earlier, but Outlook problems were still being reported late Thursday.",
+            "Businesses and agencies that rely on Microsoft 365 will be watching for further updates from the company's status account, especially as the effects continued into Friday in Asia.",
+            "Reports on Downdetector had dropped from their early-afternoon peak, which suggests some improvement. Still, many users said they could not send or receive emails, so the outage was not fully resolved at the time of reporting."
+          ]
+        }
+      }
     }
   ],
   "sports": [
