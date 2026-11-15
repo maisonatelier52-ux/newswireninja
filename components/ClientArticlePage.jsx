@@ -29,6 +29,12 @@ const sourceSerif = Source_Serif_4({
   style: ["normal", "italic"],
 });
 
+// Tags that have a topic hub page (/topics/<slug>)
+const TOPIC_TAGS = {
+  "Alina Habba": "alina-habba",
+  "Alina Habba Mildon": "alina-habba",
+};
+
 const NAVY = "#0f1f3d";
 const GOLD = "#e8a33d";
 const BLUE = "#1d4f9c";
@@ -464,16 +470,30 @@ export default function ClientArticlePage({
               <ul className="flex flex-wrap gap-2.5">
                 {tags.map((tag) => (
                   <li key={tag}>
-                    <span
-                      className="inline-block rounded-full px-3.5 py-1.5 text-[12.5px] font-medium leading-none"
-                      style={{
-                        backgroundColor: "#eaf1fb",
-                        color: "#12306b",
-                        border: "1px solid #c9d8ee",
-                      }}
-                    >
-                      {tag}
-                    </span>
+                    {TOPIC_TAGS[tag] ? (
+                      <Link
+                        href={`/topics/${TOPIC_TAGS[tag]}`}
+                        className="inline-block rounded-full px-3.5 py-1.5 text-[12.5px] font-medium leading-none hover:underline"
+                        style={{
+                          backgroundColor: "#eaf1fb",
+                          color: "#12306b",
+                          border: "1px solid #c9d8ee",
+                        }}
+                      >
+                        {tag}
+                      </Link>
+                    ) : (
+                      <span
+                        className="inline-block rounded-full px-3.5 py-1.5 text-[12.5px] font-medium leading-none"
+                        style={{
+                          backgroundColor: "#eaf1fb",
+                          color: "#12306b",
+                          border: "1px solid #c9d8ee",
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    )}
                   </li>
                 ))}
               </ul>

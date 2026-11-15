@@ -1,5 +1,6 @@
 import articlesData from "../public/data/articles.json";
 import authorData from "../public/data/authors.json";
+import topics from "../public/data/topics.json";
 import { slugify } from "../utils/slugify";
 
 const SITE_URL = "https://www.newswireninja.com";
@@ -107,7 +108,7 @@ export default function sitemap() {
     ([category, articles]) =>
       articles.map((article) => ({
         url: `${SITE_URL}/${category}/${article.slug}`,
-        lastModified: article.date ? parseDate(article.date) : now,
+        lastModified: parseDate(article.modified || article.date) || now,
         changeFrequency: "weekly",
         priority: 0.9,
       }))
@@ -123,9 +124,18 @@ export default function sitemap() {
     priority: 0.6,
   }));
 
+  /* ---------------- TOPIC HUB PAGES ---------------- */
+  const topicPages = Object.keys(topics).map((slug) => ({
+    url: `${SITE_URL}/topics/${slug}`,
+    lastModified: now,
+    changeFrequency: "daily",
+    priority: 0.8,
+  }));
+
   return [
     ...staticPages,
     ...categoryPages,
+    ...topicPages,
     ...articlePages,
     ...authorDetailPages,
   ];

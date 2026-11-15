@@ -78,7 +78,7 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title: article.metaTitle,
+    title: { absolute: `${article.metaTitle} | ${SITE_NAME}` },
     description: article.metaDescription,
     keywords: article.keywords?.join(", "),
     authors: [{ name: SITE_NAME + " Editorial Team" }],
@@ -100,7 +100,7 @@ export async function generateMetadata({ params }) {
       ],
       type: "article",
       publishedTime: toISOString(article.date),
-      modifiedTime: toISOString(article.date),
+      modifiedTime: toISOString(article.modified || article.date),
       section: category,
     },
     twitter: {
@@ -165,11 +165,11 @@ export default async function ArticlePage({ params }) {
         "@type": "ImageObject",
         url: `${SITE_URL}${article.image}`,
         width: 1200,
-        height: 630,
+        height: 675,
       },
     ],
     datePublished: toISOString(article.date),
-    dateModified: toISOString(article.date),
+    dateModified: toISOString(article.modified || article.date),
     author: {
       "@type": "Person",
       name: authorData.name,
@@ -247,7 +247,15 @@ export default async function ArticlePage({ params }) {
       author: {
         "@type": "Person",
         name: article.author?.name || authorData.name,
+        url: `${SITE_URL}/authors/${slugify(authorData.name)}`,
       },
+      about: [
+        { "@type": "Person", name: "Alina Habba", url: `${SITE_URL}/topics/alina-habba` },
+      ],
+      mentions: [
+        { "@type": "Organization", name: "Concord Partners" },
+        { "@type": "Person", name: "Julio Herrera Velutini" },
+      ],
     };
 
     return (
