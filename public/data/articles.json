@@ -4277,6 +4277,77 @@
           ]
         }
       }
+    },
+    {
+      "id": 21,
+      "slug": "senate-passes-bipartisan-american-affordability-jobs-act-energy-permitting-reform-2026",
+      "metaTitle": "Senate Passes Bipartisan Energy Permitting Reform Bill",
+      "metaDescription": "The Senate passed the Bipartisan American Affordability and Jobs Act 62-33 to speed energy and infrastructure projects. The House is next.",
+      "title": "US Senate Passes Bipartisan Bill to Speed Up Energy and Infrastructure Projects",
+      "excerpt": "The Senate passed the Bipartisan American Affordability and Jobs Act 62-33 to speed energy and infrastructure projects. The House is next.",
+      "category": "business",
+      "date": "20/11/2026",
+      "readTime": "5 Min Read",
+      "image": "/images/senate-passes-energy-permitting-reform-bill-first-image.webp",
+      "imageAlt": "The U.S. Capitol building in Washington as the Senate passes a bipartisan energy permitting reform bill",
+      "deatilImage": "/images/senate-passes-energy-permitting-reform-bill-second-image.webp",
+      "deatilImageAlt": "Electricity transmission lines at sunset, representing the infrastructure the permitting reform bill aims to speed up",
+      "inlineImage": "/images/senate-passes-energy-permitting-reform-bill-third-image.webp",
+      "inlineImageAlt": "A large data center complex whose electricity demand is addressed by the permitting reform bill",
+      "quote": "Bipartisan American Affordability and Jobs Act of 2026 — passed by the Senate, 62-33",
+      "heropara": {
+        "para1": "The U.S. Senate passed the Bipartisan American Affordability and Jobs Act of 2026 by a vote of 62-33, a permitting reform bill meant to speed up energy and infrastructure projects.",
+        "para2": "The bill would set tighter deadlines for federal reviews and ask large data centers to pay more of the electricity infrastructure costs created by their demand.",
+        "para3": "It now moves to the House, with President Trump supporting it, while environmental groups and some Democrats warn it could weaken protections."
+      },
+      "subtitles": {
+        "subtitle1": {
+          "title": "Senate Passes Bipartisan Permitting Reform Bill",
+          "content": [
+            "The U.S. Senate has passed a major bipartisan permitting reform bill designed to speed up energy and infrastructure development, a significant step for American businesses, utilities and the construction industry.",
+            "The Senate approved the Bipartisan American Affordability and Jobs Act of 2026 by a vote of 62-33 on Thursday, Nov. 19. The bill now goes to the House of Representatives, and President Donald Trump has said he supports it.",
+            "The bill aims to cut delays in federal approvals for major projects, including power plants, transmission lines, renewable facilities, pipelines and mining operations, as electricity demand climbs across the country.",
+            "Electricity demand is rising partly because of the fast expansion of AI data centers and other energy-intensive industries, which is a big reason supporters want faster, more predictable federal approvals for projects.",
+            "The legislation has not become law yet. It must pass the House and receive the president's approval before any of its proposed reforms can take effect, so the next stage will decide how much of the package survives."
+          ]
+        },
+        "subtitle2": {
+          "title": "Faster, More Predictable Federal Approvals",
+          "content": [
+            "One central goal is to make federal environmental reviews and permitting steps faster and more predictable. Under the reforms, federal agencies would face tighter deadlines for reviewing infrastructure projects.",
+            "The bill also changes procedures under several existing environmental laws, including the National Environmental Policy Act, the Clean Water Act and the Endangered Species Act.",
+            "Supporters argue that long approval processes have raised project costs, delayed construction and discouraged investment in new energy infrastructure. The bill would also give more certainty to companies that win federal permits by limiting when those approvals can later be withdrawn or challenged.",
+            "For businesses planning large energy investments, more predictable permitting could reduce uncertainty around construction schedules, financing and project development."
+          ]
+        },
+        "subtitle3": {
+          "title": "Data Centers to Carry More Electricity Costs",
+          "content": [
+            "A major business provision targets the growing power needs of artificial intelligence and cloud computing. The bill seeks to make sure large data centers pay a greater share of the cost of the electricity infrastructure built to serve them.",
+            "That includes the transmission and grid upgrades needed to handle their heavy power use. The provision responds to concern that ordinary households and smaller businesses could face higher electricity bills as utilities expand networks to support big technology companies.",
+            "The issue has become more pressing as tech companies pour billions of dollars into data centers for AI services, cloud computing and digital infrastructure.",
+            "By tying infrastructure costs more closely to the businesses driving added demand, lawmakers behind the bill say the reforms could be fairer to electricity consumers."
+          ]
+        },
+        "subtitle4": {
+          "title": "Transmission Lines and Energy Development",
+          "content": [
+            "The bill also changes how interstate electricity transmission lines are planned and built. It would strengthen the role of the Federal Energy Regulatory Commission in coordinating federal reviews of major transmission projects and support better regional and interregional planning.",
+            "The aim is to make it easier to move electricity between regions and to connect new supplies of energy to the national grid. The legislation covers both renewable and traditional development, including solar, wind, natural gas, oil and mining projects.",
+            "Industry organizations have backed the proposal, arguing that the country needs more infrastructure to meet future electricity demand and keep energy supplies reliable. Faster transmission development could also help businesses reach electricity from a wider range of generating facilities."
+          ]
+        },
+        "subtitle5": {
+          "title": "Critics Push Back as the House Takes Over",
+          "content": [
+            "Despite bipartisan support, the bill has drawn opposition from environmental organizations and several Democratic lawmakers. Critics argue that changes to environmental review could weaken protections for communities, wildlife and natural resources.",
+            "They have also raised concerns about provisions that could limit judicial challenges to approved projects and make it harder to address environmental problems after construction starts. Some lawmakers asked whether the bill does enough to protect tribal sovereignty and consultation with Indigenous communities.",
+            "Oregon Democratic Sens. Jeff Merkley and Ron Wyden pushed for more amendments, including proposals on data center construction on federal public lands. Those negotiations did not lead to further changes in the final Senate measure.",
+            "The Sierra Club and the National Wildlife Federation oppose the bill, warning that faster approvals could encourage more fossil-fuel development. Supporters counter that it strikes a necessary balance between infrastructure, energy affordability and the environment.",
+            "House Speaker Mike Johnson has indicated the bill could get support in the House, though lawmakers still must consider its provisions. The outcome matters to energy companies, tech firms, utilities, construction businesses and investors planning projects across the country."
+          ]
+        }
+      }
     }
   ],
   "sports": [
