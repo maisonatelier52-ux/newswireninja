@@ -229,120 +229,95 @@ export default function ClientArticlePage({
       className={`${sourceSerif.className} bg-white`}
       style={{ color: "#1f2937" }}
     >
-      {/* ================= HERO ================= */}
+      {/* ================= HERO (2 columns: text | image) ================= */}
       <section
         className="relative overflow-hidden"
         style={{
           background:
-            "linear-gradient(90deg, #e9f0fb 0%, #eef3fb 45%, #f4f7fc 100%)",
+            "linear-gradient(90deg, #dbe7f8 0%, #e9f0fb 45%, #f4f7fc 100%)",
         }}
       >
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 pb-8 lg:pt-4 lg:pb-7 lg:min-h-[340px]">
-          <nav aria-label="Breadcrumb" className="text-xs mb-7 lg:mb-4">
-            <ol className="flex items-center gap-1.5 flex-wrap">
-              <li>
-                <Link href="/" className="hover:underline" style={{ color: BLUE }}>
-                  Home
-                </Link>
-              </li>
-              <li className="text-gray-400">/</li>
-              <li>
-                <Link
-                  href={`/${article.category}`}
-                  className="hover:underline capitalize"
-                  style={{ color: BLUE }}
-                >
-                  {article.category}
-                </Link>
-              </li>
-              <li className="text-gray-400">/</li>
-              <li className="text-gray-600">{article.title}</li>
-            </ol>
-          </nav>
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          {/* ---------- Column 1: blue panel with text ---------- */}
+          <div className="flex items-center lg:justify-end">
+            <div className="w-full lg:max-w-[640px] px-4 sm:px-6 lg:pl-8 lg:pr-12 pt-5 pb-8 lg:py-10">
+              <nav aria-label="Breadcrumb" className="text-xs mb-7 lg:mb-6">
+                <ol className="flex items-center gap-1.5 flex-wrap">
+                  <li>
+                    <Link href="/" className="hover:underline" style={{ color: BLUE }}>
+                      Home
+                    </Link>
+                  </li>
+                  <li className="text-gray-400">/</li>
+                  <li>
+                    <Link
+                      href={`/${article.category}`}
+                      className="hover:underline capitalize"
+                      style={{ color: BLUE }}
+                    >
+                      {article.category}
+                    </Link>
+                  </li>
+                  <li className="text-gray-400">/</li>
+                  <li className="text-gray-600">{article.title}</li>
+                </ol>
+              </nav>
 
-          <div className="lg:w-[46%]">
-            <span
-              className="inline-block text-white text-[11px] font-semibold tracking-wider uppercase px-3 py-1.5"
-              style={{ backgroundColor: "#12306b" }}
-            >
-              {article.label}
-            </span>
+              <span
+                className="inline-block text-white text-[11px] font-semibold tracking-wider uppercase px-3 py-1.5"
+                style={{ backgroundColor: "#12306b" }}
+              >
+                {article.label}
+              </span>
 
-            <h1
-              className={`${playfair.className} mt-4 text-[2rem] sm:text-[2.6rem] lg:text-[2.2rem] leading-[1.1] font-bold`}
-              style={{ color: NAVY }}
-            >
-              {article.title}
-            </h1>
-            <GoldRule className="mt-5 lg:mt-4" />
+              <h1
+                className={`${playfair.className} mt-4 text-[2rem] sm:text-[2.6rem] lg:text-[2.3rem] leading-[1.1] font-bold`}
+                style={{ color: NAVY }}
+              >
+                {article.title}
+              </h1>
+              <GoldRule className="mt-5" />
 
-            <p className="mt-5 lg:mt-4 text-base sm:text-[1.05rem] lg:text-[0.95rem] italic text-gray-600 leading-relaxed max-w-md">
-              {article.deck}
-            </p>
+              <p className="mt-5 text-base sm:text-[1.05rem] italic text-gray-600 leading-relaxed max-w-lg">
+                {article.deck}
+              </p>
 
-            <div className="mt-6 lg:mt-5 flex items-center gap-4">
-              <div className="flex items-center gap-3">
-                {author.image && (
-                  <Image
-                    src={author.image}
-                    alt={author.name || "Author"}
-                    width={40}
-                    height={40}
-                    className="w-10 h-10 rounded-full object-cover"
-                  />
-                )}
-                <div className="leading-tight">
-                  <p className="text-[13px] font-semibold" style={{ color: NAVY }}>
-                    {author.name}
-                  </p>
-                  <p className="text-[11px] text-gray-500">{author.role}</p>
+              <div className="mt-6 flex items-center gap-4">
+                <div className="flex items-center gap-3">
+                  {author.image && (
+                    <Image
+                      src={author.image}
+                      alt={author.name || "Author"}
+                      width={40}
+                      height={40}
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
+                  )}
+                  <div className="leading-tight">
+                    <p className="text-[13px] font-semibold" style={{ color: NAVY }}>
+                      {author.name}
+                    </p>
+                    <p className="text-[11px] text-gray-500">{author.role}</p>
+                  </div>
                 </div>
+                <span className="h-8 w-px bg-gray-300" aria-hidden="true" />
+                <p className="text-xs text-gray-500">Updated {article.updated}</p>
               </div>
-              <span className="h-8 w-px bg-gray-300" aria-hidden="true" />
-              <p className="text-xs text-gray-500">Updated {article.updated}</p>
             </div>
           </div>
-        </div>
 
-        {/* Artwork */}
-        {article.heroImageDesktop ? (
-          <>
-            {/* Mobile / tablet: current image, below the text */}
-            <div className="relative z-0 w-full aspect-[16/10] sm:aspect-[2/1] lg:hidden">
-              <Image
-                src={article.heroImage || article.image}
-                alt={article.imageAlt || ""}
-                fill
-                priority
-                sizes="100vw"
-                className="object-cover object-[85%_center]"
-              />
-            </div>
-
-            {/* Laptop / desktop: full-width banner, empty left side sits behind the text */}
-            <div className="relative z-0 hidden lg:block lg:absolute lg:inset-0">
-              <Image
-                src={article.heroImageDesktop}
-                alt={article.imageAlt || ""}
-                fill
-                sizes="100vw"
-                className="object-cover object-[center_25%]"
-              />
-            </div>
-          </>
-        ) : (
-          /* Artwork: mobile = below the text, desktop = right side fading into the left */
-          <div className="relative z-0 w-full aspect-[16/10] sm:aspect-[2/1] lg:aspect-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-[42%]">
+            {/* ---------- Column 2: image (same image on mobile + desktop) ---------- */}
+          <div className="relative w-full aspect-[16/10] sm:aspect-[2/1] lg:aspect-auto lg:min-h-[420px]">
             <Image
               src={article.heroImage || article.image}
               alt={article.imageAlt || ""}
               fill
               priority
-              sizes="(min-width: 1024px) 42vw, 100vw"
-              className="hero-art-mask object-cover object-[85%_center] lg:object-center"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover object-[center_25%]"
             />
           </div>
-        )}
+        </div>
       </section>
 
       {/* ================= BODY ================= */}
