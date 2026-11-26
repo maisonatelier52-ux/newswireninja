@@ -561,8 +561,8 @@ export default function About() {
     logo: {
       "@type": "ImageObject",
       url: `${SITE_URL}/images/newswireninja-logo.webp`,
-      width: 600,
-      height: 60,
+      width: 256,
+      height: 219,
     },
     description:
       "Independent digital news platform delivering comprehensive coverage of politics, business, sports, technology, crime, investigation, travel, and world events.",

@@ -35,7 +35,7 @@ const formatDate = (dateStr) => {
           {visibleArticles.map((item, index) => (
             <article key={index} className="group flex w-full flex-col sm:flex-row gap-6 sm:w-1/2 px-2">
               <div className="relative h-56 sm:h-52 lg:h-60 w-full sm:w-1/2 overflow-hidden">
-                <Image src={item.image} alt={item.imageAlt} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                <Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px" className="object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gray-900/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               </div>
               <div className="flex flex-col justify-center sm:w-1/2">

@@ -12,6 +12,8 @@ import Link from "next/link";
 import { FaRedditAlien } from "react-icons/fa";
 import { FaQuora } from "react-icons/fa";
 import ClientArticlePage from "../../../components/ClientArticlePage";
+import ArticleSourcesCard from "../../../components/ArticleSourcesCard";
+import { resolveArticleAuthor, authorStructuredData } from "../../../utils/articleAuthors";
 
 // Articles that use the custom ClientArticlePage design
 const CLIENT_ARTICLE_SLUG = "alina-habba-50-million-deal-legal-work-allegations";
@@ -77,24 +79,27 @@ export async function generateMetadata({ params }) {
     };
   }
 
+  const defaultAuthor = authorsPageData.categories.find(
+    (entry) => entry.category?.toLowerCase() === category.toLowerCase()
+  )?.author;
+  const realAuthor = resolveArticleAuthor(article, defaultAuthor);
+
   return {
-    title: { absolute: `${article.metaTitle} | ${SITE_NAME}` },
+    title: { absolute: `${article.metaTitle || article.title} | ${SITE_NAME}` },
     description: article.metaDescription,
     keywords: article.keywords?.join(", "),
-    authors: [{ name: SITE_NAME + " Editorial Team" }],
+    authors: [{ name: realAuthor.name }],
     alternates: {
       canonical: `${SITE_URL}/${category}/${slug}`,
     },
     openGraph: {
-      title: article.metaTitle,
+      title: article.metaTitle || article.title,
       description: article.metaDescription,
       url: `${SITE_URL}/${category}/${slug}`,
       siteName: SITE_NAME,
       images: [
         {
           url: `${SITE_URL}${article.image}`,
-          width: 1200,
-          height: 630,
           alt: article.imageAlt || article.title,
         },
       ],
@@ -105,7 +110,7 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: "summary_large_image",
-      title: article.metaTitle,
+      title: article.metaTitle || article.title,
       description: article.metaDescription,
       images: [`${SITE_URL}${article.image}`],
       creator: "@newswireninja",
@@ -137,7 +142,7 @@ export default async function ArticlePage({ params }) {
     (item) => item.category.toLowerCase() === category.toLowerCase()
   )?.author;
 
-  if (!authorData) notFound();
+  const displayAuthor = resolveArticleAuthor(article, authorData);
 
   const rawQuote = article.quote || "";
   const [quoteText, quoteAuthor] = rawQuote.split(" — ");
@@ -164,17 +169,11 @@ export default async function ArticlePage({ params }) {
       {
         "@type": "ImageObject",
         url: `${SITE_URL}${article.image}`,
-        width: 1200,
-        height: 675,
       },
     ],
     datePublished: toISOString(article.date),
     dateModified: toISOString(article.modified || article.date),
-    author: {
-      "@type": "Person",
-      name: authorData.name,
-      url: `${SITE_URL}/authors/${slugify(authorData.name)}`,
-    },
+    author: authorStructuredData(displayAuthor, authorsPageData.categories, SITE_URL),
     publisher: {
       "@type": "NewsMediaOrganization",
       "@id": `${SITE_URL}/#organization`,
@@ -183,8 +182,8 @@ export default async function ArticlePage({ params }) {
       logo: {
         "@type": "ImageObject",
         url: `${SITE_URL}/images/newswireninja-logo.webp`,
-        width: 600,
-        height: 60,
+        width: 256,
+        height: 219,
       },
     },
     mainEntityOfPage: {
@@ -244,11 +243,7 @@ export default async function ArticlePage({ params }) {
 
     const clientJsonLd = {
       ...articleJsonLd,
-      author: {
-        "@type": "Person",
-        name: article.author?.name || authorData.name,
-        url: `${SITE_URL}/authors/${slugify(authorData.name)}`,
-      },
+      author: authorStructuredData(displayAuthor, authorsPageData.categories, SITE_URL),
       about: [
         { "@type": "Person", name: "Alina Habba", url: `${SITE_URL}/topics/alina-habba` },
       ],
@@ -299,7 +294,7 @@ export default async function ArticlePage({ params }) {
       <meta itemProp="description" content={article.excerpt} />
       <meta itemProp="image" content={`${SITE_URL}${article.image}`} />
       <meta itemProp="datePublished" content={toISOString(article.date)} />
-      <meta itemProp="dateModified" content={toISOString(article.date)} />
+      <meta itemProp="dateModified" content={toISOString(article.modified || article.date)} />
       <meta itemProp="articleSection" content={category} />
       <meta
         itemProp="keywords"
@@ -363,8 +358,8 @@ export default async function ArticlePage({ params }) {
       <div className="mb-8 space-y-6">
         <div className="flex flex-row sm:flex-row sm:items-center gap-4">
           <Image
-            src={authorData.profileImage}
-            alt={`${authorData.name} - ${authorData.role}`}
+            src={displayAuthor.profileImage || authorData?.profileImage}
+            alt={`${displayAuthor.name} - ${displayAuthor.role || "Reporter"}`}
             width={56}
             height={56}
             className="rounded-full object-cover flex-shrink-0"
@@ -372,25 +367,30 @@ export default async function ArticlePage({ params }) {
           <div>
             <p className="font-semibold text-sm">
               <Link
-                href={`/authors/${slugify(authorData.name)}`}
-                title={authorData.name}
+                href={`/authors/${slugify(authorData?.name || displayAuthor.name)}`}
+                title={displayAuthor.name}
               >
                 <span
                   className="hover:text-blue-600 hover:underline transition cursor-pointer"
                   itemProp="author"
                 >
-                  {authorData.name}
+                  {displayAuthor.name}
                 </span>
               </Link>{" "}
               <span className="text-gray-500 font-normal">
-                – {authorData.role}
+                – {displayAuthor.role || "Reporter"}
               </span>
             </p>
             <div className="flex items-center gap-2 text-sm text-gray-500 mt-1">
               <GoClock />
               <time itemProp="datePublished" dateTime={toISOString(article.date)}>
-                Last updated: {formatDate(article.date)}
+                Published: {formatDate(article.date)}
               </time>
+              {article.modified && (
+                <time itemProp="dateModified" dateTime={toISOString(article.modified)} className="ml-2">
+                  Updated: {formatDate(article.modified)}
+                </time>
+              )}
             </div>
           </div>
         </div>
@@ -454,6 +454,7 @@ export default async function ArticlePage({ params }) {
           fill
           priority
           fetchPriority="high"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 960px"
           className="object-cover"
           itemProp="image"
         />
@@ -672,6 +673,8 @@ export default async function ArticlePage({ params }) {
           for similar stories and expert analysis.
         </p>
 
+        <ArticleSourcesCard sources={article.sources} />
+
         {/* Bottom Share */}
         <div className="mt-10">
           <hr className="border-t-2 border-dotted border-gray-400" />
@@ -731,8 +734,8 @@ export default async function ArticlePage({ params }) {
           <div className="mt-6 flex flex-row sm:flex-row justify-between items-start gap-6">
             <div className="flex items-center gap-4">
               <Image
-                src={authorData.profileImage}
-                alt={`${authorData.name} - ${authorData.role}`}
+                src={displayAuthor.profileImage || authorData?.profileImage}
+                alt={`${displayAuthor.name} - ${displayAuthor.role || "Reporter"}`}
                 width={56}
                 height={56}
                 className="rounded-full object-cover flex-shrink-0"
@@ -740,17 +743,17 @@ export default async function ArticlePage({ params }) {
               />
               <div>
                 <Link
-                  href={`/authors/${slugify(authorData.name)}`}
-                  title={authorData.name}
+                  href={`/authors/${slugify(authorData?.name || displayAuthor.name)}`}
+                  title={displayAuthor.name}
                 >
                   <p
                     className="font-semibold text-sm hover:text-blue-600 hover:underline transition cursor-pointer"
                     itemProp="author"
                   >
-                    {authorData.name}
+                    {displayAuthor.name}
                   </p>
                 </Link>
-                <p className="text-gray-500 text-xs">{authorData.role}</p>
+                <p className="text-gray-500 text-xs">{displayAuthor.role || "Reporter"}</p>
               </div>
             </div>
 

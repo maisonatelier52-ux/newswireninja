@@ -6,6 +6,7 @@ import authorsPageData from "../../public/data/authors.json";
 import Image from "next/image";
 import { slugify } from "../../utils/slugify";
 import { PINNED_ARTICLE } from "../../utils/pinnedArticle";
+import { resolveArticleAuthor, authorStructuredData } from "../../utils/articleAuthors";
 
 const SITE_URL = "https://www.newswireninja.com";
 const SITE_NAME = "Newswireninja";
@@ -77,7 +78,7 @@ export async function generateMetadata({ params }) {
     CATEGORY_DESCRIPTIONS[category.toLowerCase()] ||
     `Latest ${formatted.toLowerCase()} news, original analysis, exclusive angles, and investigative journalism from Newswireninja — independent reporting you can trust.`;
 
-  const title = `${formatted} News & Analysis | Newswireninja`;
+  const title = `${formatted} News & Analysis`;
   const url = `${SITE_URL}/${category}`;
 
   return {
@@ -110,8 +111,8 @@ export async function generateMetadata({ params }) {
       images: [
         {
           url: `${SITE_URL}/images/newswireninja-logo.webp`,
-          width: 1200,
-          height: 630,
+          width: 256,
+          height: 219,
           alt: `${formatted} News – Newswireninja`,
         },
       ],
@@ -246,21 +247,16 @@ export default async function CategoryPage({ params }) {
           headline: article.title,
           description: article.excerpt,
           datePublished: toISOString(article.date),
-          dateModified: toISOString(article.date),
+          dateModified: toISOString(article.modified || article.date),
           image: article.image
             ? `${SITE_URL}${article.image}`
             : `${SITE_URL}/images/newswireninja-logo.webp`,
           url: `${SITE_URL}/${categoryKey}/${article.slug}`,
-          author: authorData
-            ? {
-                "@type": "Person",
-                name: authorData.name,
-                url: `${SITE_URL}/authors/${slugify(authorData.name)}`,
-              }
-            : {
-                "@type": "Organization",
-                name: SITE_NAME,
-              },
+          author: authorStructuredData(
+            resolveArticleAuthor(article, authorData),
+            authorsPageData.categories,
+            SITE_URL
+          ),
           publisher: {
             "@type": "NewsMediaOrganization",
             name: SITE_NAME,
@@ -342,20 +338,6 @@ export default async function CategoryPage({ params }) {
       />
 
       <main className="max-w-7xl mx-auto px-4 py-10 sm:px-6 font-serif">
-        {/* SEO hidden content */}
-        <section className="sr-only">
-          <h1>
-            {formattedCategory} News & Analysis — Breaking Headlines &amp; Expert
-            Reporting
-          </h1>
-          <p>
-            Welcome to Newswireninja&apos;s {formattedCategory.toLowerCase()} section,
-            your trusted source for breaking {formattedCategory.toLowerCase()} news,
-            in-depth analysis, and expert commentary. Browse our collection of{" "}
-            {sortedArticles.length} {formattedCategory.toLowerCase()} articles written
-            by experienced journalists committed to accuracy and independence.
-          </p>
-        </section>
 
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-6">
@@ -373,7 +355,7 @@ export default async function CategoryPage({ params }) {
         {/* Header */}
         <header className="mb-6">
           <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">
-            {category} News &amp; Analysis — Newswireninja
+            {formattedCategory} News &amp; Analysis
           </h1>
           <p className="text-sm text-gray-600 max-w-4xl mt-2">
             Stay updated with the latest <strong>{category} news</strong>. Our
@@ -383,27 +365,9 @@ export default async function CategoryPage({ params }) {
           <div className="border-t border-black mt-3 mb-6"></div>
         </header>
 
-        {/* Category description prose — UPDATED for stronger E-E-A-T signals */}
-        <section className="prose max-w-4xl mb-10">
-          <h2>{formattedCategory} News Coverage</h2>
-          <p>
-            Newswireninja&apos;s {category} section is built on original journalism
-            with a commitment to accuracy, independence, and depth. Our editorial
-            team delivers breaking developments, long-form investigations, expert
-            commentary, and exclusive perspectives you won&apos;t find aggregated
-            elsewhere.
-          </p>
-          <p>
-            We go beyond headlines — providing historical context, future
-            implications, data-driven insights, and balanced analysis to help
-            readers understand the real forces shaping{" "}
-            {category.toLowerCase()} today.
-          </p>
-          <p className="font-medium text-blue-700">
-            Every story is verified, sourced transparently, and written by
-            experienced journalists who stand behind their reporting.
-          </p>
-        </section>
+        <p className="mb-10 max-w-4xl text-sm leading-relaxed text-gray-600">
+          {CATEGORY_DESCRIPTIONS[categoryKey] || `News and analysis on ${formattedCategory.toLowerCase()}.`}
+        </p>
 
         {/* MAIN GRID */}
         <div className="grid grid-cols-1 md:grid-cols-[70%_30%] gap-4 pb-10">

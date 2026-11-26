@@ -13,7 +13,7 @@ export function SplitFeatured({ selectedArticles, getAuthorByCategory }) {
           <Link href={`${selectedArticles[0].category}/${selectedArticles[0].slug}`} title={selectedArticles[0].title}>
             <div className="group grid grid-cols-1 md:grid-cols-2 gap-8 cursor-pointer">
               <div className="relative h-64 sm:h-80 md:h-130 w-full overflow-hidden">
-                <Image src={selectedArticles[0].image} alt={selectedArticles[0].imageAlt} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                <Image src={selectedArticles[0].image} alt={selectedArticles[0].imageAlt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px" className="object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gray-900/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               </div>
               <div className="flex flex-col justify-center">
@@ -38,7 +38,7 @@ export function SplitFeatured({ selectedArticles, getAuthorByCategory }) {
             <div className="group relative lg:border-l lg:border-gray-300 lg:pl-8 cursor-pointer">
               <div className="space-y-4">
                 <div className="relative h-56 sm:h-64 md:h-72 w-full overflow-hidden">
-                  <Image src={selectedArticles[1].image} alt={selectedArticles[1].imageAlt} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <Image src={selectedArticles[1].image} alt={selectedArticles[1].imageAlt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px" className="object-cover transition-transform duration-500 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gray-900/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <span className="absolute bottom-3 left-3 bg-blue-600 px-3 py-1 text-xs font-semibold text-white z-10">
                     {selectedArticles[1].category.toUpperCase()}

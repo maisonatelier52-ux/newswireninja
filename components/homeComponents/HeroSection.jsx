@@ -28,15 +28,8 @@ const formatDate = (dateStr) => {
       <section className="lg:col-span-2">
         {latestArticles[0] && (
           <>
-          <h1 className="sr-only">
-            {`Newswire Ninja — Independent U.S. News, Business & Investigations - ${
-              latestArticles[0].title.length + 37 > 70 
-                ? latestArticles[0].title.slice(0, 70 - 37) + "..." 
-                : latestArticles[0].title
-            }`}
-          </h1>
             <div className="relative h-[240px] sm:h-[320px] lg:h-[420px] w-full">
-              <Image src={latestArticles[0].image} alt={latestArticles[0].imageAlt} fill priority className="object-cover object-top" />
+              <Image src={latestArticles[0].image} alt={latestArticles[0].imageAlt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 850px" priority className="object-cover object-top" />
               <span className="absolute bottom-3 left-3 bg-blue-600 px-2 py-1 text-[10px] sm:text-xs font-semibold text-white">
                 {latestArticles[0].category.toUpperCase()}
               </span>
@@ -49,15 +42,12 @@ const formatDate = (dateStr) => {
                   {latestArticles[0].title}
                 </h2>
               </Link>
-              <p className="sr-only">
-                Newswireninja — Independent U.S. News, Business & Investigations
-              </p>
               <p className="mt-3 text-sm sm:text-base text-gray-700">{latestArticles[0].excerpt}</p>
 
               <div className="mt-5 flex items-center text-xs sm:text-sm text-gray-500">
                 <div className="hidden md:flex items-center gap-2 pr-3 border-r border-gray-300">
                   <div className="relative h-7 w-7 overflow-hidden rounded-full">
-                    <Image src={getAuthorByCategory(latestArticles[0].category).profileImage} alt="Author" fill className="object-cover" />
+                    <Image src={getAuthorByCategory(latestArticles[0].category).profileImage} alt="Author" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px" className="object-cover" />
                   </div>
                   <span className="font-medium text-black">{getAuthorByCategory(latestArticles[0].category).name}</span>
                 </div>
@@ -81,9 +71,9 @@ const formatDate = (dateStr) => {
         )}
 
         {/* Change this to <h3> for the subsequent sections */}
-        <h3 className="mt-4 text-sm text-gray-600 max-w-3xl">
+        <p className="mt-4 text-sm text-gray-600 max-w-3xl">
           {generateHeroContext(latestArticles[0]?.title)}
-        </h3>
+        </p>
         <p className="mt-2 text-sm text-gray-700 max-w-4xl">
           Newswireninja is an independent digital news organization delivering trusted U.S. news, business reporting, and in-depth investigations worldwide.
         </p>
@@ -98,7 +88,7 @@ const formatDate = (dateStr) => {
               <Image
                 src={latestArticles[1].image}
                 alt={latestArticles[1].imageAlt}
-                fill
+                fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px"
                 className="object-cover"
               />
             </div>
@@ -120,7 +110,7 @@ const formatDate = (dateStr) => {
                 <Image
                   src={latestArticles[1].image}
                   alt={latestArticles[1].imageAlt}
-                  fill
+                  fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px"
                   className="object-cover"
                 />
               </div>
@@ -166,7 +156,7 @@ const formatDate = (dateStr) => {
                   <Image
                     src={latestArticles[2].image}
                     alt={latestArticles[2].imageAlt}
-                    fill
+                    fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px"
                     className="object-cover"
                   />
                 </div>
@@ -178,7 +168,7 @@ const formatDate = (dateStr) => {
                   <Image
                     src={latestArticles[2].image}
                     alt={latestArticles[2].imageAlt}
-                    fill
+                    fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px"
                     className="object-cover"
                   />
                 </div>
@@ -218,7 +208,7 @@ const formatDate = (dateStr) => {
                   <Image
                     src={latestArticles[3].image}
                     alt={latestArticles[3].imageAlt}
-                    fill
+                    fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px"
                     className="object-cover"
                   />
                 </div>
@@ -230,7 +220,7 @@ const formatDate = (dateStr) => {
                   <Image
                     src={latestArticles[3].image}
                     alt={latestArticles[3].imageAlt}
-                    fill
+                    fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px"
                     className="object-cover"
                   />
                 </div>

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import ArticleSourcesCard from "./ArticleSourcesCard";
 import { Playfair_Display, Source_Serif_4 } from "next/font/google";
 import { FaRegFileAlt, FaUser, FaQuoteLeft, FaInfoCircle } from "react-icons/fa";
 import { FaXTwitter, FaFacebookF, FaLinkedinIn } from "react-icons/fa6";
@@ -204,25 +205,6 @@ export default function ClientArticlePage({
     }
   };
 
-  const sourcesLine = (
-    <p className="mt-6 text-[1rem]">
-      <strong className="font-semibold">Sources:</strong>{" "}
-      {(article.sources || []).map((s, i) => (
-        <span key={s.url}>
-          {i > 0 && " • "}
-          <a
-            href={s.url}
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            className="underline"
-            style={{ color: BLUE }}
-          >
-            {s.label}
-          </a>
-        </span>
-      ))}
-    </p>
-  );
 
   return (
     <article
@@ -475,7 +457,7 @@ export default function ClientArticlePage({
             </section>
           )}
 
-          {sourcesLine}
+          <ArticleSourcesCard sources={article.sources} />
 
           {/* Share */}
           <div className="mt-8 flex items-center gap-4">
@@ -565,40 +547,6 @@ export default function ClientArticlePage({
 
             {/* NYT spotlight card (above Sources) */}
             <NytCard />
-
-            {/* Sources */}
-            <section
-              className="px-5 py-5 rounded-sm"
-              style={{ backgroundColor: "#eaf1fb" }}
-            >
-              <h2
-                className="flex items-center gap-2 text-[11px] font-bold tracking-[0.18em] uppercase mb-4"
-                style={{ color: "#12306b" }}
-              >
-                <span
-                  aria-hidden="true"
-                  className="w-3.5 h-3.5 rounded-full inline-block"
-                  style={{ backgroundColor: BLUE }}
-                />
-                Sources
-              </h2>
-              <ul className="space-y-3">
-                {(article.sources || []).map((s) => (
-                  <li key={s.url}>
-                    <a
-                      href={s.url}
-                      target="_blank"
-                      rel="noopener noreferrer nofollow"
-                      className="flex items-start justify-between gap-2 text-[13px] underline leading-snug"
-                      style={{ color: BLUE }}
-                    >
-                      <span>{s.label}</span>
-                      <FiExternalLink className="shrink-0 mt-0.5" aria-hidden="true" />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </section>
 
             {/* Related coverage */}
             {related.length > 0 && (

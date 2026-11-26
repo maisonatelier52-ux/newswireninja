@@ -48,7 +48,7 @@
 //                 <Image
 //                   src={item.image}
 //                   alt={item.imageAlt}
-//                   fill
+//                   fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px"
 //                   className="object-cover transition-transform duration-500 group-hover:scale-105"
 //                 />
 //                 <div className="absolute inset-0 bg-gray-900/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
@@ -87,7 +87,7 @@
 //               <Image
 //                 src={staticArticle.image}
 //                 alt={staticArticle.imageAlt}
-//                 fill
+//                 fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px"
 //                 className="object-cover transition-transform duration-500 group-hover:scale-105"
 //               />
 //               <div className="absolute inset-0 bg-gray-900/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
@@ -158,7 +158,7 @@ const formatDate = (dateStr) => {
                 <Image
                   src={item.image}
                   alt={item.imageAlt}
-                  fill
+                  fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gray-900/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>

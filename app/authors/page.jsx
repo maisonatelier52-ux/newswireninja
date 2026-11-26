@@ -34,8 +34,8 @@ export async function generateMetadata() {
       images: [
         {
           url: `${SITE_URL}/images/newswireninja-logo.webp`,
-          width: 1200,
-          height: 630,
+          width: 256,
+          height: 219,
           alt: "Meet Our Authors at Newswireninja",
         },
       ],

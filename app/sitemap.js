@@ -16,79 +16,73 @@ function parseDate(dateStr) {
 }
 
 export default function sitemap() {
-  const now = new Date();
+  // Do not stamp every static URL as modified on every deployment.
+  // Article lastModified values come from editorial record dates.
 
   /* ---------------- STATIC PAGES ---------------- */
   const staticPages = [
     {
       url: SITE_URL,
-      lastModified: now,
       changeFrequency: "daily",
       priority: 1.0,
     },
     {
       url: `${SITE_URL}/about-newswireninja`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: `${SITE_URL}/privacy-policy`,
-      lastModified: now,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${SITE_URL}/terms-and-conditions`,
-      lastModified: now,
       changeFrequency: "yearly",
       priority: 0.3,
     },
      {
       url: `${SITE_URL}/advertising-policy`,
-      lastModified: now,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${SITE_URL}/corrections-policy`,
-      lastModified: now,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${SITE_URL}/editorial-policy`,
-      lastModified: now,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${SITE_URL}/legal`,
-      lastModified: now,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${SITE_URL}/ownership-funding`,
-      lastModified: now,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${SITE_URL}/right-of-reply`,
-      lastModified: now,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${SITE_URL}/source-methodology`,
-      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/contact`,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${SITE_URL}/authors`,
-      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.6,
     },
@@ -98,7 +92,6 @@ export default function sitemap() {
   /* ---------------- CATEGORY PAGES ---------------- */
   const categoryPages = Object.keys(articlesData).map((category) => ({
     url: `${SITE_URL}/${category}`,
-    lastModified: now,
     changeFrequency: "daily",
     priority: 0.8,
   }));
@@ -108,7 +101,7 @@ export default function sitemap() {
     ([category, articles]) =>
       articles.map((article) => ({
         url: `${SITE_URL}/${category}/${article.slug}`,
-        lastModified: parseDate(article.modified || article.date) || now,
+        lastModified: parseDate(article.modified || article.date),
         changeFrequency: "weekly",
         priority: 0.9,
       }))
@@ -119,7 +112,6 @@ export default function sitemap() {
   /* ---------------- AUTHOR DETAIL PAGES ---------------- */
   const authorDetailPages = authorData.categories.map((cat) => ({
     url: `${SITE_URL}/authors/${slugify(cat.author.name)}`,
-    lastModified: now,
     changeFrequency: "monthly",
     priority: 0.6,
   }));
@@ -127,7 +119,6 @@ export default function sitemap() {
   /* ---------------- TOPIC HUB PAGES ---------------- */
   const topicPages = Object.keys(topics).map((slug) => ({
     url: `${SITE_URL}/topics/${slug}`,
-    lastModified: now,
     changeFrequency: "daily",
     priority: 0.8,
   }));
@@ -155,32 +146,27 @@ export default function sitemap() {
 //   const staticPages = [
 //     {
 //       url: SITE_URL,
-//       lastModified: now,
-//       changeFrequency: "daily",
+//   //       changeFrequency: "daily",
 //       priority: 1.0,
 //     },
 //     {
 //       url: `${SITE_URL}/about-newswireninja`,
-//       lastModified: now,
-//       changeFrequency: "monthly",
+//   //       changeFrequency: "monthly",
 //       priority: 0.6,
 //     },
 //     {
 //       url: `${SITE_URL}/privacy-policy`,
-//       lastModified: now,
-//       changeFrequency: "yearly",
+//   //       changeFrequency: "yearly",
 //       priority: 0.3,
 //     },
 //     {
 //       url: `${SITE_URL}/terms-and-conditions`,
-//       lastModified: now,
-//       changeFrequency: "yearly",
+//   //       changeFrequency: "yearly",
 //       priority: 0.3,
 //     },
 //     {
 //       url: `${SITE_URL}/authors`,
-//       lastModified: now,
-//       changeFrequency: "weekly",
+//   //       changeFrequency: "weekly",
 //       priority: 0.6,
 //     },
 //   ];
@@ -189,8 +175,7 @@ export default function sitemap() {
 //   const staticDetailPages = [
 //     {
 //       url: `${SITE_URL}/business/julio-herrera-velutini-legacy-finance`,
-//       lastModified: now,
-//       changeFrequency: "monthly",
+//   //       changeFrequency: "monthly",
 //       priority: 0.9,
 //     },
 //   ];
@@ -198,8 +183,7 @@ export default function sitemap() {
 //   /* ---------------- CATEGORY PAGES ---------------- */
 //   const categoryPages = Object.keys(articlesData).map(category => ({
 //     url: `${SITE_URL}/${category}`,
-//     lastModified: now,
-//     changeFrequency: "daily",
+// //     changeFrequency: "daily",
 //     priority: 0.8,
 //   }));
 
@@ -232,8 +216,7 @@ export default function sitemap() {
 //     const author = cat.author;
 //     return {
 //       url: `${SITE_URL}/authors/${slugify(author.name)}`,
-//       lastModified: now,
-//       changeFrequency: "monthly",
+//   //       changeFrequency: "monthly",
 //       priority: 0.6,
 //     };
 //   });

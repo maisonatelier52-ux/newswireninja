@@ -12,7 +12,7 @@ export function FeaturedWriters({ authorsPageData, getArticlesByCategory, slugif
             return (
               <div key={index} className="flex flex-col items-center border border-gray-300 bg-[#eef3f6] px-6 py-10 text-center">
                 <div className="relative h-24 w-24 overflow-hidden rounded-full mb-4">
-                  <Image src={author.profileImage} alt={author.name} fill className="object-cover" />
+                  <Image src={author.profileImage} alt={author.name} fill sizes="(max-width: 640px) 88px, 112px" className="object-cover" />
                 </div>
                 <p className="text-sm text-gray-500">{author.role} / {articleCount} Articles</p>
                 <Link href={`/authors/${slugify(author.name)}`} title={author.name}>

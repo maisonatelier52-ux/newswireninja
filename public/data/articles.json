@@ -71,7 +71,13 @@
             "Red Square in Moscow was covered in snow, but thousands of people still went to concerts and light shows even though it was very cold. As the Kremlin clock struck midnight, families raised their glasses of vodka and hoped for warmer days ahead, both literally and figuratively, as tensions between countries grew."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Reuters: New Year celebrations, Sydney and Bondi tribute",
+          "url": "https://www.reuters.com/world/asia-pacific/sydney-brings-new-year-with-nod-victims-bondi-attack-2025-12-31/"
+        }
+      ]
     },
     {
       "id": 2,
@@ -140,7 +146,13 @@
             "Iran's leaders have a lot to do as the new year begins. They need to fix the country's economic problems without looking like they're giving in to pressure, and they have to accomplish all of this while dealing with a world that isn't very nice. The killing of the young Basij volunteer could be a turning point that makes both sides more determined. The streets of Kouhdasht and other places are quieter right now, but the anger is still there, waiting for something to happen."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Associated Press reporting (via Times of Israel): Iran protests",
+          "url": "https://www.timesofisrael.com/liveblog_entry/volunteer-in-irans-revolutionary-guard-killed-in-protests-say-authorities/"
+        }
+      ]
     },
     {
       "id": 3,
@@ -210,7 +222,13 @@
             "As winter grows worse, the stress level rises up. Most people in Odesa and Moscow just want to live. A Ukrainian who pleaded not to be named for safety reasons told reporters, 'We just want the bombs to stop.' People all throughout the world are hopeful that diplomacy will win out over drones."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "AFP: Russian drone strikes wound civilians and children in Odesa",
+          "url": "https://citizen.digital/article/russian-strikes-on-ukraines-odesa-wound-6-including-children-n375115"
+        }
+      ]
     },
     {
       "id": 4,
@@ -277,7 +295,13 @@
             "But the most essential thing right now is to get better. Switzerland is a strong country, but it is also terribly sad. President Parmelin added that now is the time to pray, be respectful, and help one another."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Swiss Federal Department of Foreign Affairs: Crans-Montana tragedy",
+          "url": "https://www.eda.admin.ch/en/tragedy-in-crans-montana"
+        }
+      ]
     },
     {
       "id": 5,
@@ -345,7 +369,13 @@
             "Recovery will take time, maybe years. But step by step, with help from family, doctors, and his own determination, Kalfon is working to build a new chapter. His story is a painful reminder of what war does to ordinary people, and of the long road back even after the fighting stops."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Israel Ministry of Health: return of freed hostages",
+          "url": "https://www.gov.il/en/pages/13102025-14"
+        }
+      ]
     },
     {
       "id": 6,
@@ -420,7 +450,13 @@
             "The world watches as risks to regional stability grow."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Security Service of Ukraine: Oreshnik missile debris and attack",
+          "url": "https://ssu.gov.ua/en/novyny/sbu-prodemonstruvala-ulamky-orieshnika-yakym-rf-atakuvala-lvivshchynu-i-kvalifikuie-tsei-udar-yak-voiennyi-zlochyn-video"
+        }
+      ]
     },
     {
       "id": 7,
@@ -484,7 +520,13 @@
             "In the end, it seems like a classic case of miscommunication and bad timing. The U.S. is following a routine protocol for protecting its people at major events abroad, but the name \"ICE\" carries so much baggage right now that even the clarifications haven't fully eased the concerns. With the Opening Ceremony just days away, everyone hopes the focus shifts back to skiing, skating, and the joy of winter sports, rather than political friction."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Associated Press: protests over ICE presence at Olympics",
+          "url": "https://wtop.com/world/2026/01/demonstrators-in-milan-protest-ice-unit-at-winter-olympics-criticizing-creeping-fascism/"
+        }
+      ]
     },
     {
       "id": 8,
@@ -547,7 +589,13 @@
             "It felt like more than just a nuclear agreement as Rubio and Orbán shook hands and signed the documents on Monday. It was an obvious indication that Washington and Budapest were becoming closer under Trump."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "CBS News: United States and Hungary nuclear cooperation",
+          "url": "https://www.cbsnews.com/news/us-hungary-nuclear-cooperation-trump-deepens-ties-viktor-orban/"
+        }
+      ]
     },
     {
       "id": 9,
@@ -611,7 +659,13 @@
             "There are still questions about Yoon's and the country's future that need to be answered while the appeal is going on. South Koreans are watching the appeals process very closely."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Yonhap News Agency: Yoon appeals life sentence",
+          "url": "https://en.yna.co.kr/view/AEN20260224003851315"
+        }
+      ]
     },
     {
       "id": 10,
@@ -686,7 +740,17 @@
             "WHO urges all sides to protect civilians and hospitals."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "FDD Long War Journal: Iran-backed Iraqi militias claim strikes on March 4–5, 2026",
+          "url": "https://www.fdd.org/analysis/iranian-backed-militias-continue-attacks-on-us-forces-in-iraq/"
+        },
+        {
+          "label": "Reuters: Iran-backed armed groups escalate attacks in regional conflict",
+          "url": "https://www.investing.com/news/world-news/irans-shiite-allies-step-up-strikes-despite-weakened-hand-4558341"
+        }
+      ]
     },
     {
       "id": 11,
@@ -761,7 +825,13 @@
             "Overall, the conflict underscores the interconnected nature of regional tensions and global economic stability."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "International Energy Agency: March 2026 Oil Market Report on supply disruption",
+          "url": "https://www.iea.org/reports/oil-market-report-march-2026"
+        }
+      ]
     },
     {
       "id": 12,
@@ -836,7 +906,13 @@
             "The Metropolitan Police stress their commitment to tackling hate crime and foreign interference."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Metropolitan Police: arrests and charges after synagogue attack",
+          "url": "https://news.met.police.uk/news/boy-charged-after-kenton-synagogue-arson-attack-508459"
+        }
+      ]
     },
     {
       "id": 13,
@@ -907,7 +983,13 @@
             "The coming days are being watched closely. With Trump's extended ceasefire window narrowing and no concrete agreement on the table, the risk of a return to active hostilities is real enough that US Central Command was briefing the White House on military options the same day Khamenei issued his Hormuz declaration. How those two tracks — diplomacy and force — interact from here will determine the shape of the Gulf for years to come."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Reuters: Mojtaba Khamenei announces proposed new Hormuz management",
+          "url": "https://www.reuters.com/world/middle-east/irans-supreme-leader-mojtaba-khamenei-says-new-phase-taking-shape-gulf-strait-2026-04-30/"
+        }
+      ]
     },
     {
       "id": 14,
@@ -982,7 +1064,13 @@
             "What happened at Barakah was not just another entry in a long list of drone incidents. It was a signal that the conflict has reached infrastructure that carries a different category of risk — and that nobody has yet found a way to make it stop."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Reuters reporting: UAE drone strike and nuclear plant",
+          "url": "https://www.investing.com/news/commodities-news/uae-reports-drone-strike-at-nuclear-power-plant-as-iran-war-deadlock-endures-4694536?ampMode=1"
+        }
+      ]
     },
     {
       "id": 15,
@@ -1049,7 +1137,13 @@
             "For a country that gave so much to the world, it’s nice to see them giving the Parthenon a bit of its dignity back. If you haven’t been to Athens in a while, maybe it’s time. The Parthenon is waiting – and for the first time in more than two centuries, its western face is ready to greet you properly."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Acropolis Restoration Service: Parthenon restoration update",
+          "url": "https://www.ysma.gr/en/news/parthenon-west-pediment-complete/"
+        }
+      ]
     },
     {
       "id": 16,
@@ -1117,7 +1211,13 @@
             "The authorities in Kyiv announced a period of mourning for the dead but warned people to stay on their guard as air raid sirens continued to sound intermittently across the city."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "UN Human Rights Monitoring Mission: overnight civilian casualties in Kyiv",
+          "url": "https://ukraine.ohchr.org/en/Another-Deadly-Overnight-Attack-in-Kyiv-Amid-Rising-Civilian-Casualties"
+        }
+      ]
     },
     {
       "id": 17,
@@ -1192,7 +1292,13 @@
             "The tragedy has raised fresh concerns over the vulnerability of Himalayan communities to glacier-related hazards. Glaciers can move quickly, slopes can become unstable, it can rain a lot and people build in mountain valleys – all of which can cause sudden and destructive floods. The present crisis shows how one geological event can trigger a chain of hazards: collapse of a glacier, debris flow, damming of a river, formation of a barrier lake, and possibly another flood. The immediate challenge for Nepal and China is to ensure that chain does not lead to another disaster. Engineers worked to reduce the risk of a second catastrophic flood but authorities remained on high alert as barrier lakes continued to fill and more rain was expected."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Kathmandu Post: Nepal–China border barrier lake, official update",
+          "url": "https://kathmandupost.com/national/2026/08/30/barrier-lake-near-nepal-china-border-fully-drains-china-says"
+        }
+      ]
     },
     {
       "id": 18,
@@ -1263,7 +1369,13 @@
             "The families involved are desperate for justice for the children and teachers who were murdered. The challenge for authorities is to find out who’s responsible and make sure schools are providing a safe place for students, not subjecting them to preventable structural hazards."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Associated Press: Pakistan school roof collapse and ordered inspections",
+          "url": "https://apnews.com/article/0ec543a80ffad70e88500071d0ea2429"
+        }
+      ]
     },
     {
       "id": 19,
@@ -1336,7 +1448,13 @@
             "Separately, a 49-year-old Indonesian man was reportedly captured in Ukraine's Zaporizhzhia region after saying he was unknowingly recruited to fight for Russia. Indonesia's embassy in Kyiv has been seeking access to him while he is in Ukrainian custody."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "ABC News Australia: Abu Dhabi talks and POW exchange agreement",
+          "url": "https://www.abc.net.au/news/2026-11-12/ukraine-russia-agree-prisoner-swap-abu-dhabi-talks/107375462"
+        }
+      ]
     },
     {
       "id": 20,
@@ -1407,7 +1525,13 @@
             "The attack extended Russia's campaign against Ukraine's power grid ahead of winter. Strikes on power plants, substations and transmission lines forced Ukraine's three operational nuclear power plants to cut generation, causing emergency outages in 11 regions, said Deputy Energy Minister Artem Nekrasov."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Associated Press: Russian missiles land in Poland amid NATO military drills",
+          "url": "https://apnews.com/article/433e18f00cbd37a2a9da94e60fce0e07"
+        }
+      ]
     },
     {
       "id": 21,
@@ -1474,7 +1598,13 @@
             "For now, the Pentagon says the guidance leaves intelligence cooperation, NORAD and NATO collaboration alone, and Canada says it sees no change. The reaction in Congress shows how sensitive the relationship has become amid the trade war and the talk of Canada becoming a US state."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Associated Press: senator questions Pentagon restrictions involving Canada",
+          "url": "https://abcnews.com/US/wireStory/us-senator-pentagon-restrictions-canada-focus-tanks-social-138347622"
+        }
+      ]
     }
   ],
   "politics": [
@@ -1551,7 +1681,13 @@
             "This pullback may calm things down for a while, but it shows that there are deeper problems. With the midterm elections coming up next year, this subject will be hot. What happens next will depend on whether crime \"soars\" again like Trump says it will or keeps going down."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Associated Press: Guard deployment paused after court rulings",
+          "url": "https://apnews.com/article/6b7b02b832b24e17e6db483eb6c74425"
+        }
+      ]
     },
     {
       "id": 2,
@@ -1624,7 +1760,13 @@
             "The Urban Institute and the Commonwealth Fund worked together to figure out that 4.8 million Americans could lose their ACA coverage in 2026 when the subsidies run out. This kind of reduction would undo years of work to lower the number of people without health insurance and might put even more stress on hospitals, emergency rooms, and state health systems."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "KFF: 2026 ACA premium and deductible changes",
+          "url": "https://www.kff.org/affordable-care-act/the-average-marketplace-deductible-grew-by-about-1000-per-person-in-2026-with-more-enrollees-shifting-to-higher-deductible-plans-as-enhanced-tax-credits-expired/"
+        }
+      ]
     },
     {
       "id": 3,
@@ -1692,7 +1834,13 @@
             "One thing is clear: this isn't just about drugs. It's a clash of ideologies, resources, and power in the Americas. Maduro's interview highlights a leader under siege, mixing defiance with diplomacy. Whether it opens a path to talks or merely prolongs the standoff remains to be seen."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Associated Press: Maduro and U.S. talks",
+          "url": "https://apnews.com/article/7fd22f8cbd3bb79ab79ee51699a24842"
+        }
+      ]
     },
     {
       "id": 4,
@@ -1767,7 +1915,13 @@
             "This story isn't just about one drone attack that people disagree on. It's a small example of the bigger problems that need to be fixed to end Europe's biggest war since World War II."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Euronews: Trump says Ukraine did not target Putin residence",
+          "url": "https://www.euronews.com/2026/01/05/trump-says-ukraine-did-not-target-vladimir-putins-residence-in-novgorod-as-the-kremlin-cla"
+        }
+      ]
     },
     {
       "id": 5,
@@ -1842,7 +1996,13 @@
             "When voters are more worried about problems at home and how much things cost, it's a mistake to look too deeply into Venezuela's future. It checks to see if Trump's personal power can make people less afraid of going to war with other countries. Republicans are keeping a close eye on the polls and what happens on the ground because they know that if he loses Congress, his plans will be ruined."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Reuters: Trump political base reacts to Maduro capture",
+          "url": "https://www.investing.com/news/commodities-news/trump-political-base-sets-aside-isolationism-to-cheer-maduro-capture-4428638"
+        }
+      ]
     },
     {
       "id": 6,
@@ -1917,7 +2077,13 @@
             "Trump wants U.S. corporations to reinvest to bring the industry back to life, but other people are scared that this means American companies would take control, which might turn off regional partners like Brazil or Colombia. On the other side, Democrats are fighting back hard. The next vote on war powers could make both sides come to an accord, especially if moderate Republicans like Paul join them."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Official White House notification to Congress about Venezuela strikes",
+          "url": "https://www.govinfo.gov/content/pkg/CDOC-119hdoc124/html/CDOC-119hdoc124.htm"
+        }
+      ]
     },
     {
       "id": 7,
@@ -1986,7 +2152,13 @@
             "As politicians walk into the venue, the message is clear: Republicans are in charge, but they need to be careful with their power. In the midterms, one mistake could change everything. With Trump in charge, there will be a lot of activity, tough negotiations, and a clear focus on November 2026."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "American Presidency Project: January 6 White House pool reports",
+          "url": "https://www.presidency.ucsb.edu/documents/pool-reports-january-6-2026"
+        }
+      ]
     },
     {
       "id": 8,
@@ -2061,7 +2233,13 @@
             "The White House calls it a \"bold vision.\" In the end, money, approvals, and political will will decide if this arch ever gets built. Depending on the elections, Trump's time in office could be coming to an end or going on longer. But his ideas often last longer than the news."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Washington Post: proposed monumental arch and location issues",
+          "url": "https://www.washingtonpost.com/politics/2026/01/31/trump-arch-memorial-circle/"
+        }
+      ]
     },
     {
       "id": 9,
@@ -2142,7 +2320,13 @@
             "It's clear that the Gordie Howe Bridge was built to connect two countries, both physically and economically. However, it's also showing how different leaders can be from each other."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Associated Press: Gordie Howe bridge dispute",
+          "url": "https://apnews.com/article/0eb2f4866f8f2039d3088b6e9c2b28e0"
+        }
+      ]
     },
     {
       "id": 10,
@@ -2211,7 +2395,13 @@
             "A number of Democrats are vying to replace Daines. Among them are former state representative Reilly Neill, Air Force veteran Alani Bankhead, community leader Michael Black Wolf, and military veteran Michael Hummert. Bodnar's decision to run as an independent underscores the Democratic Party's diminished standing in the state's current political landscape."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Montana Public Radio: Steve Daines will not seek reelection",
+          "url": "https://www.mtpr.org/montana-news/2026-03-04/sen-daines-wont-seek-reelection"
+        }
+      ]
     },
     {
       "id": 11,
@@ -2276,7 +2466,13 @@
             "Harris campaigned on the principles of leadership, which included the provision of support for underprivileged communities, education, and healthcare."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Georgia Public Broadcasting: District 14 special election",
+          "url": "https://www.gpb.org/news/2026/04/07/district-14-results-draft"
+        }
+      ]
     },
     {
       "id": 12,
@@ -2345,7 +2541,13 @@
             "Saphier's nomination now heads to the Senate HELP Committee for consideration, and if Cassidy advances it to the floor, a full Senate confirmation vote would follow — though the political tension between Trump and Cassidy, and the ongoing question of how many Republican senators will fall in line, means the path forward is far from straightforward for the administration's third choice to lead the Office of the Surgeon General."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "CBS News: surgeon general nomination change",
+          "url": "https://www.cbsnews.com/news/casey-means-nicole-saphier-us-surgeon-general-trump-nomination/"
+        }
+      ]
     },
     {
       "id": 13,
@@ -2414,7 +2616,13 @@
             "Observers noted that the appointment reflects a broader effort by the administration to create a more integrated approach to Middle East diplomacy."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Syrian Arab News Agency: appointment of Tom Barrack as special envoy",
+          "url": "https://sana.sy/en/politics/2320512/"
+        }
+      ]
     },
     {
       "id": 14,
@@ -2481,7 +2689,13 @@
             "For Vance and the administration, the focus now shifts to turning this tentative deal into a more concrete and verifiable framework that can withstand domestic and international scrutiny."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Associated Press: Vice President Vance and Iran deal",
+          "url": "https://apnews.com/article/ed8862d489b80023154188e223063cdd"
+        }
+      ]
     },
     {
       "id": 15,
@@ -2550,7 +2764,13 @@
             "As the fallout from the collapsed case keeps playing out, the Reflecting Pool fight looks like it's going to stick around as a flashpoint for questions about accountability inside the administration."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "CBS News: Pirro and the reflecting-pool vandalism case",
+          "url": "https://www.cbsnews.com/news/trump-disappointed-jeanine-pirro-dropping-reflecting-pool-vandalism-case/"
+        }
+      ]
     },
     {
       "id": 16,
@@ -2624,7 +2844,13 @@
             "There will be more ads released, and more information will come about how they were funded and produced, and the debate is expected to go on. For now, the White House maintains the ads are legitimate public service announcements, even as lawmakers and ethics experts continue to debate whether the use of taxpayer money for Trump-focused messaging is in line with federal restrictions on government-funded propaganda and political activity."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Associated Press: taxpayer-funded political advertising",
+          "url": "https://www.ap.org/news-highlights/elections/2026/us-government-foots-bill-for-television-advertisement-featuring-trumps-midterm-messaging/"
+        }
+      ]
     },
     {
       "id": 17,
@@ -2730,7 +2956,7 @@
         }
       ],
       "sources": [
-         {
+        {
           "label": "The New York Times: Habba, Pardon and Concord Partners (Nov. 10, 2026)",
           "url": "https://www.nytimes.com/2026/11/10/us/politics/alina-habba-fired-pardon.html"
         },
@@ -2810,7 +3036,13 @@
             "For now, California's biggest fortunes remain untouched by a wealth tax, and the debate over how to pay for lost federal healthcare funding is far from over."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Los Angeles Times: California Proposition 40 result",
+          "url": "https://www.latimes.com/business/story/2026-11-09/billionaire-tax-prop-40-was-officially-rejected-in-california"
+        }
+      ]
     },
     {
       "id": 19,
@@ -2881,7 +3113,13 @@
             "That order came soon after a planning commission filled with Trump appointees approved the arch plans. For now, the golf course stays open while the court case continues."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Associated Press: judge temporarily blocks golf course changes",
+          "url": "https://abcnews.com/US/wireStory/judge-temporarily-blocks-trump-moving-ahead-washington-public-138150527"
+        }
+      ]
     },
     {
       "id": 20,
@@ -2951,7 +3189,13 @@
             "Peltola, who is Yup'ik, brought back her \"fish, family and freedom\" tagline and spoke of fishing for salmon on the Kuskokwim River. She also said she saw members of Congress more focused on stock portfolios than on easing costs, and vowed to push back against the billionaire class."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Associated Press: 2026 Alaska Senate election",
+          "url": "https://apnews.com/article/f1fd4d243bf764ec46ff94db4c792953"
+        }
+      ]
     },
     {
       "id": 21,
@@ -3022,7 +3266,17 @@
             "Now, with Abrego Garcia in Spain, his lawyers and the administration each describe the outcome as a victory. For his lawyers, the story is not over, since they say they expect the next administration to prioritize bringing him home."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Associated Press: Kilmar Abrego Garcia departure",
+          "url": "https://apnews.com/article/790f160a85f279d7bb4105412f0ce367"
+        },
+        {
+          "label": "NPR: Abrego Garcia leaves United States for Spain",
+          "url": "https://www.kpbs.org/news/national/2026/11/25/kilmar-abrego-garcia-leaves-u-s-voluntarily-for-spain"
+        }
+      ]
     }
   ],
   "business": [
@@ -3091,7 +3345,13 @@
             "In a world that changes swiftly, these norms seem more necessary than ever. Whether you're an experienced trader or just starting out, channeling a little bit of Buffett might make a big difference. He can add that the best thing to invest in is yourself and advise that will always be valuable."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Berkshire Hathaway SEC annual report: succession to Greg Abel",
+          "url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm"
+        }
+      ]
     },
     {
       "id": 2,
@@ -3158,7 +3418,13 @@
             "Third, technology was still the most significant thing. The \"Magnificent Seven,\" or whatever we call the large AI leaders, did a lot of the work again, but things got better later in the year. Patience paid off for those who stayed invested through the swings."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Fidelity: U.S. stock-market review of 2025",
+          "url": "https://www.fidelity.com/learning-center/trading-investing/markets-sectors/stock-market-report"
+        }
+      ]
     },
     {
       "id": 3,
@@ -3231,7 +3497,17 @@
             "The real test begins when people obtain their first euros as change or take them out of ATMs. They need to turn their doubts into everyday confidence."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "European Central Bank: Bulgaria introduces the euro",
+          "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr260101~c830245e42.en.html"
+        },
+        {
+          "label": "European Commission: Bulgaria joins the euro area",
+          "url": "https://ec.europa.eu/newsroom/ecfin/items/920222/en"
+        }
+      ]
     },
     {
       "id": 4,
@@ -3300,7 +3576,13 @@
             "Trump's concept is a risky bet that may disrupt how energy works around the world, compete with Russia, and use up massive supplies. But the problems—political instability, the tremendous costs of reconstruction, legal challenges, and business realities—are very big. It's too early to say if it will work, but it has surely attracted the world's attention."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Reuters: oil producers face major investment risks in Venezuela",
+          "url": "https://www.reuters.com/business/energy/us-pushes-oil-majors-invest-big-venezuela-if-they-want-recover-debts-2026-01-04/"
+        }
+      ]
     },
     {
       "id": 5,
@@ -3375,7 +3657,17 @@
             "Travel experts say that people who travel should always have flexible plans, travel insurance, and notifications turned on in their apps."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Associated Press: Venezuela operation disrupts Caribbean flights",
+          "url": "https://apnews.com/article/d8d7006de25f0b95bea3a0d0ff3757eb"
+        },
+        {
+          "label": "Congressional Research Service: Caribbean flight disruption analysis",
+          "url": "https://www.everycrsreport.com/files/2026-01-06_IN12636_5c305fde04f31ea54f521cafcd7d711aea6d667a.html"
+        }
+      ]
     },
     {
       "id": 6,
@@ -3454,7 +3746,13 @@
             "A trader who didn't want to be named said, \"We've seen headlines like this before.\" The market sets prices based on what it can see, and for now, the effect that can be seen doesn't seem to be very big. We'll have to wait and see if that stays true as things change, but for the first full week of 2026, things were calm."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Reuters: oil and investment-market response to Venezuela action",
+          "url": "https://www.investing.com/news/commodities-news/trumps-venezuela-gambit-tests-investor-appetite-for-geopolitical-risk-4428793"
+        }
+      ]
     },
     {
       "id": 7,
@@ -3528,7 +3826,13 @@
             "When it comes to bigger intervention, the numbers are clearer: 45% of the people who answered don't like the idea of the U.S. taking over Venezuela and putting in a new government. A huge 90% of people agree that the people of Venezuela should pick their own leaders. The meeting at the White House on Friday could be very important in the future."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Reuters: Venezuela oil sales deal announced on January 7",
+          "url": "https://www.investing.com/news/commodities-news/oil-sales-from-venezuela-to-continue-indefinitely-sanctions-will-be-reduced-cnbc-reports-4435128"
+        }
+      ]
     },
     {
       "id": 8,
@@ -3597,7 +3901,13 @@
             "The T1's story underscores the challenges of entering the smartphone hardware space."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "The Verge: T1 smartphone absent from CES 2026",
+          "url": "https://www.theverge.com/tech/859023/i-cant-find-the-trump-phone-at-americans-largest-tech-show"
+        }
+      ]
     },
     {
       "id": 9,
@@ -3672,7 +3982,13 @@
             "This new OECD agreement is a good middle ground in a world that is split. It preserves U.S. interests while still letting everyone else work toward the broader picture. There is still a lot of controversy regarding whether it genuinely eliminates profit shifting or just moves the problem to a different place."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "U.S. Treasury: side-by-side safe harbor for U.S. firms under Pillar Two",
+          "url": "https://home.treasury.gov/news/press-releases/sb0628/"
+        }
+      ]
     },
     {
       "id": 10,
@@ -3753,7 +4069,13 @@
             "The next fight could be over $60,000. The \"digital gold\" glitter has faded for now, and it will take more than just time to build trust again. It will also take real progress in usefulness and adoption. This episode shows how dangerous it is to put money into new markets like bitcoin. There is no one in charge to help, and there are no bailouts. The market is just doing its thing, and leverage and changes in mood make it stronger. Maybe the lesson is to have lower hopes as we go forward. Bitcoin is not a way to get rich quickly; it is a technology that is still changing. This time, the crypto winter feels colder, whether it comes back or keeps going down."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Reuters: Bitcoin plunged to about $60,000 then rebounded",
+          "url": "https://www.reuters.com/business/finance/bitcoin-cusp-60000-investors-flee-risky-bets-2026-02-06/"
+        }
+      ]
     },
     {
       "id": 11,
@@ -3828,7 +4150,13 @@
             "In the end, Walmart's story right now is one of strength and usefulness. They have grown their customer base, improved their delivery, kept their prices competitive despite global challenges, and handed over the keys to a new leader just in time. But no one is popping champagne at headquarters. They're paying close attention to job numbers, listening to what customers say at the register, and getting ready for anything that might happen in the future, like higher tariffs, slower hiring, or an unexpected rise in inflation. For a business of this size, being cautious may be the best thing to do. Also, the fact that they can keep giving us good value may be one of the few good things about the economy right now for people like us who are trying to make our money last."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Walmart official Q4 FY26 earnings release",
+          "url": "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000032/earningsreleasefy26q4.htm"
+        }
+      ]
     },
     {
       "id": 12,
@@ -3903,7 +4231,13 @@
             "The AI boom continues to drive unprecedented growth, but investor caution reflects a maturing phase where results must justify valuations."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "NVIDIA investor relations: FY2026 fourth quarter financial results",
+          "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2026/default.aspx"
+        }
+      ]
     },
     {
       "id": 13,
@@ -3976,7 +4310,17 @@
             "This development underscores ongoing tensions around bilingualism in Canadian corporations headquartered in Quebec."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Reuters: Air Canada CEO retirement after language backlash",
+          "url": "https://www.investing.com/news/stock-market-news/air-canada-ceo-michael-rousseau-to-retire-4587745"
+        },
+        {
+          "label": "The Guardian: Air Canada CEO to step down",
+          "url": "https://www.theguardian.com/world/2026/mar/30/air-canada-ceo-resignation"
+        }
+      ]
     },
     {
       "id": 14,
@@ -4051,7 +4395,13 @@
             "Despite the blockade, investors continue to bet on a favorable diplomatic outcome, helping stocks climb even as oil prices remain volatile."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Reuters: Wall Street gains as markets price a possible U.S.-Iran deal",
+          "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-04-14/"
+        }
+      ]
     },
     {
       "id": 15,
@@ -4118,7 +4468,13 @@
             "As one unnamed source close to the deal put it: \"You can move the furniture, but you can't move the foundation. And the foundation is Chinese.\" For now, that foundation has proven immovable — and costly for both Meta and Manus."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Reuters: China blocks Meta acquisition of Manus",
+          "url": "https://www.investing.com/news/economy-news/beijing-blocks-meta-acquisition-of-chinese-ai-startup-manus-4637984"
+        }
+      ]
     },
     {
       "id": 16,
@@ -4193,7 +4549,13 @@
             "Industry analysts expect Nvidia to keep at least 80% market share through 2027. The only place where competition might really heat up is specialized inference workloads, where custom chips could potentially offer better price-performance. But for training and most mainstream AI tasks, Nvidia's combination of hardware performance, software depth, and incumbent advantage makes them the default choice for the foreseeable future."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "NVIDIA investor relations: first quarter FY2027 results",
+          "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-First-Quarter-Fiscal-2027/default.aspx"
+        }
+      ]
     },
     {
       "id": 17,
@@ -4268,7 +4630,13 @@
             "Strip away the spin and Oracle's bet is a fairly simple one. It's willing to take a painful hit on staffing now, on the chance that being at the center of the AI infrastructure boom is worth more later than sitting on the sidelines and watching everyone else build it."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Reuters: Oracle workforce shrinks by 21,000",
+          "url": "https://www.reuters.com/business/world-at-work/oracle-workforce-shrinks-by-about-13-2026-06-22/"
+        }
+      ]
     },
     {
       "id": 18,
@@ -4343,7 +4711,13 @@
             "The government's move removes one major hurdle, but the debate over TikTok's role in U.S. tech policy is far from over, as the company works to rebuild trust and grow its American footprint."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "White House OMB memorandum M-26-17: government device ban rescinded",
+          "url": "https://www.whitehouse.gov/wp-content/uploads/2026/08/M-26-17-Rescission-of-M-23-13.pdf"
+        }
+      ]
     },
     {
       "id": 19,
@@ -4418,7 +4792,13 @@
             "For now, the facts remain limited. Huang has admitted being unfaithful, the board is investigating, and the reported intelligence claims are unproven. What the review finds will decide how much this matters."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "NVIDIA Board of Directors: official investigation statement",
+          "url": "https://investor.nvidia.com/news/press-release-details/2026/Statement-from-NVIDIA-Board-of-Directors/"
+        }
+      ]
     },
     {
       "id": 20,
@@ -4485,7 +4865,17 @@
             "Reports on Downdetector had dropped from their early-afternoon peak, which suggests some improvement. Still, many users said they could not send or receive emails, so the outage was not fully resolved at the time of reporting."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "BleepingComputer: Microsoft 365 global outage",
+          "url": "https://www.bleepingcomputer.com/news/microsoft/massive-microsoft-365-outage-disrupts-outlook-teams-copilot-worldwide/"
+        },
+        {
+          "label": "University of Bath: Microsoft 365 outage status",
+          "url": "https://status.bath.ac.uk/incident/1124080?mp=true"
+        }
+      ]
     },
     {
       "id": 21,
@@ -4556,7 +4946,13 @@
             "House Speaker Mike Johnson has indicated the bill could get support in the House, though lawmakers still must consider its provisions. The outcome matters to energy companies, tech firms, utilities, construction businesses and investors planning projects across the country."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Reuters: Senate approves infrastructure permitting bill",
+          "url": "https://www.reuters.com/legal/litigation/us-senate-passes-bipartisan-bill-speed-energy-infrastructure-projects-2026-11-20/"
+        }
+      ]
     },
     {
       "id": 22,
@@ -4627,7 +5023,17 @@
             "Even so, the announcement is another major step in the federal government's effort to use Medicare's purchasing power to influence prescription drug prices across the health care system."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Centers for Medicare & Medicaid Services: negotiated prices",
+          "url": "https://www.cms.gov/newsroom/press-releases/cms-announces-lower-negotiated-prices-13-high-cost-drugs"
+        },
+        {
+          "label": "CMS: 2028 negotiated-price savings infographic",
+          "url": "https://www.cms.gov/files/document/infographic-negotiated-prices-ipay-2028.pdf"
+        }
+      ]
     },
     {
       "id": 23,
@@ -4699,7 +5105,13 @@
             "As Thanksgiving opens the year-end shopping season, grocers are making affordability a central part of their pitch. The harder test is protecting profit margins while farm, labor and transportation costs keep affecting the food supply chain."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Reuters: 2026 Thanksgiving meal deals and retail food prices",
+          "url": "https://www.reuters.com/business/retail-consumer/us-grocers-serve-up-thanksgiving-deals-even-turkey-prices-climb-2026-11-25/"
+        }
+      ]
     }
   ],
   "sports": [
@@ -4776,7 +5188,13 @@
             "Chambliss dodging sacks like a video game character, Carneiro kicking the ball through the uprights, and a team overcoming problems—this is the kind of story that makes this sport so fun to watch. Ole Miss is proving that they aren't just here to make the playoffs; they want to win the whole thing."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "College Football Playoff: Sugar Bowl quarterfinal recap",
+          "url": "https://collegefootballplayoff.com/sports/2026/1/2/QF-Sugar-recap"
+        }
+      ]
     },
     {
       "id": 2,
@@ -4845,7 +5263,13 @@
             "With a young team hungry for more, this might just be the start of something even bigger. Vigen talked about building for the future, and with the experience gained, the Bobcats could become a dynasty in the making."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Montana State Athletics: 2026 FCS championship recap",
+          "url": "https://msubobcats.com/news/2026/1/6/football-bobcats-capture-first-national-title-since-1984-with-35-34-overtime-victory-over-illinois-state"
+        }
+      ]
     },
     {
       "id": 3,
@@ -4912,7 +5336,13 @@
             "In the end, the story of the Raiders is one of missed chances. They have the money, the draft picks, and a clean slate now. If Spytek and Brady make the right coaching hire and draft picks, they might be able to get out of the basement quickly. After years of disappointment, a winning time can't come soon enough."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Las Vegas Raiders: Pete Carroll relieved of head coaching duties",
+          "url": "https://www.raiders.com/news/raiders-relieve-pete-carroll-of-duties-as-head-coach"
+        }
+      ]
     },
     {
       "id": 4,
@@ -4987,7 +5417,13 @@
             "The shot that won the game wasn't just the three points. It was a chance to let go of all the feelings that had been building up and a means to remember the past while moving on. Kevin Durant showed once again that he is one of the best players ever."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "NBA: Phoenix Suns at Houston Rockets box score and game coverage",
+          "url": "https://www.nba.com/game/phx-vs-hou-0022500505?howToWatch=false&partnerRef=Suns"
+        }
+      ]
     },
     {
       "id": 5,
@@ -5050,7 +5486,13 @@
             "It's clear that basketball is just as much about the people as it is about the hoops when all is said and done. Kerr's outburst wasn't just because he missed a call; it was also because he wanted to fight for his team in a league where every point counts. The Warriors will get back on track, as they always do, but people will remember this loss to the Clippers for the anger on the sidelines, not just the score. In a sport with a lot of exciting moments, the story is often what happens right now."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "NBA officiating: postgame referee report",
+          "url": "https://official.nba.com/67249-2/"
+        }
+      ]
     },
     {
       "id": 6,
@@ -5118,7 +5560,13 @@
             "When the final buzzer sounded and Sweden skated the trophy around the ice, you could feel the pride. Fourteen years is a long wait between drinks at this level, but they earned every second of this celebration. Here's to more great junior hockey in the years to come."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "IIHF: Sweden versus Czechia championship coverage",
+          "url": "https://www.iihf.com/en/events/2026/wm20iiia/news/71559/swe_cze"
+        }
+      ]
     },
     {
       "id": 7,
@@ -5185,7 +5633,13 @@
             "We've seen upsets galore already, and we're just getting into the meat of conference play. Players like Blakes at Vanderbilt, Morgan at Kentucky, and the stars at UConn and Texas are putting on shows every night."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "College Poll Archive: 2026 AP womens basketball polling",
+          "url": "https://www.collegepollarchive.com/basketball/women/ap/seasons.cfm?appollid=894"
+        }
+      ]
     },
     {
       "id": 8,
@@ -5256,7 +5710,13 @@
             "Fans are always divided. Others believe he should have had more time to fix things, especially since he had help. Some people think that his public anger and the results made it necessary. One thing is for sure: Manchester United is still trying to find stability. Things have been going up and down since 2013, and this new twist just adds to the drama. We hope that the next chapter will be better. The club and its fans deserve it after all these years in the wilderness."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Premier League: Manchester United managerial change",
+          "url": "https://www.premierleague.com/en/news/4530967/"
+        }
+      ]
     },
     {
       "id": 9,
@@ -5319,7 +5779,13 @@
             "As the afternoon goes on and the second run gets closer, the energy in Cortina is electric. Will she stay? Is there anyone who can fill in that gap? The fans are getting impatient, but if past performance is any guide, Mikaela Shiffrin can deliver when it counts. She is not only competing for a medal, but also to write one more great line in her Olympic story and end a chapter of almost winning. And from that first run, it looks like she is on the right track."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Ski DB: Milan-Cortina 2026 women’s slalom official race results",
+          "url": "https://www.ski-db.com/db/26/95202671wc.php"
+        }
+      ]
     },
     {
       "id": 10,
@@ -5396,7 +5862,13 @@
             "The NFL's free-agency carousel is going full speed ahead, and the roster changes that happen over the next few days will make the league feel different every year. This is when dreams get bought and sold—get ready for the ride."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "NFL.com: 2026 free agency calendar and rules",
+          "url": "https://www.nfl.com/news/2026-nfl-free-agency-questions-answers"
+        }
+      ]
     },
     {
       "id": 11,
@@ -5466,7 +5938,13 @@
             "Game 3 will reveal whether Minnesota can bounce back from humiliation or if San Antonio has broken their spirit completely. The Western Conference semifinals just got much more interesting after this unexpected 38-point beatdown on the road for the Timberwolves."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "NBA: Minnesota Timberwolves–San Antonio Spurs game record",
+          "url": "https://www.nba.com/game/min-vs-sas-0042500232"
+        }
+      ]
     },
     {
       "id": 12,
@@ -5543,7 +6021,13 @@
             "Both teams now face crucial second group matches that will likely determine whether Mexico advances or South Africa can recover from this nightmare start."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Associated Press: opening World Cup match and three red cards",
+          "url": "https://ny1.com/nyc/all-boroughs/ap-top-news/2026/06/11/3-red-cards-mar-opening-world-cup-match-between-mexico-and-south-africa"
+        }
+      ]
     },
     {
       "id": 13,
@@ -5620,7 +6104,13 @@
             "Fans should expect a flurry of activity in the final hours before 6 p.m. ET on Aug. 3, as front offices race to finalize deals before the trade deadline officially closes."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "NBC Sports: MLB trade deadline rumours involving Peralta and Arraez",
+          "url": "https://www.nbcsports.com/mlb/news/freddy-peralta-luis-arraez-and-others-most-likely-to-be-moved-at-the-mlb-trade-deadline"
+        }
+      ]
     },
     {
       "id": 14,
@@ -5697,7 +6187,13 @@
             "Italy still have a way to go and will face China as the group stage continues, while the Americans know sharper shooting will be required ahead."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "USA Basketball: women’s World Cup USA vs Italy game report",
+          "url": "https://www.usab.com/news/2026/09/usa-ita-2026wwc-game-2"
+        }
+      ]
     },
     {
       "id": 15,
@@ -5774,7 +6270,13 @@
             "Whatever happens on Sunday, the most important development is the one Campbell shared himself: he is moving his legs, he is improving, and he is looking ahead with a positive outlook as the healing process continues."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "NFL.com: Lions linebacker Jack Campbell injury update",
+          "url": "https://amp.nfl.com/news/lions-linebacker-jack-campbell-full-movement-lower-body-neck-injury"
+        }
+      ]
     },
     {
       "id": 16,
@@ -5849,7 +6351,13 @@
             "With the lockout clock ticking and the sale unresolved, the Angels are a good example of how the stoppage and the cap debate are shaping the winter across the league."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "MLB.com: Tarik Skubal contract and free-agency discussion",
+          "url": "https://www.mlb.com/news/tarik-skubal-rumors-november-17-free-agent-update"
+        }
+      ]
     },
     {
       "id": 17,
@@ -5920,7 +6428,13 @@
             "In soccer, the Utah Royals were already in the Washington, D.C., area for their NWSL semifinal against the Spirit. The Kansas City Current were due to leave Friday for Sunday's semifinal against Gotham FC in New York, and officials did not know when they could depart. The U.S. men's match against Haiti in Miami was not affected."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Associated Press: FAA grounding affects sports teams",
+          "url": "https://apnews.com/article/091ecf4f82a6158473357feeb05cf593"
+        }
+      ]
     },
     {
       "id": 18,
@@ -5991,7 +6505,13 @@
             "Management said players with six or more years of service earned 69% of compensation this year but produced just 29% of average WAR. Sword said players would earn more in this system, with talent distributed differently across teams."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "MLB.com: Commissioner Rob Manfred on salary cap proposals",
+          "url": "https://www.mlb.com/amp/news/commissioner-rob-manfred-discusses-salary-cap-and-floor-proposals.html"
+        }
+      ]
     },
     {
       "id": 19,
@@ -6063,7 +6583,13 @@
             "With the Bengals chasing a longer winning streak and the Commanders trying to respond in front of their home fans, this Week 11 meeting is one of the key fixtures on Monday night."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Cincinnati Bengals: 2026 Commanders Monday Night Football game recap",
+          "url": "https://www.bengals.com/news/bengals-commanders-recap-postgame-notes-quotes-stats-week-11-2026-monday-night-football"
+        }
+      ]
     }
   ],
   "technology": [
@@ -6136,7 +6662,13 @@
             "This platform could power the next big breakthroughs in agentic AI and beyond."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "NVIDIA Newsroom: CES 2026 Rubin platform announcement",
+          "url": "https://nvidianews.nvidia.com/online-press-kit/ces-2026-news"
+        }
+      ]
     },
     {
       "id": 2,
@@ -6218,7 +6750,13 @@
             "If you're thinking about buying a new laptop soon, keep an eye out for these. They might make 2026 the year when AI computers are used by more than just professionals."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Intel Newsroom: Core Ultra Series 3 at CES 2026",
+          "url": "https://www.intel.com/content/www/us/en/newsroom/news/artificial-intelligence/ces-2026-intel-core-ultra-series-3-debut-first-built-on-intel-18a.html"
+        }
+      ]
     },
     {
       "id": 3,
@@ -6289,7 +6827,13 @@
             "No matter what, March can't come soon enough for me to see this in action."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "LEGO Group: Smart Play announcement",
+          "url": "https://www.lego.com/en-us/aboutus/news/2026/december/lego-smart-play-announcement"
+        }
+      ]
     },
     {
       "id": 4,
@@ -6356,7 +6900,13 @@
             "Traditional drivers might wait for more real-world feedback."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Mercedes-Benz Media: MB.DRIVE ASSIST PRO demonstration",
+          "url": "https://media.mercedes-benz.com/en/article/c39d6f51-9439-48d6-82f6-39be9c3e23ab"
+        }
+      ]
     },
     {
       "id": 5,
@@ -6424,7 +6974,13 @@
             "If you're into cars or tech, keep an eye on this. CES displays are running through the week, and more updates on testing will come. 2026 might just mark the tipping point where robotaxis go from novelty to normal in some cities. Pretty wild to think about, right?"
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Uber Investor Relations: Lucid Nuro Uber robotaxi announcement",
+          "url": "https://investor.uber.com/news-events/news/press-release-details/2026/Lucid-Nuro-and-Uber-Unveil-Global-Robotaxi-at-CES-Announce-Autonomous-On-Road-Testing-2026-3kWDFYe--b/"
+        }
+      ]
     },
     {
       "id": 6,
@@ -6495,7 +7051,13 @@
             "The Galaxy Buds 4 series could be a terrific pick for both tech fans and average people because Samsung constantly coming up with new concepts and adding value. The official announcement should come out in early 2026. Prepare for a new generation of wireless audio that is inexpensive and sounds excellent."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Samsung Global Newsroom: Galaxy Buds4 series launch",
+          "url": "https://news.samsung.com/global/samsung-unveils-all-new-galaxy-buds4-series-with-ultimate-sound"
+        }
+      ]
     },
     {
       "id": 7,
@@ -6557,7 +7119,13 @@
             "It's Apple's method of improving the iPhone without introducing too many changes. Regardless of your preference for iOS or Android, the new transfer tool demonstrates Apple's readiness to be more accommodating in a multi-platform environment. The location restrictions will appeal to privacy enthusiasts, while the updated wallpapers offer a playful, adaptable touch. See Apple's complete release notes or our in-depth analyses of earlier iterations if you're interested in the specifics. What do you think—are you more interested in those privacy changes or are you enthusiastic about the switch helper? In any case, the increased polish makes the download worthwhile."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Apple Support: iOS 26.3 update details",
+          "url": "https://support.apple.com/en-us/123075"
+        }
+      ]
     },
     {
       "id": 8,
@@ -6623,7 +7191,13 @@
             "Maps is used by billions of people, so this could change how people get around, plan trips, and explore cities in a big way."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Google Blog: Ask Maps and Gemini navigation",
+          "url": "https://blog.google/products-and-platforms/products/maps/ask-maps-immersive-navigation/"
+        }
+      ]
     },
     {
       "id": 9,
@@ -6698,7 +7272,13 @@
             "Still, Google seems dead set on pushing full speed ahead toward AI-first computing across phones, laptops, cars, and wearables. These latest announcements make one thing pretty clear: Gemini Intelligence is now right at the heart of Google's long-term plan for Android and consumer tech."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Google Blog: Gemini Intelligence on Android",
+          "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence/"
+        }
+      ]
     },
     {
       "id": 10,
@@ -6771,7 +7351,13 @@
             "Apple wants to create a cohesive experience by integrating AI across its ecosystem to link users' devices and information more seamlessly."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Apple Newsroom: WWDC 2026 Siri AI announcements",
+          "url": "https://www.apple.com/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/"
+        }
+      ]
     },
     {
       "id": 11,
@@ -6837,7 +7423,13 @@
             "Google Accelerates To AI-Enabled Video Future. Google Vids’ Gemini Omni update is yet another big leap in the company’s effort to make artificial intelligence a core part of creative workflows."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Google Blog: Gemini Omni and personal avatars in Vids",
+          "url": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/"
+        }
+      ]
     },
     {
       "id": 12,
@@ -6910,7 +7502,13 @@
             "In the future, smartphone competition may be less about specs and more about how much companies embed artificial intelligence into everyday experiences."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Apple Newsroom: iOS 27 and Siri AI available",
+          "url": "https://www.apple.com/newsroom/2026/09/major-updates-for-apples-software-platforms-are-now-available/"
+        }
+      ]
     },
     {
       "id": 13,
@@ -6985,7 +7583,13 @@
             "For now, the main takeaway is simple. AI companies are moving faster than many expected, AI is helping drive that speed, and outside checks are only starting to give a clear picture of how fast things really are."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "METR: independent assessment of AI R&D acceleration at Anthropic",
+          "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/"
+        }
+      ]
     },
     {
       "id": 14,
@@ -7054,7 +7658,13 @@
             "Together, the cases show governments turning to the courts to set limits on AI companies, and the outcome could shape how the industry handles safety and transparency."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "California Department of Justice: lawsuit news release",
+          "url": "https://oag.ca.gov/news/press-releases/it%E2%80%99s-golden-state-not-wild-west-attorney-general-bonta-sues-openai-over"
+        }
+      ]
     }
   ],
   "investigation": [
@@ -7131,7 +7741,17 @@
             "Parents who need child care, kids who need these services, and taxpayers who want their money to be used wisely are all stuck in the middle of this important but confusing problem. We will have to wait and see how the reviews go and if we get any money soon. Everyone should agree that keeping kids safe and making sure programs work as they should are the most important things. But it's hard to get there when there are so many people around."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "HHS.gov: federal child-care and family assistance funding freeze",
+          "url": "https://www.hhs.gov/press-room/hhs-freezes-child-care-family-assistance-grants-five-states-fraud-concerns.html"
+        },
+        {
+          "label": "California DOJ: legal challenge to funding freeze",
+          "url": "https://oag.ca.gov/news/press-releases/attorney-general-bonta-sues-trump-administration-block-unlawful-freeze-10"
+        }
+      ]
     },
     {
       "id": 2,
@@ -7202,7 +7822,13 @@
             "Kristi Noem, the Secretary of the Department of Homeland Security, has made it very clear that the goal is to keep the streets safe and catch criminals who are hiding in plain sight. This is also a part of a larger plan, with federal freezes on funding to Democratic states like Minnesota."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "CBS News: planned deployment of federal agents",
+          "url": "https://www.cbsnews.com/news/minneapolis-federal-agents-crackdown/"
+        }
+      ]
     },
     {
       "id": 3,
@@ -7271,7 +7897,13 @@
             "It's a mixed bag for the people of Venezuela. Opposition leaders like María Corina Machado are happy and see hope for democracy, but they are also worried about \"nation-building\" by the U.S., which Trump has always been against. In Caracas, people protested, some for freedom and others against imperialism. The world is holding its breath as Maduro waits for his trial at the Metropolitan Detention Center in Brooklyn. One thing is clear: Trump's risky move has changed the balance of power in the U.S., but what did it cost? The effects are just starting to be seen around the world, and history may see this as either a turning point or a foolish bet."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "U.S. Government Publishing Office: presidential operation statement",
+          "url": "https://www.govinfo.gov/content/pkg/DCPD-202600003/html/DCPD-202600003.htm"
+        }
+      ]
     },
     {
       "id": 4,
@@ -7346,7 +7978,13 @@
             "The consequences are severe, and this sentence makes it obvious that federal prosecutors are going after these crooks hard. In the last few years, we've seen such hefty sentences in famous sextortion instances. It's crucial to know what's going to happen in the future. The tragedy of Austin Ryan Lauless is both sad and angry. In the end, it's a terrible reminder that we need to keep the most vulnerable people safe online. No child should ever have to go through what these 84 kids did."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "U.S. Department of Justice: 84-year sentence in nationwide child exploitation case",
+          "url": "https://www.justice.gov/usao-sdin/pr/predator-sentenced-84-years-nationwide-child-exploitation-case-84-victims-across-us"
+        }
+      ]
     },
     {
       "id": 5,
@@ -7421,7 +8059,13 @@
             "American Oversight isn't alone in this fight. Other organizations, journalists, and even some lawmakers have been pressing for more Jan. 6 transparency. In the end, this is about more than emails and texts—it's about accountability in a divided country."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "American Oversight: filed federal FOIA lawsuit against DOJ and FBI",
+          "url": "https://americanoversight.org/litigation/american-oversight-v-fbi-and-doj-january-6-pardons-and-communications/"
+        }
+      ]
     },
     {
       "id": 6,
@@ -7507,7 +8151,17 @@
             "That raises bigger questions about what’s happening behind the scenes: whether there are internal disagreements spilling out into public view, and how seriously the government is treating dissent within its own ranks."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "CBS News: FBI investigation into Joe Kent",
+          "url": "https://www.cbsnews.com/news/joe-kent-trump-counterterrorism-iran-fbi-investigation-leak/"
+        },
+        {
+          "label": "Semafor original reporting: leak investigation",
+          "url": "https://www.semafor.com/article/03/18/2026/fbi-investigates-national-security-aide-who-resigned-over-war"
+        }
+      ]
     },
     {
       "id": 7,
@@ -7582,7 +8236,13 @@
             "The probe underscores the complex challenges facing federal agencies in addressing one of the nation’s most pressing public health and safety issues."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Associated Press: DEA asks DOJ inspector general to investigate",
+          "url": "https://www.washingtonpost.com/national/2026/06/25/dea-investigations-unseized-fentanyl-inspector-general/2c67f186-70cc-11f1-8730-e7fd0e2a6404_story.html"
+        }
+      ]
     },
     {
       "id": 8,
@@ -7654,7 +8314,13 @@
             "For now, the Justice Department's warning marks a notable escalation in the tensions surrounding the incoming Congress's investigative agenda."
           ]
         }
-      }
+      },
+      "sources": [
+        {
+          "label": "Reuters: DOJ warning to Sen. Elizabeth Warren",
+          "url": "https://www.reuters.com/world/us-justice-department-warns-senator-warren-over-records-preservation-2026-11-16/"
+        }
+      ]
     }
   ]
 }

@@ -38,7 +38,7 @@ const formatDate = (dateStr) => {
                   <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500 mt-4"><GoClock /><span>{formatDate(item.date)}</span></div>
                 </div>
                 <div className="sm:w-1/3 relative w-full sm:w-32 sm:h-32 h-40 sm:h-40 overflow-hidden rounded-lg">
-                  <Image src={item.image} alt={item.imageAlt} fill className="object-cover transition-transform duration-500 hover:scale-105" />
+                  <Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px" className="object-cover transition-transform duration-500 hover:scale-105" />
                   <div className="absolute inset-0 bg-gray-900/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                 </div>
               </article>
